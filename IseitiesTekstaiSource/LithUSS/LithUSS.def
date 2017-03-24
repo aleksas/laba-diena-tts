@@ -1,0 +1,11 @@
+LIBRARY LithUSS
+
+EXPORTS
+   initLUSS
+   normalizeText1
+   spellText1
+   stressTranscr
+   findUnits
+   synthesizePhoneme
+   id2fv
+   synthesizeWholeText

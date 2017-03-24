@@ -1,0 +1,8 @@
+; UnitSelectionASDLLMFC.def : Declares the module parameters for the DLL.
+
+LIBRARY      "UnitSelection"
+
+EXPORTS
+    ; Explicit exports can go here
+    initUnitSel
+    selectUnits

@@ -1,0 +1,63 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: redak - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x427 /fo"Release/redak.res" /d "NDEBUG" "D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\redak.rc"" 
+Creating temporary file "C:\DOCUME~1\Admin\LOCALS~1\Temp\RSP33B.tmp" with contents
+[
+/nologo /MT /W3 /GX /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/redak.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /Zm500 /c 
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\getLUSSErrorMessages.cpp"
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\LithUSS.cpp"
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\MainFrm.cpp"
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\raw2wav.cpp"
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\redak.cpp"
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\redakDoc.cpp"
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\redakView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Admin\LOCALS~1\Temp\RSP33B.tmp" 
+Creating temporary file "C:\DOCUME~1\Admin\LOCALS~1\Temp\RSP33C.tmp" with contents
+[
+/nologo /MT /W3 /GX /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/redak.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /Zm500 /c 
+"D:\SINT_LIEPA_v20\sorcai_isvalyti\su_antr\LIEPA\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Admin\LOCALS~1\Temp\RSP33C.tmp" 
+Creating temporary file "C:\DOCUME~1\Admin\LOCALS~1\Temp\RSP33D.tmp" with contents
+[
+winmm.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/LIEPA.pdb" /machine:I386 /out:"Release/LIEPA.exe" 
+.\Release\getLUSSErrorMessages.obj
+.\Release\LithUSS.obj
+.\Release\MainFrm.obj
+.\Release\raw2wav.obj
+.\Release\redak.obj
+.\Release\redakDoc.obj
+.\Release\redakView.obj
+.\Release\StdAfx.obj
+.\Release\redak.res
+]
+Creating command line "link.exe @C:\DOCUME~1\Admin\LOCALS~1\Temp\RSP33D.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+getLUSSErrorMessages.cpp
+LithUSS.cpp
+MainFrm.cpp
+raw2wav.cpp
+redak.cpp
+redakDoc.cpp
+redakView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+LIEPA.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

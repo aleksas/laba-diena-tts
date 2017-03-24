@@ -1,0 +1,6 @@
+LIBRARY RateChange
+
+EXPORTS
+   change_DB_rate
+   initRateChange
+   change_phoneme_rate
