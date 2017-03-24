@@ -203,7 +203,7 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 	// duomenys eina poromis: fonemos pavadinimas ir ilgis
 	char * eilute;
 	char * skirtukai = "\t \n";
-	i = 0;
+	int i = 0;
 	// nuskaitome fonemos pavadinima
 	eilute = strtok (fonemu_failo_turinys, skirtukai); // fonemos pavadinimas
 	// kol yra fonemu
@@ -293,7 +293,7 @@ int nuskaityti_pikus ()
 	// analizuojame piku failo duomenis
 	char * eilute;
 	char * skirtukai = " \n";
-	i = 0;
+	int i = 0;
 	// nuskaitome piko reikðmæ
 	eilute = strtok (piku_failo_turinys, skirtukai); // piko reikðmë
 	// kol yra pikø
