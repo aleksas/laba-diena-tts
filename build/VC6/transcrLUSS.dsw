@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "LithUSS"=".\LithUSS.dsp" - Package Owner=<4>
+Project: "transcrLUSS"="..\..\IseitiesTekstaiSource\transcrLUSS\transcrLUSS.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
