@@ -7,6 +7,14 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef LITHUSS_ERROR_H_INCLUDED
+#define LITHUSS_ERROR_H_INCLUDED
+
+#include "common.h"
+
+EXPORT char* getLUSSErrorMessages(int err);
+
 #define	NO_ERR 0						//No error occurred
 
 //TextNormalization klaidu kodai
@@ -77,3 +85,5 @@
 #define	ERROR_LITHUSS_MEMORY_ALLOCATION -15
 #define	ERROR_LITHUSS_MEMORY_REALLOCATION -16
 #define	ERROR_LITHUSS_EVENTS_ARRAY_OVERFLOW -17
+
+#endif //!LITHUSS_ERROR_H_INCLUDED

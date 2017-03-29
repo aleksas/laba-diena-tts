@@ -136,8 +136,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="getLUSSErrorMessages.cpp" />
-    <ClCompile Include="LithUSS.cpp" />
     <ClCompile Include="LithUSStest.cpp" />
     <ClCompile Include="raw2wav.cpp" />
     <ClCompile Include="StdAfx.cpp">
@@ -148,8 +146,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LithUSS.h" />
-    <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="raw2wav.h" />
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>

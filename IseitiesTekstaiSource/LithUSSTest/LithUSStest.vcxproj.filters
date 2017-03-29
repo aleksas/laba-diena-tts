@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="getLUSSErrorMessages.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LithUSS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LithUSStest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -32,12 +26,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LithUSS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="raw2wav.h">
       <Filter>Header Files</Filter>
     </ClInclude>

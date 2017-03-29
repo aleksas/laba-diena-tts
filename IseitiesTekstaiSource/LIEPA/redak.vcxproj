@@ -133,14 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="getLUSSErrorMessages.cpp">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm560   /Zm560 </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="LithUSS.cpp">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm560   /Zm560 </AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="MainFrm.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm560   /Zm560 </AdditionalOptions>
@@ -174,8 +166,6 @@
     <ResourceCompile Include="redak.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LithUSS.h" />
-    <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="raw2wav.h" />
     <ClInclude Include="redak.h" />

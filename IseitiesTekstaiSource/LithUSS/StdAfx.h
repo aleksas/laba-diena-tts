@@ -6,6 +6,8 @@
 #if !defined(AFX_STDAFX_H__F58B5818_84D5_44E9_B3D7_A2AF2C56800B__INCLUDED_)
 #define AFX_STDAFX_H__F58B5818_84D5_44E9_B3D7_A2AF2C56800B__INCLUDED_
 
+#include <stdio.h>
+
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000

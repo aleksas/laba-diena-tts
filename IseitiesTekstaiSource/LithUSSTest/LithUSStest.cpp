@@ -8,9 +8,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
-#include "LithUSS_Error.h"
 #include "raw2wav.h"
 
+#include "../include/LithUSS_Error.h"
 #include "../LithUSS/LithUSS.h"
 
 #include <malloc.h>

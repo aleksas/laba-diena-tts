@@ -16,4 +16,6 @@ EXPORT int synthesizeWholeText(char *tekstas, short *signbuf, unsigned int *sign
 EXPORT BOOL loadLUSS(char*);
 EXPORT void unloadLUSS();
 
+EXPORT char* getLUSSErrorMessages(int err);
+
 #endif //!LITHUSS_H_INCLUDED

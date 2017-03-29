@@ -8,11 +8,12 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
-#include "LithUSS_Error.h"
+
+#include "../include/LithUSS_Error.h"
 
 char temp[200];
 
-char* getLUSSErrorMessages(int err)
+EXPORT char* getLUSSErrorMessages(int err)
 {
 	switch (err)
 	{

@@ -151,9 +151,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="fv2id.cpp" />
+    <ClCompile Include="getLUSSErrorMessages.cpp" />
     <ClCompile Include="ilgiai.cpp" />
     <ClCompile Include="LithUSS.cpp" />
-    <ClCompile Include="RateChange.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
@@ -161,9 +161,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="strtokf.cpp" />
-    <ClCompile Include="TextNormalization.cpp" />
-    <ClCompile Include="transcrLUSS.cpp" />
-    <ClCompile Include="UnitSel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="LithUSS.def" />
@@ -173,11 +170,8 @@
     <ClInclude Include="ilgiai.h" />
     <ClInclude Include="LithUSS.h" />
     <ClInclude Include="LithUSS_Error.h" />
-    <ClInclude Include="RateChange.h" />
     <ClInclude Include="StdAfx.h" />
-    <ClInclude Include="TextNormalization.h" />
     <ClInclude Include="transcrLUSS.h" />
-    <ClInclude Include="UnitSel.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

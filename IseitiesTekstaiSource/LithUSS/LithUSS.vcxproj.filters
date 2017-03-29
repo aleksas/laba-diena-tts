@@ -24,22 +24,13 @@
     <ClCompile Include="LithUSS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RateChange.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="strtokf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextNormalization.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="transcrLUSS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UnitSel.cpp">
+    <ClCompile Include="getLUSSErrorMessages.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,19 +44,10 @@
     <ClInclude Include="LithUSS_Error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RateChange.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextNormalization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="transcrLUSS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UnitSel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LithUSS.h">
