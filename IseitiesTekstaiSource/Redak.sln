@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "redak", "..\..\IseitiesTekstaiSource\LIEPA\redak.vcxproj", "{76938B73-52FB-446B-84F2-F46678AB4E83}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "redak", ".\LIEPA\redak.vcxproj", "{76938B73-52FB-446B-84F2-F46678AB4E83}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSS", "..\..\IseitiesTekstaiSource\LithUSS\LithUSS.vcxproj", "{B8A2DF32-C0A0-41AF-BB93-0B600F0271C3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSS", ".\LithUSS\LithUSS.vcxproj", "{B8A2DF32-C0A0-41AF-BB93-0B600F0271C3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSStest", "..\..\IseitiesTekstaiSource\LithUSSTest\LithUSStest.vcxproj", "{770F75F1-CBE5-4DDC-9964-31367AAE7812}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSStest", ".\LithUSSTest\LithUSStest.vcxproj", "{770F75F1-CBE5-4DDC-9964-31367AAE7812}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RateChange", "..\..\IseitiesTekstaiSource\RateChange\RateChange.vcxproj", "{9141635A-819B-41CB-B7CE-7488ABCB2321}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RateChange", ".\RateChange\RateChange.vcxproj", "{9141635A-819B-41CB-B7CE-7488ABCB2321}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextNormalization", "..\..\IseitiesTekstaiSource\TextNormalization\TextNormalization.vcxproj", "{FBAAE806-C348-4A4A-9880-40DEC6CEDF90}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextNormalization", ".\TextNormalization\TextNormalization.vcxproj", "{FBAAE806-C348-4A4A-9880-40DEC6CEDF90}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "transcrLUSS", "..\..\IseitiesTekstaiSource\transcrLUSS\transcrLUSS.vcxproj", "{ECE100D7-8F72-4714-A539-E3F37CB5ECE1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "transcrLUSS", ".\transcrLUSS\transcrLUSS.vcxproj", "{ECE100D7-8F72-4714-A539-E3F37CB5ECE1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitSelection", "..\..\IseitiesTekstaiSource\UnitSelection\UnitSelection.vcxproj", "{BD8BB974-4C9D-499B-91F5-560BB7B05C25}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitSelection", ".\UnitSelection\UnitSelection.vcxproj", "{BD8BB974-4C9D-499B-91F5-560BB7B05C25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
