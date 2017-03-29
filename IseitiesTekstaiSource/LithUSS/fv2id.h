@@ -105,5 +105,4 @@ static struct FonVardai{char *fv; unsigned short id;} FonV[FonSk] = {
 
 int trText2UnitList(char*, unsigned short*, unsigned short*);
 unsigned short fv2id(char*);
-char* id2fv(unsigned short);
 

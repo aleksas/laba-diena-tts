@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="UnitSelection.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

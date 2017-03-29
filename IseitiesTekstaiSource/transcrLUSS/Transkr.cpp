@@ -8,11 +8,14 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
-#include <string.h>
-#include <stdio.h>
+#include "transcrLUSS.h"
+
 #include "Kircdb.h"
 #include "fv2id.h"
 #include "LithUSS_Error.h"
+
+#include <string.h>
+#include <stdio.h>
 
 #define ILGIS1    500         //analizuojamos tekstines eilute ilgis
 #define MAX_RULES 250         //maksimalus transkribavimo taisykliu skaicius
@@ -30,7 +33,7 @@ SkDu 1-skardus,2-duslus,3-betkoks.
 SkPb 1-kitur,2-einam,4-1ikair.
 */
 
-int initTranscrLUSS(char *katVardas)
+EXPORT int initTranscrLUSS(char *katVardas)
 {
 FILE *df = 0;
 int j, n;

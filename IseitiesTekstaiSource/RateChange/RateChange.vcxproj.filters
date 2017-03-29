@@ -35,10 +35,13 @@
     <ClInclude Include="LithUSS_Error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RateChange.h">
+    <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StdAfx.h">
+    <ClInclude Include="RateChangeInternal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RateChange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

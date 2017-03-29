@@ -9,6 +9,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "LithUSS_Error.h"
+#include "UnitSelection.h"
+
 #include <string>
 using namespace std;
 
@@ -18,6 +20,16 @@ using namespace std;
 
 char* strtokf(char*, const char*, char**);
 
+EXPORT BOOL loadUnitSel(char *biblioteka)
+{
+	return TRUE;
+}
+
+EXPORT void unloadUnitSel()
+{
+}
+
+/*
 BOOL APIENTRY DllMain(HANDLE hModule,
 	DWORD  ul_reason_for_call,
 	LPVOID lpReserved
@@ -25,6 +37,7 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 {
 	return TRUE;
 }
+*/
 
 unsigned short unitsDB_ID[MAX_UNITS];
 int unitsDB_E1[MAX_UNITS];
@@ -475,7 +488,7 @@ int getDBWeightsAndLengthsFromFile(char * dataBaseFileName)
 	return NO_ERR;
 }
 
-int initUnitSel(char * dataBaseDirName)
+EXPORT int initUnitSel(char * dataBaseDirName)
 {
 	char laikKat[200];
 		
@@ -532,7 +545,7 @@ int initUnitSel(char * dataBaseDirName)
 	return NO_ERR;//SUCCESS;
 }
 
-int selectUnits(unsigned short unitsRow[], unsigned short unitsRowNextSeparators[], unsigned short unitsRowDurr[], int unitsRowLength, int retUnits[], int * retCost)
+EXPORT int selectUnits(unsigned short unitsRow[], unsigned short unitsRowNextSeparators[], unsigned short unitsRowDurr[], int unitsRowLength, int retUnits[], int * retCost)
 {
 	int MAX_SEQUENCES = unitsRowLength * 800;
 

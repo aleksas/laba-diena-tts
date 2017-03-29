@@ -22,7 +22,7 @@
 #include <math.h>
 #include <time.h>
 
-#include "RateChange.h"
+#include "RateChangeInternal.h"
 
 // TODO: reference additional headers your program requires here
 

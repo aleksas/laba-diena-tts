@@ -10,7 +10,7 @@
 #endif // _MSC_VER >= 1000
 
 #include "mmsystem.h"
-#include "LithUSS.h"
+#include "../LithUSS/LithUSS.h"
 
 class CRedakView : public CEditView
 {

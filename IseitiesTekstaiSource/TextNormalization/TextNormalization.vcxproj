@@ -166,6 +166,7 @@
     <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="stringWithLetterPosition.h" />
+    <ClInclude Include="TextNormalization.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

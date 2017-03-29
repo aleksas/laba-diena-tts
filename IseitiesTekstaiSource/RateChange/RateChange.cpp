@@ -8,6 +8,20 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
+#include "RateChange.h"
+
+void atlaisvinti_atminti_ir_inicializuoti();
+
+EXPORT BOOL loadRateChange(char*)
+{
+	atlaisvinti_atminti_ir_inicializuoti();
+	return TRUE;
+}
+
+EXPORT void unloadRateChange()
+{
+	atlaisvinti_atminti_ir_inicializuoti();
+}
 
 /*********************************************************
  * Globalûs kintamieji
@@ -32,33 +46,34 @@ long * fonemu_adresai = NULL;
 int debuginam = 0;
 
 /*********************************************************
- * atlaisvinti_atminti_ir_inicializuoti
- ********************************************************/
-void atlaisvinti_atminti_ir_inicializuoti ()
+* atlaisvinti_atminti_ir_inicializuoti
+********************************************************/
+void atlaisvinti_atminti_ir_inicializuoti()
 {
-	if(signalas != NULL) {free(signalas); signalas=NULL;}
+	if (signalas != NULL) { free(signalas); signalas = NULL; }
 	signalo_ilgis = 0;
-	if(fonemos != NULL) {
-		for (size_t i=0; i < fonemu_kiekis; i++) {
-			if(fonemos[i] != NULL) {free(fonemos[i]); fonemos[i]=NULL;}
+	if (fonemos != NULL) {
+		for (size_t i = 0; i < fonemu_kiekis; i++) {
+			if (fonemos[i] != NULL) { free(fonemos[i]); fonemos[i] = NULL; }
 		}
-		free(fonemos); fonemos=NULL;
+		free(fonemos); fonemos = NULL;
 	}
 	fonemu_kiekis = 0;
-	if(fonemu_ilgiai != NULL) {free(fonemu_ilgiai); fonemu_ilgiai=NULL;}
-	if(pikai != NULL) {free(pikai); pikai=NULL;}
+	if (fonemu_ilgiai != NULL) { free(fonemu_ilgiai); fonemu_ilgiai = NULL; }
+	if (pikai != NULL) { free(pikai); pikai = NULL; }
 	piku_kiekis = 0;
-	if(skirtingos_fonemos != NULL) {free(skirtingos_fonemos); skirtingos_fonemos=NULL;}
-	if(vidutiniai_fonemu_ilgiai != NULL) {free(vidutiniai_fonemu_ilgiai); vidutiniai_fonemu_ilgiai=NULL;}
+	if (skirtingos_fonemos != NULL) { free(skirtingos_fonemos); skirtingos_fonemos = NULL; }
+	if (vidutiniai_fonemu_ilgiai != NULL) { free(vidutiniai_fonemu_ilgiai); vidutiniai_fonemu_ilgiai = NULL; }
 	skirtingu_fonemu_kiekis = 0;
-	if(pirmojo_piko_nr_fonemose != NULL) {free(pirmojo_piko_nr_fonemose); pirmojo_piko_nr_fonemose=NULL;}
-	if(piku_skaicius_fonemose != NULL) {free(piku_skaicius_fonemose); piku_skaicius_fonemose=NULL;}
+	if (pirmojo_piko_nr_fonemose != NULL) { free(pirmojo_piko_nr_fonemose); pirmojo_piko_nr_fonemose = NULL; }
+	if (piku_skaicius_fonemose != NULL) { free(piku_skaicius_fonemose); piku_skaicius_fonemose = NULL; }
 }
+
 
 /*********************************************************
  * DllMain
  ********************************************************/
-BOOL APIENTRY DllMain( HANDLE hModule, 
+/*BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
                        LPVOID lpReserved
 					 )
@@ -74,7 +89,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 	}
 
     return TRUE;
-}
+}*/
 
 /*********************************************************
  * spausdinti_loga
@@ -473,7 +488,7 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 /*********************************************************
  * Nuskaitom BD is failu ir pakeiciam kalbejimo greiti
  ********************************************************/
-int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokytis, char dbfv1[][4], 
+EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokytis, char dbfv1[][4],
 					int *dbilg1, long *dbadr1, short ** wholeinputt1)
 {
 	clock_t begin_time,end_time;
@@ -646,7 +661,7 @@ int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokytis, char
 /*********************************************************
  * Nuskaitom BD is failu
  ********************************************************/
-int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1, short ** wholeinput1)
+EXPORT int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1, short ** wholeinput1)
 {
 	clock_t begin_time, end_time;
 
@@ -731,7 +746,7 @@ int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1,
  *
  * Gràþina naujo signalo ilgá, jei pavyko, ir -1, jei nepavyko (jei masyve naujas_signalas neuþteko vietos).
  ********************************************************/
-int change_phoneme_rate (int greitis, int tono_aukscio_pokytis, unsigned int fonemos_nr, 
+EXPORT int change_phoneme_rate (int greitis, int tono_aukscio_pokytis, unsigned int fonemos_nr,
 						 short * naujas_signalas, unsigned int naujo_signalo_masyvo_ilgis)
 {
 	int galima_pailginti_naujas_signalas = 0;

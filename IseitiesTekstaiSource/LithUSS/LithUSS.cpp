@@ -8,15 +8,19 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
-#include "TextNormalization.h"
-#include "transcrLUSS.h"
-#include "UnitSel.h"
-#include "RateChange.h"
-#include <stdio.h>
-#include <malloc.h>
+#include "LithUSS.h"
+#include "LithUSS_Error.h"
+
+#include "../TextNormalization/TextNormalization.h"
+#include "../transcrLUSS/transcrLUSS.h"
+#include "../UnitSelection/UnitSelection.h"
+#include "../RateChange/RateChange.h"
+
 #include "fv2id.h"
 #include "ilgiai.h"
-#include "LithUSS_Error.h"
+
+#include <stdio.h>
+#include <malloc.h>
 
 #define TEXTBUFSIZE 10000
 #define RULES2USE 75
@@ -36,6 +40,19 @@ void unloadLibraries()
 	unloadRateChange(); 
 }
 
+EXPORT BOOL loadLUSS(char *biblioteka)
+{
+	wholeinput = NULL;
+	katLoaded[0] = 0; // tuscia eilute ""
+
+	return TRUE;
+}
+
+EXPORT void unloadLUSS()
+{
+	unloadLibraries();
+}
+/*
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
                        LPVOID lpReserved
@@ -52,9 +69,9 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 	}
     
 	return TRUE;
-}
+}*/
 
-int initLUSS(char *katDll, char *katVoice)
+EXPORT int initLUSS(char *katDll, char *katVoice)
 {
 char laikKat[200];
 
@@ -63,11 +80,12 @@ if(katLoaded[0]==0)
 {
 	strcpy(laikKat, katDll);
 	strcat(laikKat, "TextNormalization.dll");
+	/*  TODO: cleanup
 
 	if(loadTextNorm(laikKat) == FALSE)
 		{
 		hr = ERROR_LITHUSS_LOADING_TEXTNORMALIZATION_DLL;
-		}
+		}*/
 
 if(hr == NO_ERR)
 	{
@@ -150,7 +168,7 @@ else
 }
 
 //////////Funkcijos SAPI5 sasajai//////////////////////////////////////////////////////////////////////////////////////
-int normalizeText1(char *text, char *normtextbuf, int bufsize, int * letPos)
+EXPORT int normalizeText1(char *text, char *normtextbuf, int bufsize, int * letPos)
 	{
 	return normalizeText(text, normtextbuf, bufsize, letPos);
 	}
@@ -160,7 +178,7 @@ int spellText1(char *text, char *normtextbuf, int bufsize, int * letPos)
 	return spellText(text, normtextbuf, bufsize, letPos);
 	}
 
-int stressTranscr(char *sakinys, char *TrSakinys, int bufsize, unsigned short* unitsR,  unsigned short* unitsRNextSep, 
+EXPORT int stressTranscr(char *sakinys, char *TrSakinys, int bufsize, unsigned short* unitsR,  unsigned short* unitsRNextSep,
 				int* unitsLet, int* letPos)
 	{
 	int rules2use=1155*RULES2USE/100; //default 75% total_auto_rules
@@ -170,14 +188,14 @@ int stressTranscr(char *sakinys, char *TrSakinys, int bufsize, unsigned short* u
 	return n;
 	}
 
-int findUnits(unsigned short *unitsRows, unsigned short *unitsRowsNextSeparators, 
+EXPORT int findUnits(unsigned short *unitsRows, unsigned short *unitsRowsNextSeparators,
 		int unitsRowsLength, unsigned int *retUnits, unsigned short *unitsDurr)
 {
 	//garsu id masyvas, skirtuku masyvas, masyvo dydis
 	ilgiai(unitsRows, unitsRowsNextSeparators, unitsRowsLength, unitsDurr);
 
 	unsigned int currentCost;
-	int ret = selectUnits(unitsRows, unitsRowsNextSeparators, unitsDurr, unitsRowsLength, retUnits, &currentCost);
+	int ret = selectUnits(unitsRows, unitsRowsNextSeparators, unitsDurr, unitsRowsLength, (int *) retUnits, (int *) &currentCost); //TODO: Check consistency
 	if (ret != 0)
 		{
 		return -8;
@@ -186,16 +204,16 @@ int findUnits(unsigned short *unitsRows, unsigned short *unitsRowsNextSeparators
 	return 0;
 }
 
-int synthesizePhoneme(int greicioKoef, int tonas, unsigned short unitsDurr, unsigned int retUnit, short *phoneme, unsigned int naujo_signalo_masyvo_ilgis)
+EXPORT int synthesizePhoneme(int greicioKoef, int tonas, unsigned short unitsDurr, unsigned int retUnit, short *phoneme, unsigned int naujo_signalo_masyvo_ilgis)
 	{
 	int ilgis = change_phoneme_rate (greicioKoef * unitsDurr * 22050 / 1000 / dbilg[retUnit], tonas, retUnit, phoneme, naujo_signalo_masyvo_ilgis);
 	return ilgis;
 	}
 
 ////////////Pagrindine sintezavimo funkcija////////////////////////////////////////////////////////////////////////////////
-struct event {short Id; short phonviz; int charOffset; long signOffset;}; 
+//struct event {short Id; short phonviz; int charOffset; long signOffset;}; 
 
-int synthesizeWholeText(char *tekstas, short *signbuf, unsigned int *signbufsize, event *evarr, int *evarrsize, int greitis, int tonas)
+EXPORT int synthesizeWholeText(char *tekstas, short *signbuf, unsigned int *signbufsize, event *evarr, int *evarrsize, int greitis, int tonas)
 {
 int greitisM = greitis;
 if(greitisM > 300) greitisM = 300;
@@ -300,7 +318,7 @@ while(((int)pos!=1) && (hr == NO_ERR))
 		{
 		ilgiai(unitsRows, unitsRowsNextSeparators, unitsRowsLength, unitsDurr);
 
-		hr2 = selectUnits(unitsRows, unitsRowsNextSeparators, unitsDurr, unitsRowsLength, retUnits, &currentCost);
+		hr2 = selectUnits(unitsRows, unitsRowsNextSeparators, unitsDurr, unitsRowsLength, (int*) retUnits, (int *)&currentCost); //TODO: Check consistency
 		if(hr2 != NO_ERR) hr = hr2;
 		}
 

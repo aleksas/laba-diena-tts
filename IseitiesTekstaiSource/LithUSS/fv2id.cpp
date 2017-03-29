@@ -9,6 +9,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "fv2id.h"
+
+#include "../include/common.h"
+
 #include <string.h>
 
 char* strtokf(char*, const char*, char**);
@@ -22,7 +25,7 @@ for(int i=0; i<FonSk; i++)
 return FonV[0].id; //pauze "_"
 }
 
-char* id2fv(unsigned short id)
+EXPORT char* id2fv(unsigned short id)
 {
 for(int i=0; i<FonSk; i++)
 	if(id == FonV[i].id)

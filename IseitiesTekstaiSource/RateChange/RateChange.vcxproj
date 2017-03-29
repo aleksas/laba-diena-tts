@@ -180,6 +180,7 @@
   <ItemGroup>
     <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="RateChange.h" />
+    <ClInclude Include="RateChangeInternal.h" />
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <ItemGroup>

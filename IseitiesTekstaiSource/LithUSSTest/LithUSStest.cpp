@@ -8,11 +8,12 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
-#include "LithUSS.h"
-#include "raw2wav.h"
-#include <malloc.h>
-#include <malloc.h>
 #include "LithUSS_Error.h"
+#include "raw2wav.h"
+
+#include "../LithUSS/LithUSS.h"
+
+#include <malloc.h>
 
 char* getLUSSErrorMessages(int);
 
@@ -47,7 +48,7 @@ if(pData->largebf == NULL) return 8;
 if(pData->evsz == NULL) return 9;
 int hr = -synthesizeWholeText(pData->text, //pakeiciam neigiamus i teigiamus
 							 pData->largebf,
-							 pData->largebfsize,
+							 (unsigned int*) pData->largebfsize, //TODO: check consistency
 							 pData->evar,
 							 pData->evsz,
 							 pData->greitis,

@@ -10,6 +10,7 @@
 #include "stdafx.h"
 #include "stringWithLetterPosition.h"
 
+#include "TextNormalization.h"
 #include "LithUSS_Error.h"
 
 char ***abbLists;
@@ -18,6 +19,31 @@ unsigned short **abbListsIsWithSep;
 int *abbSizes;
 int totalFileBuffers = 0;
 
+EXPORT BOOL loadTextNorm(char*)
+{
+	return TRUE;
+}
+
+EXPORT void unloadTextNorm()
+{
+	for (int i = 0; i<totalFileBuffers; i++)
+	{
+		for (int j = 0; j<2048; j++)
+		{
+			delete[] abbLists[i][j];
+			delete[] abbListsSubstitutions[i][j];
+		}
+		delete[] abbLists[i];
+		delete[] abbListsSubstitutions[i];
+		delete[] abbListsIsWithSep[i];
+	}
+	delete[] abbLists;
+	delete[] abbListsSubstitutions;
+	delete[] abbListsIsWithSep;
+	delete[] abbSizes;
+
+}
+/*
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
                        LPVOID lpReserved
@@ -43,7 +69,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 	}
 
     return TRUE;
-}
+}*/
 
 #define MAX_RULES 4*1024
 string rulesArray[MAX_RULES];
@@ -548,7 +574,7 @@ int expandDate(int yearNumber, int monthNumber, int dayNumber, int mode, char re
 	return 0;
 }
 
-int initTextNorm(char * rulesFilesDirectory, char * rulesFileName) 
+EXPORT int initTextNorm(char * rulesFilesDirectory, char * rulesFileName)
 {
 	char buffer_temp[1024];	
 
@@ -762,7 +788,7 @@ int applyPhrasesFilter(stringWithLetterPosition * bufferString)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-int spellText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
+EXPORT int spellText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 {
 	stringWithLetterPosition bufferString(buffer, letPos, bufferSize);
 	if (bufferString.at(bufferString.length()-1) != '\n') bufferString.append("\n");
@@ -795,7 +821,7 @@ int spellText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 	return NO_ERR;
 }
 
-int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos) 
+EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 {
 		stringWithLetterPosition bufferString(buffer, letPos, bufferSize);
 

@@ -171,6 +171,7 @@
   <ItemGroup>
     <ClInclude Include="fv2id.h" />
     <ClInclude Include="ilgiai.h" />
+    <ClInclude Include="LithUSS.h" />
     <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="RateChange.h" />
     <ClInclude Include="StdAfx.h" />
@@ -180,6 +181,20 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RateChange\RateChange.vcxproj">
+      <Project>{9141635a-819b-41cb-b7ce-7488abcb2321}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TextNormalization\TextNormalization.vcxproj">
+      <Project>{fbaae806-c348-4a4a-9880-40dec6cedf90}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\transcrLUSS\transcrLUSS.vcxproj">
+      <Project>{ece100d7-8f72-4714-a539-e3f37cb5ece1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\UnitSelection\UnitSelection.vcxproj">
+      <Project>{bd8bb974-4c9d-499b-91f5-560bb7b05c25}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

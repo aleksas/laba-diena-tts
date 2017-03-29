@@ -201,6 +201,7 @@
     <ClInclude Include="rezultC.h" />
     <ClInclude Include="Skiemen.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="transcrLUSS.h" />
     <ClInclude Include="Transkr.h" />
     <ClInclude Include="Vb9r1_13.h" />
     <ClInclude Include="vgal.h" />

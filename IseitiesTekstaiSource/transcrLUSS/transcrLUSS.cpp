@@ -8,14 +8,16 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
+#include "transcrLUSS.h"
 
-#include <stdio.h>
 #include "Kircdb.h"
 #include "transkr.h"
 #include "skiemen.h"
 #include "ArKirciuoti.h"
-#include <string.h>
 #include "rezultC.h"
+
+#include <stdio.h>
+#include <string.h>
 
 char* strtokf(char*, const char*, char**);
 
@@ -23,12 +25,23 @@ char* strtokf(char*, const char*, char**);
 #define VARSK1   10    //transkribavimo variantu skaicius
 #define ZODIL1   50    //maksimalus kirciuojamo zodzio ilgis
 
+EXPORT BOOL loadTranscrLUSS(char*)
+{
+	return TRUE;
+}
+
+EXPORT void unloadTranscrLUSS()
+{
+
+}
+
+/*
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason, 
                        LPVOID lpReserved )
 {
     return TRUE;
-}
+}*/
 
 //-------------------------------------------------------------------
 void TarptautF(char *ez, char *Trmp, char Tarpt)
@@ -201,7 +214,7 @@ int auto_rules_function(variantas * variants_array, int varsk, int rules2use)
 	if (yra_skirtingu_var == 0) return 1; else return new_varsk;
 }
 //------------------------------------------------------------
-int KircTranskr(char* eil, char* TrZodis, int TrEilIlg, unsigned short* unitsR,  unsigned short* unitsRNextSep, 
+EXPORT int KircTranskr(char* eil, char* TrZodis, int TrEilIlg, unsigned short* unitsR,  unsigned short* unitsRNextSep,
 				int* unitsLet, int* letPos, int rules2use)
 {
 char SkPb[ILGIS1], Kirt[ILGIS1], Trmp[ILGIS1], eilute[ILGIS1];

@@ -6,7 +6,6 @@
 #include "MainFrm.h"
 #include "redakDoc.h"
 #include "redakView.h"
-#include "LithUSS.h"
 #include "raw2wav.h"
 
 #ifdef _DEBUG
@@ -222,7 +221,7 @@ else //if(strlen(tekstas)>0)
 		largebufsizet = largebufsize;
 		evsizet = evsize;
 		for(int i1=0; i1<largebufsizet; i1++) largebuf[i1] = 0;
-		int hr = synthesizeWholeText(tekstas, largebuf, &largebufsizet, evarr, &evsizet, greicio_koeficientas, tono_koeficientas);
+		int hr = synthesizeWholeText(tekstas, largebuf, (unsigned int*) &largebufsizet, evarr, &evsizet, greicio_koeficientas, tono_koeficientas); //TODO: check consistency
 		if(hr<0)
 			{MessageBox("Klaida funkcijoje synthesizeWholeText");exit(EXIT_FAILURE);}
 		nuoe=0;
@@ -364,7 +363,7 @@ if(strlen(tekstas)>0)
 	ib=largebufsize;
 	ie=evsize;
 	for(int i2=0; i2<ib; i2++) largebuf[i2] = 0;
-	hr = synthesizeWholeText(tekstas, largebuf, &ib, evarr, &ie, greicio_koeficientas, tono_koeficientas);
+	hr = synthesizeWholeText(tekstas, largebuf, (unsigned int*) &ib, evarr, &ie, greicio_koeficientas, tono_koeficientas); //TODO: check consistency
 
 	if(hr<0)
 		{MessageBox("Klaida funkcijoje synthesizeWholeText");exit(EXIT_FAILURE);}
