@@ -183,9 +183,6 @@
     <CustomBuild Include="res\redak.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\LithUSS\LithUSS.vcxproj">
       <Project>{b8a2df32-c0a0-41af-bb93-0b600f0271c3}</Project>
     </ProjectReference>

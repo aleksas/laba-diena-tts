@@ -7,7 +7,9 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "LithUSS.h"
+
+#include <stdio.h>
 
 unsigned long rID=0x46464952, rLen, wID=0x45564157, fID=0x20746D66;
 unsigned short wFormatTag=0x0001, nChannels=0x0001;
@@ -15,7 +17,7 @@ unsigned long fLen=0x00000010, nSamplesPerSec=22050, nAvgBytesPerSec;
 unsigned short nBlockAlighn=0x0002, wBitsPerSample=0x0010;
 unsigned long dID=0x61746164, dLen;
 
-int raw2wav(int ib, FILE* fr, short* buf)
+int raw2wavB(int ib, FILE* fr, short* buf)
 {
 dLen=ib*2;
 
@@ -39,5 +41,21 @@ fwrite(&dLen,1,4,fr);
 fwrite(buf, 2, ib, fr);
 
 return 0;
+}
+
+EXPORT int raw2wav(int ib, char * szFilename, short * pBuffer)
+{
+	FILE *df;
+	int pastrSk;
+
+	int hr = 0;
+	if ((df = fopen(szFilename, "wb")) == NULL)
+	{
+		return -1;
+	}
+
+	raw2wavB(ib, df, pBuffer);
+	fclose(df);
+	return 0;
 }
 

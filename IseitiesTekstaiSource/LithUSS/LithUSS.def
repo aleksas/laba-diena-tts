@@ -9,3 +9,4 @@ EXPORTS
    synthesizePhoneme
    id2fv
    synthesizeWholeText
+   raw2wav

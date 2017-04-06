@@ -8,7 +8,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
-#include "raw2wav.h"
 
 #include "../include/LithUSS_Error.h"
 #include "../LithUSS/LithUSS.h"
@@ -187,7 +186,7 @@ if(hr == 0)
 char temp[100], fvwav[100], fvev[100];
 if(hr == 0)
 	{
-	int n;
+	int res = 0;
 	FILE *fr;
 	FILE *fe;
 	char *evvardai[4] = {"Sak", "Zod", "Skm", "Fon"};
@@ -203,14 +202,12 @@ printf("Gija %d kodas %d\n", k, hrM[k]);
 			strcat(fvwav, temp);
 			strcat(fvwav, ".wav");
 
-			if((fr = fopen(fvwav, "wb"))==0)
-				{
+			res = raw2wav(*(pDataArray[k]->largebfsize), fvwav, pDataArray[k]->largebf);
+			if (res != 0)
+			{
 				spausdinti_loga("Nepavyko atidaryti wav failo");
-				continue; 
-				}
-
-			n=raw2wav(*(pDataArray[k]->largebfsize), fr, pDataArray[k]->largebf);
-			fclose(fr);
+				continue;
+			}
 
 			strcpy(fvev, "pastr_");
 			strcat(fvev, temp);

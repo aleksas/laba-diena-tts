@@ -204,9 +204,6 @@
     <ClInclude Include="Vb9r1_13.h" />
     <ClInclude Include="vgal.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

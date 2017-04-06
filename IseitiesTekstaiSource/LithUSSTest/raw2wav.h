@@ -1,1 +1,0 @@
-int raw2wav(int, FILE*, short*);

@@ -12,6 +12,7 @@ EXPORT int findUnits(unsigned short *unitsRows, unsigned short *unitsRowsNextSep
 EXPORT int synthesizePhoneme(int greicioKoef, int tonas, unsigned short unitsDurr, unsigned int retUnit, short *phoneme, unsigned int naujo_signalo_masyvo_ilgis);
 EXPORT char* id2fv(unsigned short id);
 EXPORT int synthesizeWholeText(char *tekstas, short *signbuf, unsigned int *signbufsize, event *evarr, int *evarrsize, int greitis, int tonas);
+EXPORT int raw2wav(int, char * filename, short * pBuffer);
 
 EXPORT BOOL loadLUSS(char*);
 EXPORT void unloadLUSS();

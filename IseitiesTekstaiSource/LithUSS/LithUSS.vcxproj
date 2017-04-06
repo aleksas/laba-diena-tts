@@ -161,6 +161,7 @@
     <ClCompile Include="getLUSSErrorMessages.cpp" />
     <ClCompile Include="ilgiai.cpp" />
     <ClCompile Include="LithUSS.cpp" />
+    <ClCompile Include="raw2wav.cpp" />
     <ClCompile Include="strtokf.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +173,6 @@
     <ClInclude Include="LithUSS.h" />
     <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="transcrLUSS.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RateChange\RateChange.vcxproj">
