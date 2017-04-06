@@ -95,7 +95,7 @@ if(hr == 0)
 //dll pakrovimas ir inicializavimas
 if(hr == 0)
 	{
-	if(loadLUSS("LithUSS.dll")==FALSE)
+	if(loadLUSS()==FALSE)
 		{
 		spausdinti_loga("Klaida pakraunant LithUSS.dll");
 		hr = -3;

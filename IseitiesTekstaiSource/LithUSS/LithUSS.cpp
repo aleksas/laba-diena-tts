@@ -40,7 +40,7 @@ void unloadLibraries()
 	unloadRateChange(); 
 }
 
-EXPORT BOOL loadLUSS(char *biblioteka)
+EXPORT BOOL loadLUSS()
 {
 	wholeinput = NULL;
 	katLoaded[0] = 0; // tuscia eilute ""
@@ -283,7 +283,7 @@ char *pos = normtextbuf;
 char sakinys[200], TrSakinys[500];
 int n;
 
-while(((int)pos!=1) && (hr == NO_ERR))
+while((pos!=(char*)1) && (hr == NO_ERR))
 	{
 	int hr2 = 0;
 	int lp = (int)(pos-normtextbuf);

@@ -51,10 +51,10 @@ evsize = 10000;
 evarr = (event*)malloc(evsize * sizeof(event));
 
 largebufsize = 5000000;
-largebuf = (short*)malloc(largebufsize * sizeof(short)); //sintezuotas signalas
+largebuf = (short*)calloc(largebufsize, sizeof(short)); //sintezuotas signalas
 
 //----------------------------------------------------
-if(loadLUSS("LithUSS.dll")==FALSE)
+if(loadLUSS()==FALSE)
 	{MessageBox("Klaida pakraunant LithUSS.dll");exit(EXIT_FAILURE);}
 
 int res;

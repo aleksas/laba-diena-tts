@@ -43,7 +43,7 @@
 // Asmenuociu kodai: A-O 1, A-\xCB 2, IA-O 4, IA-\xCB 8, I-O 16, O-O 32, O-\xCB 64,
 // A-* 3, IA-* 12, O-* 96, A-*&O-* 99, *-O 53, *-\xCB 74,
 
-struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
+struct VeiksmazodziuGalunes{const char *Galune; char KamTipas; char Sangrazine;
                             char Asmenuote; char KircRaide; char Priegaide;
 	                        char KircTaisykle; char PriesdTE;
 							char KalbDal; char Laikas; char NuosakaRusis;
@@ -1198,7 +1198,7 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"AMI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},
 {"ISAMI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},  // bev.g.
 
-// 23 Reikiamybäs dalyvis
+// 23 Reikiamybï¿½s dalyvis
 {"SANIT",     2,0,127,-1,-1,10,0, DAL, -1, REIK, 1, VNS, VG, 0},
 {"ONIT",      2,0,127,-1,-1,10,0, DAL, -1, REIK, 2, VNS, VG, 0},  // v.g.
 {"MANIT",     2,0,127, 1, 1,11,0, DAL, -1, REIK, 3, VNS, VG, 0},
@@ -1267,7 +1267,7 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 
 #define VPriesdSk 252
 
-struct PriesdeliuGrupes{char *Pavadinimas; char VisadKirc; char KircRaide;
+struct PriesdeliuGrupes{const char *Pavadinimas; char VisadKirc; char KircRaide;
                         char Priegaide;} PriesdGrup[VPriesdSk] = {
 {"",0,0,0},
 {"AP",0,0,0}, {"API",0,2,0}, {"AT",0,0,0}, {"ATI",0,2,0},

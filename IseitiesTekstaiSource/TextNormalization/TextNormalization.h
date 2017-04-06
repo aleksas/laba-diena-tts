@@ -3,7 +3,7 @@
 
 #include "../include/common.h"
 
-EXPORT int initTextNorm(char * rulesFilesDirectory, char * rulesFileName);
+EXPORT int initTextNorm(char * rulesFilesDirectory, const char * rulesFileName);
 EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos);
 EXPORT int spellText(char * buffer, char * retBuffer, int bufferSize, int * letPos);
 

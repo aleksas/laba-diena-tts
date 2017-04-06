@@ -606,8 +606,8 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 		
 		// kiekvienai fonemai kvie\xE8iame change_phoneme_rate_internal() funkcij\xE0
 		int naujas_fonemos_ilgis = change_phoneme_rate_internal (
-			greitis, tono_aukscio_pokytis, fonemos_nr, 
-			&naujas_signalas, &naujo_signalo_masyvo_ilgis, 
+			greitis, tono_aukscio_pokytis, fonemos_nr,
+			&naujas_signalas, (unsigned int*) &naujo_signalo_masyvo_ilgis,
 			galima_pailginti_naujas_signalas, einamasis_naujo_signalo_nr);
 		// jei nepavyko, visk\xE0 stabdome
 		if (naujas_fonemos_ilgis == DIDELIS_NEIGIAMAS_KLAIDOS_KODAS)

@@ -10,6 +10,8 @@
 #ifndef RATECHANGEINTERNAL_H
 #define RATECHANGEINTERNAL_H
 
+#include <stddef.h>
+
 /*********************************************************
  * Konstantos
  ********************************************************/

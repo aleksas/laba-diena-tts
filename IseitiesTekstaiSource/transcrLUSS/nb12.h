@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #define NZodSk 2061
 
-static struct NekaitZod{char *Zodis;
+static struct NekaitZod{const char *Zodis;
      char KircSkiem; char Priegaide; char skiem; char tarpt;} NZod[NZodSk] = {
 {"A", 0, 2, 0, 0},
 {"\xC0", 0, 2, 0, 0},

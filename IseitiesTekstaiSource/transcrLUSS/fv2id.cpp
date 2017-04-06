@@ -21,7 +21,7 @@ for(int i=0; i<FonSk; i++)
 return FonV[0].id; //pauze "_"
 }
 
-char* id2fv(unsigned short id)
+const char* id2fv(unsigned short id)
 {
 for(int i=0; i<FonSk; i++)
 	if(id == FonV[i].id)

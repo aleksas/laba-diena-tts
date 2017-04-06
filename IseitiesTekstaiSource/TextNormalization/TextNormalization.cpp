@@ -12,6 +12,8 @@
 #include "TextNormalization.h"
 #include "LithUSS_Error.h"
 
+#include <stdlib.h>
+
 char ***abbLists;
 char ***abbListsSubstitutions;
 unsigned short **abbListsIsWithSep;
@@ -573,7 +575,7 @@ int expandDate(int yearNumber, int monthNumber, int dayNumber, int mode, char re
 	return 0;
 }
 
-EXPORT int initTextNorm(char * rulesFilesDirectory, char * rulesFileName)
+EXPORT int initTextNorm(char * rulesFilesDirectory, const char * rulesFileName)
 {
 	char buffer_temp[1024];	
 

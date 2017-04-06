@@ -9,7 +9,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 #include "Kircdb.h"
 #include "vb9r1_13.h"
@@ -43,7 +42,7 @@ char* strrev1(char *p)
 	return p;
 }
 
-struct GaluniuMasyvas{char *Galune; char ArMinksta; char KirciuotaRaide; char Priegaide;}
+struct GaluniuMasyvas{const char *Galune; char ArMinksta; char KirciuotaRaide; char Priegaide;}
 GalMasDB[231] = {
 /*00*/  {"SISA",   0, 3, 0},   /*01*/  {"OJO",     0, 2, 2},   /*02*/  {"MAJA",   0, 3, 1},
 /*03*/  {"\xC1J\xC0",    0, 2, 2},   /*04*/  {"UJOU",    0, 3, 1},   /*05*/  {"EMAJA",  0, 4, 2},
@@ -927,7 +926,7 @@ int KamTipai[10][32] = {
 {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
 16, 18, 20, 22, 24, 26, 34, 35, 36, 37, 39, 41, 44, 46, -1}}; // 7 bet kas
 //------------------------------------------------------------------------------
-int Aprib(char *z, char *Zod, int PI, int KV, int *KircS, int *Priegaid, int *PriesIlgis, int *Skiemen, int *Tarptaut) 
+int Aprib(const char *z, char *Zod, int PI, int KV, int *KircS, int *Priegaid, int *PriesIlgis, int *Skiemen, int *Tarptaut) 
 {
 int i,j,k,l,n,j1, zz, YraPriesd, km, ap, mm, mini, maxi;
 char Zod1[ZODIL1], *s1;
@@ -1111,7 +1110,7 @@ return 0;
 void initKircLUSS()
 {
 int i;
-char *enuor;
+const char *enuor;
 if(PriorN[0] != 40) //Kvieciam tik viena karta
 	{
 	for(i=0; i<DBIrSk; i++)
@@ -1259,7 +1258,7 @@ for(k=0; k<kpg; k++)
 char KirtViet;
 char KirtPoz;
 char *et;
-char *ek;  //naudojamas nustatant skiemens ribas priesdeliuose
+const char *ek;  //naudojamas nustatant skiemens ribas priesdeliuose
 char KirtisIPriesdeli; //naudojamas veiksmazodziuose turi ir gali
 char ww[50];
 

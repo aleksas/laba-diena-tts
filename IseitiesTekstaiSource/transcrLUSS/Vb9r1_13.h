@@ -10,8 +10,8 @@
 #define VIrSk 8739
 #define VKamSk 8733
 
-typedef struct KamKvPriegaid{char *KamPb; char KircSkiem; char Prieg;} KamKvPrieg;
-static struct VeiksmKam{char *KamPr; KamKvPrieg KamKvP[3];
+typedef struct KamKvPriegaid{const char *KamPb; char KircSkiem; char Prieg;} KamKvPrieg;
+static struct VeiksmKam{const char *KamPr; KamKvPrieg KamKvP[3];
      char Asmenuote; char KircPriesd; char EsLDS; char BDS;
      char skiem; char tarpt;} VKam[VIrSk] = {
 {"A", "NK", 1, 2, "K", 1, 2, "K", 1, 0, 1, 0, 0, 0, 0, 0},

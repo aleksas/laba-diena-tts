@@ -24,7 +24,7 @@ for(int i=0; i<FonSk; i++)
 return FonV[0].id; //pauze "_"
 }
 
-EXPORT char* id2fv(unsigned short id)
+EXPORT const char* id2fv(unsigned short id)
 {
 for(int i=0; i<FonSk; i++)
 	if(id == FonV[i].id)

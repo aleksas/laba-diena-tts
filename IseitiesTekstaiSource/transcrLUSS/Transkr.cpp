@@ -136,9 +136,9 @@ if(Taisykl[j].ES!=eil[i]) j+=Taisykl[j].PoslT;
 else
  {
  if(eil[i+1]==0) k=2; else k=1;
- if(((Taisykl[j].KKont[0]!=0) ? (int)strchr(Taisykl[j].KKont, eil[i-1]):1)
-   &&((Taisykl[j].DKont1[0]!=0) ? (int)strchr(Taisykl[j].DKont1, eil[i+k]):1)
-   &&((Taisykl[j].DKont2[0]!=0) ? (int)strchr(Taisykl[j].DKont2, eil[i+k+1]):1)
+ if(((Taisykl[j].KKont[0]!=0) ? strchr(Taisykl[j].KKont, eil[i-1]):(void*)1)
+   &&((Taisykl[j].DKont1[0]!=0) ? strchr(Taisykl[j].DKont1, eil[i+k]):(void*)1)
+   &&((Taisykl[j].DKont2[0]!=0) ? strchr(Taisykl[j].DKont2, eil[i+k+1]):(void*)1)
    &&(Taisykl[j].Kirt & Kirt[i])
    &&(Taisykl[j].Minkst & 3 & Mn[i])
    &&(Taisykl[j].SkDu & SkDu[i])
