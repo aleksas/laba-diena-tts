@@ -68,7 +68,7 @@ int nuskaityti_signala()
 		return ERROR_RATECHANGE_UNEVEN_DB_FILE_SIZE;
 	}
 	
-	signalo_ilgis = (size_t) (signalo_failo_dydis/2);
+	signalo_ilgis = (unsigned int) (signalo_failo_dydis/2);
 	
 	// iskiriame atminties signalo masyvui
 	signalas = (short *) malloc ((signalo_ilgis+1) * sizeof(short));
@@ -79,7 +79,7 @@ int nuskaityti_signala()
 	}
 
 	// nuskaitome signalo masyva is failo
-	size_t nuskaityta=fread(signalas, sizeof(short), signalo_ilgis+1, signalo_failas);
+	unsigned int nuskaityta=fread(signalas, sizeof(short), signalo_ilgis+1, signalo_failas);
 	if (ferror (signalo_failas))
 	{
 		fclose(signalo_failas);
@@ -103,7 +103,7 @@ int nuskaityti_signala()
  * (reik\xF0mini\xF8 duomen\xF8, t.y. neskai\xE8iuojant '\0').
  * Grazina 0, jei nebuvo klaidos, ir < 0, jei buvo klaida.
  ********************************************************/
-int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turinio_ilgis)
+int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, unsigned int * turinio_ilgis)
 {
 	FILE *failas;
 	
@@ -121,7 +121,7 @@ int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turini
 		return -2;
 	}
 
-	size_t failo_dydis = (size_t) failo_dydis_long;
+	unsigned int failo_dydis = (unsigned int) failo_dydis_long;
 
 	// iskiriame atminties failo turiniui
 	char * failo_turinys = (char *) malloc ((failo_dydis+1) * sizeof(char));
@@ -129,7 +129,7 @@ int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turini
 		return -5;
 
 	// nuskaitome fail\xE0
-	size_t nuskaityta_zenklu = fread (failo_turinys, sizeof(char), failo_dydis+1, failas);
+	unsigned int nuskaityta_zenklu = fread (failo_turinys, sizeof(char), failo_dydis+1, failas);
 	if (ferror (failas))
 	{
 		free(failo_turinys);
@@ -159,11 +159,11 @@ int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turini
  * Nuskaito duomenis is anotacij\xF8 failo.
  * Grazina 0, jei nebuvo klaidos, ir < 0, jei buvo klaida.
  ********************************************************/
-int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, int ** fonemu_ilgiai1, size_t * fonemu_kiekis1)
+int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, int ** fonemu_ilgiai1, unsigned int * fonemu_kiekis1)
 {
 	// nuskaitome failo turin\xE1
 	char * fonemu_failo_turinys = NULL;
-	size_t nuskaityta_zenklu = 0;
+	unsigned int nuskaityta_zenklu = 0;
 	int nepavyko = nuskaityti_faila (fonemu_failo_pavadinimas, &fonemu_failo_turinys, &nuskaityta_zenklu);
 	switch (nepavyko)
 		{
@@ -177,14 +177,14 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 	
 	// susiskai\xE8iuojame, kiek fonemu failo duomenyse yra eilu\xE8i\xF8
 	int eiluciu_skaicius = 0;
-	for (size_t i=0; i<nuskaityta_zenklu; i++) {
+	for (unsigned int i=0; i<nuskaityta_zenklu; i++) {
 		if (fonemu_failo_turinys[i] == '\n')
 			eiluciu_skaicius++;
 	}
 
 	char ** fonemos = NULL;
 	int * fonemu_ilgiai = NULL;
-	size_t fonemu_kiekis = 0;
+	unsigned int fonemu_kiekis = 0;
 
 	// iskiriame atminties fonemu ir ju ilgiu masyvams
 	// (d\xEBl visa ko pridedam vienet\xE0, nes paskutin\xEB eilut\xEB gal\xEBjo netur\xEBti '\n')
@@ -264,7 +264,7 @@ int nuskaityti_pikus ()
 {
 	// nuskaitome failo turin\xE1
 	char * piku_failo_turinys = NULL;
-	size_t nuskaityta_zenklu = 0;
+	unsigned int nuskaityta_zenklu = 0;
 	int nepavyko = nuskaityti_faila (piku_failo_pavadinimas, &piku_failo_turinys, &nuskaityta_zenklu);
 	switch (nepavyko)
 		{
@@ -278,7 +278,7 @@ int nuskaityti_pikus ()
 	
 	// susiskai\xE8iuojame, kiek piku failo duomenyse yra eilu\xE8i\xF8
 	int eiluciu_skaicius = 0;
-	for (size_t i=0; i<nuskaityta_zenklu; i++) {
+	for (unsigned int i=0; i<nuskaityta_zenklu; i++) {
 		if (piku_failo_turinys[i] == '\n')
 			eiluciu_skaicius++;
 	}

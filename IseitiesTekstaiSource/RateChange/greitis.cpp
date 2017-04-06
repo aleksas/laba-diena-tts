@@ -60,7 +60,7 @@ const int veiksmas = 2;
 // Per tiek padid\xEBs fonem\xF8 ilgiai
 //int einamasis_postumis = 0;
 
-//size_t fonemos_nr_debug = 0;
+//unsigned int fonemos_nr_debug = 0;
 
 // jei ne nulis, i\xF0veda papildom\xE0 informacij\xE0 apie programos darb\xE0
 // jei > 100, i\xF0veda detali\xE0 informacij\xE0
@@ -77,7 +77,7 @@ char signalo_failo_pavadinimas[256] = "db.raw";
 short * signalas = NULL;
 
 // garso signalo masyvo ilgis
-size_t signalo_ilgis = 0;
+unsigned int signalo_ilgis = 0;
 
 /*********************************************************
  * Global\xFBs naujojo signalo (rezultato) kintamieji
@@ -102,7 +102,7 @@ char ** fonemos = NULL;
 int * fonemu_ilgiai = NULL;
 
 // fonem\xF8 kiekis (fonem\xF8 masyvo ir fonem\xF8 ilgi\xF8 masyvo ilgis)
-size_t fonemu_kiekis = 0;
+unsigned int fonemu_kiekis = 0;
 
 /*********************************************************
  * Global\xFBs naujieji fonem\xF8 (rezultat\xF8) kintamieji
@@ -130,7 +130,7 @@ char ** skirtingos_fonemos = NULL;
 int * vidutiniai_fonemu_ilgiai = NULL;
 
 // fonem\xF8 kiekis (fonem\xF8 masyvo ir fonem\xF8 ilgi\xF8 masyvo ilgis)
-size_t skirtingu_fonemu_kiekis = 0;
+unsigned int skirtingu_fonemu_kiekis = 0;
 		
 /*********************************************************
  * Global\xFBs pik\xF8 (duomen\xF8) kintamieji
@@ -143,7 +143,7 @@ char piku_failo_pavadinimas[256] = "db_pik.txt";
 unsigned int * pikai = NULL;
 
 // pik\xF8 kiekis (pik\xF8 masyvo ilgis)
-size_t piku_kiekis = 0;
+unsigned int piku_kiekis = 0;
 
 /*********************************************************
  * Burbulai
@@ -172,7 +172,7 @@ nei reikiamas_ilgis.
 
 Gr\xE0\xFEina 0, jei pavyko, ir -1, jei nepavyko.
  ********************************************************/
-int pailginti_masyva_naujas_signalas (size_t reikiamas_ilgis, struct tkontekstas * kontekstas)
+int pailginti_masyva_naujas_signalas (unsigned int reikiamas_ilgis, struct tkontekstas * kontekstas)
 {
 	if (debuginam) {
 		char pranesimas [1024];
@@ -186,10 +186,10 @@ int pailginti_masyva_naujas_signalas (size_t reikiamas_ilgis, struct tkontekstas
 		return -1;
 
 	// siulomas_naujas_ilgis - naujas ilgis, jei pailgintume pagal REALLOC_COEFF
-	size_t siulomas_naujas_ilgis = (size_t) (kontekstas->naujo_signalo_masyvo_ilgis * REALLOC_COEFF);
+	unsigned int siulomas_naujas_ilgis = (unsigned int) (kontekstas->naujo_signalo_masyvo_ilgis * REALLOC_COEFF);
 
 	// galutinis naujas ilgis bus didesnysis i\xF0 siulomas_naujas_ilgis ir reikiamas_ilgis
-	size_t naujas_ilgis;
+	unsigned int naujas_ilgis;
 	if (siulomas_naujas_ilgis < reikiamas_ilgis)
 		naujas_ilgis = reikiamas_ilgis;
 	else
@@ -213,7 +213,7 @@ int pailginti_masyva_naujas_signalas (size_t reikiamas_ilgis, struct tkontekstas
 	}
 
 	// u\xFEnuliname naujai i\xF0skirt\xE0 (papildom\xE0) atmint\xE1
-	for (size_t i = kontekstas->naujo_signalo_masyvo_ilgis; i < naujas_ilgis; i++)
+	for (unsigned int i = kontekstas->naujo_signalo_masyvo_ilgis; i < naujas_ilgis; i++)
 		naujas_naujas_signalas[i] = 0;
 
 	if (debuginam) {
@@ -250,7 +250,7 @@ int Hann_lango_kaire_puse (int pradzia, int nauja_pradzia, int lango_plotis, str
 
 	// nustatome, kokio ilgio tur\xEBt\xF8 b\xFBti masyvas naujas_signalas
 	// (gali b\xFBti ir neigiamas, jei nauja_pradzia < 0 ir |nauja_pradzia| > lango_plotis)
-	int reikiamas_ilgis = (size_t) (nauja_pradzia + lango_plotis);
+	int reikiamas_ilgis = (unsigned int) (nauja_pradzia + lango_plotis);
 
 	// jei reikiamas ilgis vir\xF0ija dabartin\xE1
 	if (reikiamas_ilgis > (int) kontekstas->naujo_signalo_masyvo_ilgis) {
@@ -289,7 +289,7 @@ int Hann_lango_desine_puse (int pradzia, int nauja_pradzia, int lango_plotis, st
 	// tikriname, ar reikia ilginti naujo signalo masyv\xE0
 
 	// nustatome, kokio ilgio tur\xEBt\xF8 b\xFBti masyvas naujas_signalas
-	size_t reikiamas_ilgis = (size_t) (nauja_pradzia + lango_plotis);
+	unsigned int reikiamas_ilgis = (unsigned int) (nauja_pradzia + lango_plotis);
 
 	// jei reikiamas ilgis vir\xF0ija dabartin\xE1
 	if (reikiamas_ilgis > kontekstas->naujo_signalo_masyvo_ilgis) {
@@ -386,7 +386,7 @@ int kopijuoti_signala_pabaigoj (struct tkontekstas * kontekstas)
 	// randame paskutiniojo burbulo de\xF0iniosios dalies plot\xE1.
 
 	// paskutiniojo piko numeris
-	size_t paskutinio_piko_nr = kontekstas->pirmojo_piko_nr + kontekstas->piku_sk - 1;
+	unsigned int paskutinio_piko_nr = kontekstas->pirmojo_piko_nr + kontekstas->piku_sk - 1;
 
 	// paskutiniojo burbulo kairiosios dalies plotis - de\xF0inioji dalis bus ne platesn\xEB
 	unsigned int burbulo_kaires_plotis = pikai [paskutinio_piko_nr] - pikai [paskutinio_piko_nr - 1];
@@ -434,7 +434,7 @@ einamasis_signalo_nr, einamasis_naujo_signalo_nr.
 
 Gr\xE0\xFEina 0, jei pavyko, ir -1, jei nepavyko.
  ********************************************************/
-int kopijuoti_signala_keiciant_tono_auksti (size_t iki, struct tkontekstas * kontekstas)
+int kopijuoti_signala_keiciant_tono_auksti (unsigned int iki, struct tkontekstas * kontekstas)
 {
 	// nieko nedarome, jei n\xEBra k\xE0 kopijuoti
 	if (iki <= kontekstas->einamasis_signalo_nr)
@@ -512,12 +512,12 @@ einamasis_signalo_nr, einamasis_naujo_signalo_nr.
 
 Gr\xE0\xFEina 0, jei pavyko, ir -1, jei nepavyko.
  ********************************************************/
-int kopijuoti_signala_nekeiciant_tono_aukscio (size_t iki, struct tkontekstas * kontekstas)
+int kopijuoti_signala_nekeiciant_tono_aukscio (unsigned int iki, struct tkontekstas * kontekstas)
 {
 	// tikriname, ar reikia ilginti naujo signalo masyv\xE0
 
 	// nustatome, kokio ilgio tur\xEBt\xF8 b\xFBti masyvas naujas_signalas
-	size_t reikiamas_ilgis = kontekstas->einamasis_naujo_signalo_nr;
+	unsigned int reikiamas_ilgis = kontekstas->einamasis_naujo_signalo_nr;
 	if (iki > kontekstas->einamasis_signalo_nr)
 		reikiamas_ilgis += iki - kontekstas->einamasis_signalo_nr;
 
@@ -555,7 +555,7 @@ einamasis_signalo_nr, einamasis_naujo_signalo_nr.
 
 Gr\xE0\xFEina 0, jei pavyko, ir -1, jei nepavyko.
  ********************************************************/
-int kopijuoti_signala (size_t iki, struct tkontekstas * kontekstas)
+int kopijuoti_signala (unsigned int iki, struct tkontekstas * kontekstas)
 {
 	if (kontekstas->keisti_tono_auksti)
 		// tono auk\xF0\xE8io keitimas: kopijuojame, keisdami tono auk\xF0t\xE1

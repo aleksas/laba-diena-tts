@@ -6,14 +6,6 @@
     #define EXPORT __declspec(dllexport)
     #define IMPORT __declspec(dllimport)
 #else
-	/*#if __x86_64__
-		typedef unsigned __int64 size_t;
-		typedef __int64          intptr_t;
-	#else
-		typedef unsigned int     size_t;
-		typedef int              intptr_t;
-	#endif*/
-
 	#if defined(__GNUC__)
 		//  GCC
 		#define EXPORT __attribute__((visibility("default")))

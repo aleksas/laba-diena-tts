@@ -169,7 +169,7 @@ double koreguoti_greitinimo_koef_scenarijus5 (int fonemos_ilgis, struct tkonteks
 	// nustatykime, koks yra vidutinis tokios fonemos ilgis
 
 	// ie\xF0kome einamosios fonemos skirting\xF8 fonem\xF8 masyve
-	size_t fon_nr = 0;
+	unsigned int fon_nr = 0;
 	while (fon_nr < skirtingu_fonemu_kiekis && strcmp (fonemos[kontekstas->fonemos_nr], skirtingos_fonemos[fon_nr]) != 0)
 		fon_nr++;
 
@@ -418,7 +418,7 @@ void ilginimo_euristika_skardieji (struct tkontekstas * kontekstas)
 /*********************************************************
 Leistinos srities rib\xF8 dusli\xF8j\xF8 gars\xF8 ilginimui nustatymas
 *********************************************************/
-void leistinos_srities_ribos_dusliuju_ilginimui (size_t fonemos_nr, double * galimos_srities_pradzia, double * galimos_srities_pabaiga)
+void leistinos_srities_ribos_dusliuju_ilginimui (unsigned int fonemos_nr, double * galimos_srities_pradzia, double * galimos_srities_pabaiga)
 {
 	switch (fonemos[fonemos_nr][0]) {
 		
@@ -482,8 +482,8 @@ galimos_srities_pabaiga - galimos srities pabaigos indeksas signalo masyve.
 Greitinimo koeficientas paduodamas tam, 
 kad b\xFBt\xF8 galima i\xF0kviesti 4 scenarijuje su skirtingais greitinimo koeficientais
 *********************************************************/
-void ilginimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia, 
-											  size_t galimos_srities_pabaiga,
+void ilginimo_euristika_duslieji_scenarijus3 (unsigned int galimos_srities_pradzia, 
+											  unsigned int galimos_srities_pabaiga,
 								              double greitinimo_koef, struct tkontekstas * kontekstas)
 {
 	// reikia 5 scenarijuje
@@ -495,8 +495,8 @@ void ilginimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 
 	// i\xF0siai\xF0kinkime, kiek reikia pailginti fonem\xE0
 
-	size_t fonemos_ilgis = kontekstas->fonemos_pabaiga - kontekstas->fonemos_pradzia;
-	size_t siekiamas_fonemos_ilgis = (size_t) (fonemos_ilgis * greitinimo_koef);
+	unsigned int fonemos_ilgis = kontekstas->fonemos_pabaiga - kontekstas->fonemos_pradzia;
+	unsigned int siekiamas_fonemos_ilgis = (unsigned int) (fonemos_ilgis * greitinimo_koef);
 	int siekiamas_pailginimas = siekiamas_fonemos_ilgis - fonemos_ilgis;
 	
 	int burbulu_sk = 0;
@@ -529,8 +529,8 @@ void ilginimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 		
 		// perskai\xE8iuojame parametrus galimos_srities_pradzia ir galimos_srities_pabaiga, 
 		// kad atitikt\xF8 pirm\xE0 gars\xF8 baz\xEBs fonem\xE0 (pauz\xE6)
-		galimos_srities_pradzia = (size_t) (pauzes_galimos_srities_pradzia * fonemu_ilgiai[0]);
-		galimos_srities_pabaiga = (size_t) (pauzes_galimos_srities_pabaiga * fonemu_ilgiai[0]); 
+		galimos_srities_pradzia = (unsigned int) (pauzes_galimos_srities_pradzia * fonemu_ilgiai[0]);
+		galimos_srities_pabaiga = (unsigned int) (pauzes_galimos_srities_pabaiga * fonemu_ilgiai[0]); 
 	}
 		
 	// Algoritmas: burbulus parenkame atsitiktinai, kol pasiekiame norim\xE0 pailg\xEBjim\xE0. 
@@ -544,20 +544,20 @@ void ilginimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 
 	while (trukstamas_pailginimas > 0) {
 		// atsitiktinai parenkame burbulo ilg\xE1
-		size_t burbulo_plotis = (size_t) ((((double)rand())/RAND_MAX)*galimos_srities_ilgis);
+		unsigned int burbulo_plotis = (unsigned int) ((((double)rand())/RAND_MAX)*galimos_srities_ilgis);
 
 		// jei per ilgas burbulas, suma\xFEiname iki reikiamo ilgio
-		if (burbulo_plotis/2 > (size_t)trukstamas_pailginimas)
+		if (burbulo_plotis/2 > (unsigned int)trukstamas_pailginimas)
 			burbulo_plotis = trukstamas_pailginimas*2;
 
 		// atsitiktinai parenkame burbulo prad\xFEios pozicij\xE0 leistinoje srityje
-		size_t burbulo_pradzia = (size_t) ((((double)rand())/RAND_MAX)*(galimos_srities_ilgis-burbulo_plotis));
+		unsigned int burbulo_pradzia = (unsigned int) ((((double)rand())/RAND_MAX)*(galimos_srities_ilgis-burbulo_plotis));
 
 		// suformuojame burbul\xE0
 		kontekstas->burbulai[burbulu_sk].pradzia = galimos_srities_pradzia + burbulo_pradzia;
 		kontekstas->burbulai[burbulu_sk].pabaiga = kontekstas->burbulai[burbulu_sk].pradzia + burbulo_plotis;
 		kontekstas->burbulai[burbulu_sk].vidurys 
-			= (size_t) (kontekstas->burbulai[burbulu_sk].pradzia + kontekstas->burbulai[burbulu_sk].pabaiga)/2;
+			= (unsigned int) (kontekstas->burbulai[burbulu_sk].pradzia + kontekstas->burbulai[burbulu_sk].pabaiga)/2;
 		kontekstas->burbulai[burbulu_sk].kartai = 1;
 
 		if (debuginam > 100) {
@@ -613,9 +613,9 @@ void ilginimo_euristika_duslieji (struct tkontekstas * kontekstas)
 		kontekstas->keiciamu_burbulu_sk = 1;
 		
 		// suformuojame burbul\xE0
-		kontekstas->burbulai[0].pradzia = kontekstas->fonemos_pradzia + (size_t) (0.30 * fonemu_ilgiai[kontekstas->fonemos_nr]);
-		kontekstas->burbulai[0].vidurys = kontekstas->fonemos_pradzia + (size_t) (0.40 * fonemu_ilgiai[kontekstas->fonemos_nr]);
-		kontekstas->burbulai[0].pabaiga = kontekstas->fonemos_pradzia + (size_t) (0.50 * fonemu_ilgiai[kontekstas->fonemos_nr]);
+		kontekstas->burbulai[0].pradzia = kontekstas->fonemos_pradzia + (unsigned int) (0.30 * fonemu_ilgiai[kontekstas->fonemos_nr]);
+		kontekstas->burbulai[0].vidurys = kontekstas->fonemos_pradzia + (unsigned int) (0.40 * fonemu_ilgiai[kontekstas->fonemos_nr]);
+		kontekstas->burbulai[0].pabaiga = kontekstas->fonemos_pradzia + (unsigned int) (0.50 * fonemu_ilgiai[kontekstas->fonemos_nr]);
 		kontekstas->burbulai[0].kartai = 1;
 		//kontekstas->burbulai[0].pikai = 0;
 		
@@ -624,8 +624,8 @@ void ilginimo_euristika_duslieji (struct tkontekstas * kontekstas)
 	case 3:
 		// 3. Visus trumpinti/ilginti vienodai (tiek kart\xF8, kiek liepia greitinimo_koef)
 		ilginimo_euristika_duslieji_scenarijus3 (
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
 			kontekstas->greitinimo_koef, kontekstas);
 		break;
 		
@@ -633,8 +633,8 @@ void ilginimo_euristika_duslieji (struct tkontekstas * kontekstas)
 		// 4. Visus trumpinti/ilginti proporcingai, priklausomai nuo fonemos pavadinimo 
 		// (balsius labiausiai, kitus ma\xFEiau, sprogstamuosius dar ma\xFEiau, r nekeisti)
 		ilginimo_euristika_duslieji_scenarijus3 (
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
 			koreguoti_greitinimo_koef_scenarijus4 (kontekstas), kontekstas);
 		break;
 		
@@ -642,8 +642,8 @@ void ilginimo_euristika_duslieji (struct tkontekstas * kontekstas)
 		// 5. Stengtis pritempti iki tos fonemos ilgio vidurkio, priklausomai nuo scenarijaus5_koeficientas
 		
 		ilginimo_euristika_duslieji_scenarijus3 (
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
 			koreguoti_greitinimo_koef_scenarijus5 (kontekstas->fonemos_pabaiga - kontekstas->fonemos_pradzia, kontekstas), kontekstas);
 		break;
 		
@@ -666,8 +666,8 @@ galimos_srities_pabaiga - galimos srities pabaigos indeksas signalo masyve.
 Greitinimo koeficientas paduodamas tam, 
 kad b\xFBt\xF8 galima i\xF0kviesti 4 scenarijuje su skirtingais greitinimo koeficientais
 *********************************************************/
-void trumpinimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia, 
-											  size_t galimos_srities_pabaiga,
+void trumpinimo_euristika_duslieji_scenarijus3 (unsigned int galimos_srities_pradzia, 
+											  unsigned int galimos_srities_pabaiga,
 											  double greitinimo_koef, struct tkontekstas * kontekstas)
 {
 	// reikia 5 scenarijuje
@@ -679,14 +679,14 @@ void trumpinimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 
 	// i\xF0siai\xF0kinkime, kiek reikia patrumpinti fonem\xE0
 
-	size_t fonemos_ilgis = kontekstas->fonemos_pabaiga - kontekstas->fonemos_pradzia;
-	size_t siekiamas_fonemos_ilgis = (size_t) (fonemos_ilgis * greitinimo_koef);
-	size_t siekiamas_patrumpinimas = fonemos_ilgis - siekiamas_fonemos_ilgis;
+	unsigned int fonemos_ilgis = kontekstas->fonemos_pabaiga - kontekstas->fonemos_pradzia;
+	unsigned int siekiamas_fonemos_ilgis = (unsigned int) (fonemos_ilgis * greitinimo_koef);
+	unsigned int siekiamas_patrumpinimas = fonemos_ilgis - siekiamas_fonemos_ilgis;
 
 	// randame leistinosios srities ilg\xE1
 
-	size_t galimos_srities_centras = (galimos_srities_pradzia + galimos_srities_pabaiga)/2;
-	size_t galimos_srities_ilgis = galimos_srities_pabaiga - galimos_srities_pradzia;
+	unsigned int galimos_srities_centras = (galimos_srities_pradzia + galimos_srities_pabaiga)/2;
+	unsigned int galimos_srities_ilgis = galimos_srities_pabaiga - galimos_srities_pradzia;
 
 	// jei i\xF0saugoti reikia vis\xE0 leistin\xE0j\xE0 srit\xE1, nieko nedarome
 	if (galimos_srities_ilgis <= ISSAUGOTI_GALIMOS_SRITIES_ILGIO) {
@@ -696,9 +696,9 @@ void trumpinimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 
 	// Paskai\xE8iuokime, kiek galime patrumpinti fonem\xE0.
 
-	size_t galimas_patrumpinimas = galimos_srities_ilgis - ISSAUGOTI_GALIMOS_SRITIES_ILGIO;
+	unsigned int galimas_patrumpinimas = galimos_srities_ilgis - ISSAUGOTI_GALIMOS_SRITIES_ILGIO;
 
-	size_t busimas_patrumpinimas = 0;
+	unsigned int busimas_patrumpinimas = 0;
 	if (siekiamas_patrumpinimas > galimas_patrumpinimas)
 		busimas_patrumpinimas = galimas_patrumpinimas;
 	else
@@ -721,8 +721,8 @@ void trumpinimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 		
 		kontekstas->keiciamu_burbulu_sk = 2;
 
-		size_t burbulu_srities_ilgis = busimas_patrumpinimas + ISSAUGOTI_GALIMOS_SRITIES_ILGIO;
-		size_t burbulu_srities_pradzia = galimos_srities_centras - burbulu_srities_ilgis/2;
+		unsigned int burbulu_srities_ilgis = busimas_patrumpinimas + ISSAUGOTI_GALIMOS_SRITIES_ILGIO;
+		unsigned int burbulu_srities_pradzia = galimos_srities_centras - burbulu_srities_ilgis/2;
 		
 		// suformuojame burbulus
 
@@ -744,7 +744,7 @@ void trumpinimo_euristika_duslieji_scenarijus3 (size_t galimos_srities_pradzia,
 /*********************************************************
 Leistinos srities rib\xF8 dusli\xF8j\xF8 gars\xF8 trumpinimui nustatymas
 *********************************************************/
-void leistinos_srities_ribos_dusliuju_trumpinimui (size_t fonemos_nr, double * galimos_srities_pradzia, double * galimos_srities_pabaiga)
+void leistinos_srities_ribos_dusliuju_trumpinimui (unsigned int fonemos_nr, double * galimos_srities_pradzia, double * galimos_srities_pabaiga)
 {
 	// kol kas nesiskiria nuo leistinosios srities rib\xF8 dusli\xF8j\xF8 gars\xF8 ilginimui,
 	// ta\xE8iau jei reik\xEBs, kad skirt\xF8si, galima bus pakeisti
@@ -778,9 +778,9 @@ void trumpinimo_euristika_duslieji (struct tkontekstas * kontekstas)
 		kontekstas->keiciamu_burbulu_sk = 1;
 		
 		// suformuojame burbul\xE0
-		kontekstas->burbulai[0].pradzia = kontekstas->fonemos_pradzia + (size_t) (0.30 * fonemu_ilgiai[kontekstas->fonemos_nr]);
-		kontekstas->burbulai[0].vidurys = kontekstas->fonemos_pradzia + (size_t) (0.40 * fonemu_ilgiai[kontekstas->fonemos_nr]);
-		kontekstas->burbulai[0].pabaiga = kontekstas->fonemos_pradzia + (size_t) (0.50 * fonemu_ilgiai[kontekstas->fonemos_nr]);
+		kontekstas->burbulai[0].pradzia = kontekstas->fonemos_pradzia + (unsigned int) (0.30 * fonemu_ilgiai[kontekstas->fonemos_nr]);
+		kontekstas->burbulai[0].vidurys = kontekstas->fonemos_pradzia + (unsigned int) (0.40 * fonemu_ilgiai[kontekstas->fonemos_nr]);
+		kontekstas->burbulai[0].pabaiga = kontekstas->fonemos_pradzia + (unsigned int) (0.50 * fonemu_ilgiai[kontekstas->fonemos_nr]);
 		kontekstas->burbulai[0].kartai = 1;
 		//kontekstas->burbulai[0].pikai = 0;
 		
@@ -789,8 +789,8 @@ void trumpinimo_euristika_duslieji (struct tkontekstas * kontekstas)
 	case 3:
 		// 3. Visus trumpinti/ilginti vienodai (tiek kart\xF8, kiek liepia greitinimo_koef)
 		trumpinimo_euristika_duslieji_scenarijus3 (
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
 			kontekstas->greitinimo_koef, kontekstas);
 		break;
 		
@@ -798,8 +798,8 @@ void trumpinimo_euristika_duslieji (struct tkontekstas * kontekstas)
 		// 4. Visus trumpinti/ilginti proporcingai, priklausomai nuo fonemos pavadinimo 
 		// (balsius labiausiai, kitus ma\xFEiau, sprogstamuosius dar ma\xFEiau, r nekeisti)
 		trumpinimo_euristika_duslieji_scenarijus3 (
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
 			koreguoti_greitinimo_koef_scenarijus4 (kontekstas), kontekstas);
 		break;
 		
@@ -807,8 +807,8 @@ void trumpinimo_euristika_duslieji (struct tkontekstas * kontekstas)
 		// 5. Stengtis pritempti iki tos fonemos ilgio vidurkio, priklausomai nuo scenarijaus5_koeficientas
 		
 		trumpinimo_euristika_duslieji_scenarijus3 (
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
-			kontekstas->fonemos_pradzia + (size_t) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pradzia * fonemu_ilgiai[kontekstas->fonemos_nr]), 
+			kontekstas->fonemos_pradzia + (unsigned int) (galimos_srities_pabaiga * fonemu_ilgiai[kontekstas->fonemos_nr]), 
 			koreguoti_greitinimo_koef_scenarijus5 (kontekstas->fonemos_pabaiga - kontekstas->fonemos_pradzia, kontekstas), kontekstas);
 		break;
 		

@@ -58,7 +58,7 @@ void atlaisvinti_atminti_ir_inicializuoti()
 	if (signalas != NULL) { free(signalas); signalas = NULL; }
 	signalo_ilgis = 0;
 	if (fonemos != NULL) {
-		for (size_t i = 0; i < fonemu_kiekis; i++) {
+		for (unsigned int i = 0; i < fonemu_kiekis; i++) {
 			if (fonemos[i] != NULL) { free(fonemos[i]); fonemos[i] = NULL; }
 		}
 		free(fonemos); fonemos = NULL;
@@ -115,7 +115,7 @@ void spausdinti_loga(char* pranesimas)
  * Prie\xF0 kvie\xE8iant \xF0i\xE0 funkcij\xE0, nuskaityti duomenis ir apskai\xE8iuoti greitinimo_koef.
  * Gr\xE0\xFEina rekomenduojam\xE0 naujo signalo masyvo ilg\xE1 - \xF0iek tiek didesn\xE1, nei reikt\xF8 pagal greitinimo koeficient\xE0.
  ********************************************************/
-size_t rekomenduoti_naujo_signalo_masyvo_ilgi (int greitis, int tono_aukscio_pokytis) // ivertinti_naujo_signalo_ilgi ?
+unsigned int rekomenduoti_naujo_signalo_masyvo_ilgi (int greitis, int tono_aukscio_pokytis) // ivertinti_naujo_signalo_ilgi ?
 {
 	// TODO: tur\xEBt\xF8 atsi\xFEvelgti ir \xE1 tono_aukscio_pokytis (kaip?)
 
@@ -133,7 +133,7 @@ size_t rekomenduoti_naujo_signalo_masyvo_ilgi (int greitis, int tono_aukscio_pok
 	if (greitis < 60)
 		padidintas_koef *= NAUJO_SIGNALO_MASYVO_ILGIO_KOEF;
 
-	return (size_t) (signalo_ilgis * padidintas_koef);
+	return (unsigned int) (signalo_ilgis * padidintas_koef);
 }
 
 /*********************************************************
@@ -264,14 +264,14 @@ int apskaiciuoti_pirmojo_piko_nr_fonemose ()
 	int pirmojo_piko_nr = 0;
 
 	// kiekvienai fonemai darome \xF0tai k\xE0:
-	for (size_t fonemos_nr = 0; fonemos_nr < fonemu_kiekis; fonemos_nr++) {
+	for (unsigned int fonemos_nr = 0; fonemos_nr < fonemu_kiekis; fonemos_nr++) {
 
 		// randame fonemos pabaig\xE0
 		fonemos_pabaiga = fonemos_pradzia + fonemu_ilgiai[fonemos_nr];
 
 		// suskai\xE8iuojame, kiek pik\xF8 yra tarp prad\xFEios ir pabaigos
 		int piku_sk = 0; 
-		size_t i = pirmojo_piko_nr;
+		unsigned int i = pirmojo_piko_nr;
 		while (i < piku_kiekis && pikai[i] < fonemos_pabaiga) 
 			i++;
 		piku_sk = (int) i - pirmojo_piko_nr;
@@ -558,7 +558,7 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 	}
 
 	// \xE1vertiname pailginto signalo masyvo ilg\xE1
-	size_t naujo_signalo_masyvo_ilgis = rekomenduoti_naujo_signalo_masyvo_ilgi (greitis, tono_aukscio_pokytis);
+	unsigned int naujo_signalo_masyvo_ilgis = rekomenduoti_naujo_signalo_masyvo_ilgi (greitis, tono_aukscio_pokytis);
 
 	// pa\xFEymime, kad masyv\xE0 naujas_signalas galima ilginti, jei nety\xE8ia jam i\xF0skirta per ma\xFEai atminties
 	int galima_pailginti_naujas_signalas = 1;
@@ -600,9 +600,9 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 
 	// ------------------------- Skai\xE8iuojame --------------------------------- //
 
-	size_t einamasis_naujo_signalo_nr = 0;
+	unsigned int einamasis_naujo_signalo_nr = 0;
 
-	for (size_t fonemos_nr = 0; fonemos_nr < fonemu_kiekis; fonemos_nr++) {
+	for (unsigned int fonemos_nr = 0; fonemos_nr < fonemu_kiekis; fonemos_nr++) {
 		
 		// kiekvienai fonemai kvie\xE8iame change_phoneme_rate_internal() funkcij\xE0
 		int naujas_fonemos_ilgis = change_phoneme_rate_internal (

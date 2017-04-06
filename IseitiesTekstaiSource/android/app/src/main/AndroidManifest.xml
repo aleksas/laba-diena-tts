@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gscoder.android.liepa">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:label="Liepa TTS Service">
+
+        <service
+            android:name=".LiepaTTSService"
+            android:label="Liepa TTS Service"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.TTS_SERVICE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.speech.tts"
+                android:resource="@xml/tts_engine" />
+        </service>
+
+        <activity
+            android:name=".LiepaManager"
+            android:enabled="true"
+            android:label="@string/settings_title"
+            android:launchMode="standard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DownloadVoiceData"
+            android:label="@string/liepa_voice_manager"
+            android:theme="@android:style/Theme.Holo"
+            android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CheckVoiceData"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.CHECK_TTS_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GetSampleText"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.GET_SAMPLE_TEXT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:name=".TtsSettingsActivity"
+            android:targetActivity=".LiepaManager" />
+        <activity-alias
+            android:name=".EngineSettings"
+            android:targetActivity=".LiepaManager" />
+
+        <activity android:name=".LiepaInfoViewer"
+            android:configChanges="keyboardHidden|orientation">
+        </activity>
+        <activity android:name=".TTSDemo"
+            android:configChanges="keyboardHidden|orientation" >
+        </activity>
+
+        <!-- Legacy Code for pre-ICS compatibility -->
+
+        <activity
+            android:name=".Liepa"
+            android:enabled="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.START_TTS_ENGINE" />
+
+                <category android:name="android.intent.category.tts_engine.LIEPA" />
+                <category android:name="android.intent.category.tts_lang.lit.LTU" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.gscoder.android.liepa.providers.SettingsProvider"
+            android:authorities="com.gscoder.android.liepa.providers.SettingsProvider" />
+
+    </application>
+
+</manifest>

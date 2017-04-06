@@ -76,7 +76,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 string rulesArray[MAX_RULES];
 int totalRules;
 
-char* SimbPavad(char Simb)
+const char* SimbPavad(char Simb)
 {
 	switch (Simb)
 	{
@@ -798,7 +798,7 @@ EXPORT int spellText(char * buffer, char * retBuffer, int bufferSize, int * letP
 	int currentIndex = 0;
 	while (bufferString.at(currentIndex) != '\n')
 	{
-		char * symbolText = SimbPavad(bufferString.at(currentIndex));
+		const char * symbolText = SimbPavad(bufferString.at(currentIndex));
 		int symbolTextLength = strlen(symbolText);
 		bufferString.replace(currentIndex, 1, symbolText);
 		currentIndex += symbolTextLength;
@@ -1035,7 +1035,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 
 							if ((filledPattern[patternIndex] == 'L') || (filledPattern[patternIndex] == 'D'))
 							{
-								char * symbolText = SimbPavad(bufferString.at(w));
+								const char * symbolText = SimbPavad(bufferString.at(w));
 								int symbolTextLength = strlen(symbolText);
 								if (symbolTextLength != 0)
 								{
@@ -1152,7 +1152,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 
 								if (digitsList.find(bufferString.at(w))!=-1)
 								{
-									char * symbolText = SimbPavad(bufferString.at(w));
+									const char * symbolText = SimbPavad(bufferString.at(w));
 									int symbolTextLength = strlen(symbolText);
 									if (symbolTextLength != 0)
 									{
@@ -1205,7 +1205,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 						
 						if (isToBeSkipped == false)
 						{
-							char * symbolText = SimbPavad(bufferString.at(findResult));
+							const char * symbolText = SimbPavad(bufferString.at(findResult));
 							int symbolTextLength = strlen(symbolText);
 												
 							if ((findResult > 0) && (bufferString.at(findResult-1) != ' '))
@@ -1229,7 +1229,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 							{
 								if (symbolTextLength != 0)
 								{
-									bufferString.insert(findResult+1, symbolText);
+									bufferString.insert(findResult+1, (char*)symbolText);
 									findResult++;
 									findResult+=symbolTextLength;
 								}
@@ -1265,7 +1265,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 							{
 								for (int w = wordStartIndex; w < wordEndIndex; w++)
 								{
-									char * symbolText = SimbPavad(bufferString.at(w));
+									const char * symbolText = SimbPavad(bufferString.at(w));
 									int symbolTextLength = strlen(symbolText);
 									if (symbolTextLength != 0)
 									{

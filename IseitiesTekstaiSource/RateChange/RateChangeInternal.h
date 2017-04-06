@@ -10,8 +10,6 @@
 #ifndef RATECHANGEINTERNAL_H
 #define RATECHANGEINTERNAL_H
 
-#include <stddef.h>
-
 /*********************************************************
  * Konstantos
  ********************************************************/
@@ -67,9 +65,9 @@ Fonem\xF8 klasi\xF8 numeriai pagal fonemos pavadinimo pirm\xE0j\xE0 raid\xE6:
 struct burbulas
 {
 	// burbulo koordinat\xEBs
-	size_t pradzia;
-	size_t vidurys;
-	size_t pabaiga;
+	unsigned int pradzia;
+	unsigned int vidurys;
+	unsigned int pabaiga;
 
 	// kiek kart\xF8 dubliuoti burbul\xE0
 	int kartai;
@@ -128,20 +126,20 @@ struct tkontekstas {
 	int einamasis_postumis;
 	
 	// einamasis garso signalo masyvo indeksas
-	size_t einamasis_signalo_nr;
+	unsigned int einamasis_signalo_nr;
 	
 	// garso signalo masyvas, i\xF0skiriamas dinami\xF0kai
 	short * naujas_signalas;
 	
 	// naujojo garso signalo masyvo ilgis (ne signalo ilgis, o kiek i\xF0skirta vietos masyvui. 
 	// Paprastai masyvo ilgis didesnis u\xFE signalo ilg\xE1)
-	size_t naujo_signalo_masyvo_ilgis;
+	unsigned int naujo_signalo_masyvo_ilgis;
 	
 	// garso signalo ilgis
-	//size_t naujo_signalo_ilgis;
+	//unsigned int naujo_signalo_ilgis;
 	
 	// einamasis naujo garso signalo masyvo indeksas
-	size_t einamasis_naujo_signalo_nr;
+	unsigned int einamasis_naujo_signalo_nr;
 
 	// nurodo, ar galima pailginti masyv\xE0 naujas_signalas, jei per trumpas (0 - negalima, !=0 - galima)
 	// (negalima - jei masyvas naujas_signalas gautas i\xF0 i\xF0or\xEBs (jei greitinama i\xF0 funkcijos change_phoneme_rate), 
@@ -177,21 +175,21 @@ struct tkontekstas {
 
 extern char signalo_failo_pavadinimas[];
 extern short * signalas;
-extern size_t signalo_ilgis;
+extern unsigned int signalo_ilgis;
 extern char * naujo_signalo_failo_pavadinimas;
 extern char fonemu_failo_pavadinimas[];
 extern char ** fonemos;
 extern int * fonemu_ilgiai;
-extern size_t fonemu_kiekis;
+extern unsigned int fonemu_kiekis;
 extern char * naujo_fonemu_failo_pavadinimas;
 extern int * nauji_fonemu_ilgiai;
 extern char vidutiniu_ilgiu_fonemu_failo_pavadinimas[];
 extern char ** skirtingos_fonemos;
 extern int * vidutiniai_fonemu_ilgiai;
-extern size_t skirtingu_fonemu_kiekis;
+extern unsigned int skirtingu_fonemu_kiekis;
 extern char piku_failo_pavadinimas[];
 extern unsigned int * pikai;
-extern size_t piku_kiekis;
+extern unsigned int piku_kiekis;
 extern const int scenarijus;
 extern double scenarijaus5_koeficientas;
 
@@ -199,7 +197,7 @@ void klaida (char * klaidos_pranesimas);
 void spausdinti_burbulus (struct burbulas * burbulai, int burbulu_sk);
 int kopijuoti_signala_pradzioj (struct tkontekstas * kontekstas);
 int kopijuoti_signala_pabaigoj (struct tkontekstas * kontekstas);
-int kopijuoti_signala (size_t iki, struct tkontekstas * kontekstas);
+int kopijuoti_signala (unsigned int iki, struct tkontekstas * kontekstas);
 int trumpinti_fonema (struct tkontekstas * kontekstas);
 int ilginti_fonema (struct tkontekstas * kontekstas);
 int vykdyti (int greitis, int tono_aukscio_pokytis, struct tkontekstas * kontekstas);
@@ -211,7 +209,7 @@ int vykdyti (int greitis, int tono_aukscio_pokytis, struct tkontekstas * konteks
 void sukurti_kataloga (char * katalogoVardas);
 int failu_sarasas_is_katalogo (char * katalogoVardas, char ** failu_vardai);
 
-int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, int ** fonemu_ilgiai1, size_t * fonemu_kiekis1);
+int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, int ** fonemu_ilgiai1, unsigned int * fonemu_kiekis1);
 int nuskaityti_duomenis ();
 int nuskaityti_ilginimo_koeficientus (char * failo_pavadinimas, float ** pateikti_koef1, float ** faktiniai_koef1, int * koef_skaicius);
 

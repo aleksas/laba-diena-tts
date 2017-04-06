@@ -63,7 +63,7 @@ int keitimo_kaina_DK_precalculated[MAX_DIFFERENT_UNITS][MAX_DIFFERENT_UNITS][MAX
 int keitimo_kaina_KK_precalculated[MAX_DIFFERENT_UNITS][MAX_DIFFERENT_UNITS][MAX_DIFFERENT_UNITS];
 
 const int FonSk = 92;
-static struct FonVardai{ char *fv; unsigned short id; } FonV[FonSk] = {
+static struct FonVardai{ const char *fv; unsigned short id; } FonV[FonSk] = {
 	{ "_", 0 },
 	{ "i", 1 },
 	{ "e", 2 },
