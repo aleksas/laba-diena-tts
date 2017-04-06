@@ -13,6 +13,8 @@ import java.nio.charset.Charset;
 public class NativeLiepaTTS {
     private final static String LOG_TAG = "Liepa_Java_" + NativeLiepaTTS.class.getSimpleName();
 
+    private static NativeLiepaTTS instance = null;
+
     private final SynthReadyCallback mCallback;
 
     private String mDataPath = "";
@@ -20,7 +22,7 @@ public class NativeLiepaTTS {
     private int mSpeechRate = 150;
     private int mPitch = 100;
 
-    public  NativeLiepaTTS(String datapath, SynthReadyCallback callback) throws Exception
+    protected  NativeLiepaTTS(String datapath, SynthReadyCallback callback) throws Exception
     {
         mDataPath = datapath;
         mCallback = callback;
@@ -126,6 +128,13 @@ public class NativeLiepaTTS {
         void onSynthDataReady(byte[] audioData, int length);
 
         void onSynthDataComplete();
+    }
+
+    public static NativeLiepaTTS getInstance(String datapath, SynthReadyCallback callback) throws Exception {
+        if(instance == null) {
+            instance = new NativeLiepaTTS(datapath, callback);
+        }
+        return instance;
     }
 
     static native void loadLithUSS();

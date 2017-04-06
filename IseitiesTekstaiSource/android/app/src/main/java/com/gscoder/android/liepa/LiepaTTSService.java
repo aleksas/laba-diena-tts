@@ -48,20 +48,12 @@ public class LiepaTTSService extends TextToSpeechService {
         super.onCreate();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        mEngine.stop();
-    }
-
     private void initializeLiepaEngine() throws Exception {
-        if (mEngine != null) {
-            mEngine.stop();
-            mEngine = null;
+        if (mEngine == null) {
+            //mEngine.stop();
+            //mEngine = null;
+            mEngine = NativeLiepaTTS.getInstance(Voice.getDataStorageBasePath(), mSynthCallback);
         }
-
-        mEngine = new NativeLiepaTTS(Voice.getDataStorageBasePath(), mSynthCallback);
     }
 
     @Override
