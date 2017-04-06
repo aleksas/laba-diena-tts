@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
 // Failas LithUSS_Error.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)

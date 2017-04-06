@@ -1,9 +1,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
 // Failas ilgiai.cpp
-// Autorius dr. Margarita Beniuðë
+// Autorius dr. Margarita Beniu\xF0\xEB
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,8 +19,8 @@
 
 static struct FonIlgiai{char fv[4]; unsigned short id; unsigned short vid; unsigned short min; double koef[KoefSk];} FonIlg[FonSk] ;
 
-// + þodþio riba, - skiemens riba, tarpas fonemos riba,
-// sakinio pradþioje/pabaigoje yra pauzë, t.y. pabraukimo simbolis.
+// + \xFEod\xFEio riba, - skiemens riba, tarpas fonemos riba,
+// sakinio prad\xFEioje/pabaigoje yra pauz\xEB, t.y. pabraukimo simbolis.
 
 bool isBalsis(unsigned short id) {
 	if( BalsiaiStartId <= id && id < PriebalsiaiStartId )

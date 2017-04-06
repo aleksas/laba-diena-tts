@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas RateChange.dll
 // Failas RateChange.cpp
 // Autorius dr. Gintaras Skersys
@@ -29,25 +29,25 @@ EXPORT void unloadRateChange()
 }
 
 /*********************************************************
- * Globalûs kintamieji
+ * Global\xFBs kintamieji
  ********************************************************/
 
-// numeris pirmojo piko, esanèio einamosios fonemos pradþioje 
-// (tiksliau, pirmojo piko, nepriklausanèio prieð tai buvusiai fonemai. 
+// numeris pirmojo piko, esan\xE8io einamosios fonemos prad\xFEioje 
+// (tiksliau, pirmojo piko, nepriklausan\xE8io prie\xF0 tai buvusiai fonemai. 
 // Jis gali nepriklausyti ir einamajai, o kuriai nors tolimesnei).
 int * pirmojo_piko_nr_fonemose = NULL;
 
-// pikø skaièius fonemoje
+// pik\xF8 skai\xE8ius fonemoje
 int * piku_skaicius_fonemose = NULL;
 
-// fonemø pradþiø indeksai signalo masyve.
-// Kai naudojami dinaminiam greièio keitimui, nereikia atlaisvinti atminties, nes ji iðskiriama ne RateChange.dll'e.
-// Kai naudojami statiniam greièio keitimui, atmintis iðskiriama ir atlaisvinama change_DB_rate() funkcijoje.
+// fonem\xF8 prad\xFEi\xF8 indeksai signalo masyve.
+// Kai naudojami dinaminiam grei\xE8io keitimui, nereikia atlaisvinti atminties, nes ji i\xF0skiriama ne RateChange.dll'e.
+// Kai naudojami statiniam grei\xE8io keitimui, atmintis i\xF0skiriama ir atlaisvinama change_DB_rate() funkcijoje.
 long * fonemu_adresai = NULL;
 
-// jei ne nulis, iðveda papildomà informacijà apie programos darbà, apie kiekvienà apdorojamà fonemà
-// jei > 100, iðveda detalià informacijà
-// jei > 200, be proto daug detaliø
+// jei ne nulis, i\xF0veda papildom\xE0 informacij\xE0 apie programos darb\xE0, apie kiekvien\xE0 apdorojam\xE0 fonem\xE0
+// jei > 100, i\xF0veda detali\xE0 informacij\xE0
+// jei > 200, be proto daug detali\xF8
 int debuginam = 0;
 
 /*********************************************************
@@ -101,7 +101,7 @@ void atlaisvinti_atminti_ir_inicializuoti()
  ********************************************************/
 void spausdinti_loga(char* pranesimas)
 {
-	// Gintaras: pridëjau laiko þymæ
+	// Gintaras: prid\xEBjau laiko \xFEym\xE6
 	time_t mytime = time(NULL);
 	char * mytime_string = ctime(&mytime);
 	FILE *stream;
@@ -112,12 +112,12 @@ void spausdinti_loga(char* pranesimas)
 }
 
 /*********************************************************
- * Prieð kvieèiant ðià funkcijà, nuskaityti duomenis ir apskaièiuoti greitinimo_koef.
- * Gràþina rekomenduojamà naujo signalo masyvo ilgá - ðiek tiek didesná, nei reiktø pagal greitinimo koeficientà.
+ * Prie\xF0 kvie\xE8iant \xF0i\xE0 funkcij\xE0, nuskaityti duomenis ir apskai\xE8iuoti greitinimo_koef.
+ * Gr\xE0\xFEina rekomenduojam\xE0 naujo signalo masyvo ilg\xE1 - \xF0iek tiek didesn\xE1, nei reikt\xF8 pagal greitinimo koeficient\xE0.
  ********************************************************/
 size_t rekomenduoti_naujo_signalo_masyvo_ilgi (int greitis, int tono_aukscio_pokytis) // ivertinti_naujo_signalo_ilgi ?
 {
-	// TODO: turëtø atsiþvelgti ir á tono_aukscio_pokytis (kaip?)
+	// TODO: tur\xEBt\xF8 atsi\xFEvelgti ir \xE1 tono_aukscio_pokytis (kaip?)
 
 	if (greitis == 100 && tono_aukscio_pokytis == 100)
 		// naujo signalo ilgis sutaps su seno
@@ -125,11 +125,11 @@ size_t rekomenduoti_naujo_signalo_masyvo_ilgi (int greitis, int tono_aukscio_pok
 
 	double greitinimo_koef = (double) greitis/100;
 
-	// dël visa ko dar kiek padidinkime koeficientà
+	// d\xEBl visa ko dar kiek padidinkime koeficient\xE0
 	double padidintas_koef = greitinimo_koef * NAUJO_SIGNALO_MASYVO_ILGIO_KOEF;
 
-	// jei signalà reikia labai sutrumpinti, gali bûti, kad tiek sutrumpinti nepavyks, ir signalo ilgis bus didesnis. 
-	// Tokiu atveju dël visa ko geriau iðskirkime daugiau atminties.
+	// jei signal\xE0 reikia labai sutrumpinti, gali b\xFBti, kad tiek sutrumpinti nepavyks, ir signalo ilgis bus didesnis. 
+	// Tokiu atveju d\xEBl visa ko geriau i\xF0skirkime daugiau atminties.
 	if (greitis < 60)
 		padidintas_koef *= NAUJO_SIGNALO_MASYVO_ILGIO_KOEF;
 
@@ -137,9 +137,9 @@ size_t rekomenduoti_naujo_signalo_masyvo_ilgi (int greitis, int tono_aukscio_pok
 }
 
 /*********************************************************
- * Konteksto sukûrimas ir inicializavimas turi vykti tik ðioje procedûroje, 
- * kad pakeitus konteksto sandarà (pridëjus naujø laukø), 
- * uþtektø pakeisti kodà tik ðioje funkcijoje.
+ * Konteksto suk\xFBrimas ir inicializavimas turi vykti tik \xF0ioje proced\xFBroje, 
+ * kad pakeitus konteksto sandar\xE0 (prid\xEBjus nauj\xF8 lauk\xF8), 
+ * u\xFEtekt\xF8 pakeisti kod\xE0 tik \xF0ioje funkcijoje.
  ********************************************************/
 void init_konteksta (struct tkontekstas * kontekstas) {
 	kontekstas->fonemos_nr = 0;
@@ -162,9 +162,9 @@ void init_konteksta (struct tkontekstas * kontekstas) {
 }
 
 /*********************************************************
- * Konteksto sukûrimas ir inicializavimas turi vykti tik ðioje procedûroje, 
- * kad pakeitus konteksto sandarà (pridëjus naujø laukø), 
- * uþtektø pakeisti kodà tik ðioje funkcijoje.
+ * Konteksto suk\xFBrimas ir inicializavimas turi vykti tik \xF0ioje proced\xFBroje, 
+ * kad pakeitus konteksto sandar\xE0 (prid\xEBjus nauj\xF8 lauk\xF8), 
+ * u\xFEtekt\xF8 pakeisti kod\xE0 tik \xF0ioje funkcijoje.
  ********************************************************/
 void spausdinti_konteksta (struct tkontekstas * kontekstas) {
 	char pranesimas [2048];
@@ -193,11 +193,11 @@ void spausdinti_konteksta (struct tkontekstas * kontekstas) {
 }
 
 /*********************************************************
-Gràþina fonemos klasës numerá pagal fonemos pavadinimo pirmàjà raidæ:
-0 - turintys pikø informacijà (skardieji priebalsiai, balsiai, t.y. visi, iðskyrus x, f, p, t, k, s, S, _, r, R, z, Z, H)
-1 - neturintys pikø informacijos (duslieji priebalsiai, t.y. x, f, p, t, k, s, S, _)
-2 - gali turëti ar neturëti pikø informacijos, todël gali bûti priskirti kuriai nors ið pirmøjø dviejø klasiø - reikia papildomo tikrinimo (z, Z, h),
-3 - neaiðku, kà daryti (r, R).
+Gr\xE0\xFEina fonemos klas\xEBs numer\xE1 pagal fonemos pavadinimo pirm\xE0j\xE0 raid\xE6:
+0 - turintys pik\xF8 informacij\xE0 (skardieji priebalsiai, balsiai, t.y. visi, i\xF0skyrus x, f, p, t, k, s, S, _, r, R, z, Z, H)
+1 - neturintys pik\xF8 informacijos (duslieji priebalsiai, t.y. x, f, p, t, k, s, S, _)
+2 - gali tur\xEBti ar netur\xEBti pik\xF8 informacijos, tod\xEBl gali b\xFBti priskirti kuriai nors i\xF0 pirm\xF8j\xF8 dviej\xF8 klasi\xF8 - reikia papildomo tikrinimo (z, Z, h),
+3 - neai\xF0ku, k\xE0 daryti (r, R).
 *********************************************************/
 int fonemosKlase (struct tkontekstas * kontekstas)
 {
@@ -246,7 +246,7 @@ int fonemosKlase (struct tkontekstas * kontekstas)
  ********************************************************/
 int apskaiciuoti_pirmojo_piko_nr_fonemose ()
 {
-	// iðskiriame atminties
+	// i\xF0skiriame atminties
 	pirmojo_piko_nr_fonemose = (int *) malloc ((fonemu_kiekis+1) * sizeof(int));
 	if(pirmojo_piko_nr_fonemose == NULL) 
 		return ERROR_RATECHANGE_MEMORY_ALLOCATION_FOR_PIK_INFO;
@@ -254,33 +254,33 @@ int apskaiciuoti_pirmojo_piko_nr_fonemose ()
 	if(pirmojo_piko_nr_fonemose == NULL) 
 		return ERROR_RATECHANGE_MEMORY_ALLOCATION_FOR_PIK_INFO;
 
-	// einamosios fonemos pradþia ir pabaiga
+	// einamosios fonemos prad\xFEia ir pabaiga
 	unsigned int fonemos_pradzia = 0;
 	unsigned int fonemos_pabaiga = 0;
 
-	// numeris pirmojo piko, esanèio einamosios fonemos pradþioje 
-	// (tiksliau, pirmojo piko, nepriklausanèio prieð tai buvusiai fonemai. 
+	// numeris pirmojo piko, esan\xE8io einamosios fonemos prad\xFEioje 
+	// (tiksliau, pirmojo piko, nepriklausan\xE8io prie\xF0 tai buvusiai fonemai. 
 	// Jis gali nepriklausyti ir einamajai, o kuriai nors tolimesnei).
 	int pirmojo_piko_nr = 0;
 
-	// kiekvienai fonemai darome ðtai kà:
+	// kiekvienai fonemai darome \xF0tai k\xE0:
 	for (size_t fonemos_nr = 0; fonemos_nr < fonemu_kiekis; fonemos_nr++) {
 
-		// randame fonemos pabaigà
+		// randame fonemos pabaig\xE0
 		fonemos_pabaiga = fonemos_pradzia + fonemu_ilgiai[fonemos_nr];
 
-		// suskaièiuojame, kiek pikø yra tarp pradþios ir pabaigos
+		// suskai\xE8iuojame, kiek pik\xF8 yra tarp prad\xFEios ir pabaigos
 		int piku_sk = 0; 
 		size_t i = pirmojo_piko_nr;
 		while (i < piku_kiekis && pikai[i] < fonemos_pabaiga) 
 			i++;
 		piku_sk = (int) i - pirmojo_piko_nr;
 
-		// ásimename
+		// \xE1simename
 		pirmojo_piko_nr_fonemose [fonemos_nr] = pirmojo_piko_nr;
 		piku_skaicius_fonemose [fonemos_nr] = piku_sk;
 
-		// atnaujiname fonemos pradþià ir pirmojo piko nr
+		// atnaujiname fonemos prad\xFEi\xE0 ir pirmojo piko nr
 		fonemos_pradzia = fonemos_pabaiga;
 		pirmojo_piko_nr += piku_sk;
 	}
@@ -289,14 +289,14 @@ int apskaiciuoti_pirmojo_piko_nr_fonemose ()
 }
 
 /*********************************************************
- * pakeiciam fonemos, kurios numeris yra fonemos_nr, greitá ir tono aukðtá.
- * Parametras "greitis" nurodo procentais, kiek pailginti fonemà (pavyzdþiui, 120 reiðkia pailginti 1,2 karto).
- * Parametras "tono_aukscio_pokytis" nurodo procentais, kiek paaukðtinti pagrindiná tonà 
- * (pavyzdþiui, 120 reiðkia paaukðtinti 1,2 karto: jei pagrindinis tonas buvo 100 Hz, pasidarys 120 Hz).
- * Patá naujà signalà áraðo á naujas_signalas masyvà (tiksliau, prie jo prisumuoja).
- * Laikome, kad "naujas_signalas" rodo á prieð tai buvusios (jei buvo) fonemos pabaigà+1.
+ * pakeiciam fonemos, kurios numeris yra fonemos_nr, greit\xE1 ir tono auk\xF0t\xE1.
+ * Parametras "greitis" nurodo procentais, kiek pailginti fonem\xE0 (pavyzd\xFEiui, 120 rei\xF0kia pailginti 1,2 karto).
+ * Parametras "tono_aukscio_pokytis" nurodo procentais, kiek paauk\xF0tinti pagrindin\xE1 ton\xE0 
+ * (pavyzd\xFEiui, 120 rei\xF0kia paauk\xF0tinti 1,2 karto: jei pagrindinis tonas buvo 100 Hz, pasidarys 120 Hz).
+ * Pat\xE1 nauj\xE0 signal\xE0 \xE1ra\xF0o \xE1 naujas_signalas masyv\xE0 (tiksliau, prie jo prisumuoja).
+ * Laikome, kad "naujas_signalas" rodo \xE1 prie\xF0 tai buvusios (jei buvo) fonemos pabaig\xE0+1.
  *
- * Gràþina naujo signalo ilgá, jei pavyko, ir -1, jei nepavyko (jei masyve naujas_signalas neuþteko vietos).
+ * Gr\xE0\xFEina naujo signalo ilg\xE1, jei pavyko, ir -1, jei nepavyko (jei masyve naujas_signalas neu\xFEteko vietos).
  ********************************************************/
 int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigned int fonemos_nr, 
 						 short ** naujas_signalas, unsigned int * naujo_signalo_masyvo_ilgis, 
@@ -310,7 +310,7 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 
 	// ------------------------- Inicializuojame parametrus --------------------------------- //
 
-	// sukuriame kontekstà
+	// sukuriame kontekst\xE0
 	struct tkontekstas kkontekstas;
 	struct tkontekstas * kontekstas = &kkontekstas;
 	init_konteksta (kontekstas);
@@ -322,70 +322,70 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 
 	kontekstas->fonemos_nr = fonemos_nr;
 
-	// inicializuojame rezultatø masyvà
+	// inicializuojame rezultat\xF8 masyv\xE0
 	kontekstas->naujas_signalas = *naujas_signalas;
 	kontekstas->naujo_signalo_masyvo_ilgis = *naujo_signalo_masyvo_ilgis;
 	kontekstas->galima_pailginti_naujas_signalas = galima_pailginti_naujas_signalas;
 
-	// gràþiname rodykles á pradþià
+	// gr\xE0\xFEiname rodykles \xE1 prad\xFEi\xE0
 	kontekstas->einamasis_signalo_nr = fonemu_adresai [fonemos_nr];
 	kontekstas->einamasis_naujo_signalo_nr = einamasis_naujo_signalo_nr;
 
-	// inicializuojam einamàjá postûmá
+	// inicializuojam einam\xE0j\xE1 post\xFBm\xE1
 	kontekstas->einamasis_postumis = 0;
 	
-	// einamosios fonemos pradþia ir pabaiga
+	// einamosios fonemos prad\xFEia ir pabaiga
 	kontekstas->fonemos_pradzia = (int) fonemu_adresai [fonemos_nr];
 	kontekstas->fonemos_pabaiga = kontekstas->fonemos_pradzia + fonemu_ilgiai[fonemos_nr];
 
-	// numeris pirmojo piko, esanèio einamosios fonemos pradþioje 
-	// (tiksliau, pirmojo piko, nepriklausanèio prieð tai buvusiai fonemai. 
+	// numeris pirmojo piko, esan\xE8io einamosios fonemos prad\xFEioje 
+	// (tiksliau, pirmojo piko, nepriklausan\xE8io prie\xF0 tai buvusiai fonemai. 
 	// Jis gali nepriklausyti ir einamajai, o kuriai nors tolimesnei).
 	kontekstas->pirmojo_piko_nr = pirmojo_piko_nr_fonemose [fonemos_nr];
 
-	// kiek pikø yra tarp pradþios ir pabaigos
+	// kiek pik\xF8 yra tarp prad\xFEios ir pabaigos
 	kontekstas->piku_sk = piku_skaicius_fonemose [fonemos_nr];
 	
-	// nustatome fonemos klasæ
+	// nustatome fonemos klas\xE6
 	kontekstas->fonemos_klase = fonemosKlase (kontekstas);
 
-	// ar keisti tono aukðtá
+	// ar keisti tono auk\xF0t\xE1
 	kontekstas->keisti_tono_auksti =
 		(kontekstas->fonemos_klase == FONEMU_KLASE_SKARDIEJI || kontekstas->fonemos_klase == FONEMU_KLASE_RR)
 		&& (tono_aukscio_pokytis != 100)
 		&& (kontekstas->piku_sk > 1);
 
-	// nustatome tarpo tarp pikø keitimo koeficientà
+	// nustatome tarpo tarp pik\xF8 keitimo koeficient\xE0
 	if (kontekstas->keisti_tono_auksti)
 		kontekstas->tarpo_tarp_piku_didinimo_koef = 100.0 / tono_aukscio_pokytis;
 	else
 		kontekstas->tarpo_tarp_piku_didinimo_koef = 1.0;
 
-	// jei r, R, tai greièio nekeièiame (nors tono aukðtá galime keisti), t.y. neatsiþvelgiame á nurodytà greitinimo koeficiento reikðmæ
-	// (t.y. jei tono aukðtá keisime, teks keisti ir greitá, bet tik tiek, kad atstatytume fonemos ilgá á buvusá).
+	// jei r, R, tai grei\xE8io nekei\xE8iame (nors tono auk\xF0t\xE1 galime keisti), t.y. neatsi\xFEvelgiame \xE1 nurodyt\xE0 greitinimo koeficiento reik\xF0m\xE6
+	// (t.y. jei tono auk\xF0t\xE1 keisime, teks keisti ir greit\xE1, bet tik tiek, kad atstatytume fonemos ilg\xE1 \xE1 buvus\xE1).
 	//if (kontekstas->fonemos_klase == FONEMU_KLASE_RR)
 	//	greitis = 100;
 
-	// apskaièiuojame reikiamà greitinimo koeficientà pagal pateiktus greitinimo ir tono keitimo koeficientus
+	// apskai\xE8iuojame reikiam\xE0 greitinimo koeficient\xE0 pagal pateiktus greitinimo ir tono keitimo koeficientus
 	//kontekstas->greitinimo_koef = (((double)greitis) / 100) / kontekstas->tarpo_tarp_piku_didinimo_koef;
 		
-	// apskaièiuojame reikiamà greitinimo koeficientà pagal pateiktus greitinimo ir tono keitimo koeficientus
+	// apskai\xE8iuojame reikiam\xE0 greitinimo koeficient\xE0 pagal pateiktus greitinimo ir tono keitimo koeficientus
 	if (kontekstas->fonemos_klase == FONEMU_KLASE_RR)
-		// jei r, R, tai greièio nekeièiame (nors tono aukðtá galime keisti), t.y. neatsiþvelgiame á nurodytà greitinimo koeficiento reikðmæ
+		// jei r, R, tai grei\xE8io nekei\xE8iame (nors tono auk\xF0t\xE1 galime keisti), t.y. neatsi\xFEvelgiame \xE1 nurodyt\xE0 greitinimo koeficiento reik\xF0m\xE6
 		if (kontekstas->tarpo_tarp_piku_didinimo_koef < 1)
-			// jei tono aukðtá didinsime, teks keisti ir greitá, bet tik tiek, kad atstatytume fonemos ilgá á buvusá
+			// jei tono auk\xF0t\xE1 didinsime, teks keisti ir greit\xE1, bet tik tiek, kad atstatytume fonemos ilg\xE1 \xE1 buvus\xE1
 			kontekstas->greitinimo_koef = 1 / kontekstas->tarpo_tarp_piku_didinimo_koef;
 		else
-			// jei tono aukðtá maþinsime (ar jo nekeisime), greièio nekeisime (neatstatysime fonemos ilgio á buvusá)
-			// (t.y. jei fonemos r, R tono aukðtá maþinsime, tai jos ilgis padidës)
+			// jei tono auk\xF0t\xE1 ma\xFEinsime (ar jo nekeisime), grei\xE8io nekeisime (neatstatysime fonemos ilgio \xE1 buvus\xE1)
+			// (t.y. jei fonemos r, R tono auk\xF0t\xE1 ma\xFEinsime, tai jos ilgis padid\xEBs)
 			kontekstas->greitinimo_koef = 1;
 	else
-		// skardþiosioms fonemoms
+		// skard\xFEiosioms fonemoms
 		kontekstas->greitinimo_koef = (((double)greitis) / 100) / kontekstas->tarpo_tarp_piku_didinimo_koef;
 
 	// ------------------------- Euristika --------------------------------- //
 
-	// keièiamø (ðalinamø ar dubliuojamø) burbulø skaièius
+	// kei\xE8iam\xF8 (\xF0alinam\xF8 ar dubliuojam\xF8) burbul\xF8 skai\xE8ius
 	kontekstas->keiciamu_burbulu_sk = 0;
 	
 	if (debuginam) {
@@ -393,7 +393,7 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 		spausdinti_konteksta (kontekstas);
 	}
 
-	// euristiðkai parinkti burbuliukus iðmetimui
+	// euristi\xF0kai parinkti burbuliukus i\xF0metimui
 	euristika (kontekstas);
 	
 	if (debuginam > 100) {
@@ -402,15 +402,15 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 		spausdinti_burbulus (kontekstas->burbulai, kontekstas->keiciamu_burbulu_sk);
 	}
 
-	// ------------------------- Apdorojame signalà --------------------------------- //
+	// ------------------------- Apdorojame signal\xE0 --------------------------------- //
 
-	// jei pavyko == -1, viskà stabdome, nes nepavyko iðskirti atminties
+	// jei pavyko == -1, visk\xE0 stabdome, nes nepavyko i\xF0skirti atminties
 	int pavyko = 0;
 
-	// tono aukðèio keitimas: apdorojame pusæ pirmo burbulo, iðlendanèià á prieð tai buvusià fonemà
+	// tono auk\xF0\xE8io keitimas: apdorojame pus\xE6 pirmo burbulo, i\xF0lendan\xE8i\xE0 \xE1 prie\xF0 tai buvusi\xE0 fonem\xE0
 	if (kontekstas->keisti_tono_auksti)
 		pavyko = kopijuoti_signala_pradzioj (kontekstas);
-	// jei nepavyko, viskà stabdome
+	// jei nepavyko, visk\xE0 stabdome
 	if (pavyko == -1)
 		return DIDELIS_NEIGIAMAS_KLAIDOS_KODAS;
 
@@ -419,12 +419,12 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 		spausdinti_konteksta (kontekstas);
 	}
 
-	// iðmesti parinktus burbuliukus, perskaièiuoti masyvus
+	// i\xF0mesti parinktus burbuliukus, perskai\xE8iuoti masyvus
 	if (kontekstas->greitinimo_koef<1)
 		pavyko = trumpinti_fonema (kontekstas);
 	else
 		pavyko = ilginti_fonema (kontekstas);
-	// jei nepavyko, viskà stabdome
+	// jei nepavyko, visk\xE0 stabdome
 	if (pavyko == -1) {
 		return DIDELIS_NEIGIAMAS_KLAIDOS_KODAS; 
 	}
@@ -434,22 +434,22 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 		spausdinti_konteksta (kontekstas);
 	}
 
-	// nustatome, iki kiek kopijuojame signalà
+	// nustatome, iki kiek kopijuojame signal\xE0
 	int iki = 0;
 	if (kontekstas->keisti_tono_auksti)
-		// tono aukðèio keitimas: kopijuosime iki paskutinio piko
+		// tono auk\xF0\xE8io keitimas: kopijuosime iki paskutinio piko
 		iki = pikai [kontekstas->pirmojo_piko_nr + kontekstas->piku_sk -1];
 	else
-		// jei nekeisime tono aukðèio, kopijuosime iki fonemos pabaigos
+		// jei nekeisime tono auk\xF0\xE8io, kopijuosime iki fonemos pabaigos
 		iki = kontekstas->fonemos_pabaiga;
 
-	// pabaigiame nukopijuoti signalo masyvà
+	// pabaigiame nukopijuoti signalo masyv\xE0
 	// jei yra nenukopijuoto signalo
 	// nukopijuojame (prisumuojame) signalo duomenis iki signalo pabaigos
-	// (negalime kopijuoti su memcpy, nes prarasime jau ten esanèià informacijà).
-	// Tuo paèiu ir atnaujiname einamàsias signalø masyvø reikðmes.
+	// (negalime kopijuoti su memcpy, nes prarasime jau ten esan\xE8i\xE0 informacij\xE0).
+	// Tuo pa\xE8iu ir atnaujiname einam\xE0sias signal\xF8 masyv\xF8 reik\xF0mes.
 	pavyko = kopijuoti_signala (iki, kontekstas);
-	// jei nepavyko, viskà stabdome
+	// jei nepavyko, visk\xE0 stabdome
 	if (pavyko == -1) {
 		return DIDELIS_NEIGIAMAS_KLAIDOS_KODAS; 
 	}
@@ -459,10 +459,10 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 		spausdinti_konteksta (kontekstas);
 	}
 
-	// tono aukðèio keitimas: apdorojame pusæ paskutinio burbulo, iðlendanèià á po to einanèià fonemà
+	// tono auk\xF0\xE8io keitimas: apdorojame pus\xE6 paskutinio burbulo, i\xF0lendan\xE8i\xE0 \xE1 po to einan\xE8i\xE0 fonem\xE0
 	if (kontekstas->keisti_tono_auksti)
 		pavyko = kopijuoti_signala_pabaigoj (kontekstas);
-	// jei nepavyko, viskà stabdome
+	// jei nepavyko, visk\xE0 stabdome
 	if (pavyko == -1)
 		return DIDELIS_NEIGIAMAS_KLAIDOS_KODAS;
 
@@ -471,10 +471,10 @@ int change_phoneme_rate_internal (int greitis, int tono_aukscio_pokytis, unsigne
 		spausdinti_konteksta (kontekstas);
 	}
 
-	// apskaièiuojame naujàjá fonemos ilgá
+	// apskai\xE8iuojame nauj\xE0j\xE1 fonemos ilg\xE1
 	int naujas_fonemos_ilgis = fonemu_ilgiai[fonemos_nr] + kontekstas->einamasis_postumis;
 
-	// atnaujiname reikðmes
+	// atnaujiname reik\xF0mes
 	*naujas_signalas = kontekstas->naujas_signalas;
 	*naujo_signalo_masyvo_ilgis = kontekstas->naujo_signalo_masyvo_ilgis;
 
@@ -511,21 +511,21 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 
 	atlaisvinti_atminti_ir_inicializuoti ();
 
-	// pasiruoðimas duomenø nuskaitymui
+	// pasiruo\xF0imas duomen\xF8 nuskaitymui
 
-	// sudarome garsø duomenø bazës failo pavadinimà
+	// sudarome gars\xF8 duomen\xF8 baz\xEBs failo pavadinim\xE0
 	strcpy (signalo_failo_pavadinimas, katVardas);
 	strcat (signalo_failo_pavadinimas, "db.raw");
 
-	// sudarome fonemø failo pavadinimà
+	// sudarome fonem\xF8 failo pavadinim\xE0
 	strcpy(fonemu_failo_pavadinimas, katVardas);
 	strcat(fonemu_failo_pavadinimas, "db_fon_weights.txt");
 
-	// sudarome pikø failo pavadinimà
+	// sudarome pik\xF8 failo pavadinim\xE0
 	strcpy(piku_failo_pavadinimas, katVardas);
 	strcat(piku_failo_pavadinimas, "db_pik.txt");
 
-	// nuskaitome duomenis is failu (uþpildome duomenø masyvus)
+	// nuskaitome duomenis is failu (u\xFEpildome duomen\xF8 masyvus)
 	int a = nuskaityti_duomenis();
 	if (a < 0) return a;
 
@@ -539,16 +539,16 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 
 	// ------------------------- Inicializuojame parametrus --------------------------------- //
 
-	// apskaièiuojame pagalbinius masyvus darbui su pikais
+	// apskai\xE8iuojame pagalbinius masyvus darbui su pikais
 	a = apskaiciuoti_pirmojo_piko_nr_fonemose ();
 	if (a < 0) return a;
 
-	// sukuriame kontekstà
+	// sukuriame kontekst\xE0
 	//struct tkontekstas kkontekstas;
 	//struct tkontekstas * kontekstas = &kkontekstas;
 	//init_konteksta (kontekstas);
 
-	// nustatome greitinimo koeficientà
+	// nustatome greitinimo koeficient\xE0
 	//kontekstas->greitinimo_koef = ((double)greitis) / 100;
 
 	if (debuginam) {
@@ -557,10 +557,10 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 		spausdinti_loga (pranesimas);
 	}
 
-	// ávertiname pailginto signalo masyvo ilgá
+	// \xE1vertiname pailginto signalo masyvo ilg\xE1
 	size_t naujo_signalo_masyvo_ilgis = rekomenduoti_naujo_signalo_masyvo_ilgi (greitis, tono_aukscio_pokytis);
 
-	// paþymime, kad masyvà naujas_signalas galima ilginti, jei netyèia jam iðskirta per maþai atminties
+	// pa\xFEymime, kad masyv\xE0 naujas_signalas galima ilginti, jei nety\xE8ia jam i\xF0skirta per ma\xFEai atminties
 	int galima_pailginti_naujas_signalas = 1;
 
 	if (debuginam) {
@@ -570,14 +570,14 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 		spausdinti_loga (pranesimas);
 	}
 
-	// inicializuojame rezultatø masyvus
+	// inicializuojame rezultat\xF8 masyvus
 
-	short * naujas_signalas = (short *) calloc (naujo_signalo_masyvo_ilgis, sizeof(short)); // kad uþpildytø nuliais
+	short * naujas_signalas = (short *) calloc (naujo_signalo_masyvo_ilgis, sizeof(short)); // kad u\xFEpildyt\xF8 nuliais
 	if (naujas_signalas == NULL) {
 		return ERROR_RATECHANGE_MEMORY_ALLOCATION_FOR_CHANGED_RATE_DB; 
 	}
 
-	// susikuriame ir uþpildome pagalbiná fonemø adresø masyvà
+	// susikuriame ir u\xFEpildome pagalbin\xE1 fonem\xF8 adres\xF8 masyv\xE0
 	
 	fonemu_adresai = (long *) calloc (fonemu_kiekis+1, sizeof(long));
 	if (fonemu_adresai == NULL) {
@@ -598,22 +598,22 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 		spausdinti_loga ("RateChange.cpp: change_DB_rate(): pasiruoseme greicio keitimui");
 	}
 
-	// ------------------------- Skaièiuojame --------------------------------- //
+	// ------------------------- Skai\xE8iuojame --------------------------------- //
 
 	size_t einamasis_naujo_signalo_nr = 0;
 
 	for (size_t fonemos_nr = 0; fonemos_nr < fonemu_kiekis; fonemos_nr++) {
 		
-		// kiekvienai fonemai kvieèiame change_phoneme_rate_internal() funkcijà
+		// kiekvienai fonemai kvie\xE8iame change_phoneme_rate_internal() funkcij\xE0
 		int naujas_fonemos_ilgis = change_phoneme_rate_internal (
 			greitis, tono_aukscio_pokytis, fonemos_nr, 
 			&naujas_signalas, &naujo_signalo_masyvo_ilgis, 
 			galima_pailginti_naujas_signalas, einamasis_naujo_signalo_nr);
-		// jei nepavyko, viskà stabdome
+		// jei nepavyko, visk\xE0 stabdome
 		if (naujas_fonemos_ilgis == DIDELIS_NEIGIAMAS_KLAIDOS_KODAS)
 			return ERROR_RATECHANGE_MEMORY_ALLOCATION_FOR_CHANGED_RATE_DB;
 
-		// perskaièiuojame fonemø ilgiø masyvà
+		// perskai\xE8iuojame fonem\xF8 ilgi\xF8 masyv\xE0
 		nauji_fonemu_ilgiai[fonemos_nr] = naujas_fonemos_ilgis;
 
 		// atnaujiname einamasis_naujo_signalo_nr
@@ -650,7 +650,7 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 
 	// apsitvarkome
 	atlaisvinti_atminti_ir_inicializuoti ();
-	// turime atlaisvinti atminti ðioje funkcijoje, nes èia sukûrëme, o dinaminiu reþimu visai nereikia atlaisvinti
+	// turime atlaisvinti atminti \xF0ioje funkcijoje, nes \xE8ia suk\xFBr\xEBme, o dinaminiu re\xFEimu visai nereikia atlaisvinti
 	if(fonemu_adresai != NULL) {free(fonemu_adresai); fonemu_adresai=NULL;}
 	
 	if (debuginam) {
@@ -680,21 +680,21 @@ EXPORT int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *
 	// apsitvarkome
 	atlaisvinti_atminti_ir_inicializuoti ();
 	
-	// pasiruoðimas duomenø nuskaitymui
+	// pasiruo\xF0imas duomen\xF8 nuskaitymui
 
-	// sudarome garsø duomenø bazës failo pavadinimà
+	// sudarome gars\xF8 duomen\xF8 baz\xEBs failo pavadinim\xE0
 	strcpy (signalo_failo_pavadinimas, katVardas);
 	strcat (signalo_failo_pavadinimas, "db.raw");
 
-	// sudarome fonemø failo pavadinimà
+	// sudarome fonem\xF8 failo pavadinim\xE0
 	strcpy(fonemu_failo_pavadinimas, katVardas);
 	strcat(fonemu_failo_pavadinimas, "db_fon_weights.txt");
 
-	// sudarome pikø failo pavadinimà
+	// sudarome pik\xF8 failo pavadinim\xE0
 	strcpy(piku_failo_pavadinimas, katVardas);
 	strcat(piku_failo_pavadinimas, "db_pik.txt");
 
-	// nuskaitome duomenis is failu (uþpildome duomenø masyvus)
+	// nuskaitome duomenis is failu (u\xFEpildome duomen\xF8 masyvus)
 	int a = nuskaityti_duomenis();
 	if (a < 0) return a;
 
@@ -706,13 +706,13 @@ EXPORT int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *
 		begin_time = clock ();
 	}
 
-	// apskaièiuojame pagalbinius masyvus darbui su pikais
+	// apskai\xE8iuojame pagalbinius masyvus darbui su pikais
 	a = apskaiciuoti_pirmojo_piko_nr_fonemose ();
 	if (a < 0) return a;
 
-	// ásimename fonemø pradþiø indeksø masyvà. 
-	// Já naudosime dinaminiam greièio keitimui.
-	// (Gal pasidaryti kopijà?)
+	// \xE1simename fonem\xF8 prad\xFEi\xF8 indeks\xF8 masyv\xE0. 
+	// J\xE1 naudosime dinaminiam grei\xE8io keitimui.
+	// (Gal pasidaryti kopij\xE0?)
 	fonemu_adresai = dbadr1;
 
 	// pritaikome duomenis Pijaus LithUSS'ui
@@ -742,14 +742,14 @@ EXPORT int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *
 }
 
 /*********************************************************
- * pakeiciam fonemos, kurios numeris yra fonemos_nr, greitá ir tono aukðtá.
- * Parametras "greitis" nurodo procentais, kiek pailginti fonemà (pavyzdþiui, 120 reiðkia pailginti 1,2 karto).
- * Parametras "tono_aukscio_pokytis" nurodo procentais, kiek paaukðtinti pagrindiná tonà 
- * (pavyzdþiui, 120 reiðkia paaukðtinti 1,2 karto: jei pagrindinis tonas buvo 100 Hz, pasidarys 120 Hz).
- * Patá naujà signalà áraðo á naujas_signalas masyvà (tiksliau, prie jo prisumuoja).
- * Laikome, kad "naujas_signalas" rodo á prieð tai buvusios (jei buvo) fonemos pabaigà+1.
+ * pakeiciam fonemos, kurios numeris yra fonemos_nr, greit\xE1 ir tono auk\xF0t\xE1.
+ * Parametras "greitis" nurodo procentais, kiek pailginti fonem\xE0 (pavyzd\xFEiui, 120 rei\xF0kia pailginti 1,2 karto).
+ * Parametras "tono_aukscio_pokytis" nurodo procentais, kiek paauk\xF0tinti pagrindin\xE1 ton\xE0 
+ * (pavyzd\xFEiui, 120 rei\xF0kia paauk\xF0tinti 1,2 karto: jei pagrindinis tonas buvo 100 Hz, pasidarys 120 Hz).
+ * Pat\xE1 nauj\xE0 signal\xE0 \xE1ra\xF0o \xE1 naujas_signalas masyv\xE0 (tiksliau, prie jo prisumuoja).
+ * Laikome, kad "naujas_signalas" rodo \xE1 prie\xF0 tai buvusios (jei buvo) fonemos pabaig\xE0+1.
  *
- * Gràþina naujo signalo ilgá, jei pavyko, ir -1, jei nepavyko (jei masyve naujas_signalas neuþteko vietos).
+ * Gr\xE0\xFEina naujo signalo ilg\xE1, jei pavyko, ir -1, jei nepavyko (jei masyve naujas_signalas neu\xFEteko vietos).
  ********************************************************/
 EXPORT int change_phoneme_rate (int greitis, int tono_aukscio_pokytis, unsigned int fonemos_nr,
 						 short * naujas_signalas, unsigned int naujo_signalo_masyvo_ilgis)
@@ -758,7 +758,7 @@ EXPORT int change_phoneme_rate (int greitis, int tono_aukscio_pokytis, unsigned 
 	unsigned int einamasis_naujo_signalo_nr = 0;
 	int naujas_fonemos_ilgis = change_phoneme_rate_internal (greitis, tono_aukscio_pokytis, fonemos_nr, &naujas_signalas, &naujo_signalo_masyvo_ilgis, 
 		galima_pailginti_naujas_signalas, einamasis_naujo_signalo_nr);
-	// jei nepavyko, viskà stabdome
+	// jei nepavyko, visk\xE0 stabdome
 	if (naujas_fonemos_ilgis == DIDELIS_NEIGIAMAS_KLAIDOS_KODAS)
 		return ERROR_RATECHANGE_SIGNAL_BUFFER_OVERFLOW;
 	else

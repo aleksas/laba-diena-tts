@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
-// Failas fvèid.h
+// Failas fv\xE8id.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
 // 2015 08 11
 //

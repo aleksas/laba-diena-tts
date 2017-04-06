@@ -331,7 +331,7 @@ return RetVal;
 //-------------------------------------------------------------------------------------------
 void CRedakView::OnFileSave() 
 {
-	MessageBox("Vyksta áraðymas");
+	MessageBox("Vyksta \xE1ra\xF0ymas");
 
 long ib=0;
 int ie;

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas transcrLUSS.dll
 // Failas vgal.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
@@ -40,8 +40,8 @@
 
 #ifndef _VGAL_H_
 
-// Asmenuociu kodai: A-O 1, A-Ë 2, IA-O 4, IA-Ë 8, I-O 16, O-O 32, O-Ë 64,
-// A-* 3, IA-* 12, O-* 96, A-*&O-* 99, *-O 53, *-Ë 74,
+// Asmenuociu kodai: A-O 1, A-\xCB 2, IA-O 4, IA-\xCB 8, I-O 16, O-O 32, O-\xCB 64,
+// A-* 3, IA-* 12, O-* 96, A-*&O-* 99, *-O 53, *-\xCB 74,
 
 struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
                             char Asmenuote; char KircRaide; char Priegaide;
@@ -49,7 +49,7 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 							char KalbDal; char Laikas; char NuosakaRusis;
 							char AsmuoLinksnis; char Skaicius;
 							char Gimine; char Apibreztumas;} GalMasV[1066] = {
-// Ið esamojo laiko kamieno daromø veiksmaþodþio formø galûnës
+// I\xF0 esamojo laiko kamieno darom\xF8 veiksma\xFEod\xFEio form\xF8 gal\xFBn\xEBs
 // 1 Esamasis laikas ir sangraziniai
 // A asmenuote
 {"U",    0,0, 3, 0, 0,0,0, VKS, ESAML, TIESN, 1, VNS, -1, -1},
@@ -65,8 +65,8 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SEI",  0,1, 3, 2, 1,0,0, VKS, ESAML, TIESN, 2, VNS, -1, -1},
 {"ISA",  0,1, 3,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
 {"SA",   0,1, 3,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
-{"SËMA", 0,1, 3,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
-{"SËTA", 0,1, 3,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
+{"S\xCBMA", 0,1, 3,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
+{"S\xCBTA", 0,1, 3,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
 
 // IA asmenuote
 {"UI",   0,0,12, 0, 0,0,0, VKS, ESAML, TIESN, 1, VNS, -1, -1},
@@ -82,8 +82,8 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SEI",  0,1,12, 2, 1,0,0, VKS, ESAML, TIESN, 2, VNS, -1, -1},
 {"ISAI", 0,1,12,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
 {"SAI",  0,1,12,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
-{"SËMAI",0,1,12,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
-{"SËTAI",0,1,12,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
+{"S\xCBMAI",0,1,12,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
+{"S\xCBTAI",0,1,12,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
 
 // I asmenuote
 {"UI",   0,0,16, 0, 0,0,0, VKS, ESAML, TIESN, 1, VNS, -1, -1},
@@ -99,8 +99,8 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SEI",  0,1,16, 2, 1,0,0, VKS, ESAML, TIESN, 2, VNS, -1, -1},
 {"ISI",  0,1,16,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
 {"SI",   0,1,16,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
-{"SËMI", 0,1,16,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
-{"SËTI", 0,1,16,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
+{"S\xCBMI", 0,1,16,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
+{"S\xCBTI", 0,1,16,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
 
 // O asmenuote
 {"UA",   0,0,96, 0, 2,0,0, VKS, ESAML, TIESN, 1, VNS, -1, -1},
@@ -116,8 +116,8 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SIA",  0,1,96, 1, 2,0,0, VKS, ESAML, TIESN, 2, VNS, -1, -1},
 {"ISO",  0,1,96,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
 {"SO",   0,1,96,-1,-1,1,0, VKS, ESAML, TIESN, 3, V_D, -1, -1},
-{"SËMO", 0,1,96,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
-{"SËTO", 0,1,96,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
+{"S\xCBMO", 0,1,96,-1,-1,1,0, VKS, ESAML, TIESN, 1, DGS, -1, -1},
+{"S\xCBTO", 0,1,96,-1,-1,1,0, VKS, ESAML, TIESN, 2, DGS, -1, -1},
 
 // 2 Liepiamosios nuosakos 3 asmuo
 {"EI",    0,0,31, 0, 2,2,1, VKS, -1, LIEPN, 3, V_D, -1, -1},
@@ -133,204 +133,204 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 
 // 4 Esamojo laiko veikiamasis dalyvis
 // AO asmenuotes
-{"SÀ",          0,0,99, 1, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"À",           0,0,99, 0, 2,4,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // v.g.trumpos gal.
+{"S\xC0",          0,0,99, 1, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
+{"\xC0",           0,0,99, 0, 2,4,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // v.g.trumpos gal.
 
-{"SISÀ",        0,1,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"ISÀ",         0,1,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // sangrazines
+{"SIS\xC0",        0,1,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
+{"IS\xC0",         0,1,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // sangrazines
 
 {"SITNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"OIÈNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 0},    // v.g.
-{"MAIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 0},
-{"ÁTNA",        0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 0},
-{"UIÈNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 0},
-{"EMAIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 0},
+{"OI\xC8NA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 0},    // v.g.
+{"MAI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 0},
+{"\xC1TNA",        0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 0},
+{"UI\xC8NA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 0},
+{"EMAI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 0},
 {"SYTNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},
-{"ØIÈNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 0},
+{"\xD8I\xC8NA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 0},
 {"SMEITNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 0},
 {"MEITNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 0},
-{"SUIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 0},
-{"SIAIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 0},
-{"ESOUIÈNA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
-{"SOUIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
+{"SUI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 0},
+{"SIAI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 0},
+{"ESOUI\xC8NA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
+{"SOUI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
 
 {"SISYTNA",     0,0,99, 3, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 1},
-{"OJOIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 1},  // v.g.ivardziuot.
-{"MAJAIÈNA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁTNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 1},
-{"UJOUIÈNA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 1},
-{"EMAJAIÈNA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 1},
+{"OJOI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 1},  // v.g.ivardziuot.
+{"MAJAI\xC8NA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 1},
+{"\xC1J\xC1TNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 1},
+{"UJOUI\xC8NA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 1},
+{"EMAJAI\xC8NA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 1},
 {"IJEITNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 1},
-{"ØJØIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 1},
+{"\xD8J\xD8I\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 1},
 {"SMEISEITNA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 1},
 {"MEISEITNA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 1},
-{"SUISOUIÈNA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 1},
-{"SIAISIAIÈNA", 0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 1},
-{"ESOUISOUIÈNA",0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
-{"SOUISOUIÈNA", 0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
+{"SUISOUI\xC8NA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 1},
+{"SIAISIAI\xC8NA", 0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 1},
+{"ESOUISOUI\xC8NA",0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
+{"SOUISOUI\xC8NA", 0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
 
 {"ITNA",        0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 0},
-{"SOIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 0},    // m.g.
-{"IAIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 0},
-{"ÀIÈNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 0},
-{"AIÈNA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 0},
-{"EJOIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
-{"JOIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
-{"SMOIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
-{"MOIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
-{"SAIÈNA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 0},
-{"SIMOIÈNA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 0},
-{"ESOIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 0},
+{"SOI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 0},    // m.g.
+{"IAI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 0},
+{"\xC0I\xC8NA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 0},
+{"AI\xC8NA",       0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 0},
+{"EJOI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
+{"JOI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
+{"SMOI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
+{"MOI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
+{"SAI\xC8NA",      0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 0},
+{"SIMOI\xC8NA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 0},
+{"ESOI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 0},
 
-{"IJOIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 1},
-{"SOISOIÈNA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
-{"IAJAIÈNA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 1},
-{"AJÀIÈNA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 1},
-{"EJOJOIÈNA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
-{"JOJOIÈNA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
-{"SMOISOIÈNA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
-{"MOISOIÈNA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
-{"SAISÀIÈNA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 1},
-{"SIMOISOIÈNA", 0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 1},
-{"ESOISOIÈNA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 1},
+{"IJOI\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 1},
+{"SOISOI\xC8NA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
+{"IAJAI\xC8NA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 1},
+{"\xC0J\xC0I\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0I\xC8NA",     0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 1},
+{"EJOJOI\xC8NA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
+{"JOJOI\xC8NA",    0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
+{"SMOISOI\xC8NA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
+{"MOISOI\xC8NA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
+{"SAIS\xC0I\xC8NA",   0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 1},
+{"SIMOISOI\xC8NA", 0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 1},
+{"ESOISOI\xC8NA",  0,0,99,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 1},
 
 // IA asmenuote
-{"SÀI",         0,0,12, 1, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"ÀI",          0,0,12, 0, 2,4,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},        // v.g.trumpos gal.
+{"S\xC0I",         0,0,12, 1, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
+{"\xC0I",          0,0,12, 0, 2,4,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},        // v.g.trumpos gal.
 
-{"SISÀI",       0,1,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"ISÀI",        0,1,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // sangrazines
+{"SIS\xC0I",       0,1,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
+{"IS\xC0I",        0,1,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // sangrazines
 
 {"SITNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"OIÈNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 0},    // v.g.
-{"MAIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 0},
-{"ÁTNAI",       0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 0},
-{"UIÈNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 0},
-{"EMAIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 0},
+{"OI\xC8NAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 0},    // v.g.
+{"MAI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 0},
+{"\xC1TNAI",       0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 0},
+{"UI\xC8NAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 0},
+{"EMAI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 0},
 {"SYTNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},
-{"ØIÈNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 0},
+{"\xD8I\xC8NAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 0},
 {"SMEITNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 0},
 {"MEITNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 0},
-{"SUIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 0},
-{"SIAIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 0},
-{"ESOUIÈNAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
-{"SOUIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
+{"SUI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 0},
+{"SIAI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 0},
+{"ESOUI\xC8NAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
+{"SOUI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
 
 {"SISYTNAI",    0,0,12, 3, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 1},
-{"OJOIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 1},  // v.g.ivardziuot.
-{"MAJAIÈNAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁTNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 1},
-{"UJOUIÈNAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 1},
-{"EMAJAIÈNAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 1},
+{"OJOI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 1},  // v.g.ivardziuot.
+{"MAJAI\xC8NAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 1},
+{"\xC1J\xC1TNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 1},
+{"UJOUI\xC8NAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 1},
+{"EMAJAI\xC8NAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 1},
 {"IJEITNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 1},
-{"ØJØIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 1},
+{"\xD8J\xD8I\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 1},
 {"SMEISEITNAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 1},
 {"MEISEITNAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 1},
-{"SUISOUIÈNAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 1},
-{"SIAISIAIÈNAI",0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 1},
-{"ESOUISOUIÈNAI",0,0,12,-1,-1,1,0,DAL, ESAML, VEIKR, 6, DGS, VG, 1},
-{"SOUISOUIÈNAI",0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
+{"SUISOUI\xC8NAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 1},
+{"SIAISIAI\xC8NAI",0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 1},
+{"ESOUISOUI\xC8NAI",0,0,12,-1,-1,1,0,DAL, ESAML, VEIKR, 6, DGS, VG, 1},
+{"SOUISOUI\xC8NAI",0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
 
 {"ITNAI",       0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 0},
-{"SOIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 0},    // m.g.
-{"IAIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 0},
-{"ÀIÈNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 0},
-{"AIÈNAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 0},
-{"EJOIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
-{"JOIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
-{"SMOIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
-{"MOIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
-{"SAIÈNAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 0},
-{"SIMOIÈNAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 0},
-{"ESOIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 0},
+{"SOI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 0},    // m.g.
+{"IAI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 0},
+{"\xC0I\xC8NAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 0},
+{"AI\xC8NAI",      0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 0},
+{"EJOI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
+{"JOI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
+{"SMOI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
+{"MOI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
+{"SAI\xC8NAI",     0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 0},
+{"SIMOI\xC8NAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 0},
+{"ESOI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 0},
 
-{"IJOIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 1},
-{"SOISOIÈNAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
-{"IAJAIÈNAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 1},
-{"AJÀIÈNAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 1},
-{"EJOJOIÈNAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
-{"JOJOIÈNAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
-{"SMOISOIÈNAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
-{"MOISOIÈNAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
-{"SAISÀIÈNAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 1},
-{"SIMOISOIÈNAI",0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 1},
-{"ESOISOIÈNAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 1},
+{"IJOI\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 1},
+{"SOISOI\xC8NAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
+{"IAJAI\xC8NAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 1},
+{"\xC0J\xC0I\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0I\xC8NAI",    0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 1},
+{"EJOJOI\xC8NAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
+{"JOJOI\xC8NAI",   0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
+{"SMOISOI\xC8NAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
+{"MOISOI\xC8NAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
+{"SAIS\xC0I\xC8NAI",  0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 1},
+{"SIMOISOI\xC8NAI",0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 1},
+{"ESOISOI\xC8NAI", 0,0,12,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 1},
 
 // I asmenuote
-{"SÁ",          0,0,16, 1, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"Á",           0,0,16, 0, 2,4,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},        // v.g.trumpos gal.
+{"S\xC1",          0,0,16, 1, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
+{"\xC1",           0,0,16, 0, 2,4,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},        // v.g.trumpos gal.
 
-{"SISÁ",        0,1,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"ISÁ",         0,1,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // sangrazines
+{"SIS\xC1",        0,1,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
+{"IS\xC1",         0,1,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},  // sangrazines
 
 {"SITNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, VG, 0},
-{"OIÈNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 0},    // v.g.
-{"MAIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 0},
-{"ÁTNI",        0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 0},
-{"UIÈNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 0},
-{"EMAIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 0},
+{"OI\xC8NI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 0},    // v.g.
+{"MAI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 0},
+{"\xC1TNI",        0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 0},
+{"UI\xC8NI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 0},
+{"EMAI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 0},
 {"SYTNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 0},
-{"ØIÈNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 0},
+{"\xD8I\xC8NI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 0},
 {"SMEITNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 0},
 {"MEITNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 0},
-{"SUIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 0},
-{"SIAIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 0},
-{"ESOUIÈNI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
-{"SOUIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
+{"SUI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 0},
+{"SIAI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 0},
+{"ESOUI\xC8NI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
+{"SOUI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 0},
 
 {"SISYTNI",     0,0,16, 3, 2,4,0, DAL, ESAML, VEIKR, 1, VNS, VG, 1},
-{"OJOIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 1},  // v.g.ivardziuot.
-{"MAJAIÈNI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁTNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 1},
-{"UJOUIÈNI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 1},
-{"EMAJAIÈNI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 1},
+{"OJOI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, VG, 1},  // v.g.ivardziuot.
+{"MAJAI\xC8NI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, VG, 1},
+{"\xC1J\xC1TNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, VG, 1},
+{"UJOUI\xC8NI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, VG, 1},
+{"EMAJAI\xC8NI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, VG, 1},
 {"IJEITNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, DGS, VG, 1},
-{"ØJØIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 1},
+{"\xD8J\xD8I\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, DGS, VG, 1},
 {"SMEISEITNI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 1},
 {"MEISEITNI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, VG, 1},
-{"SUISOUIÈNI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 1},
-{"SIAISIAIÈNI", 0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 1},
-{"ESOUISOUIÈNI",0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
-{"SOUISOUIÈNI", 0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
+{"SUISOUI\xC8NI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, VG, 1},
+{"SIAISIAI\xC8NI", 0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, VG, 1},
+{"ESOUISOUI\xC8NI",0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
+{"SOUISOUI\xC8NI", 0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, VG, 1},
 
 {"ITNI",        0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 0},
-{"SOIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 0},    // m.g.
-{"IAIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 0},
-{"ÀIÈNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 0},
-{"AIÈNI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 0},
-{"EJOIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
-{"JOIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
-{"SMOIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
-{"MOIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
-{"SAIÈNI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 0},
-{"SIMOIÈNI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 0},
-{"ESOIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 0},
+{"SOI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 0},    // m.g.
+{"IAI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 0},
+{"\xC0I\xC8NI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 0},
+{"AI\xC8NI",       0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 0},
+{"EJOI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
+{"JOI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 0},
+{"SMOI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
+{"MOI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 0},
+{"SAI\xC8NI",      0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 0},
+{"SIMOI\xC8NI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 0},
+{"ESOI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 0},
 
-{"IJOIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 1},
-{"SOISOIÈNI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
-{"IAJAIÈNI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 1},
-{"AJÀIÈNI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 1},
-{"EJOJOIÈNI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
-{"JOJOIÈNI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
-{"SMOISOIÈNI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
-{"MOISOIÈNI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
-{"SAISÀIÈNI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 1},
-{"SIMOISOIÈNI", 0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 1},
-{"ESOISOIÈNI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 1},
+{"IJOI\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 1, VNS, MG, 1},
+{"SOISOI\xC8NI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
+{"IAJAI\xC8NI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, VNS, MG, 1},
+{"\xC0J\xC0I\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0I\xC8NI",     0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, VNS, MG, 1},
+{"EJOJOI\xC8NI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
+{"JOJOI\xC8NI",    0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, VNS, MG, 1},
+{"SMOISOI\xC8NI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
+{"MOISOI\xC8NI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 3, DGS, MG, 1},
+{"SAIS\xC0I\xC8NI",   0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 4, DGS, MG, 1},
+{"SIMOISOI\xC8NI", 0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 5, DGS, MG, 1},
+{"ESOISOI\xC8NI",  0,0,16,-1,-1,1,0, DAL, ESAML, VEIKR, 6, DGS, MG, 1},
 
 // 5 Esamojo laiko neveikiamasis dalyvis
 // A asmenuote
 {"SAMA",      0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 1, VNS, VG, 0},
 {"OMA",       0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 0},    // v.g.
 {"MAMA",      0,0,3, 1, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 0},
-{"ÀMA",       0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
+{"\xC0MA",       0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
 {"UMA",       0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 5, VNS, VG, 0},
 {"EMAMA",     0,0,3, 0, 0,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 0},
 {"IMA",       0,0,3, 0, 0,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 0},
-{"ØMA",       0,0,3, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
+{"\xD8MA",       0,0,3, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
 {"SMEIMA",    0,0,3, 3, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"MEIMA",     0,0,3, 2, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"SUMA",      0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, DGS, VG, 0},
@@ -341,11 +341,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISAMA",    0,0,3, 3, 0,5,0, DAL, ESAML, NEVR, 1, VNS, VG, 1},
 {"OJOMA",     0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 1}, // v.g.ivardziuot.
 {"MAJAMA",    0,0,3, 3, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 1},
-{"ÁJÀMA",     0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
+{"\xC1J\xC0MA",     0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
 {"UJOUMA",    0,0,3, 3, 1,5,0, DAL, ESAML, NEVR, 5, VNS, VG, 1},
 {"EMAJAMA",   0,0,3, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 1},
 {"IJEIMA",    0,0,3, 3, 1,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 1},
-{"ØJØMA",     0,0,3, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
+{"\xD8J\xD8MA",     0,0,3, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
 {"SMEISEIMA", 0,0,3, 6, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"MEISEIMA",  0,0,3, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"SUISOUMA",  0,0,3, 5, 1,5,0, DAL, ESAML, NEVR, 4, DGS, VG, 1},
@@ -369,14 +369,14 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOMA",     0,0,3, 2, 1,5,0, DAL, ESAML, NEVR, 1, VNS, MG, 1},
 {"SOISOMA",   0,0,3, 4, 2,5,0, DAL, ESAML, NEVR, 2, VNS, MG, 1}, // m.g.ivardziuot.
 {"IAJAMA",    0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 3, VNS, MG, 1},
-{"ÀJÀMA",     0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
-{"AJÀMA",     0,0,3, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
+{"\xC0J\xC0MA",     0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0MA",     0,0,3, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
 {"EJOJOMA",   0,0,3, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"JOJOMA",    0,0,3, 3, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"SOISOMA",   0,0,3,-1,-1,1,0, DAL, ESAML, NEVR, 1, DGS, MG, 1},
 {"SMOISOMA",  0,0,3, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
 {"MOISOMA",   0,0,3, 4, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
-{"SAISÀMA",   0,0,3, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
+{"SAIS\xC0MA",   0,0,3, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
 {"SIMOISOMA", 0,0,3, 6, 2,5,0, DAL, ESAML, NEVR, 5, DGS, MG, 1},
 {"ESOISOMA",  0,0,3, 5, 2,5,0, DAL, ESAML, NEVR, 6, DGS, MG, 1},
 
@@ -387,11 +387,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SAMAI",     0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 1, VNS, VG, 0},
 {"OMAI",      0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 0},    // v.g.
 {"MAMAI",     0,0,12, 1, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 0},
-{"ÀMAI",      0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
+{"\xC0MAI",      0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
 {"UMAI",      0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 5, VNS, VG, 0},
 {"EMAMAI",    0,0,12, 0, 0,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 0},
 {"IMAI",      0,0,12, 0, 0,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 0},
-{"ØMAI",      0,0,12, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
+{"\xD8MAI",      0,0,12, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
 {"SMEIMAI",   0,0,12, 3, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"MEIMAI",    0,0,12, 2, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"SUMAI",     0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, DGS, VG, 0},
@@ -402,11 +402,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISAMAI",   0,0,12, 3, 0,5,0, DAL, ESAML, NEVR, 1, VNS, VG, 1},
 {"OJOMAI",    0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 1}, // v.g.ivardziuot.
 {"MAJAMAI",   0,0,12, 3, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 1},
-{"ÁJÀMAI",    0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
+{"\xC1J\xC0MAI",    0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
 {"UJOUMAI",   0,0,12, 3, 1,5,0, DAL, ESAML, NEVR, 5, VNS, VG, 1},
 {"EMAJAMAI",  0,0,12, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 1},
 {"IJEIMAI",   0,0,12, 3, 1,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 1},
-{"ØJØMAI",    0,0,12, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
+{"\xD8J\xD8MAI",    0,0,12, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
 {"SMEISEIMAI",0,0,12, 6, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"MEISEIMAI", 0,0,12, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"SUISOUMAI", 0,0,12, 5, 1,5,0, DAL, ESAML, NEVR, 4, DGS, VG, 1},
@@ -430,14 +430,14 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOMAI",    0,0,12, 2, 1,5,0, DAL, ESAML, NEVR, 1, VNS, MG, 1},
 {"SOISOMAI",  0,0,12, 4, 2,5,0, DAL, ESAML, NEVR, 2, VNS, MG, 1}, // m.g.ivardziuot.
 {"IAJAMAI",   0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 3, VNS, MG, 1},
-{"ÀJÀMAI",    0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
-{"AJÀMAI",    0,0,12, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
+{"\xC0J\xC0MAI",    0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0MAI",    0,0,12, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
 {"EJOJOMAI",  0,0,12, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"JOJOMAI",   0,0,12, 3, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"SOISOMAI",  0,0,12,-1,-1,1,0, DAL, ESAML, NEVR, 1, DGS, MG, 1},
 {"SMOISOMAI", 0,0,12, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
 {"MOISOMAI",  0,0,12, 4, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
-{"SAISÀMAI",  0,0,12, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
+{"SAIS\xC0MAI",  0,0,12, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
 {"SIMOISOMAI",0,0,12, 6, 2,5,0, DAL, ESAML, NEVR, 5, DGS, MG, 1},
 {"ESOISOMAI", 0,0,12, 5, 2,5,0, DAL, ESAML, NEVR, 6, DGS, MG, 1},
 
@@ -448,11 +448,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SAMI",      0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 1, VNS, VG, 0},
 {"OMI",       0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 0},    // v.g.
 {"MAMI",      0,0,16, 1, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 0},
-{"ÀMI",       0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
+{"\xC0MI",       0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
 {"UMI",       0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 5, VNS, VG, 0},
 {"EMAMI",     0,0,16, 0, 0,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 0},
 {"IMI",       0,0,16, 0, 0,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 0},
-{"ØMI",       0,0,16, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
+{"\xD8MI",       0,0,16, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
 {"SMEIMI",    0,0,16, 3, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"MEIMI",     0,0,16, 2, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"SUMI",      0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, DGS, VG, 0},
@@ -463,11 +463,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISAMI",    0,0,16, 3, 0,5,0, DAL, ESAML, NEVR, 1, VNS, VG, 1},
 {"OJOMI",     0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 1}, // v.g.ivardziuot.
 {"MAJAMI",    0,0,16, 3, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 1},
-{"ÁJÀMI",     0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
+{"\xC1J\xC0MI",     0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
 {"UJOUMI",    0,0,16, 3, 1,5,0, DAL, ESAML, NEVR, 5, VNS, VG, 1},
 {"EMAJAMI",   0,0,16, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 1},
 {"IJEIMI",    0,0,16, 3, 1,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 1},
-{"ØJØMI",     0,0,16, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
+{"\xD8J\xD8MI",     0,0,16, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
 {"SMEISEIMI", 0,0,16, 6, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"MEISEIMI",  0,0,16, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"SUISOUMI",  0,0,16, 5, 1,5,0, DAL, ESAML, NEVR, 4, DGS, VG, 1},
@@ -491,14 +491,14 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOMI",     0,0,16, 2, 1,5,0, DAL, ESAML, NEVR, 1, VNS, MG, 1},
 {"SOISOMI",   0,0,16, 4, 2,5,0, DAL, ESAML, NEVR, 2, VNS, MG, 1}, // m.g.ivardziuot.
 {"IAJAMI",    0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 3, VNS, MG, 1},
-{"ÀJÀMI",     0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
-{"AJÀMI",     0,0,16, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
+{"\xC0J\xC0MI",     0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0MI",     0,0,16, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
 {"EJOJOMI",   0,0,16, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"JOJOMI",    0,0,16, 3, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"SOISOMI",   0,0,16,-1,-1,1,0, DAL, ESAML, NEVR, 1, DGS, MG, 1},
 {"SMOISOMI",  0,0,16, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
 {"MOISOMI",   0,0,16, 4, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
-{"SAISÀMI",   0,0,16, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
+{"SAIS\xC0MI",   0,0,16, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
 {"SIMOISOMI", 0,0,16, 6, 2,5,0, DAL, ESAML, NEVR, 5, DGS, MG, 1},
 {"ESOISOMI",  0,0,16, 5, 2,5,0, DAL, ESAML, NEVR, 6, DGS, MG, 1},
 
@@ -509,11 +509,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SAMO",      0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 1, VNS, VG, 0},
 {"OMO",       0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 0},    // v.g.
 {"MAMO",      0,0,96, 1, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 0},
-{"ÀMO",       0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
+{"\xC0MO",       0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 0},
 {"UMO",       0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 5, VNS, VG, 0},
 {"EMAMO",     0,0,96, 0, 0,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 0},
 {"IMO",       0,0,96, 0, 0,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 0},
-{"ØMO",       0,0,96, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
+{"\xD8MO",       0,0,96, 0, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 0},
 {"SMEIMO",    0,0,96, 3, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"MEIMO",     0,0,96, 2, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 0},
 {"SUMO",      0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, DGS, VG, 0},
@@ -524,11 +524,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISAMO",    0,0,96, 3, 0,5,0, DAL, ESAML, NEVR, 1, VNS, VG, 1},
 {"OJOMO",     0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 2, VNS, VG, 1}, // v.g.ivardziuot.
 {"MAJAMO",    0,0,96, 3, 1,5,0, DAL, ESAML, NEVR, 3, VNS, VG, 1},
-{"ÁJÀMO",     0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
+{"\xC1J\xC0MO",     0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, VG, 1},
 {"UJOUMO",    0,0,96, 3, 1,5,0, DAL, ESAML, NEVR, 5, VNS, VG, 1},
 {"EMAJAMO",   0,0,96, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, VG, 1},
 {"IJEIMO",    0,0,96, 3, 1,5,0, DAL, ESAML, NEVR, 1, DGS, VG, 1},
-{"ØJØMO",     0,0,96, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
+{"\xD8J\xD8MO",     0,0,96, 2, 2,5,0, DAL, ESAML, NEVR, 2, DGS, VG, 1},
 {"SMEISEIMO", 0,0,96, 6, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"MEISEIMO",  0,0,96, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, VG, 1},
 {"SUISOUMO",  0,0,96, 5, 1,5,0, DAL, ESAML, NEVR, 4, DGS, VG, 1},
@@ -552,14 +552,14 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOMO",     0,0,96, 2, 1,5,0, DAL, ESAML, NEVR, 1, VNS, MG, 1},
 {"SOISOMO",   0,0,96, 4, 2,5,0, DAL, ESAML, NEVR, 2, VNS, MG, 1}, // m.g.ivardziuot.
 {"IAJAMO",    0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 3, VNS, MG, 1},
-{"ÀJÀMO",     0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
-{"AJÀMO",     0,0,96, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
+{"\xC0J\xC0MO",     0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0MO",     0,0,96, 2, 1,5,0, DAL, ESAML, NEVR, 5, VNS, MG, 1},
 {"EJOJOMO",   0,0,96, 4, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"JOJOMO",    0,0,96, 3, 2,5,0, DAL, ESAML, NEVR, 6, VNS, MG, 1},
 {"SOISOMO",   0,0,96,-1,-1,1,0, DAL, ESAML, NEVR, 1, DGS, MG, 1},
 {"SMOISOMO",  0,0,96, 5, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
 {"MOISOMO",   0,0,96, 4, 1,5,0, DAL, ESAML, NEVR, 3, DGS, MG, 1},
-{"SAISÀMO",   0,0,96, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
+{"SAIS\xC0MO",   0,0,96, 4, 1,5,0, DAL, ESAML, NEVR, 4, DGS, MG, 1},
 {"SIMOISOMO", 0,0,96, 6, 2,5,0, DAL, ESAML, NEVR, 5, DGS, MG, 1},
 {"ESOISOMO",  0,0,96, 5, 2,5,0, DAL, ESAML, NEVR, 6, DGS, MG, 1},
 
@@ -567,9 +567,9 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"ISAMO",     0,1,96,-1,-1,1,0, DAL, ESAML, NEVR, -1, -1, BG, 0},     // bev.g.
 
 // 6 Esamojo laiko veikiamasis prieveiksmis
-{"IAIÈNA",    0,0,99,-1,-1,1,0},
-{"IAIÈNAI",   0,0,12,-1,-1,1,0},
-{"IAIÈNI",    0,0,16,-1,-1,1,0},
+{"IAI\xC8NA",    0,0,99,-1,-1,1,0},
+{"IAI\xC8NAI",   0,0,12,-1,-1,1,0},
+{"IAI\xC8NI",    0,0,16,-1,-1,1,0},
 
 // 7 Esamojo laiko neveikiamasis prieveiksmis
 {"IAMA",      0,0, 3, 0, 2,6,0},
@@ -578,8 +578,8 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IAMO",      0,0,96, 0, 2,6,0},
 
 //--------------------------------------------------------------------
-// Ið bûtojo kartinio laiko kamieno daromø veiksmaþodþio formø galûnës
-// 8 Bûtasis kartinis laikas ir sangraziniai
+// I\xF0 b\xFBtojo kartinio laiko kamieno darom\xF8 veiksma\xFEod\xFEio form\xF8 gal\xFBn\xEBs
+// 8 B\xFBtasis kartinis laikas ir sangraziniai
 // O asmenuote
 {"UA",   1,0,53, 0, 2,7,0, VKS, BKL, TIESN, 1, VNS, -1, -1},
 {"IA",   1,0,53, 0, 2,7,0, VKS, BKL, TIESN, 2, VNS, -1, -1},
@@ -594,41 +594,41 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SIA",  1,1,53, 1, 2,7,0, VKS, BKL, TIESN, 2, VNS, -1, -1},
 {"ISO",  1,1,53,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
 {"SO",   1,1,53,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
-{"SËMO", 1,1,53,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
-{"SËTO", 1,1,53,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
+{"S\xCBMO", 1,1,53,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
+{"S\xCBTO", 1,1,53,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
 
-// Ë asmenuote
+// \xCB asmenuote
 {"UAI",  1,0,74, 0, 2,7,0, VKS, BKL, TIESN, 1, VNS, -1, -1},
 {"IE",   1,0,74, 0, 2,7,0, VKS, BKL, TIESN, 2, VNS, -1, -1},
-{"Ë",    1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
-{"EMË",  1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
-{"MË",   1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
-{"ETË",  1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
-{"TË",   1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
+{"\xCB",    1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
+{"EM\xCB",  1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
+{"M\xCB",   1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
+{"ET\xCB",  1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
+{"T\xCB",   1,0,74,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
 {"ISUAI",1,1,74, 2, 2,7,0, VKS, BKL, TIESN, 1, VNS, -1, -1},
 {"SUAI", 1,1,74, 1, 2,7,0, VKS, BKL, TIESN, 1, VNS, -1, -1},
 {"ISIE", 1,1,74, 2, 2,7,0, VKS, BKL, TIESN, 2, VNS, -1, -1},
 {"SIE",  1,1,74, 1, 2,7,0, VKS, BKL, TIESN, 2, VNS, -1, -1},
-{"ISË",  1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
-{"SË",   1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
-{"SËMË", 1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
-{"SËTË", 1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
+{"IS\xCB",  1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
+{"S\xCB",   1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 3, V_D, -1, -1},
+{"S\xCBM\xCB", 1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 1, DGS, -1, -1},
+{"S\xCBT\xCB", 1,1,74,-1,-1,8,0, VKS, BKL, TIESN, 2, DGS, -1, -1},
 
-// 9 Bûtojo kartinio laiko padalyvis
+// 9 B\xFBtojo kartinio laiko padalyvis
 {"SU",   1,0,63,-1,-1,9,0, PAD, BKL, -1, -1, -1, -1, -1},
 {"SISU", 1,1,63,-1,-1,9,0, PAD, BKL, -1, -1, -1, -1, -1},
 {"SUI",  1,0,64,-1,-1,9,0, PAD, BKL, -1, -1, -1, -1, -1},
 {"SISUI",1,1,64,-1,-1,9,0, PAD, BKL, -1, -1, -1, -1, -1},
 
-// 10 Bûtojo kartinio laiko veikiamasis dalyvis
-{"SÆ",         1,0,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, VG, 0},
+// 10 B\xFBtojo kartinio laiko veikiamasis dalyvis
+{"S\xC6",         1,0,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, VG, 0},
 {"OISU",       1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, VG, 0},    // v.g.
 {"MAISU",      1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, VG, 0},
-{"ÁSU",        1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 0},
+{"\xC1SU",        1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 0},
 {"UISU",       1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, VG, 0},
 {"EMAISU",     1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, VG, 0},
-{"Æ",          1,0,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, VG, 0},
-{"ØISU",       1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 0},
+{"\xC6",          1,0,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, VG, 0},
+{"\xD8ISU",       1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 0},
 {"SMEISU",     1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 0},
 {"MEISU",      1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 0},
 {"SUISU",      1,0,63, -1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, VG, 0},
@@ -639,11 +639,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISYSU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, VG, 1},
 {"OJOISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, VG, 1}, // v.g.ivardziuot.
 {"MAJAISU",    1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁSU",      1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 1},
+{"\xC1J\xC1SU",      1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 1},
 {"UJOUISU",    1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, VG, 1},
 {"EMAJAISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, VG, 1},
 {"IJEISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, VG, 1},
-{"ØJØISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 1},
+{"\xD8J\xD8ISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 1},
 {"SMEISEISU",  1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 1},
 {"MEISEISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 1},
 {"SUISOUISU",  1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, VG, 1},
@@ -651,13 +651,13 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"ESOUISOUISU",1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, DGS, VG, 1},
 {"SOUISOUISU", 1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, DGS, VG, 1},
 
-{"SISÆ",       1,1,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, VG, 0},
-{"ISÆ",        1,1,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, VG, 0},  // v.g.sangraziniai.
+{"SIS\xC6",       1,1,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, VG, 0},
+{"IS\xC6",        1,1,127,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, VG, 0},  // v.g.sangraziniai.
 
 {"ISU",        1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, MG, 0},
 {"SOISU",      1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, MG, 0},    // m.g.
 {"IAISU",      1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, MG, 0},
-{"ÀISU",       1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 0},
+{"\xC0ISU",       1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 0},
 {"AISU",       1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, MG, 0},
 {"EJOISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 0},
 {"JOISU",      1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 0},
@@ -670,13 +670,13 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, MG, 1},
 {"SOISOISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
 {"IAJAISU",    1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 1},
-{"AJÀISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, MG, 1},
+{"\xC0J\xC0ISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0ISU",     1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, MG, 1},
 {"EJOJOISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 1},
 {"JOJOISU",    1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 1},
 {"SMOISOISU",  1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, MG, 1},
 {"MOISOISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, MG, 1},
-{"SAISÀISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, MG, 1},
+{"SAIS\xC0ISU",   1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, MG, 1},
 {"SIMOISOISU", 1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 5, DGS, MG, 1},
 {"ESOISOISU",  1,0,63,-1,-1,9,0, DAL, BKL, VEIKR, 6, DGS, MG, 1},
 
@@ -685,10 +685,10 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 
 {"OISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, VG, 0},    // v.g.
 {"MAISUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, VG, 0},
-{"ÁSUI",       1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 0},
+{"\xC1SUI",       1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 0},
 {"UISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, VG, 0},
 {"EMAISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, VG, 0},
-{"ØISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 0},
+{"\xD8ISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 0},
 {"SMEISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 0},
 {"MEISUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 0},
 {"SUISUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, VG, 0},
@@ -699,11 +699,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISYSUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, VG, 1},
 {"OJOISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, VG, 1}, // v.g.ivardziuot.
 {"MAJAISUI",   1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁSUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 1},
+{"\xC1J\xC1SUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, VG, 1},
 {"UJOUISUI",   1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, VG, 1},
 {"EMAJAISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, VG, 1},
 {"IJEISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, VG, 1},
-{"ØJØISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 1},
+{"\xD8J\xD8ISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, DGS, VG, 1},
 {"SMEISEISUI", 1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 1},
 {"MEISEISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, VG, 1},
 {"SUISOUISUI", 1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, VG, 1},
@@ -714,7 +714,7 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"ISUI",       1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, MG, 0},
 {"SOISUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, MG, 0},    // m.g.
 {"IAISUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, MG, 0},
-{"ÀISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 0},
+{"\xC0ISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 0},
 {"AISUI",      1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, MG, 0},
 {"EJOISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 0},
 {"JOISUI",     1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 0},
@@ -727,30 +727,30 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, MG, 1},
 {"SOISOISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 2, VNS, MG, 1}, // m.g.ivardziuot.
 {"IAJAISUI",   1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 1},
-{"AJÀISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, MG, 1},
+{"\xC0J\xC0ISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0ISUI",    1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 5, VNS, MG, 1},
 {"EJOJOISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 1},
 {"JOJOISUI",   1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, VNS, MG, 1},
 {"SMOISOISUI", 1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, MG, 1},
 {"MOISOISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 3, DGS, MG, 1},
-{"SAISÀISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, MG, 1},
+{"SAIS\xC0ISUI",  1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 4, DGS, MG, 1},
 {"SIMOISOISUI",1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 5, DGS, MG, 1},
 {"ESOISOISUI", 1,0,64,-1,-1,9,0, DAL, BKL, VEIKR, 6, DGS, MG, 1},
 
 {"SISUI",      1,1,64,-1,-1,9,0, DAL, BKL, VEIKR, 1, VNS, MG, 0},
 {"ISOISUI",    1,1,64,-1,-1,9,0, DAL, BKL, VEIKR, 1, DGS, MG, 0},  // m.g.sangraziniai.
 
-// 11 Bûtojo kartinio laiko veikiamasis prieveiksmis
+// 11 B\xFBtojo kartinio laiko veikiamasis prieveiksmis
 {"IAISU",  1,0,63,-1,-1,9,0},
 {"IAISUI", 1,0,64,-1,-1,9,0},
 
-// Ið bendraties kamieno daromø veiksmaþodþio formø galûnës
+// I\xF0 bendraties kamieno darom\xF8 veiksma\xFEod\xFEio form\xF8 gal\xFBn\xEBs
 // 12 Bendratis
 {"IT",     2,0,127,-1,-1,10,0, BENDR, -1, -1, -1, -1, -1, -1},
 {"T",      2,0,127,-1,-1,10,0, BENDR, -1, -1, -1, -1, -1, -1},
 {"SIT",    2,1,127,-1,-1,10,0, BENDR, -1, -1, -1, -1, -1, -1},
 
-// 13 Bûtasis daþninis laikas
+// 13 B\xFBtasis da\xFEninis laikas
 {"UAVAD",  2,0,127,-1,-1,10,0, VKS, BDL, TIESN, 1, VNS, -1, -1},
 {"ISUAVAD",2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 1, VNS, -1, -1},
 {"SUAVAD", 2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 1, VNS, -1, -1},
@@ -762,12 +762,12 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SOVAD",  2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 3, V_D, -1, -1},
 {"EMOVAD", 2,0,127,-1,-1,10,0, VKS, BDL, TIESN, 1, DGS, -1, -1},
 {"MOVAD",  2,0,127,-1,-1,10,0, VKS, BDL, TIESN, 1, DGS, -1, -1},
-{"SËMOVAD",2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 1, DGS, -1, -1},
+{"S\xCBMOVAD",2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 1, DGS, -1, -1},
 {"ETOVAD", 2,0,127,-1,-1,10,0, VKS, BDL, TIESN, 2, DGS, -1, -1},
 {"TOVAD",  2,0,127,-1,-1,10,0, VKS, BDL, TIESN, 2, DGS, -1, -1},
-{"SËTOVAD",2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 2, DGS, -1, -1},
+{"S\xCBTOVAD",2,1,127,-1,-1,10,0, VKS, BDL, TIESN, 2, DGS, -1, -1},
 
-// 14 Bûsimasis laikas
+// 14 B\xFBsimasis laikas
 {"UIS",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
 {"ISOUIS", 2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
 {"SOUIS",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
@@ -778,47 +778,47 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SIS",    2,1,127,-1,-1,14,0, VKS, BSL, TIESN, 3, V_D, -1, -1},
 {"EMIS",   2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
 {"MIS",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
-{"SËMIS",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
+{"S\xCBMIS",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
 {"ETIS",   2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
 {"TIS",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
-{"SËTIS",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
+{"S\xCBTIS",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
 
-{"UIÐ",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
-{"ISOUIÐ", 2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
-{"SOUIÐ",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
-{"IÐ",     2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, VNS, -1, -1},
-{"ISEIÐ",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, VNS, -1, -1},
-{"SEIÐ",   2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, VNS, -1, -1},
-{"Ð",      2,0,127,-1,-1,14,1, VKS, BSL, TIESN, 3, V_D, -1, -1},
-{"SIÐ",    2,1,127,-1,-1,14,0, VKS, BSL, TIESN, 3, V_D, -1, -1},
-{"EMIÐ",   2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
-{"MIÐ",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
-{"SËMIÐ",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
-{"ETIÐ",   2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
-{"TIÐ",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
-{"SËTIÐ",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
+{"UI\xD0",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
+{"ISOUI\xD0", 2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
+{"SOUI\xD0",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, VNS, -1, -1},
+{"I\xD0",     2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, VNS, -1, -1},
+{"ISEI\xD0",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, VNS, -1, -1},
+{"SEI\xD0",   2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, VNS, -1, -1},
+{"\xD0",      2,0,127,-1,-1,14,1, VKS, BSL, TIESN, 3, V_D, -1, -1},
+{"SI\xD0",    2,1,127,-1,-1,14,0, VKS, BSL, TIESN, 3, V_D, -1, -1},
+{"EMI\xD0",   2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
+{"MI\xD0",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
+{"S\xCBMI\xD0",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 1, DGS, -1, -1},
+{"ETI\xD0",   2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
+{"TI\xD0",    2,0,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
+{"S\xCBTI\xD0",  2,1,127,-1,-1,10,0, VKS, BSL, TIESN, 2, DGS, -1, -1},
 
 // 15 Tariamoji nuosaka
-{"UAIÈ",   2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, VNS, -1, -1},
-{"ISUAIÈ", 2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, VNS, -1, -1},
-{"SUAIÈ",  2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, VNS, -1, -1},
+{"UAI\xC8",   2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, VNS, -1, -1},
+{"ISUAI\xC8", 2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, VNS, -1, -1},
+{"SUAI\xC8",  2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, VNS, -1, -1},
 {"IEMUT",  2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, VNS, -1, -1},
 {"MUT",    2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, VNS, -1, -1},
 {"ISIEMUT",2,1,127,-1,-1,10,0, VKS, -1, TARN, 2, VNS, -1, -1},
 {"SIEMUT", 2,1,127,-1,-1,10,0, VKS, -1, TARN, 2, VNS, -1, -1},
-{"ØT",     2,0,127,-1,-1,10,0, VKS, -1, TARN, 3, V_D, -1, -1},
-{"ISØT",   2,1,127,-1,-1,10,0, VKS, -1, TARN, 3, V_D, -1, -1},
-{"SØT",    2,1,127,-1,-1,10,0, VKS, -1, TARN, 3, V_D, -1, -1},
-{"EMËMUT", 2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
-{"MËMUT",  2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
+{"\xD8T",     2,0,127,-1,-1,10,0, VKS, -1, TARN, 3, V_D, -1, -1},
+{"IS\xD8T",   2,1,127,-1,-1,10,0, VKS, -1, TARN, 3, V_D, -1, -1},
+{"S\xD8T",    2,1,127,-1,-1,10,0, VKS, -1, TARN, 3, V_D, -1, -1},
+{"EM\xCBMUT", 2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
+{"M\xCBMUT",  2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
 {"EMUT",   2,0,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
-{"SËMËMUT",2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
-{"SËMUT",  2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
-{"ETËMUT", 2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
-{"TËMUT",  2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
+{"S\xCBM\xCBMUT",2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
+{"S\xCBMUT",  2,1,127,-1,-1,10,0, VKS, -1, TARN, 1, DGS, -1, -1},
+{"ET\xCBMUT", 2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
+{"T\xCBMUT",  2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
 {"ETUT",   2,0,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
-{"SËTËMUT",2,1,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
-{"SËTUT",  2,1,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
+{"S\xCBT\xCBMUT",2,1,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
+{"S\xCBTUT",  2,1,127,-1,-1,10,0, VKS, -1, TARN, 2, DGS, -1, -1},
 
 // 16 Liepiamoji nuosaka
 {"IK",     2,0,127,-1,-1,10,0, VKS, -1, LIEPN, 2, VNS, -1, -1},
@@ -826,10 +826,10 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SIK",    2,1,127,-1,-1,10,0, VKS, -1, LIEPN, 2, VNS, -1, -1},
 {"EMIK",   2,0,127,-1,-1,10,0, VKS, -1, LIEPN, 1, DGS, -1, -1},
 {"MIK",    2,0,127,-1,-1,10,0, VKS, -1, LIEPN, 1, DGS, -1, -1},
-{"SËMIK",  2,1,127,-1,-1,10,0, VKS, -1, LIEPN, 1, DGS, -1, -1},
+{"S\xCBMIK",  2,1,127,-1,-1,10,0, VKS, -1, LIEPN, 1, DGS, -1, -1},
 {"ETIK",   2,0,127,-1,-1,10,0, VKS, -1, LIEPN, 2, DGS, -1, -1},
 {"TIK",    2,0,127,-1,-1,10,0, VKS, -1, LIEPN, 2, DGS, -1, -1},
-{"SËTIK",  2,1,127,-1,-1,10,0, VKS, -1, LIEPN, 2, DGS, -1, -1},
+{"S\xCBTIK",  2,1,127,-1,-1,10,0, VKS, -1, LIEPN, 2, DGS, -1, -1},
 
 // 17 Pusdalyvis
 {"SAMAD",  2,0,127,-1,-1,10,0, PSD, -1, -1, -1, VNS, VG, -1},
@@ -841,24 +841,24 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"ISEIMAD",2,1,127,-1,-1,10,0, PSD, -1, -1, -1, DGS, VG, -1},
 {"ISOMAD", 2,1,127,-1,-1,10,0, PSD, -1, -1, -1, DGS, MG, -1},
 
-// 18 Bûtojo daþninio ir bûsimojo laiko padalyvis
+// 18 B\xFBtojo da\xFEninio ir b\xFBsimojo laiko padalyvis
 {"SUVAD",  2,0,127,-1,-1,10,0, PAD, BDL, -1, -1, -1, -1, -1},
 {"SISUVAD",2,1,127,-1,-1,10,0, PAD, BDL, -1, -1, -1, -1, -1},
 
 {"TNAIS",  2,0,127,-1,-1,10,0, PAD, BSL, -1, -1, -1, -1, -1},
 {"SITNAIS",2,1,127,-1,-1,10,0, PAD, BSL, -1, -1, -1, -1, -1},
-{"TNAIÐ",  2,0,127,-1,-1,10,0, PAD, BSL, -1, -1, -1, -1, -1},
-{"SITNAIÐ",2,1,127,-1,-1,10,0, PAD, BSL, -1, -1, -1, -1, -1},
+{"TNAI\xD0",  2,0,127,-1,-1,10,0, PAD, BSL, -1, -1, -1, -1, -1},
+{"SITNAI\xD0",2,1,127,-1,-1,10,0, PAD, BSL, -1, -1, -1, -1, -1},
 
-// 19 Bûtojo daþninio laiko veikiamasis dalyvis
-{"SÆVAD",     2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, VNS, VG, 0},
+// 19 B\xFBtojo da\xFEninio laiko veikiamasis dalyvis
+{"S\xC6VAD",     2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, VNS, VG, 0},
 {"OISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 2, VNS, VG, 0},     // v.g.
 {"MAISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 3, VNS, VG, 0},
-{"ÁSUVAD",    2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 4, VNS, VG, 0},
+{"\xC1SUVAD",    2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 4, VNS, VG, 0},
 {"UISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 5, VNS, VG, 0},
 {"EMAISUVAD", 2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 6, VNS, VG, 0},
-{"ÆVAD",      2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, DGS, VG, 0},
-{"ØISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 2, DGS, VG, 0},
+{"\xC6VAD",      2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, DGS, VG, 0},
+{"\xD8ISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 2, DGS, VG, 0},
 {"SMEISUVAD", 2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 3, DGS, VG, 0},
 {"MEISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 3, DGS, VG, 0},
 {"SUISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 4, DGS, VG, 0},
@@ -866,18 +866,18 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"ESOUISUVAD",2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 6, DGS, VG, 0},
 {"SOUISUVAD", 2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 6, DGS, VG, 0},
 
-{"SISÆVAD",   2,1,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, VNS, VG, 0},
-{"ISÆVAD",    2,1,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, DGS, VG, 0},  // sangr.
+{"SIS\xC6VAD",   2,1,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, VNS, VG, 0},
+{"IS\xC6VAD",    2,1,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, DGS, VG, 0},  // sangr.
 
 {"ISUVAD",    2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, VNS, MG, 0},
 {"SOISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 2, VNS, MG, 0},  // m.g.
 {"IAISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 3, VNS, MG, 0},
-{"ÀISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 4, VNS, MG, 0},
+{"\xC0ISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 4, VNS, MG, 0},
 {"AISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 5, VNS, MG, 0},
 {"EJOISUVAD", 2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 6, VNS, MG, 0},
 {"JOISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 6, VNS, MG, 0},
 {"SOISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, DGS, MG, 0},
-{"ØISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 2, DGS, MG, 0},
+{"\xD8ISUVAD",   2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 2, DGS, MG, 0},
 {"SMOISUVAD", 2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 3, DGS, MG, 0},
 {"MOISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 3, DGS, MG, 0},
 {"SAISUVAD",  2,0,127,-1,-1,10,0, DAL, BDL, VEIKR, 4, DGS, MG, 0},
@@ -887,144 +887,144 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISUVAD",   2,1,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, VNS, MG, 0},
 {"ISOISUVAD", 2,1,127,-1,-1,10,0, DAL, BDL, VEIKR, 1, DGS, MG, 0},  // sangr.
 
-// 20 Bûsimojo laiko veikiamasis dalyvis
-{"SÀIS",         2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
+// 20 B\xFBsimojo laiko veikiamasis dalyvis
+{"S\xC0IS",         2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
 {"SITNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
-{"OIÈNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 0},         // v.g.
-{"MAIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 0},
-{"ÁTNAIS",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 0},
-{"UIÈNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 0},
-{"EMAIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 0},
-{"ÀIS",          2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
+{"OI\xC8NAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 0},         // v.g.
+{"MAI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 0},
+{"\xC1TNAIS",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 0},
+{"UI\xC8NAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 0},
+{"EMAI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 0},
+{"\xC0IS",          2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
 {"SYTNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
-{"ØIÈNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 0},
+{"\xD8I\xC8NAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 0},
 {"SMEITNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 0},
 {"MEITNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 0},
-{"SUIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 0},
-{"SIAIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 0},
-{"ESOUIÈNAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
-{"SOUIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
+{"SUI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 0},
+{"SIAI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 0},
+{"ESOUI\xC8NAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
+{"SOUI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
 
 {"SISYTNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 1},
-{"OJOIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 1},  // v.g.ivardz.
-{"MAJAIÈNAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁTNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 1},
-{"UJOUIÈNAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 1},
-{"EMAJAIÈNAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 1},
+{"OJOI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 1},  // v.g.ivardz.
+{"MAJAI\xC8NAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 1},
+{"\xC1J\xC1TNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 1},
+{"UJOUI\xC8NAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 1},
+{"EMAJAI\xC8NAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 1},
 {"IJEITNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 1},
-{"ØJØIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 1},
+{"\xD8J\xD8I\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 1},
 {"SMEISEITNAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 1},
 {"MEISEITNAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 1},
-{"SUISOUIÈNAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 1},
-{"SIAISIAIÈNAIS",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 1},
-{"ESOUISOUIÈNAIS",2,0,127,-1,-1,10,0,DAL, BSL, VEIKR, 6, DGS, VG, 1},
-{"SOUISOUIÈNAIS",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 1},
+{"SUISOUI\xC8NAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 1},
+{"SIAISIAI\xC8NAIS",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 1},
+{"ESOUISOUI\xC8NAIS",2,0,127,-1,-1,10,0,DAL, BSL, VEIKR, 6, DGS, VG, 1},
+{"SOUISOUI\xC8NAIS",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 1},
 
-{"SISÀIS",       2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
-{"ISÀIS",        2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},  // v.g.sangr.
+{"SIS\xC0IS",       2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
+{"IS\xC0IS",        2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},  // v.g.sangr.
 
 {"ITNAIS",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 0},
-{"SOIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 0},  // m.g.
-{"IAIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 0},
-{"ÀIÈNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 0},
-{"AIÈNAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 0},
-{"EJOIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
-{"JOIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
-{"SMOIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
-{"MOIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
-{"SAIÈNAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 0},
-{"SIMOIÈNAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 0},
-{"ESOIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 0},
+{"SOI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 0},  // m.g.
+{"IAI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 0},
+{"\xC0I\xC8NAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 0},
+{"AI\xC8NAIS",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 0},
+{"EJOI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
+{"JOI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
+{"SMOI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
+{"MOI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
+{"SAI\xC8NAIS",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 0},
+{"SIMOI\xC8NAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 0},
+{"ESOI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 0},
 
-{"IJOIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 1},
-{"SOISOIÈNAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 1},  // m.g.ivardz.
-{"IAJAIÈNAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 1},
-{"AJÀIÈNAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 1},
-{"EJOJOIÈNAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
-{"JOJOIÈNAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
-{"SMOISOIÈNAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
-{"MOISOIÈNAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
-{"SAISÀIÈNAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 1},
-{"SIMOISOIÈNAIS",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 1},
-{"ESOISOIÈNAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 1},
+{"IJOI\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 1},
+{"SOISOI\xC8NAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 1},  // m.g.ivardz.
+{"IAJAI\xC8NAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 1},
+{"\xC0J\xC0I\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0I\xC8NAIS",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 1},
+{"EJOJOI\xC8NAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
+{"JOJOI\xC8NAIS",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
+{"SMOISOI\xC8NAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
+{"MOISOI\xC8NAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
+{"SAIS\xC0I\xC8NAIS",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 1},
+{"SIMOISOI\xC8NAIS",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 1},
+{"ESOISOI\xC8NAIS", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 1},
 
 {"SITNAIS",      2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 0},
-{"ISOIÈNAIS",    2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, MG, 0},  // m.g.sangr.
+{"ISOI\xC8NAIS",    2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, MG, 0},  // m.g.sangr.
 
-{"SÀIÐ",         2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
-{"SITNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
-{"OIÈNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 0},         // v.g.
-{"MAIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 0},
-{"ÁTNAIÐ",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 0},
-{"UIÈNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 0},
-{"EMAIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 0},
-{"ÀIÐ",          2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
-{"SYTNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
-{"ØIÈNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 0},
-{"SMEITNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 0},
-{"MEITNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 0},
-{"SUIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 0},
-{"SIAIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 0},
-{"ESOUIÈNAIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
-{"SOUIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
+{"S\xC0I\xD0",         2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
+{"SITNAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
+{"OI\xC8NAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 0},         // v.g.
+{"MAI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 0},
+{"\xC1TNAI\xD0",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 0},
+{"UI\xC8NAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 0},
+{"EMAI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 0},
+{"\xC0I\xD0",          2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
+{"SYTNAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},
+{"\xD8I\xC8NAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 0},
+{"SMEITNAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 0},
+{"MEITNAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 0},
+{"SUI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 0},
+{"SIAI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 0},
+{"ESOUI\xC8NAI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
+{"SOUI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 0},
 
-{"SISYTNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 1},
-{"OJOIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 1},  // v.g.ivardz.
-{"MAJAIÈNAIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 1},
-{"ÁJÁTNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 1},
-{"UJOUIÈNAIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 1},
-{"EMAJAIÈNAIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 1},
-{"IJEITNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 1},
-{"ØJØIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 1},
-{"SMEISEITNAIÐ", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 1},
-{"MEISEITNAIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 1},
-{"SUISOUIÈNAIÐ", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 1},
-{"SIAISIAIÈNAIÐ",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 1},
-{"ESOUISOUIÈNAIÐ",2,0,127,-1,-1,10,0,DAL, BSL, VEIKR, 6, DGS, VG, 1},
-{"SOUISOUIÈNAIÐ",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 1},
+{"SISYTNAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 1},
+{"OJOI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, VG, 1},  // v.g.ivardz.
+{"MAJAI\xC8NAI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, VG, 1},
+{"\xC1J\xC1TNAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, VG, 1},
+{"UJOUI\xC8NAI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, VG, 1},
+{"EMAJAI\xC8NAI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, VG, 1},
+{"IJEITNAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 1},
+{"\xD8J\xD8I\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, DGS, VG, 1},
+{"SMEISEITNAI\xD0", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 1},
+{"MEISEITNAI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, VG, 1},
+{"SUISOUI\xC8NAI\xD0", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, VG, 1},
+{"SIAISIAI\xC8NAI\xD0",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, VG, 1},
+{"ESOUISOUI\xC8NAI\xD0",2,0,127,-1,-1,10,0,DAL, BSL, VEIKR, 6, DGS, VG, 1},
+{"SOUISOUI\xC8NAI\xD0",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, VG, 1},
 
-{"SISÀIÐ",       2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
-{"ISÀIÐ",        2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},  // v.g.sangr.
+{"SIS\xC0I\xD0",       2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, VG, 0},
+{"IS\xC0I\xD0",        2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, VG, 0},  // v.g.sangr.
 
-{"ITNAIÐ",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 0},
-{"SOIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 0},     // m.g.
-{"IAIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 0},
-{"ÀIÈNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 0},
-{"AIÈNAIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 0},
-{"EJOIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
-{"JOIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
-{"SMOIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
-{"MOIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
-{"SAIÈNAIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 0},
-{"SIMOIÈNAIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 0},
-{"ESOIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 0},
+{"ITNAI\xD0",       2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 0},
+{"SOI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 0},     // m.g.
+{"IAI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 0},
+{"\xC0I\xC8NAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 0},
+{"AI\xC8NAI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 0},
+{"EJOI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
+{"JOI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 0},
+{"SMOI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
+{"MOI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 0},
+{"SAI\xC8NAI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 0},
+{"SIMOI\xC8NAI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 0},
+{"ESOI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 0},
 
-{"IJOIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 1},
-{"SOISOIÈNAIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 1},  // m.g.ivardz.
-{"IAJAIÈNAIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 1},
-{"ÀJÀIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 1},
-{"AJÀIÈNAIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 1},
-{"EJOJOIÈNAIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
-{"JOJOIÈNAIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
-{"SMOISOIÈNAIÐ", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
-{"MOISOIÈNAIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
-{"SAISÀIÈNAIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 1},
-{"SIMOISOIÈNAIÐ",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 1},
-{"ESOISOIÈNAIÐ", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 1},
+{"IJOI\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 1},
+{"SOISOI\xC8NAI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 2, VNS, MG, 1},  // m.g.ivardz.
+{"IAJAI\xC8NAI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, VNS, MG, 1},
+{"\xC0J\xC0I\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, VNS, MG, 1},
+{"AJ\xC0I\xC8NAI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, VNS, MG, 1},
+{"EJOJOI\xC8NAI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
+{"JOJOI\xC8NAI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, VNS, MG, 1},
+{"SMOISOI\xC8NAI\xD0", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
+{"MOISOI\xC8NAI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 3, DGS, MG, 1},
+{"SAIS\xC0I\xC8NAI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 4, DGS, MG, 1},
+{"SIMOISOI\xC8NAI\xD0",2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 5, DGS, MG, 1},
+{"ESOISOI\xC8NAI\xD0", 2,0,127,-1,-1,10,0, DAL, BSL, VEIKR, 6, DGS, MG, 1},
 
-{"SITNAIÐ",      2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 0},
-{"ISOIÈNAIÐ",    2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, MG, 0},  // m.g.sangr.
+{"SITNAI\xD0",      2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, VNS, MG, 0},
+{"ISOI\xC8NAI\xD0",    2,1,127,-1,-1,10,0, DAL, BSL, VEIKR, 1, DGS, MG, 0},  // m.g.sangr.
 
-// 21 Bûtojo laiko neveikiamasis dalyvis
+// 21 B\xFBtojo laiko neveikiamasis dalyvis
 {"SAT",       2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 1, VNS, VG, 0},
 {"OT",        2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 2, VNS, VG, 0},          // v.g.
 {"MAT",       2,0,127, 1, 1,11,0, DAL, BTL, NEVR, 3, VNS, VG, 0},
-{"ÀT",        2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 4, VNS, VG, 0},
+{"\xC0T",        2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 4, VNS, VG, 0},
 {"UT",        2,0,127, 0, 0,15,0, DAL, BTL, NEVR, 5, VNS, VG, 0},
 {"EMAT",      2,0,127, 0, 0,11,0, DAL, BTL, NEVR, 6, VNS, VG, 0},
 {"IT",        2,0,127, 0, 0,11,0, DAL, BTL, NEVR, 1, DGS, VG, 0},
-{"ØT",        2,0,127, 0, 2,11,0, DAL, BTL, NEVR, 2, DGS, VG, 0},
+{"\xD8T",        2,0,127, 0, 2,11,0, DAL, BTL, NEVR, 2, DGS, VG, 0},
 {"SMEIT",     2,0,127, 3, 1,11,0, DAL, BTL, NEVR, 3, DGS, VG, 0},
 {"MEIT",      2,0,127, 2, 1,11,0, DAL, BTL, NEVR, 3, DGS, VG, 0},
 {"SUT",       2,0,127, 1, 0,15,0, DAL, BTL, NEVR, 4, DGS, VG, 0},
@@ -1035,11 +1035,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISAT",     2,0,127, 3, 0,11,0, DAL, BTL, NEVR, 1, VNS, VG, 1},
 {"OJOT",      2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 2, VNS, VG, 1},        // v.g.ivardz.
 {"MAJAT",     2,0,127, 3, 1,11,0, DAL, BTL, NEVR, 3, VNS, VG, 1},
-{"ÁJÀT",      2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 4, VNS, VG, 1},
+{"\xC1J\xC0T",      2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 4, VNS, VG, 1},
 {"UJOUT",     2,0,127, 3, 1,11,0, DAL, BTL, NEVR, 5, VNS, VG, 1},
 {"EMAJAT",    2,0,127, 4, 2,11,0, DAL, BTL, NEVR, 6, VNS, VG, 1},
 {"IJEIT",     2,0,127, 3, 1,11,0, DAL, BTL, NEVR, 1, DGS, VG, 1},
-{"ØJØT",      2,0,127, 2, 2,11,0, DAL, BTL, NEVR, 2, DGS, VG, 1},
+{"\xD8J\xD8T",      2,0,127, 2, 2,11,0, DAL, BTL, NEVR, 2, DGS, VG, 1},
 {"SMEISEIT",  2,0,127, 6, 1,11,0, DAL, BTL, NEVR, 3, DGS, VG, 1},
 {"MEISEIT",   2,0,127, 5, 1,11,0, DAL, BTL, NEVR, 3, DGS, VG, 1},
 {"SUISOUT",   2,0,127, 5, 1,11,0, DAL, BTL, NEVR, 4, DGS, VG, 1},
@@ -1063,29 +1063,29 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOT",      2,0,127, 2, 1,11,0, DAL, BTL, NEVR, 1, VNS, MG, 1},
 {"SOISOT",    2,0,127, 4, 2,11,0, DAL, BTL, NEVR, 2, VNS, MG, 1},         // m.g.ivardz.
 {"IAJAT",     2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 3, VNS, MG, 1},
-{"ÀJÀT",      2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 4, VNS, MG, 1},
-{"AJÀT",      2,0,127, 2, 1,11,0, DAL, BTL, NEVR, 5, VNS, MG, 1},
+{"\xC0J\xC0T",      2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0T",      2,0,127, 2, 1,11,0, DAL, BTL, NEVR, 5, VNS, MG, 1},
 {"EJOJOT",    2,0,127, 4, 2,11,0, DAL, BTL, NEVR, 6, VNS, MG, 1},
 {"JOJOT",     2,0,127, 3, 2,11,0, DAL, BTL, NEVR, 6, VNS, MG, 1},
 {"SOISOT",    2,0,127,-1,-1,13,0, DAL, BTL, NEVR, 1, DGS, MG, 1},
 {"SMOISOT",   2,0,127, 5, 1,11,0, DAL, BTL, NEVR, 3, DGS, MG, 1},
 {"MOISOT",    2,0,127, 4, 1,11,0, DAL, BTL, NEVR, 3, DGS, MG, 1},
-{"SAISÀT",    2,0,127, 4, 1,11,0, DAL, BTL, NEVR, 4, DGS, MG, 1},
+{"SAIS\xC0T",    2,0,127, 4, 1,11,0, DAL, BTL, NEVR, 4, DGS, MG, 1},
 {"SIMOISOT",  2,0,127, 6, 2,11,0, DAL, BTL, NEVR, 5, DGS, MG, 1},
 {"ESOISOT",   2,0,127, 5, 2,11,0, DAL, BTL, NEVR, 6, DGS, MG, 1},
 
 {"AT",        2,0,127,-1,-1,13,0, DAL, BTL, NEVR, -1, -1, BG, 0},
 {"ISAT",      2,0,127,-1,-1,13,0, DAL, BTL, NEVR, -1, -1, BG, 0},  // bev.g.
 
-// 22 Bûsimojo laiko neveikiamasis dalyvis
+// 22 B\xFBsimojo laiko neveikiamasis dalyvis
 {"SAMIS",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, VNS, VG, 0},
 {"OMIS",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 2, VNS, VG, 0},      // v.g.
 {"MAMIS",     2,0,127, 1, 1,11,0, DAL, BSL, NEVR, 3, VNS, VG, 0},
-{"ÀMIS",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 0},
+{"\xC0MIS",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 0},
 {"UMIS",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 5, VNS, VG, 0},
 {"EMAMIS",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, VNS, VG, 0},
 {"IMIS",      2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 1, DGS, VG, 0},
-{"ØMIS",      2,0,127, 0, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 0},
+{"\xD8MIS",      2,0,127, 0, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 0},
 {"SMEIMIS",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 0},
 {"MEIMIS",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 0},
 {"SUMIS",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, DGS, VG, 0},
@@ -1096,11 +1096,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISAMIS",   2,0,127, 3, 0,11,0, DAL, BSL, NEVR, 1, VNS, VG, 1},
 {"OJOMIS",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 2, VNS, VG, 1},    // v.g.ivardz.
 {"MAJAMIS",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 3, VNS, VG, 1},
-{"ÁJÀMIS",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 1},
+{"\xC1J\xC0MIS",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 1},
 {"UJOUMIS",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 5, VNS, VG, 1},
 {"EMAJAMIS",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 6, VNS, VG, 1},
 {"IJEIMIS",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 1, DGS, VG, 1},
-{"ØJØMIS",    2,0,127, 2, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 1},
+{"\xD8J\xD8MIS",    2,0,127, 2, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 1},
 {"SMEISEIMIS",2,0,127, 6, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 1},
 {"MEISEIMIS", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 1},
 {"SUISOUMIS", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 4, DGS, VG, 1},
@@ -1124,89 +1124,89 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJOMIS",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 1, VNS, MG, 1},
 {"SOISOMIS",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 2, VNS, MG, 1},     // m.g.ivardz.
 {"IAJAMIS",   2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 3, VNS, MG, 1},
-{"ÀJÀMIS",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, MG, 1},
-{"AJÀMIS",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 5, VNS, MG, 1},
+{"\xC0J\xC0MIS",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0MIS",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 5, VNS, MG, 1},
 {"EJOJOMIS",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 1},
 {"JOJOMIS",   2,0,127, 3, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 1},
 {"SOISOMIS",  2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, DGS, MG, 1},
 {"SMOISOMIS", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 1},
 {"MOISOMIS",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 1},
-{"SAISÀMIS",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 4, DGS, MG, 1},
+{"SAIS\xC0MIS",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 4, DGS, MG, 1},
 {"SIMOISOMIS",2,0,127, 6, 2,11,0, DAL, BSL, NEVR, 5, DGS, MG, 1},
 {"ESOISOMIS", 2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 6, DGS, MG, 1},
 
 {"AMIS",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},
 {"ISAMIS",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},  // bev.g.
 
-{"SAMIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, VNS, VG, 0},
-{"OMIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 2, VNS, VG, 0},      // v.g.
-{"MAMIÐ",     2,0,127, 1, 1,11,0, DAL, BSL, NEVR, 3, VNS, VG, 0},
-{"ÀMIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 0},
-{"UMIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 5, VNS, VG, 0},
-{"EMAMIÐ",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, VNS, VG, 0},
-{"IMIÐ",      2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 1, DGS, VG, 0},
-{"ØMIÐ",      2,0,127, 0, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 0},
-{"SMEIMIÐ",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 0},
-{"MEIMIÐ",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 0},
-{"SUMIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, DGS, VG, 0},
-{"SIAMIÐ",    2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 5, DGS, VG, 0},
-{"ESOUMIÐ",   2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, DGS, VG, 0},
-{"SOUMIÐ",    2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 6, DGS, VG, 0},
+{"SAMI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, VNS, VG, 0},
+{"OMI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 2, VNS, VG, 0},      // v.g.
+{"MAMI\xD0",     2,0,127, 1, 1,11,0, DAL, BSL, NEVR, 3, VNS, VG, 0},
+{"\xC0MI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 0},
+{"UMI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 5, VNS, VG, 0},
+{"EMAMI\xD0",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, VNS, VG, 0},
+{"IMI\xD0",      2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 1, DGS, VG, 0},
+{"\xD8MI\xD0",      2,0,127, 0, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 0},
+{"SMEIMI\xD0",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 0},
+{"MEIMI\xD0",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 0},
+{"SUMI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, DGS, VG, 0},
+{"SIAMI\xD0",    2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 5, DGS, VG, 0},
+{"ESOUMI\xD0",   2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, DGS, VG, 0},
+{"SOUMI\xD0",    2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 6, DGS, VG, 0},
 
-{"SISAMIÐ",   2,0,127, 3, 0,11,0, DAL, BSL, NEVR, 1, VNS, VG, 1},
-{"OJOMIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 2, VNS, VG, 1},    // v.g.ivardz.
-{"MAJAMIÐ",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 3, VNS, VG, 1},
-{"ÁJÀMIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 1},
-{"UJOUMIÐ",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 5, VNS, VG, 1},
-{"EMAJAMIÐ",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 6, VNS, VG, 1},
-{"IJEIMIÐ",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 1, DGS, VG, 1},
-{"ØJØMIÐ",    2,0,127, 2, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 1},
-{"SMEISEIMIÐ",2,0,127, 6, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 1},
-{"MEISEIMIÐ", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 1},
-{"SUISOUMIÐ", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 4, DGS, VG, 1},
-{"SIAISIAMIÐ",2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 5, DGS, VG, 1},
-{"ESOUISOUMIÐ",2,0,127,6, 2,11,0, DAL, BSL, NEVR, 6, DGS, VG, 1},
-{"SOUISOUMIÐ",2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 6, DGS, VG, 1},
+{"SISAMI\xD0",   2,0,127, 3, 0,11,0, DAL, BSL, NEVR, 1, VNS, VG, 1},
+{"OJOMI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 2, VNS, VG, 1},    // v.g.ivardz.
+{"MAJAMI\xD0",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 3, VNS, VG, 1},
+{"\xC1J\xC0MI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, VG, 1},
+{"UJOUMI\xD0",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 5, VNS, VG, 1},
+{"EMAJAMI\xD0",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 6, VNS, VG, 1},
+{"IJEIMI\xD0",   2,0,127, 3, 1,11,0, DAL, BSL, NEVR, 1, DGS, VG, 1},
+{"\xD8J\xD8MI\xD0",    2,0,127, 2, 2,11,0, DAL, BSL, NEVR, 2, DGS, VG, 1},
+{"SMEISEIMI\xD0",2,0,127, 6, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 1},
+{"MEISEIMI\xD0", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 3, DGS, VG, 1},
+{"SUISOUMI\xD0", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 4, DGS, VG, 1},
+{"SIAISIAMI\xD0",2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 5, DGS, VG, 1},
+{"ESOUISOUMI\xD0",2,0,127,6, 2,11,0, DAL, BSL, NEVR, 6, DGS, VG, 1},
+{"SOUISOUMI\xD0",2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 6, DGS, VG, 1},
 
-{"AMIÐ",      2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 1, VNS, MG, 0},
-{"SOMIÐ",     2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 2, VNS, MG, 0},          // m.g.
-{"IAMIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 3, VNS, MG, 0},
-{"AMIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 5, VNS, MG, 0},
-{"EJOMIÐ",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, VNS, MG, 0},
-{"JOMIÐ",     2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 0},
-{"SOMIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, DGS, MG, 0},
-{"SMOMIÐ",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 0},
-{"MOMIÐ",     2,0,127, 1, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 0},
-{"SAMIÐ",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, DGS, MG, 0},
-{"SIMOMIÐ",   2,0,127, 1, 0,11,0, DAL, BSL, NEVR, 5, DGS, MG, 0},
-{"ESOMIÐ",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, DGS, MG, 0},
+{"AMI\xD0",      2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 1, VNS, MG, 0},
+{"SOMI\xD0",     2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 2, VNS, MG, 0},          // m.g.
+{"IAMI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 3, VNS, MG, 0},
+{"AMI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 5, VNS, MG, 0},
+{"EJOMI\xD0",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, VNS, MG, 0},
+{"JOMI\xD0",     2,0,127, 1, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 0},
+{"SOMI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, DGS, MG, 0},
+{"SMOMI\xD0",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 0},
+{"MOMI\xD0",     2,0,127, 1, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 0},
+{"SAMI\xD0",     2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, DGS, MG, 0},
+{"SIMOMI\xD0",   2,0,127, 1, 0,11,0, DAL, BSL, NEVR, 5, DGS, MG, 0},
+{"ESOMI\xD0",    2,0,127, 0, 0,11,0, DAL, BSL, NEVR, 6, DGS, MG, 0},
 
-{"IJOMIÐ",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 1, VNS, MG, 1},
-{"SOISOMIÐ",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 2, VNS, MG, 1},     // m.g.ivardz.
-{"IAJAMIÐ",   2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 3, VNS, MG, 1},
-{"ÀJÀMIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, MG, 1},
-{"AJÀMIÐ",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 5, VNS, MG, 1},
-{"EJOJOMIÐ",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 1},
-{"JOJOMIÐ",   2,0,127, 3, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 1},
-{"SOISOMIÐ",  2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, DGS, MG, 1},
-{"SMOISOMIÐ", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 1},
-{"MOISOMIÐ",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 1},
-{"SAISÀMIÐ",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 4, DGS, MG, 1},
-{"SIMOISOMIÐ",2,0,127, 6, 2,11,0, DAL, BSL, NEVR, 5, DGS, MG, 1},
-{"ESOISOMIÐ", 2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 6, DGS, MG, 1},
+{"IJOMI\xD0",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 1, VNS, MG, 1},
+{"SOISOMI\xD0",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 2, VNS, MG, 1},     // m.g.ivardz.
+{"IAJAMI\xD0",   2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 3, VNS, MG, 1},
+{"\xC0J\xC0MI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 4, VNS, MG, 1},
+{"AJ\xC0MI\xD0",    2,0,127, 2, 1,11,0, DAL, BSL, NEVR, 5, VNS, MG, 1},
+{"EJOJOMI\xD0",  2,0,127, 4, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 1},
+{"JOJOMI\xD0",   2,0,127, 3, 2,11,0, DAL, BSL, NEVR, 6, VNS, MG, 1},
+{"SOISOMI\xD0",  2,0,127,-1,-1,10,0, DAL, BSL, NEVR, 1, DGS, MG, 1},
+{"SMOISOMI\xD0", 2,0,127, 5, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 1},
+{"MOISOMI\xD0",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 3, DGS, MG, 1},
+{"SAIS\xC0MI\xD0",  2,0,127, 4, 1,11,0, DAL, BSL, NEVR, 4, DGS, MG, 1},
+{"SIMOISOMI\xD0",2,0,127, 6, 2,11,0, DAL, BSL, NEVR, 5, DGS, MG, 1},
+{"ESOISOMI\xD0", 2,0,127, 5, 2,11,0, DAL, BSL, NEVR, 6, DGS, MG, 1},
 
-{"AMIÐ",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},
-{"ISAMIÐ",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},  // bev.g.
+{"AMI\xD0",      2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},
+{"ISAMI\xD0",    2,0,127,-1,-1,10,0, DAL, BSL, NEVR, -1, -1, BG, 0},  // bev.g.
 
 // 23 Reikiamybäs dalyvis
 {"SANIT",     2,0,127,-1,-1,10,0, DAL, -1, REIK, 1, VNS, VG, 0},
 {"ONIT",      2,0,127,-1,-1,10,0, DAL, -1, REIK, 2, VNS, VG, 0},  // v.g.
 {"MANIT",     2,0,127, 1, 1,11,0, DAL, -1, REIK, 3, VNS, VG, 0},
-{"ÀNIT",      2,0,127,-1,-1,10,0, DAL, -1, REIK, 4, VNS, VG, 0},
+{"\xC0NIT",      2,0,127,-1,-1,10,0, DAL, -1, REIK, 4, VNS, VG, 0},
 {"UNIT",      2,0,127,-1,-1,10,0, DAL, -1, REIK, 5, VNS, VG, 0},
 {"EMANIT",    2,0,127, 0, 0,11,0, DAL, -1, REIK, 6, VNS, VG, 0},
 {"INIT",      2,0,127, 0, 0,11,0, DAL, -1, REIK, 1, DGS, VG, 0},
-{"ØNIT",      2,0,127, 0, 2,11,0, DAL, -1, REIK, 2, DGS, VG, 0},
+{"\xD8NIT",      2,0,127, 0, 2,11,0, DAL, -1, REIK, 2, DGS, VG, 0},
 {"SMEINIT",   2,0,127, 3, 1,11,0, DAL, -1, REIK, 3, DGS, VG, 0},
 {"MEINIT",    2,0,127, 2, 1,11,0, DAL, -1, REIK, 3, DGS, VG, 0},
 {"SUNIT",     2,0,127,-1,-1,10,0, DAL, -1, REIK, 4, DGS, VG, 0},
@@ -1217,11 +1217,11 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"SISANIT",   2,0,127, 3, 0,11,0, DAL, -1, REIK, 1, VNS, VG, 1},
 {"OJONIT",    2,0,127,-1,-1,13,0, DAL, -1, REIK, 2, VNS, VG, 1},  // v.g.ivardz.
 {"MAJANIT",   2,0,127, 3, 1,11,0, DAL, -1, REIK, 3, VNS, VG, 1},
-{"ÁJÀNIT",    2,0,127,-1,-1,13,0, DAL, -1, REIK, 4, VNS, VG, 1},
+{"\xC1J\xC0NIT",    2,0,127,-1,-1,13,0, DAL, -1, REIK, 4, VNS, VG, 1},
 {"UJOUNIT",   2,0,127, 3, 1,11,0, DAL, -1, REIK, 5, VNS, VG, 1},
 {"EMAJANIT",  2,0,127, 4, 2,11,0, DAL, -1, REIK, 6, VNS, VG, 1},
 {"IJEINIT",   2,0,127, 3, 1,11,0, DAL, -1, REIK, 1, DGS, VG, 1},
-{"ØJØNIT",    2,0,127, 2, 2,11,0, DAL, -1, REIK, 2, DGS, VG, 1},
+{"\xD8J\xD8NIT",    2,0,127, 2, 2,11,0, DAL, -1, REIK, 2, DGS, VG, 1},
 {"SMEISEINIT",2,0,127, 6, 1,11,0, DAL, -1, REIK, 3, DGS, VG, 1},
 {"MEISEINIT", 2,0,127, 5, 1,11,0, DAL, -1, REIK, 3, DGS, VG, 1},
 {"SUISOUNIT", 2,0,127, 5, 1,11,0, DAL, -1, REIK, 4, DGS, VG, 1},
@@ -1245,24 +1245,24 @@ struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;
 {"IJONIT",    2,0,127, 2, 1,11,0, DAL, -1, REIK, 1, VNS, MG, 1},
 {"SOISONIT",  2,0,127, 4, 2,11,0, DAL, -1, REIK, 2, VNS, MG, 1},         // m.g.ivardz.
 {"IAJANIT",   2,0,127,-1,-1,13,0, DAL, -1, REIK, 3, VNS, MG, 1},
-{"ÀJÀNIT",    2,0,127,-1,-1,13,0, DAL, -1, REIK, 4, VNS, MG, 1},
-{"AJÀNIT",    2,0,127, 2, 1,11,0, DAL, -1, REIK, 5, VNS, MG, 1},
+{"\xC0J\xC0NIT",    2,0,127,-1,-1,13,0, DAL, -1, REIK, 4, VNS, MG, 1},
+{"AJ\xC0NIT",    2,0,127, 2, 1,11,0, DAL, -1, REIK, 5, VNS, MG, 1},
 {"EJOJONIT",  2,0,127, 4, 2,11,0, DAL, -1, REIK, 6, VNS, MG, 1},
 {"JOJONIT",   2,0,127, 3, 2,11,0, DAL, -1, REIK, 6, VNS, MG, 1},
 {"SOISONIT",  2,0,127,-1,-1,13,0, DAL, -1, REIK, 1, DGS, MG, 1},
 {"SMOISONIT", 2,0,127, 5, 1,11,0, DAL, -1, REIK, 3, DGS, MG, 1},
 {"MOISONIT",  2,0,127, 4, 1,11,0, DAL, -1, REIK, 3, DGS, MG, 1},
-{"SAISÀNIT",  2,0,127, 4, 1,11,0, DAL, -1, REIK, 4, DGS, MG, 1},
+{"SAIS\xC0NIT",  2,0,127, 4, 1,11,0, DAL, -1, REIK, 4, DGS, MG, 1},
 {"SIMOISONIT",2,0,127, 6, 2,11,0, DAL, -1, REIK, 5, DGS, MG, 1},
 {"ESOISONIT", 2,0,127, 5, 2,11,0, DAL, -1, REIK, 6, DGS, MG, 1},
 
 {"ANIT",      2,0,127,-1,-1,10,0, DAL, -1, REIK, -1, -1, BG, 0}, // bev.g.
 
-// 24 Bûdinys
+// 24 B\xFBdinys
 {"ET",        2,0,127, 0, 0,11,0, BUDN, -1, -1, -1, -1, -1, -1},
 {"IANIT",     2,0,127, 0, 2,11,0, BUDN, -1, -1, -1, -1, -1, -1},
 
-// 25 Bûtojo laiko neveikiamasis prieveiksmis
+// 25 B\xFBtojo laiko neveikiamasis prieveiksmis
 {"IAT",       2,0,127, 0, 2,11,0}};
 
 #define VPriesdSk 252
@@ -1271,90 +1271,90 @@ struct PriesdeliuGrupes{char *Pavadinimas; char VisadKirc; char KircRaide;
                         char Priegaide;} PriesdGrup[VPriesdSk] = {
 {"",0,0,0},
 {"AP",0,0,0}, {"API",0,2,0}, {"AT",0,0,0}, {"ATI",0,2,0},
-{"Á",0,0,2}, {"IÐ",0,0,0}, {"NU",0,1,0}, {"PA",0,1,0},
+{"\xC1",0,0,2}, {"I\xD0",0,0,0}, {"NU",0,1,0}, {"PA",0,1,0},
 {"PAR",0,2,2}, {"PRA",0,2,0}, {"PRI",0,2,0}, {"SU",0,1,0},
-{"UÞ",0,0,0}, {"NE",0,1,0}, {"NEBE",0,3,0}, {"TE",0,1,0},
+{"U\xDE",0,0,0}, {"NE",0,1,0}, {"NEBE",0,3,0}, {"TE",0,1,0},
 {"TEBE",0,3,0}, {"BE",0,1,0}, {"PER",1,1,1},
 
 {"NEAP",0,2,0}, {"NEAPI",0,4,0}, {"NEAT",0,2,0}, {"NEATI",0,4,0},
-{"NEÁ",0,2,2}, {"NEIÐ",0,2,0}, {"NENU",0,3,0}, {"NEPA",0,3,0},
+{"NE\xC1",0,2,2}, {"NEI\xD0",0,2,0}, {"NENU",0,3,0}, {"NEPA",0,3,0},
 {"NEPAR",0,4,2}, {"NEPRA",0,4,0}, {"NEPRI",0,4,0}, {"NESU",0,3,0},
-{"NEUÞ",0,2,0}, {"NEPER",1,3,1},
+{"NEU\xDE",0,2,0}, {"NEPER",1,3,1},
 
 {"BEAP",0,2,0}, {"BEAPI",0,4,0}, {"BEAT",0,2,0}, {"BEATI",0,4,0},
-{"BEÁ",0,2,2}, {"BEIÐ",0,2,0}, {"BENU",0,3,0}, {"BEPA",0,3,0},
+{"BE\xC1",0,2,2}, {"BEI\xD0",0,2,0}, {"BENU",0,3,0}, {"BEPA",0,3,0},
 {"BEPAR",0,4,2}, {"BEPRA",0,4,0}, {"BEPRI",0,4,0}, {"BESU",0,3,0},
-{"BEUÞ",0,2,0}, {"BEPER",1,3,1},
+{"BEU\xDE",0,2,0}, {"BEPER",1,3,1},
 
 {"NEBEAP",0,4,0}, {"NEBEAPI",0,6,0}, {"NEBEAT",0,4,0}, {"NEBEATI",0,6,0},
-{"NEBEÁ",0,4,2}, {"NEBEIÐ",0,4,0}, {"NEBENU",0,5,0}, {"NEBEPA",0,5,0},
+{"NEBE\xC1",0,4,2}, {"NEBEI\xD0",0,4,0}, {"NEBENU",0,5,0}, {"NEBEPA",0,5,0},
 {"NEBEPAR",0,6,2}, {"NEBEPRA",0,6,0}, {"NEBEPRI",0,6,0}, {"NEBESU",0,5,0},
-{"NEBEUÞ",0,4,0}, {"NEBEPER",1,5,1},
+{"NEBEU\xDE",0,4,0}, {"NEBEPER",1,5,1},
 
 {"TEAP",0,2,0}, {"TEAPI",0,4,0}, {"TEAT",0,2,0}, {"TEATI",0,4,0},
-{"TEÁ",0,2,2}, {"TEIÐ",0,2,0}, {"TENU",0,3,0}, {"TEPA",0,3,0},
+{"TE\xC1",0,2,2}, {"TEI\xD0",0,2,0}, {"TENU",0,3,0}, {"TEPA",0,3,0},
 {"TEPAR",0,4,2}, {"TEPRA",0,4,0}, {"TEPRI",0,4,0}, {"TESU",0,3,0},
-{"TEUÞ",0,2,0}, {"TENE",0,3,0}, {"TENEBE",0,5,0}, {"TEPER",1,3,1},
+{"TEU\xDE",0,2,0}, {"TENE",0,3,0}, {"TENEBE",0,5,0}, {"TEPER",1,3,1},
 
 {"TEBEAP",0,4,0}, {"TEBEAPI",0,6,0}, {"TEBEAT",0,4,0}, {"TEBEATI",0,6,0},
-{"TEBEÁ",0,4,2}, {"TEBEIÐ",0,4,0}, {"TEBENU",0,5,0}, {"TEBEPA",0,5,0},
+{"TEBE\xC1",0,4,2}, {"TEBEI\xD0",0,4,0}, {"TEBENU",0,5,0}, {"TEBEPA",0,5,0},
 {"TEBEPAR",0,6,2}, {"TEBEPRA",0,6,0}, {"TEBEPRI",0,6,0}, {"TEBESU",0,5,0},
-{"TEBEUÞ",0,4,0}, {"TEBENE",0,5,0}, {"TEBEPER",1,5,1},
+{"TEBEU\xDE",0,4,0}, {"TEBENE",0,5,0}, {"TEBEPER",1,5,1},
 
 {"TENEAP",0,4,0}, {"TENEAPI",0,6,0}, {"TENEAT",0,4,0}, {"TENEATI",0,6,0},
-{"TENEÁ",0,4,2}, {"TENEIÐ",0,4,0}, {"TENENU",0,5,0}, {"TENEPA",0,5,0},
+{"TENE\xC1",0,4,2}, {"TENEI\xD0",0,4,0}, {"TENENU",0,5,0}, {"TENEPA",0,5,0},
 {"TENEPAR",0,6,2}, {"TENEPRA",0,6,0}, {"TENEPRI",0,6,0}, {"TENESU",0,5,0},
-{"TENEUÞ",0,4,0}, {"TENEPER",1,5,1},
+{"TENEU\xDE",0,4,0}, {"TENEPER",1,5,1},
 
 {"TENEBEAP",0,6,0}, {"TENEBEAPI",0,8,0}, {"TENEBEAT",0,6,0}, {"TENEBEATI",0,8,0},
-{"TENEBEÁ",0,6,2}, {"TENEBEIÐ",0,6,0}, {"TENEBENU",0,7,0}, {"TENEBEPA",0,7,0},
+{"TENEBE\xC1",0,6,2}, {"TENEBEI\xD0",0,6,0}, {"TENEBENU",0,7,0}, {"TENEBEPA",0,7,0},
 {"TENEBEPAR",0,8,2}, {"TENEBEPRA",0,8,0}, {"TENEBEPRI",0,8,0}, {"TENEBESU",0,7,0},
-{"TENEBEUÞ",0,6,0}, {"TENEBEPER",1,7,1},
+{"TENEBEU\xDE",0,6,0}, {"TENEBEPER",1,7,1},
 
 {"TEBENEAP",0,6,0}, {"TEBENEAPI",0,8,0}, {"TEBENEAT",0,6,0}, {"TEBENEATI",0,8,0},
-{"TEBENEÁ",0,6,2}, {"TEBENEIÐ",0,6,0}, {"TEBENENU",0,7,0}, {"TEBENEPA",0,7,0},
+{"TEBENE\xC1",0,6,2}, {"TEBENEI\xD0",0,6,0}, {"TEBENENU",0,7,0}, {"TEBENEPA",0,7,0},
 {"TEBENEPAR",0,8,2}, {"TEBENEPRA",0,8,0}, {"TEBENEPRI",0,8,0}, {"TEBENESU",0,7,0},
-{"TEBENEUÞ",0,6,0}, {"TEBENEPER",1,7,1},
+{"TEBENEU\xDE",0,6,0}, {"TEBENEPER",1,7,1},
 
-{"APSI",0,3,0}, {"ATSI",0,3,0}, {"ÁSI",0,2,0}, {"IÐSI",0,3,0},
+{"APSI",0,3,0}, {"ATSI",0,3,0}, {"\xC1SI",0,2,0}, {"I\xD0SI",0,3,0},
 {"NUSI",0,3,0}, {"PASI",0,3,0}, {"PARSI",0,4,0}, {"PRASI",0,4,0},
-{"PRISI",0,4,0}, {"SUSI",0,3,0}, {"UÞSI",0,3,0}, {"NESI",0,3,0},
+{"PRISI",0,4,0}, {"SUSI",0,3,0}, {"U\xDESI",0,3,0}, {"NESI",0,3,0},
 {"NEBESI",0,5,0}, {"TESI",0,3,0}, {"TEBESI",0,5,0}, {"PERSI",1,1,1},
 {"BESI",0,3,0},//{"BNESI",0,3,0},
 
-{"NEAPSI",0,5,0}, {"NEATSI",0,5,0}, {"NEÁSI",0,4,0}, {"NEIÐSI",0,5,0},
+{"NEAPSI",0,5,0}, {"NEATSI",0,5,0}, {"NE\xC1SI",0,4,0}, {"NEI\xD0SI",0,5,0},
 {"NENUSI",0,5,0}, {"NEPASI",0,5,0}, {"NEPARSI",0,6,0}, {"NEPRASI",0,6,0},
-{"NEPRISI",0,6,0}, {"NESUSI",0,5,0}, {"NEUÞSI",0,5,0}, {"NEPERSI",1,3,1},
+{"NEPRISI",0,6,0}, {"NESUSI",0,5,0}, {"NEU\xDESI",0,5,0}, {"NEPERSI",1,3,1},
 
-{"BEAPSI",0,5,0}, {"BEATSI",0,5,0}, {"BEÁSI",0,4,0}, {"BEIÐSI",0,5,0},
+{"BEAPSI",0,5,0}, {"BEATSI",0,5,0}, {"BE\xC1SI",0,4,0}, {"BEI\xD0SI",0,5,0},
 {"BENUSI",0,5,0}, {"BEPASI",0,5,0}, {"BEPARSI",0,6,0}, {"BEPRASI",0,6,0},
-{"BEPRISI",0,6,0}, {"BESUSI",0,5,0}, {"BEUÞSI",0,5,0}, {"BEPERSI",1,3,1},
+{"BEPRISI",0,6,0}, {"BESUSI",0,5,0}, {"BEU\xDESI",0,5,0}, {"BEPERSI",1,3,1},
 
-{"NEBEAPSI",0,7,0}, {"NEBEATSI",0,7,0}, {"NEBEÁSI",0,6,0}, {"NEBEIÐSI",0,7,0},
+{"NEBEAPSI",0,7,0}, {"NEBEATSI",0,7,0}, {"NEBE\xC1SI",0,6,0}, {"NEBEI\xD0SI",0,7,0},
 {"NEBENUSI",0,7,0}, {"NEBEPASI",0,7,0}, {"NEBEPARSI",0,8,0}, {"NEBEPRASI",0,8,0},
-{"NEBEPRISI",0,8,0}, {"NEBESUSI",0,7,0}, {"NEBEUÞSI",0,7,0}, {"NEBEPERSI",1,5,1},
+{"NEBEPRISI",0,8,0}, {"NEBESUSI",0,7,0}, {"NEBEU\xDESI",0,7,0}, {"NEBEPERSI",1,5,1},
 
-{"TEAPSI",0,5,0}, {"TEATSI",0,5,0}, {"TEÁSI",0,4,0}, {"TEIÐSI",0,5,0},
+{"TEAPSI",0,5,0}, {"TEATSI",0,5,0}, {"TE\xC1SI",0,4,0}, {"TEI\xD0SI",0,5,0},
 {"TENUSI",0,5,0}, {"TEPASI",0,5,0}, {"TEPARSI",0,6,0}, {"TEPRASI",0,6,0},
-{"TEPRISI",0,6,0}, {"TESUSI",0,5,0}, {"TEUÞSI",0,5,0}, {"TENESI",0,5,0},
+{"TEPRISI",0,6,0}, {"TESUSI",0,5,0}, {"TEU\xDESI",0,5,0}, {"TENESI",0,5,0},
 {"TENEBESI",0,7,0}, {"TEPERSI",1,3,1},
 
-{"TEBEAPSI",0,7,0}, {"TEBEATSI",0,7,0}, {"TEBEÁSI",0,6,0}, {"TEBEIÐSI",0,7,0},
+{"TEBEAPSI",0,7,0}, {"TEBEATSI",0,7,0}, {"TEBE\xC1SI",0,6,0}, {"TEBEI\xD0SI",0,7,0},
 {"TEBENUSI",0,7,0}, {"TEBEPASI",0,7,0}, {"TEBEPARSI",0,8,0}, {"TEBEPRASI",0,8,0},
-{"TEBEPRISI",0,8,0}, {"TEBESUSI",0,7,0}, {"TEBEUÞSI",0,7,0}, {"TEBENESI",0,7,0},
+{"TEBEPRISI",0,8,0}, {"TEBESUSI",0,7,0}, {"TEBEU\xDESI",0,7,0}, {"TEBENESI",0,7,0},
 {"TEBENEBESI",0,9,0}, {"TEBEPERSI",1,5,1},
 						
-{"TENEAPSI",0,7,0}, {"TENEATSI",0,7,0}, {"TENEÁSI",0,6,0}, {"TENEIÐSI",0,7,0},
+{"TENEAPSI",0,7,0}, {"TENEATSI",0,7,0}, {"TENE\xC1SI",0,6,0}, {"TENEI\xD0SI",0,7,0},
 {"TENENUSI",0,7,0}, {"TENEPASI",0,7,0}, {"TENEPARSI",0,8,0}, {"TENEPRASI",0,8,0},
-{"TENEPRISI",0,8,0}, {"TENESUSI",0,7,0}, {"TENEUÞSI",0,7,0}, {"TENEPERSI",1,5,1},
+{"TENEPRISI",0,8,0}, {"TENESUSI",0,7,0}, {"TENEU\xDESI",0,7,0}, {"TENEPERSI",1,5,1},
 
-{"TENEBEAPSI",0,9,0}, {"TENEBEATSI",0,9,0}, {"TENEBEÁSI",0,8,0}, {"TENEBEIÐSI",0,9,0},
+{"TENEBEAPSI",0,9,0}, {"TENEBEATSI",0,9,0}, {"TENEBE\xC1SI",0,8,0}, {"TENEBEI\xD0SI",0,9,0},
 {"TENEBENUSI",0,9,0}, {"TENEBEPASI",0,9,0}, {"TENEBEPARSI",0,10,0}, {"TENEBEPRASI",0,10,0},
-{"TENEBEPRISI",0,10,0}, {"TENEBESUSI",0,9,0}, {"TENEBEUÞSI",0,9,0}, {"TENEBEPERSI",1,7,1},
+{"TENEBEPRISI",0,10,0}, {"TENEBESUSI",0,9,0}, {"TENEBEU\xDESI",0,9,0}, {"TENEBEPERSI",1,7,1},
 
-{"TEBENEAPSI",0,9,0}, {"TEBENEATSI",0,9,0}, {"TEBENEÁSI",0,8,0}, {"TEBENEIÐSI",0,9,0},
+{"TEBENEAPSI",0,9,0}, {"TEBENEATSI",0,9,0}, {"TEBENE\xC1SI",0,8,0}, {"TEBENEI\xD0SI",0,9,0},
 {"TEBENENUSI",0,9,0}, {"TEBENEPASI",0,9,0}, {"TEBENEPARSI",0,10,0}, {"TEBENEPRASI",0,10,0},
-{"TEBENEPRISI",0,10,0}, {"TEBENESUSI",0,9,0}, {"TEBENEUÞSI",0,9,0}, {"TEBENEPERSI",1,7,1}}; 
+{"TEBENEPRISI",0,10,0}, {"TEBENESUSI",0,9,0}, {"TEBENEU\xDESI",0,9,0}, {"TEBENEPERSI",1,7,1}}; 
 
 #else
 extern struct VeiksmazodziuGalunes{char *Galune; char KamTipas; char Sangrazine;

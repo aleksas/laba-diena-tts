@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas RateChange.dll
 // Failas RateChange.h
 // Autorius dr. Gintaras Skersys
@@ -16,42 +16,42 @@
 
 const double pi = 3.14159265359;
 
-// Koks didþiausias gali bûti atstumas tarp pikø reguliariame garse.
-// Jei atstumas tarp pikø arba tarp piko ir garso ribos yra didesnis, 
-// tai kaþkas negerai, todël negalime tam garsui trumpinti naudoti pikø
-// Laikome, kad garsas negali bûti þemesnis uþ 50 Hz, 
-// t.y atstumai tarp pikø negali bûti didesni uþ 1/50 s, 
-// t.y. atstumai tarp pikø indeksø garso masyve negali bûti didesni uþ 22050/50=441.
+// Koks did\xFEiausias gali b\xFBti atstumas tarp pik\xF8 reguliariame garse.
+// Jei atstumas tarp pik\xF8 arba tarp piko ir garso ribos yra didesnis, 
+// tai ka\xFEkas negerai, tod\xEBl negalime tam garsui trumpinti naudoti pik\xF8
+// Laikome, kad garsas negali b\xFBti \xFEemesnis u\xFE 50 Hz, 
+// t.y atstumai tarp pik\xF8 negali b\xFBti didesni u\xFE 1/50 s, 
+// t.y. atstumai tarp pik\xF8 indeks\xF8 garso masyve negali b\xFBti didesni u\xFE 22050/50=441.
 #define MAX_ATSTUMAS_TARP_PIKU 441 
 
 // koeficientas realloc funkcijai masyvo naujas_signalas pailginimui. 
-// Tiek kartø bus pailgintas masyvas naujas_signalas.
+// Tiek kart\xF8 bus pailgintas masyvas naujas_signalas.
 // naujas_ilgis = REALLOC_COEFF * senas_ilgis, jei naujas_ilgis pakankamas
 #define REALLOC_COEFF 1.2
 
-// koeficientas, parodantis, kiek kartø daugiau reikia iðskirti atminties 
-// naujo signalo masyvui, negu apytikslis ávertis (dël visa ko)
+// koeficientas, parodantis, kiek kart\xF8 daugiau reikia i\xF0skirti atminties 
+// naujo signalo masyvui, negu apytikslis \xE1vertis (d\xEBl visa ko)
 #define NAUJO_SIGNALO_MASYVO_ILGIO_KOEF 1.1f
 
-// nurodo signalo masyvo indeksø skaièiumi, kiek bûtina palikti leistinosios srities,  
+// nurodo signalo masyvo indeks\xF8 skai\xE8iumi, kiek b\xFBtina palikti leistinosios srities,  
 // trumpinant dusliuosius priebalsius.
-// Gali bûti nulis. Normalu - apie 50.
-// Nerekomenduojama > 200, nes tada kai kuriø fonemø visai nesutrumpins.
+// Gali b\xFBti nulis. Normalu - apie 50.
+// Nerekomenduojama > 200, nes tada kai kuri\xF8 fonem\xF8 visai nesutrumpins.
 #define ISSAUGOTI_GALIMOS_SRITIES_ILGIO 100
 
-// jei nëra pikø, imam burbulà ne pagal pikus, o simetriðkà 2*PUSE_BURBULO_ILGIO ilgio burbulà
-// TODO: ar naudoti kaþkokià konstantà, ar pabandyti apsiskaièiuoti burbulo ilgá ið signalo?
+// jei n\xEBra pik\xF8, imam burbul\xE0 ne pagal pikus, o simetri\xF0k\xE0 2*PUSE_BURBULO_ILGIO ilgio burbul\xE0
+// TODO: ar naudoti ka\xFEkoki\xE0 konstant\xE0, ar pabandyti apsiskai\xE8iuoti burbulo ilg\xE1 i\xF0 signalo?
 //#define PUSE_BURBULO_ILGIO 240
 
-// kadangi naujos fonemos ilgis gali bûti ir neigiamas, klaidos kodui gràþinti reikia didelës neigiamos reikðmës
+// kadangi naujos fonemos ilgis gali b\xFBti ir neigiamas, klaidos kodui gr\xE0\xFEinti reikia didel\xEBs neigiamos reik\xF0m\xEBs
 #define DIDELIS_NEIGIAMAS_KLAIDOS_KODAS -10000
 
 /*********************************************************
-Fonemø klasiø numeriai pagal fonemos pavadinimo pirmàjà raidæ:
-0 - turintys pikø informacijà (skardieji priebalsiai, balsiai, t.y. visi, iðskyrus x, f, p, t, k, s, S, _, r, R, z, Z, H)
-1 - neturintys pikø informacijos (duslieji priebalsiai, t.y. x, f, p, t, k, s, S, _)
-//2 - gali turëti ar neturëti pikø informacijos, todël gali bûti priskirti kuriai nors ið pirmøjø dviejø klasiø - reikia papildomo tikrinimo (z, Z, h),
-3 - neaiðku, kà daryti (r, R).
+Fonem\xF8 klasi\xF8 numeriai pagal fonemos pavadinimo pirm\xE0j\xE0 raid\xE6:
+0 - turintys pik\xF8 informacij\xE0 (skardieji priebalsiai, balsiai, t.y. visi, i\xF0skyrus x, f, p, t, k, s, S, _, r, R, z, Z, H)
+1 - neturintys pik\xF8 informacijos (duslieji priebalsiai, t.y. x, f, p, t, k, s, S, _)
+//2 - gali tur\xEBti ar netur\xEBti pik\xF8 informacijos, tod\xEBl gali b\xFBti priskirti kuriai nors i\xF0 pirm\xF8j\xF8 dviej\xF8 klasi\xF8 - reikia papildomo tikrinimo (z, Z, h),
+3 - neai\xF0ku, k\xE0 daryti (r, R).
 *********************************************************/
 #define FONEMU_KLASE_SKARDIEJI 0
 #define FONEMU_KLASE_DUSLIEJI 1
@@ -64,75 +64,75 @@ Fonemø klasiø numeriai pagal fonemos pavadinimo pirmàjà raidæ:
 
 struct burbulas
 {
-	// burbulo koordinatës
+	// burbulo koordinat\xEBs
 	size_t pradzia;
 	size_t vidurys;
 	size_t pabaiga;
 
-	// kiek kartø dubliuoti burbulà
+	// kiek kart\xF8 dubliuoti burbul\xE0
 	int kartai;
 
-	// ar burbulas sudarytas pikø pagrindu, 
-	// t.y. ar jo koordinatës sutampa su pikø koordinatëmis.
-	// Jei reikðmë nelygi nuliui, tai pikø pagrindu.
+	// ar burbulas sudarytas pik\xF8 pagrindu, 
+	// t.y. ar jo koordinat\xEBs sutampa su pik\xF8 koordinat\xEBmis.
+	// Jei reik\xF0m\xEB nelygi nuliui, tai pik\xF8 pagrindu.
 	//int pikai;
 };
 
-// nurodo, kiek burbulø vienai fonemai gali tekti keisti (paðalinti ar dubliuoti)
+// nurodo, kiek burbul\xF8 vienai fonemai gali tekti keisti (pa\xF0alinti ar dubliuoti)
 #define MAX_KEICIAMI_BURBULAI 500
 
-// kad nesigautø periodinis signalas, dusliøjø priebalsiø burbulai, jei juos reikës kartoti > 1 kartà, gaminami nesimetriðki. 
-// Ðis parametras nurodo, kurioje burbulo vietoje bus jo centras (vidurys). 
-// Jei = 0.0, tai vidurys sutaps su pradzia, jei = 1.0, sutaps su pabaiga, jei = 0.5, bus lygiai per vidurá tarp pradzios ir pabaigos. 
-// Kad burbulas bûtø nesimetriðkas, rinktis reikðmæ != 0.5. 
+// kad nesigaut\xF8 periodinis signalas, dusli\xF8j\xF8 priebalsi\xF8 burbulai, jei juos reik\xEBs kartoti > 1 kart\xE0, gaminami nesimetri\xF0ki. 
+// \xD0is parametras nurodo, kurioje burbulo vietoje bus jo centras (vidurys). 
+// Jei = 0.0, tai vidurys sutaps su pradzia, jei = 1.0, sutaps su pabaiga, jei = 0.5, bus lygiai per vidur\xE1 tarp pradzios ir pabaigos. 
+// Kad burbulas b\xFBt\xF8 nesimetri\xF0kas, rinktis reik\xF0m\xE6 != 0.5. 
 //#define BURBULO_CENTRO_POZICIJA 0.50
 
 /*********************************************************
  * Kontekstas
  * 
- * Kad sintezavimas veiktø daugelio gijø reþimu 
- * (kai pakrauta viena garsø bazë, taèiau funkcija change_phoneme_rate() ið RateChange.cpp gali bûti vienu metu kvieèiama ið skirtingø gijø), 
- * neturi bûti globaliø kintamøjø, á kuriuos raðoma sintezavimo metu 
- * (pastaba: gali bûti globalûs kintamieji, á kuriuos raðoma garsø bazës uþkrovimo metu). 
- * Visus tokius globalius kintamuosius, á kuriuos iki ðiol buvo raðoma sintezavimo metu, nuo ðiol reikia perduoti kaip funkcijø parametrus. 
- * Kadangi jø nemaþai, juos sudedu á vienà struktûrà, kurià ir perduosiu.
+ * Kad sintezavimas veikt\xF8 daugelio gij\xF8 re\xFEimu 
+ * (kai pakrauta viena gars\xF8 baz\xEB, ta\xE8iau funkcija change_phoneme_rate() i\xF0 RateChange.cpp gali b\xFBti vienu metu kvie\xE8iama i\xF0 skirting\xF8 gij\xF8), 
+ * neturi b\xFBti globali\xF8 kintam\xF8j\xF8, \xE1 kuriuos ra\xF0oma sintezavimo metu 
+ * (pastaba: gali b\xFBti global\xFBs kintamieji, \xE1 kuriuos ra\xF0oma gars\xF8 baz\xEBs u\xFEkrovimo metu). 
+ * Visus tokius globalius kintamuosius, \xE1 kuriuos iki \xF0iol buvo ra\xF0oma sintezavimo metu, nuo \xF0iol reikia perduoti kaip funkcij\xF8 parametrus. 
+ * Kadangi j\xF8 nema\xFEai, juos sudedu \xE1 vien\xE0 strukt\xFBr\xE0, kuri\xE0 ir perduosiu.
  ********************************************************/
 
 struct tkontekstas {
 	// einamosios fonemos numeris
 	unsigned int fonemos_nr;
 
-	// einamosios fonemos pradþia ir pabaiga
+	// einamosios fonemos prad\xFEia ir pabaiga
 	unsigned int fonemos_pradzia;
 	unsigned int fonemos_pabaiga;
 
-	// numeris pirmojo piko, esanèio einamosios fonemos pradþioje 
-	// (tiksliau, pirmojo piko, nepriklausanèio prieð tai buvusiai fonemai. 
+	// numeris pirmojo piko, esan\xE8io einamosios fonemos prad\xFEioje 
+	// (tiksliau, pirmojo piko, nepriklausan\xE8io prie\xF0 tai buvusiai fonemai. 
 	// Jis gali nepriklausyti ir einamajai, o kuriai nors tolimesnei).
 	unsigned int pirmojo_piko_nr;
 
-	// kiek pikø yra tarp fonemos pradþios ir pabaigos
+	// kiek pik\xF8 yra tarp fonemos prad\xFEios ir pabaigos
 	unsigned int piku_sk;
 	
-	// Greitinimo koeficientas (kiek kartø turi pailgëti signalas)
+	// Greitinimo koeficientas (kiek kart\xF8 turi pailg\xEBti signalas)
 	double greitinimo_koef;
 
-	// Tarpo tarp pikø didinimo koeficientas (kiek kartø turi padidëti tarpas tarp pikø)
+	// Tarpo tarp pik\xF8 didinimo koeficientas (kiek kart\xF8 turi padid\xEBti tarpas tarp pik\xF8)
 	double tarpo_tarp_piku_didinimo_koef;
 	
 	// skirtumas tarp to, koks plotis buvo panaudotas rezultatuose, ir koks duomenyse.
-	// Bus neigiamas, jei signalo rezultatas sutrumpëjo, ir teigiamas, jei pailgëjo.
-	// Per tiek padidës fonemø ilgiai
+	// Bus neigiamas, jei signalo rezultatas sutrump\xEBjo, ir teigiamas, jei pailg\xEBjo.
+	// Per tiek padid\xEBs fonem\xF8 ilgiai
 	int einamasis_postumis;
 	
 	// einamasis garso signalo masyvo indeksas
 	size_t einamasis_signalo_nr;
 	
-	// garso signalo masyvas, iðskiriamas dinamiðkai
+	// garso signalo masyvas, i\xF0skiriamas dinami\xF0kai
 	short * naujas_signalas;
 	
-	// naujojo garso signalo masyvo ilgis (ne signalo ilgis, o kiek iðskirta vietos masyvui. 
-	// Paprastai masyvo ilgis didesnis uþ signalo ilgá)
+	// naujojo garso signalo masyvo ilgis (ne signalo ilgis, o kiek i\xF0skirta vietos masyvui. 
+	// Paprastai masyvo ilgis didesnis u\xFE signalo ilg\xE1)
 	size_t naujo_signalo_masyvo_ilgis;
 	
 	// garso signalo ilgis
@@ -141,31 +141,31 @@ struct tkontekstas {
 	// einamasis naujo garso signalo masyvo indeksas
 	size_t einamasis_naujo_signalo_nr;
 
-	// nurodo, ar galima pailginti masyvà naujas_signalas, jei per trumpas (0 - negalima, !=0 - galima)
-	// (negalima - jei masyvas naujas_signalas gautas ið iðorës (jei greitinama ið funkcijos change_phoneme_rate), 
-	// galima - jei atmintis jam iðskirta viduje (RateChange.dll'e) (jei greitinama ið funkcijos change_DB_rate))
+	// nurodo, ar galima pailginti masyv\xE0 naujas_signalas, jei per trumpas (0 - negalima, !=0 - galima)
+	// (negalima - jei masyvas naujas_signalas gautas i\xF0 i\xF0or\xEBs (jei greitinama i\xF0 funkcijos change_phoneme_rate), 
+	// galima - jei atmintis jam i\xF0skirta viduje (RateChange.dll'e) (jei greitinama i\xF0 funkcijos change_DB_rate))
 	int galima_pailginti_naujas_signalas;
 	
-	// Euristika nustatys, kuriuos burbuliukus reikia paðalinti ar dubliuoti. 
-	// Jø sàraðà pateiks ðiame kintamajame "burbulai". 
-	// Kad nereikëtø pastoviai iðskirinëti jam atminties, 
-	// èia iðskiriame vienà kartà ir pastoviai naudojame.
-	// TODO: pastoviai tikrinti, ar nevirðijo MAX_BURBULAI. Virðijus kaþkà daryti.
+	// Euristika nustatys, kuriuos burbuliukus reikia pa\xF0alinti ar dubliuoti. 
+	// J\xF8 s\xE0ra\xF0\xE0 pateiks \xF0iame kintamajame "burbulai". 
+	// Kad nereik\xEBt\xF8 pastoviai i\xF0skirin\xEBti jam atminties, 
+	// \xE8ia i\xF0skiriame vien\xE0 kart\xE0 ir pastoviai naudojame.
+	// TODO: pastoviai tikrinti, ar nevir\xF0ijo MAX_BURBULAI. Vir\xF0ijus ka\xFEk\xE0 daryti.
 	struct burbulas burbulai[MAX_KEICIAMI_BURBULAI];
 
-	// keièiamø (ðalinamø ar dubliuojamø) burbulø skaièius
+	// kei\xE8iam\xF8 (\xF0alinam\xF8 ar dubliuojam\xF8) burbul\xF8 skai\xE8ius
 	int keiciamu_burbulu_sk;
 	
-	// fonemos klasë, nurodanti, ar ilginimui turime pikø informacijà, ar ne 
+	// fonemos klas\xEB, nurodanti, ar ilginimui turime pik\xF8 informacij\xE0, ar ne 
 	// (FONEMU_KLASE_SKARDIEJI - turime, FONEMU_KLASE_DUSLIEJI - ne, FONEMU_KLASE_RR - nieko nedarome)
 	int fonemos_klase;
 
-	// nurodo, ar keisti pagrindinio tono aukðtá (0 - negalima, !=0 - galima)
+	// nurodo, ar keisti pagrindinio tono auk\xF0t\xE1 (0 - negalima, !=0 - galima)
 	// Keisti, jei:
-	// 1) fonema balsë arba skardusis priebalsis
-	// 2) fonema turi > 1 pikà (prieðingu atveju pagrindinis tonas nëra patikimas, nes abiejose pusëse gali bûti fonemos be pikø 
-	// - kaip tokiu atveju rasti tarpà tarp pikø?)
-	// 3) funkcija change_phoneme_rate() iðkviesta su parametru tono_aukscio_pokytis != 100
+	// 1) fonema bals\xEB arba skardusis priebalsis
+	// 2) fonema turi > 1 pik\xE0 (prie\xF0ingu atveju pagrindinis tonas n\xEBra patikimas, nes abiejose pus\xEBse gali b\xFBti fonemos be pik\xF8 
+	// - kaip tokiu atveju rasti tarp\xE0 tarp pik\xF8?)
+	// 3) funkcija change_phoneme_rate() i\xF0kviesta su parametru tono_aukscio_pokytis != 100
 	int keisti_tono_auksti;
 };
 
@@ -234,7 +234,7 @@ void spausdinti_konteksta (struct tkontekstas * kontekstas);
 int fonemosKlase (struct tkontekstas * kontekstas);
 
 /*********************************************************
- * Klaidø kodai
+ * Klaid\xF8 kodai
  ********************************************************/
 #include "LithUSS_Error.h"
 

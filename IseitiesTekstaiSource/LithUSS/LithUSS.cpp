@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
 // Failas LithUSS.cpp
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
@@ -24,7 +24,7 @@
 
 #define TEXTBUFSIZE 10000
 #define RULES2USE 75
-#define MAX_FONEMU_SKAICIUS 170000 //didþiausias galimas fonemø skaièius garsø bazëje
+#define MAX_FONEMU_SKAICIUS 170000 //did\xFEiausias galimas fonem\xF8 skai\xE8ius gars\xF8 baz\xEBje
 
 char dbfv[MAX_FONEMU_SKAICIUS][4];
 int dbilg[MAX_FONEMU_SKAICIUS];

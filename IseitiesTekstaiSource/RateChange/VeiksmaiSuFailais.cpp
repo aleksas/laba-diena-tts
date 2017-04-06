@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
 // Sintezatoriaus komponentas RateChange.dll
 // Failas VeiksmaiSuFailais.cpp
 // Autorius dr. Gintaras Skersys
@@ -98,16 +98,16 @@ int nuskaityti_signala()
 }
 
 /*********************************************************
- * Nuskaito duomenis ið nurodyto tekstinio failo ir suraðo á parametrà turinys. 
- * Á parametrà turinio_ilgis áraðo suraðytø duomenø kieká 
- * (reikðminiø duomenø, t.y. neskaièiuojant '\0').
+ * Nuskaito duomenis i\xF0 nurodyto tekstinio failo ir sura\xF0o \xE1 parametr\xE0 turinys. 
+ * \xC1 parametr\xE0 turinio_ilgis \xE1ra\xF0o sura\xF0yt\xF8 duomen\xF8 kiek\xE1 
+ * (reik\xF0mini\xF8 duomen\xF8, t.y. neskai\xE8iuojant '\0').
  * Grazina 0, jei nebuvo klaidos, ir < 0, jei buvo klaida.
  ********************************************************/
 int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turinio_ilgis)
 {
 	FILE *failas;
 	
-	// atidarome tekstiná faila skaitymui
+	// atidarome tekstin\xE1 faila skaitymui
 	if((failas=fopen(failo_pavadinimas, "r"))==NULL)
 	{
 		return -1;
@@ -128,7 +128,7 @@ int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turini
 	if(failo_turinys == NULL) 
 		return -5;
 
-	// nuskaitome failà
+	// nuskaitome fail\xE0
 	size_t nuskaityta_zenklu = fread (failo_turinys, sizeof(char), failo_dydis+1, failas);
 	if (ferror (failas))
 	{
@@ -146,7 +146,7 @@ int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turini
 	// uzdarome faila
 	fclose(failas);
 
-	// paþymime eilutës pabaigà
+	// pa\xFEymime eilut\xEBs pabaig\xE0
 	failo_turinys[nuskaityta_zenklu] = '\0';
 
 	*turinys = failo_turinys;
@@ -156,12 +156,12 @@ int nuskaityti_faila (char * failo_pavadinimas, char ** turinys, size_t * turini
 }
 
 /*********************************************************
- * Nuskaito duomenis is anotacijø failo.
+ * Nuskaito duomenis is anotacij\xF8 failo.
  * Grazina 0, jei nebuvo klaidos, ir < 0, jei buvo klaida.
  ********************************************************/
 int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, int ** fonemu_ilgiai1, size_t * fonemu_kiekis1)
 {
-	// nuskaitome failo turiná
+	// nuskaitome failo turin\xE1
 	char * fonemu_failo_turinys = NULL;
 	size_t nuskaityta_zenklu = 0;
 	int nepavyko = nuskaityti_faila (fonemu_failo_pavadinimas, &fonemu_failo_turinys, &nuskaityta_zenklu);
@@ -175,7 +175,7 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 		default : ;
 		}
 	
-	// susiskaièiuojame, kiek fonemu failo duomenyse yra eiluèiø
+	// susiskai\xE8iuojame, kiek fonemu failo duomenyse yra eilu\xE8i\xF8
 	int eiluciu_skaicius = 0;
 	for (size_t i=0; i<nuskaityta_zenklu; i++) {
 		if (fonemu_failo_turinys[i] == '\n')
@@ -187,7 +187,7 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 	size_t fonemu_kiekis = 0;
 
 	// iskiriame atminties fonemu ir ju ilgiu masyvams
-	// (dël visa ko pridedam vienetà, nes paskutinë eilutë galëjo neturëti '\n')
+	// (d\xEBl visa ko pridedam vienet\xE0, nes paskutin\xEB eilut\xEB gal\xEBjo netur\xEBti '\n')
 	fonemos = (char **) malloc ((eiluciu_skaicius+1) * sizeof(char *));
 	if(fonemos == NULL) 
 	{
@@ -212,7 +212,7 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 	while (eilute != NULL)
 	{
 		// isimename fonemos pavadinima
-		fonemos[i] = (char *) malloc ((strlen(eilute)+1) * sizeof(char));// strlen nepriskaièiuoja '\0', todël +1
+		fonemos[i] = (char *) malloc ((strlen(eilute)+1) * sizeof(char));// strlen nepriskai\xE8iuoja '\0', tod\xEBl +1
 		if(fonemos[i] == NULL)
 			{
 			free (fonemu_failo_turinys);
@@ -227,20 +227,20 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 			return ERROR_RATECHANGE_UNSPECIFIED_PHONEME_LENGTH;
 		}
 		
-		// konvertuojame fonemos ilgá á int
+		// konvertuojame fonemos ilg\xE1 \xE1 int
 		int n = sscanf (eilute, "%d", &fonemu_ilgiai[i]);
 		if (n != 1) {
 			free (fonemu_failo_turinys);
 			return ERROR_RATECHANGE_NONNUMERICAL_PHONEME_LENGTH;
 		}
 
-		// nuskaitome fonemos svorá. Jo mums nereikia, todël nieko su juo nedarome
+		// nuskaitome fonemos svor\xE1. Jo mums nereikia, tod\xEBl nieko su juo nedarome
 		eilute = strtok (NULL, skirtukai); // fonemos svoris
 
 		// nuskaitome nauja fonemos pavadinima
 		eilute = strtok (NULL, skirtukai); // fonemos pavadinimas
 
-		// padidiname skaitliukà
+		// padidiname skaitliuk\xE0
 		i++;
 	}
 
@@ -257,12 +257,12 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 }
 
 /*********************************************************
- * Nuskaito duomenis is pikø failo.
+ * Nuskaito duomenis is pik\xF8 failo.
  * Grazina 0, jei nebuvo klaidos, ir < 0, jei buvo klaida.
  ********************************************************/
 int nuskaityti_pikus ()
 {
-	// nuskaitome failo turiná
+	// nuskaitome failo turin\xE1
 	char * piku_failo_turinys = NULL;
 	size_t nuskaityta_zenklu = 0;
 	int nepavyko = nuskaityti_faila (piku_failo_pavadinimas, &piku_failo_turinys, &nuskaityta_zenklu);
@@ -276,7 +276,7 @@ int nuskaityti_pikus ()
 		default : ;
 		}
 	
-	// susiskaièiuojame, kiek piku failo duomenyse yra eiluèiø
+	// susiskai\xE8iuojame, kiek piku failo duomenyse yra eilu\xE8i\xF8
 	int eiluciu_skaicius = 0;
 	for (size_t i=0; i<nuskaityta_zenklu; i++) {
 		if (piku_failo_turinys[i] == '\n')
@@ -284,7 +284,7 @@ int nuskaityti_pikus ()
 	}
 
 	// iskiriame atminties piku masyvui
-	// (dël visa ko pridedam vienetà, nes paskutinë eilutë galëjo neturëti '\n')
+	// (d\xEBl visa ko pridedam vienet\xE0, nes paskutin\xEB eilut\xEB gal\xEBjo netur\xEBti '\n')
 	pikai = (unsigned int *) malloc ((eiluciu_skaicius+1) * sizeof(int));
 	if(pikai == NULL)
 	{
@@ -296,24 +296,24 @@ int nuskaityti_pikus ()
 	char * eilute;
 	char * skirtukai = " \n";
 	int i = 0;
-	// nuskaitome piko reikðmæ
-	eilute = strtok (piku_failo_turinys, skirtukai); // piko reikðmë
-	// kol yra pikø
+	// nuskaitome piko reik\xF0m\xE6
+	eilute = strtok (piku_failo_turinys, skirtukai); // piko reik\xF0m\xEB
+	// kol yra pik\xF8
 	while (eilute != NULL)
 	{
-		// konvertuojame piko reikðmæ á int
+		// konvertuojame piko reik\xF0m\xE6 \xE1 int
 		int n = sscanf (eilute, "%d", &pikai[i]);
 		if (n != 1) {
 			free (piku_failo_turinys);
 			return ERROR_RATECHANGE_NONNUMERICAL_PIK_VALUE;
 		}
-		// nuskaitome nauja piko reikðmæ
+		// nuskaitome nauja piko reik\xF0m\xE6
 		eilute = strtok (NULL, skirtukai);
-		// padidiname skaitliukà
+		// padidiname skaitliuk\xE0
 		i++;
 	}
 
-	// isimename pikø kieki
+	// isimename pik\xF8 kieki
 	piku_kiekis = i;
 
 	free (piku_failo_turinys);
@@ -331,11 +331,11 @@ int nuskaityti_duomenis()
 	int a = nuskaityti_signala ();
 	if (a < 0) return a;
 
-	// nuskaitome duomenis ið anotacijø failo
+	// nuskaitome duomenis i\xF0 anotacij\xF8 failo
 	a = nuskaityti_anotacijas (fonemu_failo_pavadinimas, &fonemos, &fonemu_ilgiai, &fonemu_kiekis);
 	if (a < 0) return a;
 
-	// nuskaitome duomenis ið pikø failo
+	// nuskaitome duomenis i\xF0 pik\xF8 failo
 	a = nuskaityti_pikus ();
 	if (a < 0) return a;
 

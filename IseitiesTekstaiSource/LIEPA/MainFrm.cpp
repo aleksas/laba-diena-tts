@@ -81,7 +81,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	
 	m_comboBox.AddString("Regina");		//0
-	m_comboBox.AddString("Aistë");		//1
+	m_comboBox.AddString("Aist\xEB");		//1
 	m_comboBox.AddString("Edvardas");	//2
 	m_comboBox.AddString("Vladas");		//3
 	m_comboBox.SetCurSel(0);
@@ -163,7 +163,7 @@ void CMainFrame::OnCombo()
 
 	CString s;
 	m_wndStatusBar.GetPaneText(0, s);
-	m_wndStatusBar.SetPaneText(0, "Keièiamas balsas", TRUE);
+	m_wndStatusBar.SetPaneText(0, "Kei\xE8iamas balsas", TRUE);
 
 	int res;
 	if((res = initLUSS(".\\", katvardai[m_comboBox.GetCurSel()])) < 0)
