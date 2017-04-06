@@ -27,9 +27,6 @@
     <ClCompile Include="Skiemen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StdAfx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="strtokf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,9 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Skiemen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transkr.h">

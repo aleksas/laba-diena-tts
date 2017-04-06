@@ -24,18 +24,12 @@
     <ClCompile Include="RateChange.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StdAfx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="VeiksmaiSuFailais.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RateChangeInternal.h">

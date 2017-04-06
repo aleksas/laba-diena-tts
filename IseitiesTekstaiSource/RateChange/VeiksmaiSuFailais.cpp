@@ -7,9 +7,11 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// reikia, norint gauti kataloge esanèiø failø sàraðà
-#include <windows.h>
-#include "stdafx.h"
+#include "RateChangeInternal.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*********************************************************
  * Grazina failo fp dydi arba -1, jei ivyksta klaida.

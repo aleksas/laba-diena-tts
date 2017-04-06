@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StdAfx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stringWithLetterPosition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,9 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stringWithLetterPosition.h">

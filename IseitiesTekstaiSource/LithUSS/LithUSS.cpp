@@ -7,7 +7,6 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
 #include "LithUSS.h"
 #include "LithUSS_Error.h"
 
@@ -21,6 +20,7 @@
 
 #include <stdio.h>
 #include <malloc.h>
+#include <string.h>
 
 #define TEXTBUFSIZE 10000
 #define RULES2USE 75

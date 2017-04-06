@@ -16,4 +16,13 @@
     #pragma warning Unknown dynamic link import/export semantics.
 #endif
 
+#ifndef BOOL
+    typedef int BOOL;
+#endif
+
+#ifndef FALSE
+    #define FALSE 0
+    #define TRUE !FALSE
+#endif
+
 #endif //!COMMON_H_INCLUDED

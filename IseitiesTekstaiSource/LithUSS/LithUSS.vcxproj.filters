@@ -24,9 +24,6 @@
     <ClCompile Include="LithUSS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StdAfx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="strtokf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="transcrLUSS.h">

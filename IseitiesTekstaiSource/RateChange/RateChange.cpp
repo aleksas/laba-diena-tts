@@ -7,8 +7,13 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
 #include "RateChange.h"
+#include "RateChangeInternal.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 void atlaisvinti_atminti_ir_inicializuoti();
 

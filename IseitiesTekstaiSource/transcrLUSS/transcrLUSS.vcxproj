@@ -75,8 +75,9 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;TRANSCRLUSS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Debug\transcrLUSS.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <ObjectFileName>.\Debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
       <AdditionalOptions> /Zm500 </AdditionalOptions>
@@ -119,8 +120,9 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TRANSCRLUSS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Release\transcrLUSS.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
       <AdditionalOptions> /Zm500 </AdditionalOptions>
@@ -150,6 +152,11 @@
       <ModuleDefinitionFile>.\transcrLUSS.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
+    <ClCompile>
+      <PrecompiledHeaderFile />
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArKirciuoti.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
@@ -165,14 +172,6 @@
     </ClCompile>
     <ClCompile Include="Skiemen.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="StdAfx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="strtokf.cpp">
@@ -200,7 +199,6 @@
     <ClInclude Include="nb12.h" />
     <ClInclude Include="rezultC.h" />
     <ClInclude Include="Skiemen.h" />
-    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="transcrLUSS.h" />
     <ClInclude Include="Transkr.h" />
     <ClInclude Include="Vb9r1_13.h" />
