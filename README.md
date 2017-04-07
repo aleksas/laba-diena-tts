@@ -1,8 +1,10 @@
 # liepa-tts
 
-Speach synthesation engine for Lithuanian language.
+TTS (Text To Speech) synthesis engine for Lithuanian language.
 
-Project details: https://www.raštija.lt/liepa
+There are Visual Studio 2015 solution and Android Studio project for building android TTS engine service.
+
+LIEPA project details: https://www.raštija.lt/liepa
 
 Source code obtained from https://www.raštija.lt/liepa/infrastrukturines-paslaugos/elektroninio-teksto-skaitytuvas/7563
 
