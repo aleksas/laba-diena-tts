@@ -2,7 +2,7 @@
 
 TTS (Text To Speech) synthesis engine for Lithuanian language.
 
-There are Visual Studio 2015 solution and Android Studio project for building android TTS engine service.
+There is a Visual Studio 2015 solution (IseitiesTekstaiSource/Redak.sln) and Android Studio project (IseitiesTekstaiSource/android/) for building android TTS engine service.
 
 LIEPA project details: https://www.raštija.lt/liepa
 
