@@ -1,8 +1,10 @@
-# liepa-tts
+# laba-diena-tts
 
-TTS (Text To Speech) synthesis engine for Lithuanian language.
+TTS (Text To Speech) synthesis engine for Lithuanian language. The underlying core synhesizer is LIEPA speach synthesizer.
 
 There is a Visual Studio 2015 solution (IseitiesTekstaiSource/Redak.sln) and Android Studio project (IseitiesTekstaiSource/android/) for building android TTS engine service.
+
+Google Play: https://play.google.com/apps/testing/com.gscoder.android.liepa
 
 LIEPA project details: https://www.raštija.lt/liepa
 
