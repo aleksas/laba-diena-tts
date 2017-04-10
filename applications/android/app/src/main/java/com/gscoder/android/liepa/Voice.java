@@ -15,9 +15,10 @@ public class Voice {
     private final static String LOG_TAG = "Liepa_Java_" + Voice.class.getSimpleName();
     private final static String LIEPA_DATA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)  + "/Liepa/";
     private final static String VOICE_BASE_URL = "https://netassist.dl.sourceforge.net/project/liepa-tts-andoid/";
+    private final static String VOICE_LIST_URL = "https://raw.githubusercontent.com/aleksas/laba-diena-tts/master/resources/voices.list";
 
     private String mVoiceName;
-    private String mVoiceMD5;
+    private String mVoiceURL;
     private String mVoiceLanguage;
     private String mVoiceCountry;
     private String mVoiceVariant;
@@ -42,6 +43,10 @@ public class Voice {
         return VOICE_BASE_URL;
     }
 
+    public static String getDownloadVoiceListURL() {
+        return VOICE_LIST_URL;
+    }
+
     /**
      * @param voiceInfoLine is the line that is found in "voices.list" file
      * as downloaded on the server and cached. This line has text in the format:
@@ -56,7 +61,7 @@ public class Voice {
         }
         else {
             mVoiceName = voiceInfo[0];
-            mVoiceMD5 = voiceInfo[1];
+            mVoiceURL = voiceInfo[1];
 
             String[] voiceParams = mVoiceName.split("-");
             if(voiceParams.length != 3) {
@@ -124,6 +129,10 @@ public class Voice {
 
     public String getName() {
         return mVoiceName;
+    }
+
+    public String getDownloadURL() {
+        return mVoiceURL;
     }
 
     public String getDisplayName() {

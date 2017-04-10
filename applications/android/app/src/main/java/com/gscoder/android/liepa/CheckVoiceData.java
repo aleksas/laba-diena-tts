@@ -75,10 +75,10 @@ public class CheckVoiceData extends Activity {
             try {
                 Log.w(LOG_TAG, "Voice list not found, creating dummy list.");
                 BufferedWriter out = new BufferedWriter(new FileWriter(VOICE_LIST_FILE));
-                out.write("ltu-LTU-Aiste\t123");
-                out.write("ltu-LTU-Regina\t123");
-                out.write("ltu-LTU-Edvardas\t123");
-                out.write("ltu-LTU-Vladas\t123");
+                out.write("ltu-LTU-Aiste\thttps://drive.google.com/open?id=0ByapeHHR6KltSHZHaFhuRWg0d2M\n");
+                out.write("ltu-LTU-Regina\thttps://drive.google.com/open?id=0ByapeHHR6KltTDB1NzZ1WjBlVVU\n");
+                out.write("ltu-LTU-Edvardas\thttps://drive.google.com/open?id=0ByapeHHR6KltdC1uNFpXaE9WeVE\n");
+                out.write("ltu-LTU-Vladas\thttps://drive.google.com/open?id=0ByapeHHR6KltYVk1Q1BFVnhDUFU\n");
                 out.close();
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Failed to create voice list dummy file.");
@@ -115,7 +115,8 @@ public class CheckVoiceData extends Activity {
 
     public static void DownloadVoiceList(Runnable callback) {
         // Download the voice list and call back to notify of update
-        String voiceListURL = Voice.getDownloadURLBasePath() + "voices.list?r=&ts=" + System.currentTimeMillis();
+        //String voiceListURL = Voice.getDownloadURLBasePath() + "voices.list?r=&ts=" + System.currentTimeMillis();
+        String voiceListURL = Voice.getDownloadVoiceListURL();
 
         FileDownloader fdload = new FileDownloader();
         fdload.saveUrlAsFile(voiceListURL, VOICE_LIST_FILE);

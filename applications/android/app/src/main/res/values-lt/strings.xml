@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Laba diena TTS</string>
+    <string name="app_name">Laba diena</string>
     <string name="open_source_licenses">Atviro kodo licencijos</string>
     <string name="settings_title">Laba diena TTS</string>
     <string name="voice_list_update">Parsisiųsti balsų sąrašą</string>
