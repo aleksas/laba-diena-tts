@@ -19,9 +19,11 @@ import android.widget.TextView;
 public class LiepaManager extends Activity implements AdapterView.OnItemClickListener {
     private final static String LOG_TAG = "Liepa_Java_" + LiepaManager.class.getSimpleName();
 
-    static final LauncherIcon[] ICONS = {
-            new LauncherIcon(R.drawable.custom_dialog_tts, "TTS Demo", TTSDemo.class),
-            new LauncherIcon(R.drawable.custom_dialog_manage, "Manage Voices", DownloadVoiceData.class),
+    static LauncherIcon[] ICONS = {
+            new LauncherIcon(R.drawable.custom_dialog_tts,  R.string.tts_demo_link, TTSDemo.class),
+            new LauncherIcon(R.drawable.custom_dialog_manage, R.string.manage_link, DownloadVoiceData.class),
+            new LauncherIcon(R.drawable.custom_dialog_info, R.string.info_link, LiepaInfoViewer.class),
+            new LauncherIcon(R.drawable.custom_dialog_info, R.string.open_source_link, OpenSourceLicenses.class),
     };
 
     @Override
@@ -57,14 +59,14 @@ public class LiepaManager extends Activity implements AdapterView.OnItemClickLis
     }
 
     static class LauncherIcon {
-        final String text;
+        final int textId;
         final int imgId;
         final Class activity;
 
-        public LauncherIcon(int imgId, String text, Class activity) {
+        public LauncherIcon(int imgId, int textId, Class activity) {
             super();
             this.imgId = imgId;
-            this.text = text;
+            this.textId = textId;
             this.activity = activity;
         }
 
@@ -116,7 +118,7 @@ public class LiepaManager extends Activity implements AdapterView.OnItemClickLis
             }
 
             holder.icon.setImageResource(ICONS[position].imgId);
-            holder.text.setText(ICONS[position].text);
+            holder.text.setText(mContext.getString(ICONS[position].textId));
 
             return v;
         }

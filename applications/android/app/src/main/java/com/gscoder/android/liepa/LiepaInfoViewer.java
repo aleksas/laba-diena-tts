@@ -28,7 +28,7 @@ public class LiepaInfoViewer extends ListActivity {
             //mLiepaEngine.setLanguage("lit", "LTU", "");
 
             ProgressDialog progress = new ProgressDialog(this);
-            progress.setMessage("Benchmarking Liepa. Wait a few seconds");
+            progress.setMessage("Wait a few seconds");
             progress.setCancelable(false);
             new GetInformation(progress).execute();
         } catch (Exception e) {
@@ -70,20 +70,17 @@ public class LiepaInfoViewer extends ListActivity {
         final String[] Info = new String[] {
                 "Copyright",
                 "URL",
-                "RUNTIME_HEADER",
                 "Android Version",
                 "Build ABI",
                 "Phone Model",
-                "Benchmark",
         };
         final String[] Data = new String[] {
-                "© (1999-2012) GSCoder",
-                "www.gscoder.com",
+                "© (2017) Aleksas Pielikis",
+                "https://github.com/aleksas/laba-diena-tts",
                 "",
                 android.os.Build.VERSION.RELEASE,
                 android.os.Build.CPU_ABI,
                 android.os.Build.MODEL,
-                mBenchmark + " times faster than real time",
 
         };
 
@@ -116,10 +113,7 @@ public class LiepaInfoViewer extends ListActivity {
 
         @Override
         public int getItemViewType(int position) {
-            if (values[position].equals("RUNTIME_HEADER")) {
-                return 0;
-            }
-            else return 1;
+            return 1;
         }
 
         @Override
@@ -134,22 +128,10 @@ public class LiepaInfoViewer extends ListActivity {
             TextView infoType = (TextView) convertView.findViewById(R.id.infotitle);
             TextView infoDetail = (TextView) convertView.findViewById(R.id.infodetail);
 
-            if (values[position].equals("RUNTIME_HEADER")) {
-                infoType.setText("Runtime Information");
-                infoType.setClickable(false);
-
-                infoType.setTextColor(getResources().getColor(R.color.themeblue));
-                infoType.setPadding(0,20,0,5);
-                infoDetail.setVisibility(View.GONE);
-            }
-            else {
-                infoType.setText(values[position]);
-                infoDetail.setText(data[position]);
-            }
+            infoType.setText(values[position]);
+            infoDetail.setText(data[position]);
 
             return convertView;
         }
-
     }
-
 }
