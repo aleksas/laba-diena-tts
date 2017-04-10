@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Projektas LIEPA (https://liepa.ra\xF0tija.lt)
-// Sintezatoriaus komponentas LIEPA.exe
 // Failas LithUSS_Error.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
 // 2015 08 11
@@ -12,8 +11,6 @@
 #define LITHUSS_ERROR_H_INCLUDED
 
 #include "common.h"
-
-EXPORT char* getLUSSErrorMessages(int err);
 
 #define	NO_ERR 0						//No error occurred
 
