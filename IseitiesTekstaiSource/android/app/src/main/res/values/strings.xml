@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">LIEPA</string>
-    <string name="settings_title">Liepa</string>
-    <string name="voice_list_update">Download Voice List</string>
-    <string name="ltu_sample">Laba diena ožiai.</string>
-    <string name="liepa_voice_manager">Liepa TTS Voice Management</string>
-</resources>

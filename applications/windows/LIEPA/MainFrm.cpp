@@ -5,7 +5,7 @@
 #include "redak.h"
 
 #include "MainFrm.h"
-#include "../LithUSS/LithUSS.h"
+#include <LithUSS/LithUSS.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

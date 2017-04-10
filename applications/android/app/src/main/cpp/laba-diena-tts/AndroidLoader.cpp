@@ -1,5 +1,5 @@
 #include <LithUSS.h>
-#include "LithUSS_Error.h"
+#include <LithUSS_Error.h>
 
 #include <jni.h>
 

@@ -11,7 +11,17 @@ cmake_minimum_required(VERSION 3.4.1)
 # Gradle automatically packages shared libraries with your APK.
 
 include_directories(AFTER SYSTEM
-             ../../LithUSS/)
+             ../../../native-modules/LithUSS/
+             ../../../native-modules/include/)
+
+add_library( # Sets the name of the library.
+             laba-diena-tts
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/laba-diena-tts/AndroidLoader.cpp )
 
 add_library( # Sets the name of the library.
              LithUSS
@@ -20,13 +30,12 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             ../../LithUSS/fv2id.cpp
-             ../../LithUSS/ilgiai.cpp
-             ../../LithUSS/LithUSS.cpp
-             ../../LithUSS/strtokf.cpp
-             ../../LithUSS/raw2wav.cpp
-             ../../LithUSS/getLUSSErrorMessages.cpp
-             src/main/cpp/LithUSS/AndroidLoader.cpp )
+             ../../../native-modules/LithUSS/fv2id.cpp
+             ../../../native-modules/LithUSS/ilgiai.cpp
+             ../../../native-modules/LithUSS/LithUSS.cpp
+             ../../../native-modules/LithUSS/strtokf.cpp
+             ../../../native-modules/LithUSS/raw2wav.cpp
+             ../../../native-modules/LithUSS/getLUSSErrorMessages.cpp )
 
 add_library( # Sets the name of the library.
              RateChange
@@ -35,10 +44,10 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             ../../RateChange/Euristika.cpp
-             ../../RateChange/greitis.cpp
-             ../../RateChange/RateChange.cpp
-             ../../RateChange/VeiksmaiSuFailais.cpp )
+             ../../../native-modules/RateChange/Euristika.cpp
+             ../../../native-modules/RateChange/greitis.cpp
+             ../../../native-modules/RateChange/RateChange.cpp
+             ../../../native-modules/RateChange/VeiksmaiSuFailais.cpp )
 
 add_library( # Sets the name of the library.
              TextNormalization
@@ -48,8 +57,8 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
 
-             ../../TextNormalization/stringWithLetterPosition.cpp
-             ../../TextNormalization/TextNormalization.cpp )
+             ../../../native-modules/TextNormalization/stringWithLetterPosition.cpp
+             ../../../native-modules/TextNormalization/TextNormalization.cpp )
 
 add_library( # Sets the name of the library.
              transcrLUSS
@@ -59,13 +68,13 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
 
-             ../../transcrLUSS/ArKirciuoti.cpp
-             ../../transcrLUSS/fv2id.cpp
-             ../../transcrLUSS/Kircdb.cpp
-             ../../transcrLUSS/Skiemen.cpp
-             ../../transcrLUSS/strtokf.cpp
-             ../../transcrLUSS/transcrLUSS.cpp
-             ../../transcrLUSS/Transkr.cpp )
+             ../../../native-modules/transcrLUSS/ArKirciuoti.cpp
+             ../../../native-modules/transcrLUSS/fv2id.cpp
+             ../../../native-modules/transcrLUSS/Kircdb.cpp
+             ../../../native-modules/transcrLUSS/Skiemen.cpp
+             ../../../native-modules/transcrLUSS/strtokf.cpp
+             ../../../native-modules/transcrLUSS/transcrLUSS.cpp
+             ../../../native-modules/transcrLUSS/Transkr.cpp )
 
 add_library( # Sets the name of the library.
              UnitSelection
@@ -75,9 +84,9 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
 
-             ../../UnitSelection/LithUSS_Error.h
-             ../../UnitSelection/strtokf.cpp
-             ../../UnitSelection/UnitSelection.cpp )
+             ../../../native-modules/UnitSelection/LithUSS_Error.h
+             ../../../native-modules/UnitSelection/strtokf.cpp
+             ../../../native-modules/UnitSelection/UnitSelection.cpp )
 
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -98,14 +107,18 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       LithUSS
-					   
-                       RateChange
-                       TextNormalization
-                       transcrLUSS
-                       UnitSelection
+                       laba-diena-tts
 
+                       LithUSS
 
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
+
+target_link_libraries( # Specifies the target library.
+                      LithUSS
+
+                      RateChange
+                      TextNormalization
+                      transcrLUSS
+                      UnitSelection )

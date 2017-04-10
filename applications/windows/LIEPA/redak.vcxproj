@@ -66,6 +66,7 @@
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
       <AdditionalOptions> /Zm500 </AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)native-modules</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -107,6 +108,7 @@
       <ObjectFileName>.\Debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
       <AdditionalOptions> /Zm560 </AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SolutionDir)native-modules</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -183,7 +185,7 @@
     <CustomBuild Include="res\redak.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LithUSS\LithUSS.vcxproj">
+    <ProjectReference Include="..\..\..\native-modules\LithUSS\LithUSS.vcxproj">
       <Project>{b8a2df32-c0a0-41af-bb93-0b600f0271c3}</Project>
     </ProjectReference>
   </ItemGroup>

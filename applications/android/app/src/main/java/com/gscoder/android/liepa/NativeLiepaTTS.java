@@ -148,5 +148,6 @@ public class NativeLiepaTTS {
         System.loadLibrary("transcrLUSS");
         System.loadLibrary("UnitSelection");
         System.loadLibrary("LithUSS");
+        System.loadLibrary("laba-diena-tts");
     }
 }

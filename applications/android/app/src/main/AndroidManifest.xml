@@ -43,7 +43,7 @@
 
         <activity
             android:name=".DownloadVoiceData"
-            android:label="@string/liepa_voice_manager"
+            android:label="@string/laba_diena_tts_voice_manager"
             android:theme="@android:style/Theme.Holo"
             android:configChanges="orientation">
             <intent-filter>
