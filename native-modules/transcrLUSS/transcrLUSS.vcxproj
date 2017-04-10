@@ -195,7 +195,6 @@
     <ClInclude Include="db8r1_14.h" />
     <ClInclude Include="fv2id.h" />
     <ClInclude Include="Kircdb.h" />
-    <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="nb12.h" />
     <ClInclude Include="rezultC.h" />
     <ClInclude Include="Skiemen.h" />

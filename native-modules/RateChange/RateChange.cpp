@@ -9,6 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "RateChange.h"
 #include "RateChangeInternal.h"
+#include "../include/LithUSS_Error.h"
 
 #include <stdio.h>
 #include <stdlib.h>

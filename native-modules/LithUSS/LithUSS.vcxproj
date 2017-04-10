@@ -171,8 +171,6 @@
     <ClInclude Include="fv2id.h" />
     <ClInclude Include="ilgiai.h" />
     <ClInclude Include="LithUSS.h" />
-    <ClInclude Include="LithUSS_Error.h" />
-    <ClInclude Include="transcrLUSS.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RateChange\RateChange.vcxproj">

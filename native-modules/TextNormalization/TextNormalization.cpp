@@ -10,7 +10,7 @@
 #include "stringWithLetterPosition.h"
 
 #include "TextNormalization.h"
-#include "LithUSS_Error.h"
+#include "../include/LithUSS_Error.h"
 
 #include <stdlib.h>
 

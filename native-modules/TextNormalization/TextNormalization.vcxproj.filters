@@ -23,9 +23,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stringWithLetterPosition.h">
       <Filter>Header Files</Filter>
     </ClInclude>

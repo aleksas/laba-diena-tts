@@ -164,7 +164,6 @@
     <CustomBuild Include="TextNormalization.def" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LithUSS_Error.h" />
     <ClInclude Include="stringWithLetterPosition.h" />
     <ClInclude Include="TextNormalization.h" />
   </ItemGroup>

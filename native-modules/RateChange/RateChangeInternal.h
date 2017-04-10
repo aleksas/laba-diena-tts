@@ -233,9 +233,4 @@ void spausdinti_loga(char* pranesimas);
 void spausdinti_konteksta (struct tkontekstas * kontekstas);
 int fonemosKlase (struct tkontekstas * kontekstas);
 
-/*********************************************************
- * Klaid\xF8 kodai
- ********************************************************/
-#include "LithUSS_Error.h"
-
 #endif //!RATECHANGEINTERNAL_H

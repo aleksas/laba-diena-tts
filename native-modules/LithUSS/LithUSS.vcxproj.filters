@@ -41,12 +41,6 @@
     <ClInclude Include="ilgiai.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="transcrLUSS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LithUSS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
