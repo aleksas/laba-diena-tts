@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Laba diena TTS</string>
+    <string name="open_source_licenses">Atviro kodo licencijos</string>
+    <string name="settings_title">Laba diena TTS</string>
+    <string name="voice_list_update">Parsisiųsti balsų sąrašą</string>
+    <string name="ltu_sample">Laba diena mielieji.</string>
+    <string name="laba_diena_tts_voice_manager">Laba diena TTS balsai</string>
+    <string name="tts_demo_link">TTS demonstracija</string>
+    <string name="manage_link">Balsai</string>
+    <string name="info_link">Apie</string>
+    <string name="open_source_link">Licencijos</string>
+</resources>

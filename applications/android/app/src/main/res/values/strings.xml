@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Laba diena TTS</string>
+    <string name="open_source_licenses">Open Source Licenses</string>
     <string name="settings_title">Laba diena TTS</string>
     <string name="voice_list_update">Download Voice List</string>
     <string name="ltu_sample">Laba diena mielieji.</string>
+    <string name="tts_demo">TTS Demo</string>
     <string name="laba_diena_tts_voice_manager">Laba diena TTS Voice Management</string>
+    <string name="tts_demo_link">TTS Demo</string>
+    <string name="manage_link">Manage Voices</string>
+    <string name="info_link">About</string>
+    <string name="open_source_link">Licenses</string>
 </resources>
