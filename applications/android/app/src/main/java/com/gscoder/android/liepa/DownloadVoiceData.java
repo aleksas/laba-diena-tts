@@ -182,7 +182,8 @@ public class DownloadVoiceData extends ListActivity {
                                 if (f.exists()) {
                                     f.delete();
                                 }
-                                String url = Voice.getDownloadURLBasePath() + vox.getVariant() + ".zip";
+                                //String url = Voice.getDownloadURLBasePath() + vox.getVariant() + ".zip";
+                                String url = vox.getDownloadURL();
                                 DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
                                 request.setDescription("Downloading Liepa Voice: " + vox.getName());
                                 request.setTitle(vox.getVariant() + ".zip");

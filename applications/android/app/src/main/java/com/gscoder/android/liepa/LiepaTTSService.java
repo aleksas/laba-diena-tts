@@ -2,6 +2,7 @@ package com.gscoder.android.liepa;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.media.AudioFormat;
 import android.speech.tts.SynthesisCallback;
 import android.speech.tts.SynthesisRequest;
@@ -10,10 +11,14 @@ import android.speech.tts.TextToSpeechService;
 import android.content.Intent;
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.MissingResourceException;
 import java.util.Set;
 
 public class LiepaTTSService extends TextToSpeechService {
@@ -48,11 +53,52 @@ public class LiepaTTSService extends TextToSpeechService {
         super.onCreate();
     }
 
+
+    private void copyAssetFile(String filename, String directory) {
+        AssetManager assetManager = this.getAssets();
+
+        InputStream in = null;
+        OutputStream out = null;
+        try {
+            in = assetManager.open(filename);
+            String newFileName = new File(directory, filename).getPath();
+            out = new FileOutputStream(newFileName);
+
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage());
+        }
+
+    }
+
     private void initializeLiepaEngine() throws Exception {
         if (mEngine == null) {
             //mEngine.stop();
             //mEngine = null;
             mEngine = NativeLiepaTTS.getInstance(Voice.getDataStorageBasePath(), mSynthCallback);
+        }
+
+        AssetManager assetManager = getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("liepa_rules");
+
+            if (files != null) {
+                for (String filename : files) {
+                    copyAssetFile(filename, Voice.getDataStorageBasePath());
+                }
+            }
+        } catch (IOException ex) {
+            Log.e("tag", "I/O Exception", ex);
         }
     }
 

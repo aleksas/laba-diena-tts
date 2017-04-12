@@ -50,9 +50,6 @@
     <ClInclude Include="Kircdb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LithUSS_Error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="nb12.h">
       <Filter>Header Files</Filter>
     </ClInclude>

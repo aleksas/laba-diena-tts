@@ -1,0 +1,93 @@
+Replace:\r\n@\n@
+Replace:\r@\n@
+Replace:..@.@
+//ReadByLetter:{~^`}@
+Replace:http://@HÀ-TË-TË-PË @
+RomanNumerals:\nI.@\nII.@
+RomanNumerals:\nI)@\nII)@
+RomanNumerals:\nV.@\nIV.@
+RomanNumerals:\nV)@\nIV)@
+Date:YYYY m. {MONTHS} DD d.@//2012 m. birþelio 14 d.
+Date:YYYY-MM-DD@//2012-06-14
+AbbSeparateWord:abb.txt@
+ReadByLetter:{.?!}@checkForNoSpaceAfter@
+//ReadByLetter:NUMERIS LTNum[01-99] Num[0000-9999] Num[0000-9999] Num[0000-9999] Num[0000-9999]@AddPauses@//Nr. LT12 0001 0001 0001 0001
+//ReadByLetter:TEL 8 5 Num[000-999] Num[00-99] Num[00-99]@//Tel. 8 5 273 45 12
+DigitsPattern:NUMERIS. LT(D[2-2])( [1-1])(D[4-4])( [1-1])(D[4-4])( [1-1])(D[4-4])( [1-1])(D[4-4])@addPauses@
+DigitsPattern:SVIFT kod(l[1-4])(: -[1-3])(LD[1-20])@
+DigitsPattern:kod(l[1-4])(: -[1-3])(D- .[1-20])@
+DigitsPattern:telefon(l[1-4])(: -[1-3])(D- .[1-20])@
+Numbers:@
+ReplaceWithFile:skaitm.txt@
+//ReadByLetter:{([{)]}"'}@LeaveOriginalDup@
+ReadByLetter:{#$%&*/\=+}@
+ReadByLetter:WordNoVowels@
+//
+Replace:aaa@a. aa@
+Replace:eee@e. ee@
+Replace:iii@i. ii@
+Replace:ooo@o. oo@
+Replace:uuu@u. uu@
+Replace:yyy@y. yy@
+Replace:ààà@à. àà@
+Replace:æææ@æ. ææ@
+Replace:ëëë@ë. ëë@
+Replace:ááá@á. áá@
+Replace:øøø@ø. øø@
+Replace:ûûû@û. ûû@
+Replace:AAA@A. AA@
+Replace:EEE@E. EE@
+Replace:III@I. II@
+Replace:OOO@O. OO@
+Replace:UUU@U. UU@
+Replace:YYY@Y. YY@
+Replace:ÀÀÀ@À. ÀÀ@
+Replace:ÆÆÆ@Æ. ÆÆ@
+Replace:ËËË@Ë. ËË@
+Replace:ÁÁÁ@Á. ÁÁ@
+Replace:ØØØ@Ø. ØØ@
+Replace:ÛÛÛ@Û. ÛÛ@
+Replace:a. aa@a. a. a@
+Replace:e. ee@e. e. e@
+Replace:i. ii@i. i. i@
+Replace:o. oo@o. o. o@
+Replace:u. uu@u. u. u@
+Replace:y. yy@y. y. y@
+Replace:à. àà@à. à. à@
+Replace:æ. ææ@æ. æ. æ@
+Replace:ë. ëë@ë. ë. ë@
+Replace:á. áá@á. á. á@
+Replace:ø. øø@ø. ø. ø@
+Replace:û. ûû@û. û. û@
+Replace:A. AA@A. A. A@
+Replace:E. EE@E. E. E@
+Replace:I. II@I. I. I@
+Replace:O. OO@O. O. O@
+Replace:U. UU@U. U. U@
+Replace:Y. YY@Y. Y. Y@
+Replace:À. ÀÀ@À. À. À@
+Replace:Æ. ÆÆ@Æ. Æ. Æ@
+Replace:Ë. ËË@Ë. Ë. Ë@
+Replace:Á. ÁÁ@Á. Á. Á@
+Replace:Ø. ØØ@Ø. Ø. Ø@
+Replace:Û. ÛÛ@Û. Û. Û@
+//
+Replace: - @ – @
+Phrases:@
+Replace:(@@
+Replace:[@@
+Replace:{@@
+Replace:)@@
+Replace:]@@
+Replace:}@@
+Replace:"@@
+Replace:'@@
+Replace:„@@
+Replace:“@@
+Replace:\n @\n@
+Replace: \n@\n@
+Replace:\t@ @
+Replace:  @ @
+Replace: .@.@
+Replace: ,@,@
+ToUPPERCASE:@

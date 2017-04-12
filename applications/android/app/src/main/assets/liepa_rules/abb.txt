@@ -1,0 +1,106 @@
+angl.@AN~-GLI-ÐKAI@
+ms@MI-LI-SE-KU`N-DÞIØ@
+Hz@HER~-CØ@
+kHz@KI-LO-HER~-CØ@
+dB@DE-CI-BE`-LØ@
+Pvz.@PA~-VYZ-DÞIUI@
+pvz.@PA~-VYZ-DÞIUI@
+IRT@I-ER-TË~@
+IT@I-TË~@
+itemId@AITEM AIDI@
+proc.@%@
+Tel.@TEL@
+tel.@TEL@
+GPM@GË-PË-EM@
+VMI@VË-MË-I`@
+vmi@VË-MË-I`@
+mln.@EM-EL-EN@
+mlrd.@EM-EL-ER-DË@
+m.@M@
+d.@D@
+tûkst.@TÛ^KST@
+Nr.@NU`MERIS@
+t.y.@TAI YRA`@
+t. y.@TAI YRA`@
+t.t.@TAI~P TOLIAU~.@
+t. t.@TAI~P TOLIAU~.@
+SWIFT@SVIFT@
+lt.@EL-TË@
+aspx@A-ES-PË-IKS@
+XXI a.@DVIDEÐIMT PIRMAS AMÞIUS@
+II.@ANTRAS@
+III.@TREÈIAS@
+IV.@KETVIRTAS@
+VI.@ÐEÐTAS@
+II)@ANTRAS@
+III)@TREÈIAS@
+IV)@KETVIRTAS@
+VI)@ÐEÐTAS@
+PSD@PË-ES-DË~@
+A. @A @
+A.@A @
+À. @À @
+À.@À @
+B. @B @
+B.@B @
+C. @C @
+C.@C @
+È. @È @
+È.@È @
+D. @D @
+D.@D @
+E. @E @
+E.@E @
+F. @F @
+F.@F @
+G. @G @
+H.@H @
+I. @I @
+I.@I @
+Á. @Á @
+Á.@Á @
+Y. @Y @
+Y.@Y @
+J. @J @
+J.@J @
+K. @K @
+K.@K @
+L. @L @
+L.@L @
+M. @M @
+M.@M @
+N. @N @
+N.@N @
+O. @O @
+O.@O @
+P. @P @
+P.@P @
+R. @R @
+R.@R @
+S. @S @
+S.@S @
+Ð. @Ð @
+Ð.@Ð @
+T. @T @
+T.@T @
+U. @U @
+U.@U @
+Û. @Û @
+Û.@Û @
+V. @V @
+V.@V @
+Z. @Z @
+Z.@Z @
+Þ. @Þ @
+Þ.@Þ @
+ne,@ne.@
+Ne,@Ne.@
+NE,@NE.@
+o,@o.@
+O,@O.@
+nebe,@nebe.@
+Nebe,@Nebe.@
+NEBE,@NEBE.@
+á,@á.@
+Á,@Á.@
+UNESCO@JUNE`SKO@

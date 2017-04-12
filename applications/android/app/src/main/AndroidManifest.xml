@@ -8,7 +8,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo_512x512_t"
         android:label="Liepa TTS Service"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -70,12 +70,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".OpenSourceLicenses"
             android:label="@string/open_source_licenses"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
 
         <activity-alias
             android:name=".TtsSettingsActivity"

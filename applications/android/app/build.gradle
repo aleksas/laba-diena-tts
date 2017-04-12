@@ -5,10 +5,10 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.gscoder.android.liepa"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "0.3-alpha"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {

@@ -11,7 +11,7 @@
 
 #include "Kircdb.h"
 #include "fv2id.h"
-#include "LithUSS_Error.h"
+#include "../include/LithUSS_Error.h"
 
 #include <string.h>
 #include <stdio.h>

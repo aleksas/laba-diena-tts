@@ -8,8 +8,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "LithUSS.h"
-#include "LithUSS_Error.h"
 
+#include "../include/LithUSS_Error.h"
 #include "../TextNormalization/TextNormalization.h"
 #include "../transcrLUSS/transcrLUSS.h"
 #include "../UnitSelection/UnitSelection.h"
