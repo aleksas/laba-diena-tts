@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 
 public class CheckVoiceData extends Activity {
-    private final static String LOG_TAG = "Liepa_Java_" + CheckVoiceData.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + CheckVoiceData.class.getSimpleName();
     private final static String LIEPA_DATA_PATH = Voice.getDataStorageBasePath();
     public final static String VOICE_LIST_FILE = LIEPA_DATA_PATH + "voices.list";
 
@@ -28,11 +28,6 @@ public class CheckVoiceData extends Activity {
 
         ArrayList<String> available = new ArrayList<String>();
         ArrayList<String> unavailable = new ArrayList<String>();
-
-		/* First, make sure that the directory structure we need exists
-		 * There should be a "cg" folder inside the flite data directory
-		 * which will store all the clustergen voice data files.
-		 */
 
         if(!Utility.pathExists(LIEPA_DATA_PATH)) {
             // Create the directory.

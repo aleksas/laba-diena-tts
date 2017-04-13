@@ -1,6 +1,7 @@
 package com.gscoder.android.liepa;
 
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
@@ -11,7 +12,7 @@ import java.nio.charset.Charset;
  */
 
 public class NativeLiepaTTS {
-    private final static String LOG_TAG = "Liepa_Java_" + NativeLiepaTTS.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + NativeLiepaTTS.class.getSimpleName();
 
     private static NativeLiepaTTS instance = null;
 
@@ -55,18 +56,17 @@ public class NativeLiepaTTS {
         return TextToSpeech.LANG_NOT_SUPPORTED;
     }
 
-    public boolean setLanguage(String language, String country, String variant) {
+    public void setLanguage(String language, String country, String variant) throws Exception {
         if (language.equals("lit")) {
             String storage = mDataPath + variant + "/";
             if (!storage.equals(mVoicePath)) {
-                boolean result = initLithUSS(mDataPath, storage) == 0;
-                if (result) {
-                    mVoicePath = storage;
+                int res = initLithUSS(mDataPath, storage);
+                if (res != 0) {
+                    throw new Exception(getErrorString(res));
                 }
-                return result;
+                mVoicePath = storage;
             }
         }
-        return false;
     }
 
     public void stop()
@@ -83,17 +83,38 @@ public class NativeLiepaTTS {
 
     public void synthesize(CharSequence text) throws Exception
     {
-        byte[] bytes = encode(text, Charset.forName("ISO-8859-13"));
-        int bufferSize = bytes.length * 1024 * 7;
+        int start = 0;
+        int end = 0;
+        try {
+            while (start < text.length()) {
+                end = text.length();
+                for (int i = start; i < text.length(); i++) {
+                    if (".!?;".indexOf(text.charAt(i)) != -1) {
+                        end = i + 1;
+                        break;
+                    }
+                }
 
-        byte[] signalBufferByte = new byte[bufferSize * Short.SIZE];
+                byte[] bytes = encode(text.subSequence(start, end), Charset.forName("ISO-8859-13"));
+                int bufferSize = (int)(bytes.length * 1024 * 12 / (mSpeechRate / 100.0f));
 
-        int res = synthesizeWholeText(bytes, mSpeechRate, mPitch, signalBufferByte, bufferSize);
-        if (res < 0) {
-            throw new Exception("Failed to synthesize text!");
+                byte[] signalBufferByte = new byte[bufferSize * Short.SIZE / Byte.SIZE];
+
+                Log.v(LOG_TAG, "Synthesize '" + text.subSequence(start, end) + "' (rate: " + mSpeechRate + ", pitch:" + mPitch + ")");
+                int res = synthesizeWholeText(bytes, mSpeechRate, mPitch, signalBufferByte, bufferSize);
+                if (res < 0) {
+                    throw new Exception(getErrorString(res));
+                }
+
+                nativeSynthCallback(signalBufferByte, res * Short.SIZE / Byte.SIZE);
+
+                start = end;
+            }
+        } catch (Exception e) {
+            Log.e(LOG_TAG, e.getMessage(), e);
+        } finally {
+            nativeSynthCallback(null, 0);
         }
-
-        nativeSynthCallback(signalBufferByte, res * Short.SIZE);
     }
 
     private void nativeSynthCallback(byte[] audioData, int length) {
@@ -141,6 +162,7 @@ public class NativeLiepaTTS {
     static native void unloadLithUSS();
     static native int initLithUSS(String katDll, String katVoice);
     static native int synthesizeWholeText(byte[] text, int speed, int tone, byte[] byteBuffer, int shortSize);
+    static native String getErrorString(int code);
 
     static {
         System.loadLibrary("RateChange");

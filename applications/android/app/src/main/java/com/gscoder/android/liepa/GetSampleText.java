@@ -9,7 +9,7 @@ import android.util.Log;
 import java.util.Locale;
 
 public class GetSampleText extends Activity {
-    private final static String LOG_TAG = "Liepa_Java_" + GetSampleText.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + GetSampleText.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

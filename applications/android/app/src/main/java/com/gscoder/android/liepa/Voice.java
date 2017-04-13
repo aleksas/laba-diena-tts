@@ -12,12 +12,12 @@ import android.os.Environment;
 import android.util.Log;
 
 public class Voice {
-    private final static String LOG_TAG = "Liepa_Java_" + Voice.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + Voice.class.getSimpleName();
     private final static String LIEPA_DATA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)  + "/Liepa/";
     private final static String VOICE_BASE_URL = "http://286840.s.dedikuoti.lt/liepa/";
 
     private String mVoiceName;
-    private String mVoiceURL;
+    private String mVoiceMD5;
     private String mVoiceLanguage;
     private String mVoiceCountry;
     private String mVoiceVariant;
@@ -25,9 +25,6 @@ public class Voice {
     private String mVoicePath;
     private boolean mIsVoiceAvailable;
 
-    /**
-     * @return absolute path to the flite-data directory
-     */
     public static String getDataStorageBasePath() {
         if (Environment.getExternalStorageState().equals("mounted")) {
             return LIEPA_DATA_PATH;
@@ -56,7 +53,7 @@ public class Voice {
         }
         else {
             mVoiceName = voiceInfo[0];
-            mVoiceURL = voiceInfo[1];
+            mVoiceMD5 = voiceInfo[1];
 
             String[] voiceParams = mVoiceName.split("-");
             if(voiceParams.length != 3) {
@@ -126,8 +123,8 @@ public class Voice {
         return mVoiceName;
     }
 
-    public String getDownloadURL() {
-        return mVoiceURL;
+    public String getDownloadMD5() {
+        return mVoiceMD5;
     }
 
     public String getDisplayName() {

@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -182,8 +183,7 @@ public class DownloadVoiceData extends ListActivity {
                                 if (f.exists()) {
                                     f.delete();
                                 }
-                                //String url = Voice.getDownloadURLBasePath() + vox.getVariant() + ".zip";
-                                String url = vox.getDownloadURL();
+                                String url = Voice.getDownloadURLBasePath() + vox.getVariant() + ".zip";
                                 DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
                                 request.setDescription("Downloading Liepa Voice: " + vox.getName());
                                 request.setTitle(vox.getVariant() + ".zip");
@@ -296,12 +296,14 @@ public class DownloadVoiceData extends ListActivity {
             ZipInputStream zis;
             try {
                 String filename;
-                is = new FileInputStream(path + zipname);
+                String fullPath = new File(path, zipname).getPath();
+                is = new FileInputStream(fullPath);
                 zis = new ZipInputStream(new BufferedInputStream(is));
                 ZipEntry ze;
                 byte[] buffer = new byte[1024];
                 int count;
 
+                Log.i(LOG_TAG, "Unpacking " + fullPath);
                 while ((ze = zis.getNextEntry()) != null) {
                     // zapis do souboru
                     filename = ze.getName();
@@ -324,9 +326,12 @@ public class DownloadVoiceData extends ListActivity {
 
                     fout.close();
                     zis.closeEntry();
+                    Log.i(LOG_TAG, filename);
                 }
 
                 zis.close();
+                Log.i(LOG_TAG, "Deleting " + fullPath);
+                new File(fullPath).delete();
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class LiepaManager extends Activity implements AdapterView.OnItemClickListener {
-    private final static String LOG_TAG = "Liepa_Java_" + LiepaManager.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + LiepaManager.class.getSimpleName();
 
     static LauncherIcon[] ICONS = {
             new LauncherIcon(R.drawable.custom_dialog_tts,  R.string.tts_demo_link, TTSDemo.class),

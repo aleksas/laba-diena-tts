@@ -1,10 +1,10 @@
 package com.gscoder.android.liepa;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-public class OpenSourceLicenses extends AppCompatActivity {
+public class OpenSourceLicenses extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

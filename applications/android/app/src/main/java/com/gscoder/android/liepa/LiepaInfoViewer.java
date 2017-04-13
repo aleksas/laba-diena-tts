@@ -3,8 +3,11 @@ package com.gscoder.android.liepa;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +17,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 public class LiepaInfoViewer extends ListActivity {
-    private final static String LOG_TAG = "Liepa_Java_" + LiepaInfoViewer.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + LiepaInfoViewer.class.getSimpleName();
     private NativeLiepaTTS mLiepaEngine;
     private SimpleCursorAdapter mAdapter;
     private float mBenchmark = -1;
@@ -67,20 +70,33 @@ public class LiepaInfoViewer extends ListActivity {
         if (mBenchmark <0) {
             mBenchmark = 0;// mLiepaEngine.getNativeBenchmark();
         }
+
+        String appVersion = "-";
+
+        PackageManager manager = this.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(this.getPackageName(), 0);
+            appVersion = info.versionName;
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
         final String[] Info = new String[] {
                 "Copyright",
                 "URL",
                 "Android Version",
-                "Build ABI",
+                "Build Version",
                 "Phone Model",
+                "App Version",
         };
         final String[] Data = new String[] {
                 "© (2017) Aleksas Pielikis",
                 "https://github.com/aleksas/laba-diena-tts",
-                "",
                 android.os.Build.VERSION.RELEASE,
-                android.os.Build.CPU_ABI,
+                TextUtils.join(", ", android.os.Build.SUPPORTED_ABIS),
                 android.os.Build.MODEL,
+                appVersion,
 
         };
 

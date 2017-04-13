@@ -70,10 +70,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".OpenSourceLicenses"
             android:label="@string/open_source_licenses"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <activity-alias
             android:name=".TtsSettingsActivity"

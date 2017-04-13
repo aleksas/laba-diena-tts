@@ -34,7 +34,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class TTSDemo extends ListActivity implements OnClickListener, OnKeyListener, OnInitListener {
-    private final static String LOG_TAG = "Liepa_Java_" + TTSDemo.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + TTSDemo.class.getSimpleName();
 
     private EditText mUserText;
     private ImageButton mSendButton;

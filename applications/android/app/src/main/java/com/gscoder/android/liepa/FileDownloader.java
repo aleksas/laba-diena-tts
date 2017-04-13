@@ -11,7 +11,7 @@ import java.net.URLConnection;
 
 
 public class FileDownloader {
-    private final static String LOG_TAG = "Liepa_Java_" + FileDownloader.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + FileDownloader.class.getSimpleName();
     public int totalFileLength = 0;
     public int finishedFileLength;
 

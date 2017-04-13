@@ -1,14 +1,16 @@
 #include <LithUSS.h>
 #include <LithUSS_Error.h>
 
+#include <android/log.h>
 #include <jni.h>
 
-#ifndef FLITE_DEBUG_ENABLED
+#ifndef LABA_DIENA_TTS_DEBUG_ENABLED
 // Don't debug by default
-#define FLITE_DEBUG_ENABLED 0
+    #define LOG_TAG "Laba_Diena_TTS_Native_Engine"
+    #define LABA_DIENA_TTS_DEBUG_ENABLED 1
 #endif
 
-#if FLITE_DEBUG_ENABLED
+#if LABA_DIENA_TTS_DEBUG_ENABLED
 
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG  , LOG_TAG, __VA_ARGS__)
@@ -26,14 +28,14 @@
 
 #endif
 
-#define DEBUG_LOG_FUNCTION if (FLITE_DEBUG_ENABLED) LOGV("%s", __FUNCTION__)
-
+#define DEBUG_LOG_FUNCTION if (LABA_DIENA_TTS_DEBUG_ENABLED) LOGV("%s", __FUNCTION__)
 
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_gscoder_android_liepa_NativeLiepaTTS_loadLithUSS(
         JNIEnv* env,
         jobject /* this */) {
+    DEBUG_LOG_FUNCTION;
     loadLUSS();
 }
 
@@ -42,6 +44,7 @@ JNIEXPORT void JNICALL
 Java_com_gscoder_android_liepa_NativeLiepaTTS_unloadLithUSS(
         JNIEnv* env,
         jobject /* this */) {
+    DEBUG_LOG_FUNCTION;
     unloadLUSS();
 }
 
@@ -50,12 +53,26 @@ JNIEXPORT int JNICALL
 Java_com_gscoder_android_liepa_NativeLiepaTTS_initLithUSS(
         JNIEnv* env,
         jobject /* this */, jstring dllPath, jstring voicePath) {
-    jboolean isCopy;
+    DEBUG_LOG_FUNCTION;
+    char * katVoice = (char*)env->GetStringUTFChars(voicePath, 0) ;
+    char * katDll = (char*)env->GetStringUTFChars(dllPath, 0);
 
-    char * katVoice = (char*)env->GetStringUTFChars(voicePath, &isCopy) ;
-    char * katDll = (char*)env->GetStringUTFChars(dllPath, &isCopy) ;
+    int result = NO_ERR;
+    result = initLUSS(katDll, katVoice);
 
-    return initLUSS(katDll, katVoice);
+    env->ReleaseStringUTFChars(voicePath, katVoice);
+    env->ReleaseStringUTFChars(dllPath, katDll);
+
+    return  result;
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_gscoder_android_liepa_NativeLiepaTTS_getErrorString(
+        JNIEnv* env,
+        jobject /* this */, int code) {
+    DEBUG_LOG_FUNCTION;
+    return env->NewStringUTF(getLUSSErrorMessages(code));
 }
 
 extern "C"
@@ -63,6 +80,7 @@ JNIEXPORT int JNICALL
 Java_com_gscoder_android_liepa_NativeLiepaTTS_synthesizeWholeText(
         JNIEnv* env,
         jobject /* this */, jbyteArray text, jint speed, jint tone, jbyteArray signalByteBuffer, jint bufferShortSize) {
+    DEBUG_LOG_FUNCTION;
 
     jboolean isCopy;
     char * szText = (char*)env->GetByteArrayElements(text, &isCopy);
@@ -81,4 +99,4 @@ Java_com_gscoder_android_liepa_NativeLiepaTTS_synthesizeWholeText(
     return result;
 }
 
-EXPORT int initLUSS(char *katDll, char *katVoice);
+//EXPORT int initLUSS(char *katDll, char *katVoice);

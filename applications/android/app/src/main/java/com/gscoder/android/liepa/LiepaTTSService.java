@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.Set;
 
 public class LiepaTTSService extends TextToSpeechService {
-    private final static String LOG_TAG = "Liepa_Java_" + LiepaTTSService.class.getSimpleName();
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + LiepaTTSService.class.getSimpleName();
     private NativeLiepaTTS mEngine;
 
     private static final String DEFAULT_LANGUAGE = "lit";
@@ -54,14 +54,14 @@ public class LiepaTTSService extends TextToSpeechService {
     }
 
 
-    private void copyAssetFile(String filename, String directory) {
+    private void copyAssetFile(String filename, String srcDirectory, String dstDirectory) {
         AssetManager assetManager = this.getAssets();
 
         InputStream in = null;
         OutputStream out = null;
         try {
-            in = assetManager.open(filename);
-            String newFileName = new File(directory, filename).getPath();
+            in = assetManager.open(new File(srcDirectory, filename).getPath());
+            String newFileName = new File(dstDirectory, filename).getPath();
             out = new FileOutputStream(newFileName);
 
             byte[] buffer = new byte[1024];
@@ -89,12 +89,13 @@ public class LiepaTTSService extends TextToSpeechService {
 
         AssetManager assetManager = getAssets();
         String[] files = null;
+        String subDir = "liepa_rules";
         try {
-            files = assetManager.list("liepa_rules");
+            files = assetManager.list(subDir);
 
             if (files != null) {
                 for (String filename : files) {
-                    copyAssetFile(filename, Voice.getDataStorageBasePath());
+                    copyAssetFile(filename, subDir, Voice.getDataStorageBasePath());
                 }
             }
         } catch (IOException ex) {
@@ -160,14 +161,15 @@ public class LiepaTTSService extends TextToSpeechService {
 
                 result = TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
             } else {
-                if (mEngine.setLanguage(language, country, variant)) {
+                try {
+                    mEngine.setLanguage(language, country, variant);
                     mLanguage = language;
                     mCountry = country;
                     mVariant = variant;
 
                     result = TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
-                } else {
-                    Log.e(LOG_TAG, "Failed to load language.");
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, e.getMessage());
                 }
             }
         }
@@ -191,23 +193,21 @@ public class LiepaTTSService extends TextToSpeechService {
 
         Integer pitch = (int)(request.getPitch() / 200.0f * (133 - 75) + 75);
         Integer speechRate = (int)(((200 - request.getSpeechRate()) / 200.0f) * (300 - 30) + 30); // atvirksciai proporcingos reiksmes
+        try {
+            if (mPassiveLanguageLoad ) {
+                if(!((mPassiveLoadedLanguage.equals(language)) && (mPassiveLoadedCountry.equals(country)) && (mPassiveLoadedVariant.equals(variant)))) {
+                    mEngine.setLanguage(language, country, variant);
 
-        boolean result = true;
-
-        if (mPassiveLanguageLoad ) {
-            if(!((mPassiveLoadedLanguage.equals(language)) && (mPassiveLoadedCountry.equals(country)) && (mPassiveLoadedVariant.equals(variant)))) {
-                result = mEngine.setLanguage(language, country, variant);
-
-                mPassiveLoadedLanguage = language;
-                mPassiveLoadedCountry = country;
-                mPassiveLoadedVariant = variant;
+                    mPassiveLoadedLanguage = language;
+                    mPassiveLoadedCountry = country;
+                    mPassiveLoadedVariant = variant;
+                }
+            } else if (! ((mLanguage == language) && (mCountry == country) && (mVariant == variant ))) {
+                mEngine.setLanguage(language, country, variant);
             }
-        } else if (! ((mLanguage == language) && (mCountry == country) && (mVariant == variant ))) {
-            result = mEngine.setLanguage(language, country, variant);
-        }
-
-        if (!result) {
-            Log.e(LOG_TAG, "Could not set language for synthesis");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(LOG_TAG, e.getMessage());
             return;
         }
 
@@ -218,7 +218,21 @@ public class LiepaTTSService extends TextToSpeechService {
         Integer rate = new Integer(mEngine.getSampleRate());
         Log.e(LOG_TAG, rate.toString());
         mCallback.start(mEngine.getSampleRate(), AudioFormat.ENCODING_PCM_16BIT, 1);
+        int start = 0;
+        int end = 0;
         try {
+           /* while (start < text.length()) {
+                end = text.length();
+                for (int i = start; i < text.length(); i++) {
+                    if (".!?;".indexOf(text.charAt(i)) != -1) {
+                        end = i + 1;
+                        break;
+                    }
+                }
+
+                mEngine.synthesize(text.subSequence(start, end));
+                start = end;
+            }*/
             mEngine.synthesize(text);
         } catch (Exception e) {
             Log.e(LOG_TAG, e.getMessage(), e);
@@ -232,6 +246,7 @@ public class LiepaTTSService extends TextToSpeechService {
                 onSynthDataComplete();
                 return;
             }
+            Log.v(LOG_TAG, "SynthReadyCallback provide");
 
             final int maxBytesToCopy = mCallback.getMaxBufferSize();
 
@@ -242,11 +257,15 @@ public class LiepaTTSService extends TextToSpeechService {
                 mCallback.audioAvailable(audioData, offset, bytesToWrite);
                 offset += bytesToWrite;
             }
+            Log.v(LOG_TAG, "SynthReadyCallback done");
         }
 
         @Override
         public void onSynthDataComplete() {
-            mCallback.done();
+            Log.v(LOG_TAG, "onSynthDataComplete");
+            if (mCallback != null) {
+                mCallback.done();
+            }
         }
     };
     /**
