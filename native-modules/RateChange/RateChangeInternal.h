@@ -176,12 +176,12 @@ struct tkontekstas {
 extern char signalo_failo_pavadinimas[];
 extern short * signalas;
 extern unsigned int signalo_ilgis;
-extern char * naujo_signalo_failo_pavadinimas;
+extern const char * naujo_signalo_failo_pavadinimas;
 extern char fonemu_failo_pavadinimas[];
 extern char ** fonemos;
 extern int * fonemu_ilgiai;
 extern unsigned int fonemu_kiekis;
-extern char * naujo_fonemu_failo_pavadinimas;
+extern const char * naujo_fonemu_failo_pavadinimas;
 extern int * nauji_fonemu_ilgiai;
 extern char vidutiniu_ilgiu_fonemu_failo_pavadinimas[];
 extern char ** skirtingos_fonemos;

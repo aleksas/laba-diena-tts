@@ -84,9 +84,9 @@ unsigned int signalo_ilgis = 0;
  ********************************************************/
 
 // TODO: nuskaityti pavadinima is programos komandines eilutes parametru
-char * naujo_signalo_failo_pavadinimas = "10m2e-new.16le";
-char * naujo_signalo_failo_pavadinimo_pradzia = "rez\\10m2e-new";
-char * naujo_signalo_failo_pavadinimo_pabaiga = ".16le";
+const char * naujo_signalo_failo_pavadinimas = "10m2e-new.16le";
+const char * naujo_signalo_failo_pavadinimo_pradzia = "rez\\10m2e-new";
+const char * naujo_signalo_failo_pavadinimo_pabaiga = ".16le";
 
 /*********************************************************
  * Global\xFBs fonem\xF8 (duomen\xF8) kintamieji
@@ -109,9 +109,9 @@ unsigned int fonemu_kiekis = 0;
  ********************************************************/
 
 // TODO: nuskaityti pavadinima is programos komandines eilutes parametru
-char * naujo_fonemu_failo_pavadinimas = "10m3_ilg-new.txt";
-char * naujo_fonemu_failo_pavadinimo_pradzia = "rez\\10m3_ilg-new";
-char * naujo_fonemu_failo_pavadinimo_pabaiga = ".txt";
+const char * naujo_fonemu_failo_pavadinimas = "10m3_ilg-new.txt";
+const char * naujo_fonemu_failo_pavadinimo_pradzia = "rez\\10m3_ilg-new";
+const char * naujo_fonemu_failo_pavadinimo_pabaiga = ".txt";
 
 // fonem\xF8 ilgi\xF8 masyvas
 int * nauji_fonemu_ilgiai = NULL;

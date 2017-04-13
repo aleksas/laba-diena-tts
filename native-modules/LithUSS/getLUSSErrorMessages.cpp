@@ -27,7 +27,7 @@ EXPORT char* getLUSSErrorMessages(int err)
 		case ERROR_TRANSCRLUSS_OPENING_TRANSCR_RULES_FILE :
 			return "Nepavyko atidaryti failo transcr_rules.txt.";
 		case ERROR_TRANSCRLUSS_READING_TRANSCR_RULES_FILE :
-			return "Klaida nuskaitant duomenis i\xF0 failo transcr_rules.txt. Taisykli¸ skai?ius neatitinka nurodyt? failo prad?ioje.";
+			return "Klaida nuskaitant duomenis i\xF0 failo transcr_rules.txt. Taisykli\xF8 skai\xE7ius neatitinka nurodyt\xF8 failo prad\xFEioje.";
 
 //UnitSelection klaidu kodai
 		case ERROR_UNITSELECTION_OPENING_SETTINGS_FILE:
