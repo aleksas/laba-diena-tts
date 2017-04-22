@@ -32,7 +32,7 @@
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_gscoder_android_liepa_NativeLiepaTTS_loadLithUSS(
+Java_com_gscoder_android_labadienatts_NativeTTS_loadLithUSS(
         JNIEnv* env,
         jobject /* this */) {
     DEBUG_LOG_FUNCTION;
@@ -41,7 +41,7 @@ Java_com_gscoder_android_liepa_NativeLiepaTTS_loadLithUSS(
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_gscoder_android_liepa_NativeLiepaTTS_unloadLithUSS(
+Java_com_gscoder_android_labadienatts_NativeTTS_unloadLithUSS(
         JNIEnv* env,
         jobject /* this */) {
     DEBUG_LOG_FUNCTION;
@@ -50,7 +50,7 @@ Java_com_gscoder_android_liepa_NativeLiepaTTS_unloadLithUSS(
 
 extern "C"
 JNIEXPORT int JNICALL
-Java_com_gscoder_android_liepa_NativeLiepaTTS_initLithUSS(
+Java_com_gscoder_android_labadienatts_NativeTTS_initLithUSS(
         JNIEnv* env,
         jobject /* this */, jstring dllPath, jstring voicePath) {
     DEBUG_LOG_FUNCTION;
@@ -68,7 +68,7 @@ Java_com_gscoder_android_liepa_NativeLiepaTTS_initLithUSS(
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_gscoder_android_liepa_NativeLiepaTTS_getErrorString(
+Java_com_gscoder_android_labadienatts_NativeTTS_getErrorString(
         JNIEnv* env,
         jobject /* this */, int code) {
     DEBUG_LOG_FUNCTION;
@@ -77,7 +77,7 @@ Java_com_gscoder_android_liepa_NativeLiepaTTS_getErrorString(
 
 extern "C"
 JNIEXPORT int JNICALL
-Java_com_gscoder_android_liepa_NativeLiepaTTS_synthesizeWholeText(
+Java_com_gscoder_android_labadienatts_NativeTTS_synthesizeWholeText(
         JNIEnv* env,
         jobject /* this */, jbyteArray text, jint speed, jint tone, jbyteArray signalByteBuffer, jint bufferShortSize) {
     DEBUG_LOG_FUNCTION;

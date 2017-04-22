@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

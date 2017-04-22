@@ -1,10 +1,12 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+
+import com.gscoder.android.labadienatts.R;
 
 import java.util.Locale;
 

@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.Manifest;
 import android.app.Activity;
@@ -16,13 +16,15 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LiepaManager extends Activity implements AdapterView.OnItemClickListener {
-    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + LiepaManager.class.getSimpleName();
+import com.gscoder.android.labadienatts.R;
+
+public class Manager extends Activity implements AdapterView.OnItemClickListener {
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + Manager.class.getSimpleName();
 
     static LauncherIcon[] ICONS = {
             new LauncherIcon(R.drawable.custom_dialog_tts,  R.string.tts_demo_link, TTSDemo.class),
             new LauncherIcon(R.drawable.custom_dialog_manage, R.string.manage_link, DownloadVoiceData.class),
-            new LauncherIcon(R.drawable.custom_dialog_info, R.string.info_link, LiepaInfoViewer.class),
+            new LauncherIcon(R.drawable.custom_dialog_info, R.string.info_link, InfoViewer.class),
             new LauncherIcon(R.drawable.custom_dialog_info, R.string.open_source_link, OpenSourceLicenses.class),
     };
 

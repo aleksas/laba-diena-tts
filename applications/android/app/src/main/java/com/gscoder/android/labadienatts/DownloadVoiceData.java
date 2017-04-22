@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -24,6 +24,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gscoder.android.labadienatts.R;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -90,7 +92,7 @@ public class DownloadVoiceData extends ListActivity {
         Thread thread = new Thread() {
             @Override
             public void run() {
-                CheckVoiceData.DownloadVoiceList(new Runnable() {
+                CheckVoiceData.DownloadVoiceList(mContext, new Runnable() {
                     @Override
                     public void run() {
                         runOnUiThread(new Runnable() {
@@ -123,7 +125,7 @@ public class DownloadVoiceData extends ListActivity {
             mInflater = LayoutInflater.from(mContext);
 
             // Get Information about voices
-            mVoiceList = CheckVoiceData.getVoices();
+            mVoiceList = CheckVoiceData.getVoices(mContext);
 
             if (mVoiceList.isEmpty()) {
                 Intent intent = new Intent(mContext, CheckVoiceData.class);
@@ -132,7 +134,7 @@ public class DownloadVoiceData extends ListActivity {
         }
 
         public void refresh() {
-            mVoiceList = CheckVoiceData.getVoices();
+            mVoiceList = CheckVoiceData.getVoices(mContext);
             notifyDataSetChanged();
         }
 
@@ -183,8 +185,8 @@ public class DownloadVoiceData extends ListActivity {
                                 if (f.exists()) {
                                     f.delete();
                                 }
-                                //String url = Voice.getDownloadURLBasePath() + vox.getVariant() + ".zip";
-                                String url = vox.getDownloadURL();
+                                String url = Voice.getDownloadURLBasePath() + vox.getVariant() + ".zip";
+                                //String url = vox.getDownloadURL();
                                 DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
                                 request.setDescription("Downloading Liepa Voice: " + vox.getName());
                                 request.setTitle(vox.getVariant() + ".zip");
@@ -282,9 +284,9 @@ public class DownloadVoiceData extends ListActivity {
                 int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
                 if (status == DownloadManager.STATUS_SUCCESSFUL) {
                     String title = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_TITLE));
-                    File f1 = new File(Voice.getDataStorageBasePath() + title);
+                    File f1 = new File(Voice.getDataStorageBasePath(mContext), title);
                     if (f1.exists()) {
-                        unpackZip(Voice.getDataStorageBasePath(), title);
+                        unpackZip(Voice.getDataStorageBasePath(mContext), title);
                         mListAdapter.refresh();
                     }
                 }

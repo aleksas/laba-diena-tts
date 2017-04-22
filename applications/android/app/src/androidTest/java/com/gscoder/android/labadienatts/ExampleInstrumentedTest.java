@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.gscoder.android.liepa", appContext.getPackageName());
+        assertEquals("com.gscoder.android.labadienatts", appContext.getPackageName());
     }
 }

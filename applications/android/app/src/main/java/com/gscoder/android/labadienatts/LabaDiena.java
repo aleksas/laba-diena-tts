@@ -1,14 +1,16 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Liepa extends AppCompatActivity {
+import com.gscoder.android.labadienatts.R;
+
+public class LabaDiena extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liepa);
+        setContentView(R.layout.activity_laba_diena);
 
         finish();
     }

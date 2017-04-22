@@ -1,6 +1,7 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -15,8 +16,7 @@ import java.util.ArrayList;
 
 public class CheckVoiceData extends Activity {
     private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + CheckVoiceData.class.getSimpleName();
-    private final static String LIEPA_DATA_PATH = Voice.getDataStorageBasePath();
-    public final static String VOICE_LIST_FILE = LIEPA_DATA_PATH + "voices.list";
+    public final static String VOICE_LIST_FILE_ = "voices.list";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,19 +24,19 @@ public class CheckVoiceData extends Activity {
         int result = TextToSpeech.Engine.CHECK_VOICE_DATA_PASS;
         Intent returnData = new Intent();
         returnData.putExtra(TextToSpeech.Engine.EXTRA_VOICE_DATA_ROOT_DIRECTORY,
-                LIEPA_DATA_PATH);
+                Voice.getDataStorageBasePath(this));
 
         ArrayList<String> available = new ArrayList<String>();
         ArrayList<String> unavailable = new ArrayList<String>();
 
-        if(!Utility.pathExists(LIEPA_DATA_PATH)) {
+        if(!Utility.pathExists( Voice.getDataStorageBasePath(this))) {
             // Create the directory.
             Log.e(LOG_TAG, "Liepa data directory missing. Trying to create it.");
             boolean success = false;
 
             try {
-                Log.e(LOG_TAG,LIEPA_DATA_PATH);
-                success = new File(LIEPA_DATA_PATH).mkdirs();
+                Log.e(LOG_TAG,  Voice.getDataStorageBasePath(this));
+                success = new File(Voice.getDataStorageBasePath(this)).mkdirs();
             }
             catch (Exception e) {
                 Log.e(LOG_TAG,"Could not create directory structure. "+e.getMessage());
@@ -56,20 +56,20 @@ public class CheckVoiceData extends Activity {
 		 * if we don't already have a file.
 		 */
 
-        if(!Utility.pathExists(VOICE_LIST_FILE)) {
+        if(!Utility.pathExists(getVoiceFilePath(this))) {
             Log.e(LOG_TAG, "Voice list file doesn't exist. Try getting it from server.");
 
-            DownloadVoiceList(null);
+            DownloadVoiceList(this, null);
         }
 
 		/* At this point, we MUST have a voices.list file. If this file is not there,
 		 * possibly because Internet connection was not available, we must create a dummy
 		 *
 		 */
-        if(!Utility.pathExists(VOICE_LIST_FILE)) {
+        if(!Utility.pathExists(getVoiceFilePath(this))) {
             try {
                 Log.w(LOG_TAG, "Voice list not found, creating dummy list.");
-                BufferedWriter out = new BufferedWriter(new FileWriter(VOICE_LIST_FILE));
+                BufferedWriter out = new BufferedWriter(new FileWriter(getVoiceFilePath(this)));
                 out.write("ltu-LTU-Aiste\t1234567890\n");
                 out.write("ltu-LTU-Regina\t1234567890\n");
                 out.write("ltu-LTU-Edvardas\t1234567890\n");
@@ -87,7 +87,7 @@ public class CheckVoiceData extends Activity {
 		 * if the data for that voice is installed.
 		 */
 
-        ArrayList<Voice> voiceList = getVoices();
+        ArrayList<Voice> voiceList = getVoices(this);
         if (voiceList.isEmpty()) {
             Log.e(LOG_TAG,"Problem reading voices list. This shouldn't happen!");
             result = TextToSpeech.Engine.CHECK_VOICE_DATA_FAIL;
@@ -108,12 +108,16 @@ public class CheckVoiceData extends Activity {
         finish();
     }
 
-    public static void DownloadVoiceList(Runnable callback) {
+    public static String getVoiceFilePath(Context context) {
+        return new File(Voice.getDataStorageBasePath(context), VOICE_LIST_FILE_).getPath();
+    }
+
+    public static void DownloadVoiceList(Context context, Runnable callback) {
         // Download the voice list and call back to notify of update
         String voiceListURL = Voice.getDownloadURLBasePath() + "voices.list";
 
         FileDownloader fdload = new FileDownloader();
-        fdload.saveUrlAsFile(voiceListURL, VOICE_LIST_FILE);
+        fdload.saveUrlAsFile(voiceListURL, getVoiceFilePath(context));
         while(!fdload.finished) {}
         boolean savedVoiceList = fdload.success;
 
@@ -128,10 +132,10 @@ public class CheckVoiceData extends Activity {
 
     }
 
-    public static ArrayList<Voice> getVoices() {
+    public static ArrayList<Voice> getVoices(Context context) {
         ArrayList<String> voiceList = null;
         try {
-            voiceList = Utility.readLines(VOICE_LIST_FILE);
+            voiceList = Utility.readLines(getVoiceFilePath(context));
         } catch (IOException e) {
             // Ignore exception, since we will return empty anyway.
         }
@@ -142,7 +146,7 @@ public class CheckVoiceData extends Activity {
         ArrayList<Voice> voices = new ArrayList<Voice>();
 
         for(String strLine:voiceList) {
-            Voice vox = new Voice(strLine);
+            Voice vox = new Voice(context, strLine);
             if (!vox.isValid())
                 continue;
             voices.add(vox);
@@ -151,10 +155,10 @@ public class CheckVoiceData extends Activity {
         return voices;
     }
 
-    public static ArrayList<Voice> getAvailableVoices() {
+    public static ArrayList<Voice> getAvailableVoices(Context context) {
         ArrayList<Voice> voices = new ArrayList<Voice>();
 
-        for(Voice vox:getVoices()) {
+        for(Voice vox:getVoices(context)) {
             if (!vox.isAvailable())
                 continue;
             voices.add(vox);
@@ -163,8 +167,8 @@ public class CheckVoiceData extends Activity {
         return voices;
     }
 
-    public static Voice getAnyVoiceAvailable(String language) {
-        for (Voice v : getVoices()) {
+    public static Voice getAnyVoiceAvailable(Context context, String language) {
+        for (Voice v : getVoices(context)) {
             if (v.getLanguage().equals(language) && v.isAvailable()) {
                 return v;
             }
@@ -172,8 +176,8 @@ public class CheckVoiceData extends Activity {
         return null;
     }
 
-    public static Voice getAnyVoiceAvailable(String language, String country) {
-        for (Voice v : getVoices()) {
+    public static Voice getAnyVoiceAvailable(Context context, String language, String country) {
+        for (Voice v : getVoices(context)) {
             if (v.getLanguage().equals(language) && v.getCountry().equals(country) && v.isAvailable())
             {
                 return v;
@@ -182,8 +186,8 @@ public class CheckVoiceData extends Activity {
         return null;
     }
 
-    public static boolean isLanguageAvailable(String language) {
-        for (Voice v : getVoices()) {
+    public static boolean isLanguageAvailable(Context context, String language) {
+        for (Voice v : getVoices(context)) {
             if (v.getLanguage().equals(language) && v.isAvailable())
             {
                 return true;

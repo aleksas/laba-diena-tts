@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 /**
  * Created by alex on 3/19/2017.
@@ -33,6 +33,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.gscoder.android.labadienatts.R;
+
 public class TTSDemo extends ListActivity implements OnClickListener, OnKeyListener, OnInitListener {
     private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + TTSDemo.class.getSimpleName();
 
@@ -54,7 +56,7 @@ public class TTSDemo extends ListActivity implements OnClickListener, OnKeyListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ArrayList<Voice> allVoices = CheckVoiceData.getVoices();
+        ArrayList<Voice> allVoices = CheckVoiceData.getVoices(this);
         mVoices = new ArrayList<Voice>();
         for(Voice vox:allVoices) {
             if (vox.isAvailable()) {
@@ -80,7 +82,7 @@ public class TTSDemo extends ListActivity implements OnClickListener, OnKeyListe
             // Initialize the TTS
             if (android.os.Build.VERSION.SDK_INT >=
                     android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                mTts = new TextToSpeech(this, this, "com.gscoder.android.liepa");
+                mTts = new TextToSpeech(this, this, "com.gscoder.android.labadienatts");
             }
             else {
                 mTts = new TextToSpeech(this, this);
@@ -213,7 +215,7 @@ public class TTSDemo extends ListActivity implements OnClickListener, OnKeyListe
         if (success &&
                 (android.os.Build.VERSION.SDK_INT >=
                         android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH)) {
-            status = mTts.setEngineByPackageName("com.gscoder.android.liepa");
+            status = mTts.setEngineByPackageName("com.gscoder.android.labadienatts");
         }
 
         if (status == TextToSpeech.ERROR) {

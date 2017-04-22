@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 /**
  * Created by alex on 3/19/2017.
@@ -8,13 +8,15 @@ package com.gscoder.android.liepa;
 import java.io.File;
 import java.util.Locale;
 
+import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
+import android.os.StatFs;
 
 public class Voice {
     private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + Voice.class.getSimpleName();
-    private final static String LIEPA_DATA_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)  + "/Liepa/";
     private final static String VOICE_BASE_URL = "http://286840.s.dedikuoti.lt/liepa/";
+    private final static String[] DEFAULT_VOICES = new String[] {"Aiste", "Regina", "Edvardas", "Vladas"};
 
     private String mVoiceName;
     private String mVoiceMD5;
@@ -25,9 +27,31 @@ public class Voice {
     private String mVoicePath;
     private boolean mIsVoiceAvailable;
 
-    public static String getDataStorageBasePath() {
+    public static String getDataStorageBasePath(Context context) {
         if (Environment.getExternalStorageState().equals("mounted")) {
-            return LIEPA_DATA_PATH;
+            File targetDir = null;
+            long available = 0;
+
+            for (File dir : context.getExternalFilesDirs(null)) {
+                StatFs stat = new StatFs(dir.getAbsolutePath());
+                if (stat.getAvailableBytes() > available) {
+                    available = stat.getAvailableBytes();
+                    targetDir = dir;
+                }
+            }
+
+            for (File dir : context.getExternalFilesDirs(null)) {
+                for (String voice : DEFAULT_VOICES) {
+                    File f = new File(dir.getAbsolutePath(), voice);
+                    if (f.exists() && f.isDirectory())
+                    {
+                        targetDir = dir;
+                        break;
+                    }
+                }
+            }
+
+            return targetDir.getAbsolutePath();
         }
         return null;
     }
@@ -44,7 +68,7 @@ public class Voice {
      * as downloaded on the server and cached. This line has text in the format:
      * language-country-variant<TAB>MD5SUM
      */
-    Voice(String voiceInfoLine) {
+    Voice(Context context, String voiceInfoLine) {
         boolean parseSuccessful = false;
 
         String[] voiceInfo = voiceInfoLine.split("\t");
@@ -58,7 +82,7 @@ public class Voice {
             String[] voiceParams = mVoiceName.split("-");
             if(voiceParams.length != 3) {
                 if (voiceParams.length == 1) {
-                    Voice v = CheckVoiceData.getAnyVoiceAvailable(voiceParams[0]);
+                    Voice v = CheckVoiceData.getAnyVoiceAvailable(context, voiceParams[0]);
 
                     mVoiceLanguage = v.getLanguage();
                     mVoiceCountry = v.getCountry();
@@ -66,7 +90,7 @@ public class Voice {
 
                     parseSuccessful = true;
                 } else if (voiceParams.length == 2) {
-                    Voice v = CheckVoiceData.getAnyVoiceAvailable(voiceParams[0], voiceParams[1]);
+                    Voice v = CheckVoiceData.getAnyVoiceAvailable(context, voiceParams[0], voiceParams[1]);
 
                     mVoiceLanguage = v.getLanguage();
                     mVoiceCountry = v.getCountry();
@@ -87,7 +111,7 @@ public class Voice {
 
         if (parseSuccessful) {
             mIsValidVoice = true;
-            mVoicePath = getDataStorageBasePath() + mVoiceVariant;
+            mVoicePath = new File(getDataStorageBasePath(context), mVoiceVariant).getAbsolutePath();
             checkVoiceAvailability();
         }
         else {

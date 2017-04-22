@@ -1,8 +1,10 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
+import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
+import java.io.File;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
@@ -11,10 +13,10 @@ import java.nio.charset.Charset;
  * Created by alex on 3/18/2017.
  */
 
-public class NativeLiepaTTS {
-    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + NativeLiepaTTS.class.getSimpleName();
+public class NativeTTS {
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + NativeTTS.class.getSimpleName();
 
-    private static NativeLiepaTTS instance = null;
+    private static NativeTTS instance = null;
 
     private final SynthReadyCallback mCallback;
 
@@ -23,20 +25,20 @@ public class NativeLiepaTTS {
     private int mSpeechRate = 150;
     private int mPitch = 100;
 
-    protected  NativeLiepaTTS(String datapath, SynthReadyCallback callback) throws Exception
+    protected NativeTTS(String datapath, SynthReadyCallback callback) throws Exception
     {
-        mDataPath = datapath;
+        mDataPath = datapath + "/";
         mCallback = callback;
         loadLithUSS();
     }
 
-    public int isLanguageAvailable(String language, String country,	String variant) {
+    public int isLanguageAvailable(Context context, String language, String country, String variant) {
         if (language.equals("lit"))
         {
-            if (new Voice(String.format("%s-%s-%s\tMD5", language, country, variant)).isAvailable()) {
+            if (new Voice(context, String.format("%s-%s-%s\tMD5", language, country, variant)).isAvailable()) {
                 return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
             }
-            else if ((variant == null || variant.isEmpty()) && CheckVoiceData.isLanguageAvailable(language))
+            else if ((variant == null || variant.isEmpty()) && CheckVoiceData.isLanguageAvailable(context, language))
             {
                 return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
             }
@@ -58,8 +60,9 @@ public class NativeLiepaTTS {
 
     public void setLanguage(String language, String country, String variant) throws Exception {
         if (language.equals("lit")) {
-            String storage = mDataPath + variant + "/";
+            String storage = new File(mDataPath, variant) + "/";
             if (!storage.equals(mVoicePath)) {
+                Log.v(LOG_TAG, "Initialize at path '" + storage + "'");
                 int res = initLithUSS(mDataPath, storage);
                 if (res != 0) {
                     throw new Exception(getErrorString(res));
@@ -151,9 +154,9 @@ public class NativeLiepaTTS {
         void onSynthDataComplete();
     }
 
-    public static NativeLiepaTTS getInstance(String datapath, SynthReadyCallback callback) throws Exception {
+    public static NativeTTS getInstance(String datapath, SynthReadyCallback callback) throws Exception {
         if(instance == null) {
-            instance = new NativeLiepaTTS(datapath, callback);
+            instance = new NativeTTS(datapath, callback);
         }
         return instance;
     }

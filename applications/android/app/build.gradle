@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "25.0.0"
     defaultConfig {
-        applicationId "com.gscoder.android.liepa"
+        applicationId "com.gscoder.android.labadienatts"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 7

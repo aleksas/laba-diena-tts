@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa.providers;
+package com.gscoder.android.labadienatts.providers;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;

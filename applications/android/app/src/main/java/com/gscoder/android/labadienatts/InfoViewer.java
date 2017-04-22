@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -16,9 +16,11 @@ import android.widget.ArrayAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-public class LiepaInfoViewer extends ListActivity {
-    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + LiepaInfoViewer.class.getSimpleName();
-    private NativeLiepaTTS mLiepaEngine;
+import com.gscoder.android.labadienatts.R;
+
+public class InfoViewer extends ListActivity {
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + InfoViewer.class.getSimpleName();
+    private NativeTTS mLiepaEngine;
     private SimpleCursorAdapter mAdapter;
     private float mBenchmark = -1;
 
@@ -27,8 +29,7 @@ public class LiepaInfoViewer extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            mLiepaEngine = new NativeLiepaTTS(Voice.getDataStorageBasePath(), null);
-            //mLiepaEngine.setLanguage("lit", "LTU", "");
+            mLiepaEngine = new NativeTTS(Voice.getDataStorageBasePath(this), null);
 
             ProgressDialog progress = new ProgressDialog(this);
             progress.setMessage("Wait a few seconds");
@@ -104,7 +105,7 @@ public class LiepaInfoViewer extends ListActivity {
 
             @Override
             public void run() {
-                setListAdapter(new SettingsArrayAdapter(LiepaInfoViewer.this, Info, Data));
+                setListAdapter(new SettingsArrayAdapter(InfoViewer.this, Info, Data));
             }
         });
 

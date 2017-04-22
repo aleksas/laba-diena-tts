@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gscoder.android.liepa">
+    package="com.gscoder.android.labadienatts">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -9,14 +9,14 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo_512x512_t"
-        android:label="Liepa TTS Service"
+        android:label="Laba Diena TTS Service"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".LiepaTTSService"
+            android:name="com.gscoder.android.labadienatts.TTSService"
             android:enabled="true"
             android:exported="true"
-            android:label="Liepa TTS Service">
+            android:label="Laba diena TTS Service">
             <intent-filter>
                 <action android:name="android.intent.action.TTS_SERVICE" />
 
@@ -29,7 +29,7 @@
         </service>
 
         <activity
-            android:name=".LiepaManager"
+            android:name="com.gscoder.android.labadienatts.Manager"
             android:enabled="true"
             android:label="@string/settings_title"
             android:launchMode="standard">
@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DownloadVoiceData"
+            android:name="com.gscoder.android.labadienatts.DownloadVoiceData"
             android:configChanges="orientation"
             android:label="@string/laba_diena_tts_voice_manager"
             android:theme="@android:style/Theme.Holo">
@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CheckVoiceData"
+            android:name="com.gscoder.android.labadienatts.CheckVoiceData"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
@@ -61,7 +61,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GetSampleText"
+            android:name="com.gscoder.android.labadienatts.GetSampleText"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
@@ -72,28 +72,28 @@
         </activity>
 
         <activity
-            android:name=".OpenSourceLicenses"
+            android:name="com.gscoder.android.labadienatts.OpenSourceLicenses"
             android:label="@string/open_source_licenses"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <activity-alias
             android:name=".TtsSettingsActivity"
-            android:targetActivity=".LiepaManager" />
+            android:targetActivity="com.gscoder.android.labadienatts.Manager" />
         <activity-alias
             android:name=".EngineSettings"
-            android:targetActivity=".LiepaManager" />
+            android:targetActivity="com.gscoder.android.labadienatts.Manager" />
 
         <activity
-            android:name=".LiepaInfoViewer"
+            android:name="com.gscoder.android.labadienatts.InfoViewer"
             android:configChanges="keyboardHidden|orientation" />
         <activity
-            android:name=".TTSDemo"
+            android:name="com.gscoder.android.labadienatts.TTSDemo"
             android:configChanges="keyboardHidden|orientation" />
 
         <!-- Legacy Code for pre-ICS compatibility -->
 
         <activity
-            android:name=".Liepa"
+            android:name="com.gscoder.android.labadienatts.LabaDiena"
             android:enabled="true"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
@@ -106,8 +106,8 @@
         </activity>
 
         <provider
-            android:name=".providers.SettingsProvider"
-            android:authorities="com.gscoder.android.liepa.providers.SettingsProvider" />
+            android:name="com.gscoder.android.labadienatts.providers.SettingsProvider"
+            android:authorities="com.gscoder.android.labadienatts.providers.SettingsProvider" />
     </application>
 
 </manifest>

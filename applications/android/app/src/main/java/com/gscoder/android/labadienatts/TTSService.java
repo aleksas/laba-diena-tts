@@ -1,4 +1,4 @@
-package com.gscoder.android.liepa;
+package com.gscoder.android.labadienatts;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class LiepaTTSService extends TextToSpeechService {
-    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + LiepaTTSService.class.getSimpleName();
-    private NativeLiepaTTS mEngine;
+public class TTSService extends TextToSpeechService {
+    private final static String LOG_TAG = "Laba_Diena_TTS_Java_" + TTSService.class.getSimpleName();
+    private NativeTTS mEngine;
 
     private static final String DEFAULT_LANGUAGE = "lit";
     private static final String DEFAULT_COUNTRY = "LTU";
@@ -84,7 +84,7 @@ public class LiepaTTSService extends TextToSpeechService {
         if (mEngine == null) {
             //mEngine.stop();
             //mEngine = null;
-            mEngine = NativeLiepaTTS.getInstance(Voice.getDataStorageBasePath(), mSynthCallback);
+            mEngine = NativeTTS.getInstance(Voice.getDataStorageBasePath(this), mSynthCallback);
         }
 
         AssetManager assetManager = getAssets();
@@ -95,7 +95,7 @@ public class LiepaTTSService extends TextToSpeechService {
 
             if (files != null) {
                 for (String filename : files) {
-                    copyAssetFile(filename, subDir, Voice.getDataStorageBasePath());
+                    copyAssetFile(filename, subDir, Voice.getDataStorageBasePath(this));
                 }
             }
         } catch (IOException ex) {
@@ -116,7 +116,7 @@ public class LiepaTTSService extends TextToSpeechService {
         Log.v(LOG_TAG, "onIsLanguageAvailable");
         if (language.equals("lit")) {
             //return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
-            int res = mEngine.isLanguageAvailable(language, country, variant);
+            int res = mEngine.isLanguageAvailable(this, language, country, variant);
             return res;
         } else {
             return TextToSpeech.LANG_NOT_SUPPORTED;
@@ -137,7 +137,7 @@ public class LiepaTTSService extends TextToSpeechService {
     @Override
     public List<android.speech.tts.Voice> onGetVoices() {
         ArrayList<android.speech.tts.Voice> voices = new ArrayList<android.speech.tts.Voice>();
-        for (Voice vox: CheckVoiceData.getAvailableVoices()) {
+        for (Voice vox: CheckVoiceData.getAvailableVoices(this)) {
             Locale locale = vox.getLocale();
             Set<String> features = onGetFeaturesForLanguage(locale.getISO3Language(),
                     locale.getISO3Country(), locale.getVariant());
@@ -153,7 +153,7 @@ public class LiepaTTSService extends TextToSpeechService {
         Log.v(LOG_TAG, "onLoadLanguage");
         int result = TextToSpeech.LANG_NOT_SUPPORTED;
 
-        if (mEngine.isLanguageAvailable(language, country, variant) == TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE) {
+        if (mEngine.isLanguageAvailable(this, language, country, variant) == TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE) {
             if (mPassiveLanguageLoad) {
                 mLanguage = language;
                 mCountry = country;
@@ -239,7 +239,7 @@ public class LiepaTTSService extends TextToSpeechService {
         }
     }
 
-    private final NativeLiepaTTS.SynthReadyCallback mSynthCallback = new NativeLiepaTTS.SynthReadyCallback() {
+    private final NativeTTS.SynthReadyCallback mSynthCallback = new NativeTTS.SynthReadyCallback() {
         @Override
         public void onSynthDataReady(byte[] audioData, int length) {
             if ((audioData == null) || (audioData.length == 0) || length == 0) {
