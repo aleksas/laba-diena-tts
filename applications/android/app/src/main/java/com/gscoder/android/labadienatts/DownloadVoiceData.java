@@ -260,7 +260,7 @@ public class DownloadVoiceData extends ListActivity {
 
     BroadcastReceiver onComplete=new BroadcastReceiver() {
         public void onReceive(Context ctxt, Intent intent) {
-            Toast toast = Toast.makeText(ctxt, "Liepa TTS Voice Data Downloaded!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(ctxt, "Liepa TTS Voice Data Downloaded! Unpacking...", Toast.LENGTH_SHORT);
             toast.show();
 
             new ProcessNext().execute(intent);
@@ -286,17 +286,53 @@ public class DownloadVoiceData extends ListActivity {
                     String title = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_TITLE));
                     File f1 = new File(Voice.getDataStorageBasePath(mContext), title);
                     if (f1.exists()) {
-                        unpackZip(Voice.getDataStorageBasePath(mContext), title);
-                        mListAdapter.refresh();
+                        unpackZip(mContext, Voice.getDataStorageBasePath(mContext), title);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mListAdapter.refresh();
+                            }
+                        });
                     }
                 }
             }
             return 0;
         }
 
-        private boolean unpackZip(String path, String zipname) {
+        void DeleteRecursive(File dir)
+        {
+            Log.d("DeleteRecursive", "DELETEPREVIOUS TOP" + dir.getPath());
+            if (dir.isDirectory())
+            {
+                String[] children = dir.list();
+                for (int i = 0; i < children.length; i++)
+                {
+                    File temp = new File(dir, children[i]);
+                    if (temp.isDirectory())
+                    {
+                        Log.d("DeleteRecursive", "Recursive Call" + temp.getPath());
+                        DeleteRecursive(temp);
+                    }
+                    else
+                    {
+                        Log.d("DeleteRecursive", "Delete File" + temp.getPath());
+                        boolean b = temp.delete();
+                        if (b == false)
+                        {
+                            Log.d("DeleteRecursive", "DELETE FAIL");
+                        }
+                    }
+                }
+
+            }
+            dir.delete();
+        }
+
+        private boolean unpackZip(Context context, String path, String zipname) {
             InputStream is;
             ZipInputStream zis;
+            String tmpPath = new File(path, "TMP_" + zipname).getAbsolutePath();
+
             try {
                 String filename;
                 String fullPath = new File(path, zipname).getPath();
@@ -313,7 +349,7 @@ public class DownloadVoiceData extends ListActivity {
 
                     // Need to create directories if not exists, or
                     // it will generate an Exception...
-                    File fmd = new File(path, filename);
+                    File fmd = new File(tmpPath, filename);
 
                     if (ze.isDirectory()) {
                         fmd.mkdirs();
@@ -333,6 +369,17 @@ public class DownloadVoiceData extends ListActivity {
                 }
 
                 zis.close();
+
+                File tmpDir = new File(tmpPath);
+                File[] files = tmpDir.listFiles();
+
+                for (int i=0; i < files.length; i++) {
+                    File newFile = new File(path, files[i].getName());
+                    files[i].renameTo(newFile);
+                }
+
+                DeleteRecursive(tmpDir);
+
                 Log.i(LOG_TAG, "Deleting " + fullPath);
                 new File(fullPath).delete();
             } catch (IOException e) {
