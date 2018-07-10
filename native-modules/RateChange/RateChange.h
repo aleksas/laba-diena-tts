@@ -9,5 +9,6 @@ EXPORT int change_phoneme_rate(int greitis, int tono_aukscio_pokytis, unsigned i
 
 EXPORT BOOL loadRateChange(char*);
 EXPORT void unloadRateChange();
+EXPORT void getData(int * pIlgis, short ** ppData, int * pFonemuSkaicius, int ** ppFonemuIlgiai, char *** pppFonemos);
 
 #endif // !RATECHANGE_H_INCLUDED

@@ -49,7 +49,7 @@ long * fonemu_adresai = NULL;
 // jei ne nulis, i\xF0veda papildom\xE0 informacij\xE0 apie programos darb\xE0, apie kiekvien\xE0 apdorojam\xE0 fonem\xE0
 // jei > 100, i\xF0veda detali\xE0 informacij\xE0
 // jei > 200, be proto daug detali\xF8
-int debuginam = 0;
+int debuginam = 101;
 
 /*********************************************************
 * atlaisvinti_atminti_ir_inicializuoti
@@ -662,6 +662,16 @@ EXPORT int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokyti
 	}
 
 	return NO_ERR;
+}
+
+
+EXPORT void getData(int * pIlgis, short ** ppData, int * pFonemuSkaicius, int ** ppFonemuIlgiai, char *** pppFonemos)
+{
+	*pIlgis = signalo_ilgis;
+	*ppData = signalas;
+	*pFonemuSkaicius = fonemu_kiekis;
+	*ppFonemuIlgiai = fonemu_ilgiai;
+	*pppFonemos = fonemos;
 }
 
 /*********************************************************
