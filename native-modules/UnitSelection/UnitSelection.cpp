@@ -20,15 +20,6 @@ using namespace std;
 
 char* strtokf(char*, const char*, char**);
 
-EXPORT BOOL loadUnitSel(char *biblioteka)
-{
-	return TRUE;
-}
-
-EXPORT void unloadUnitSel()
-{
-}
-
 /*
 BOOL APIENTRY DllMain(HANDLE hModule,
 	DWORD  ul_reason_for_call,

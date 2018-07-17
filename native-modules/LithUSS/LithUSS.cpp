@@ -35,8 +35,6 @@ char katLoaded[200];
 void unloadLibraries()
 {
 	unloadTextNorm();
-	unloadTranscrLUSS();
-	unloadUnitSel();
 	unloadRateChange(); 
 }
 
@@ -96,8 +94,6 @@ if(hr == NO_ERR)
 //balsui specifiniu biblioteku perkrovimas
 if(strcmp(katLoaded, katVoice)!=0)
 {
-unloadTranscrLUSS();
-unloadUnitSel();
 unloadRateChange();
 
 if(hr == NO_ERR)
@@ -105,10 +101,6 @@ if(hr == NO_ERR)
 	strcpy(laikKat, katDll);
 	strcat(laikKat, "transcrLUSS.dll");
 
-	if(loadTranscrLUSS(laikKat) == FALSE)
-		{
-		hr = ERROR_LITHUSS_LOADING_TRANSCRLUSS_DLL;
-		}
 	}
 
 if(hr == NO_ERR)
@@ -126,10 +118,6 @@ if(hr == NO_ERR)
 	strcpy(laikKat, katDll);
 	strcat(laikKat, "UnitSelection.dll");
 
-	if(loadUnitSel(laikKat) == FALSE)
-		{
-		hr = ERROR_LITHUSS_LOADING_UNITSELECTION_DLL;
-		}
 	}
 
 if(hr == NO_ERR)

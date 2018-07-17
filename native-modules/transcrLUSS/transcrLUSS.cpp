@@ -24,15 +24,6 @@ char* strtokf(char*, const char*, char**);
 #define VARSK1   10    //transkribavimo variantu skaicius
 #define ZODIL1   50    //maksimalus kirciuojamo zodzio ilgis
 
-EXPORT BOOL loadTranscrLUSS(char*)
-{
-	return TRUE;
-}
-
-EXPORT void unloadTranscrLUSS()
-{
-
-}
 
 /*
 BOOL APIENTRY DllMain( HANDLE hModule, 
