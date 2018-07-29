@@ -1,0 +1,49 @@
+{
+	"folders": [
+		{
+			"path": "native-modules/TextNormalization"
+		},
+		{
+			"path": "native-modules/transcrLUSS"
+		},
+		{
+			"path": "native-modules/UnitSelection"
+		},
+		{
+			"path": "native-modules/LithUSS"
+		},
+		{
+			"path": "native-modules/LithUSSTest"
+		},
+		{
+			"path": "native-modules/RateChange"
+		}
+	],
+	"launch": {
+		"compounds": [{
+			"name": "Main Run",
+			"configurations": [
+				"(gdb) Launch LithUSSTest"
+			]
+		}]
+	},
+	"settings": {
+		"files.associations": {
+			"string": "cpp",
+			"*.tcc": "cpp",
+			"cctype": "cpp",
+			"clocale": "cpp",
+			"cstdint": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cwchar": "cpp",
+			"exception": "cpp",
+			"initializer_list": "cpp",
+			"iosfwd": "cpp",
+			"limits": "cpp",
+			"new": "cpp",
+			"type_traits": "cpp",
+			"typeinfo": "cpp"
+		}
+	}
+}

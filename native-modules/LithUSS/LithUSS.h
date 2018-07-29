@@ -17,6 +17,6 @@ EXPORT int raw2wav(int, char * filename, short * pBuffer);
 EXPORT BOOL loadLUSS();
 EXPORT void unloadLUSS();
 
-EXPORT char* getLUSSErrorMessages(int err);
+EXPORT const char* getLUSSErrorMessages(int err);
 
 #endif //!LITHUSS_H_INCLUDED

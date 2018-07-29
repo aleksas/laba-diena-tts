@@ -10,7 +10,7 @@
 #include <string.h>
 #define TaisSk 77
 
-static struct NekircZod{char *kz[2]; char *ez; char *dz[2];
+static struct NekircZod{const char *kz[2]; const char *ez; const char *dz[2];
 						int arKirc;} NkZod[TaisSk] = {
 {{""}, "AR", {""}, 0},
 {{""}, "ARBA", {""}, 0},

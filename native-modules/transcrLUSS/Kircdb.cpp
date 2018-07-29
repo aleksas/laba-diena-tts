@@ -11,7 +11,7 @@
 #include <string.h>
 
 #include "Kircdb.h"
-#include "vb9r1_13.h"
+#include "Vb9r1_13.h"
 #include "db8r1_14.h"
 #include "nb12.h"
 #include "vgal.h"
