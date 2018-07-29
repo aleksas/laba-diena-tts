@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "native-modules/RateChange"
+		},
+		{
+			"path": "native-modules/Decoder"
 		}
 	],
 	"launch": {
