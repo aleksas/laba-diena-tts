@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
+// Projektas LIEPA (https://liepa.raðtija.lt)
 // Sintezatoriaus komponentas transcrLUSS.dll
 // Failas KircDB.cpp
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
@@ -9,6 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "Kircdb.h"
 #include "Vb9r1_13.h"
@@ -45,34 +46,34 @@ char* strrev1(char *p)
 struct GaluniuMasyvas{const char *Galune; char ArMinksta; char KirciuotaRaide; char Priegaide;}
 GalMasDB[231] = {
 /*00*/  {"SISA",   0, 3, 0},   /*01*/  {"OJO",     0, 2, 2},   /*02*/  {"MAJA",   0, 3, 1},
-/*03*/  {"\xC1J\xC0",    0, 2, 2},   /*04*/  {"UJOU",    0, 3, 1},   /*05*/  {"EMAJA",  0, 4, 2},
-/*--T+  {"MAJA",   0, 3, 2},*/ /*06*/  {"IJEI",    0, 3, 1},   /*07*/  {"\xD8J\xD8",    0, 2, 2},
+/*03*/  {"ÁJÀ",    0, 2, 2},   /*04*/  {"UJOU",    0, 3, 1},   /*05*/  {"EMAJA",  0, 4, 2},
+/*--T+  {"MAJA",   0, 3, 2},*/ /*06*/  {"IJEI",    0, 3, 1},   /*07*/  {"ØJØ",    0, 2, 2},
 /*08*/  {"SMEISEI",0, 6, 1},   /*09T*/ {"MEISEI",  0, 5, 1},   /*10*/  {"SUISOU", 0, 5, 1},
 /*11*/  {"SIAISIA",0, 5, 2},   /*12*/  {"ESOUISOU",0, 6, 2},   /*13T*/ {"SOUISOU",0, 5, 2},
 
 /*14*/  {"IJO",    0, 2, 1},   /*15*/  {"SOISO",   0, 4, 2},   /*16*/  {"IAJA",   0, 3, 1}, 
-/*17*/  {"\xC0J\xC0",    0, 2, 2},   /*18*/  {"AJ\xC0",     0, 2, 1},   /*19*/  {"EJOJO",  0, 4, 2}, 
+/*17*/  {"ÀJÀ",    0, 2, 2},   /*18*/  {"AJÀ",     0, 2, 1},   /*19*/  {"EJOJO",  0, 4, 2}, 
 /*20T*/ {"JOJO",   0, 3, 2},   /*21*/  {"SMOISO",  0, 5, 1},   /*22T*/ {"MOISO",  0, 4, 1}, 
-/*23*/  {"SAIS\xC0",  0, 4, 1},   /*24*/  {"SIMOISO", 0, 6, 2},   /*--T-  {"MOISO",  0, 4, 2},*/  
+/*23*/  {"SAISÀ",  0, 4, 1},   /*24*/  {"SIMOISO", 0, 6, 2},   /*--T-  {"MOISO",  0, 4, 2},*/  
 /*25*/  {"ESOISO", 0, 5, 2}, 
 
 /*26*/  {"SISAI",  1, 3, 0},   /*27*/  {"OJOI",    1, 2, 2},   /*28*/  {"MAJAI",  1, 3, 1}, 
-/*29*/  {"\xC1J\xC0I",   1,-1,-1},   /*30*/  {"UJOUI",   1, 3, 1},   /*31*/  {"EMAJAI", 1, 4, 2}, 
-/*--T+  {"MAJAI",  1, 3, 2},*/ /*32*/  {"\xD8J\xD8I",    1, 2, 2},   /*33*/  {"SUISOUI",1, 5, 1}, 
+/*29*/  {"ÁJÀI",   1,-1,-1},   /*30*/  {"UJOUI",   1, 3, 1},   /*31*/  {"EMAJAI", 1, 4, 2}, 
+/*--T+  {"MAJAI",  1, 3, 2},*/ /*32*/  {"ØJØI",    1, 2, 2},   /*33*/  {"SUISOUI",1, 5, 1}, 
 /*34*/  {"SIAISIAI",1,5, 2},   /*35*/  {"ESOUISOUI",1,6, 2},   /*36T*/ {"SOUISOUI",1,5, 2}, 
 
 /*37*/  {"IJOI",   1, 2, 1},   /*38*/  {"SOISOI",  1, 4, 2},   /*39*/  {"IAJAI",  1, 3, 1}, 
-/*40*/  {"\xC0J\xC0I",   1, 2, 2},   /*41*/  {"AJ\xC0I",    1, 2, 1},   /*42*/  {"EJOJOI", 1, 4, 2}, 
+/*40*/  {"ÀJÀI",   1, 2, 2},   /*41*/  {"AJÀI",    1, 2, 1},   /*42*/  {"EJOJOI", 1, 4, 2}, 
 /*43T*/ {"JOJOI",  1, 3, 2},   /*44*/  {"SMOISOI", 1, 5, 1},   /*45T*/ {"MOISOI", 1, 4, 1}, 
-/*46*/  {"SAIS\xC0I", 1, 4, 1},   /*47*/  {"SIMOISOI",1, 6, 2},   /*--T-  {"MOISOI", 1, 4, 2},*/  
+/*46*/  {"SAISÀI", 1, 4, 1},   /*47*/  {"SIMOISOI",1, 6, 2},   /*--T-  {"MOISOI", 1, 4, 2},*/  
 /*48*/  {"ESOISOI",1, 5, 2}, 
 
-/*49*/  {"SISY",   0, 3, 2},   /*50*/  {"\xC1J\xC1",     0, 2, 2},   /*51*/  {"SISU",   0, 3, 0}, 
-/*52*/  {"\xC1J\xD8",    0,-1,-1}, 
+/*49*/  {"SISY",   0, 3, 2},   /*50*/  {"ÁJÁ",     0, 2, 2},   /*51*/  {"SISU",   0, 3, 0}, 
+/*52*/  {"ÁJØ",    0,-1,-1}, 
 
 /*53*/  {"SA",   0, 1, 0},   /*54*/  {"O",    0, 0, 2},   /*55*/   {"IU",   0,-1,-1}, 
-/*56*/  {"\xC0",    0, 0, 2},   /*57*/  {"U",    0, 0, 0},   /*58*/   {"E",    0, 0, 0}, 
-/*59*/  {"IA",   0, 0, 2},   /*60*/  {"\xD8",    0, 0, 2},   /*61*/   {"SMA",  0, 2, 1}, 
+/*56*/  {"À",    0, 0, 2},   /*57*/  {"U",    0, 0, 0},   /*58*/   {"E",    0, 0, 0}, 
+/*59*/  {"IA",   0, 0, 2},   /*60*/  {"Ø",    0, 0, 2},   /*61*/   {"SMA",  0, 2, 1}, 
 /*++T+  {"MA",   0, 1, 1},*/ /*62*/  {"SU",   0, 1, 0},   /*63*/   {"SIA",  0, 1, 2}, 
 /*64*/  {"ESOU", 0, 0, 0},   /*65T*/ {"SOU",  0, 1, 2}, 
 
@@ -80,12 +81,12 @@ GalMasDB[231] = {
 /*++T+  {"Y",    0, 0, 2},*/ /*69*/  {"UA",   0, 0, 2}, 
 
 /*70*/  {"SAI",  1, 1, 0},   /*71*/  {"OI",   1, 0, 2},   /*72*/   {"IUI",  1,-1,-1}, 
-/*73*/  {"\xC0I",   1, 0, 2},   /*74*/  {"UI",   1, 0, 0},   /*75*/   {"Y",    0, 0, 2}, 
-/*76*/  {"I",    0, 0, 0},   /*77*/  {"IAI",  1, 0, 2},   /*78*/   {"\xD8I",   1, 0, 2}, 
+/*73*/  {"ÀI",   1, 0, 2},   /*74*/  {"UI",   1, 0, 0},   /*75*/   {"Y",    0, 0, 2}, 
+/*76*/  {"I",    0, 0, 0},   /*77*/  {"IAI",  1, 0, 2},   /*78*/   {"ØI",   1, 0, 2}, 
 /*79*/  {"SMAI", 1, 2, 1},   /*++T+  {"MAI",  1, 1, 1},*/ /*80*/   {"SUI",  1, 1, 0}, 
 /*81*/  {"SIAI", 1, 1, 2},   /*82*/  {"ESOUI",1, 0, 0},   /*83T*/  {"SOUI", 1, 1, 2}, 
 
-/*84*/  {"SI",   0, 1, 0},   /*85*/  {"\xC1",    0,0,2/*-1,-1*/},   /*86*/   {"SY",   0, 1, 2}, 
+/*84*/  {"SI",   0, 1, 0},   /*85*/  {"Á",    0,0,2/*-1,-1*/},   /*86*/   {"SY",   0, 1, 2}, 
 
 /*87*/  {"A",    0, 0, 0},   /*88*/  {"SO",   0, 1, 2},   /*89*/   {"EJO",  0, 0, 0}, 
 /*90T*/ {"JO",   0, 1, 2},   /*91*/  {"SMO",  0, 2, 1},   /*92T*/  {"MO",   0, 1, 1}, 
@@ -95,17 +96,17 @@ GalMasDB[231] = {
 /*98T*/ {"JOI",  1, 1, 2},   /*99*/  {"SMOI", 1, 2, 1},   /*100T*/ {"MOI",  1, 1, 1}, 
 /*101*/ {"SIMOI",1, 1, 0},   /*--T-  {"MOI",  1, 1, 2},*/ /*102*/  {"ESOI", 1, 0, 0}, 
 
-/*103*/ {"\xCB",    0, 0, 2},   /*104*/ {"S\xCB",   0, 1, 2},   /*105*/  {"IE",   0,-1,-1}, 
-/*106*/ {"\xC6",    0,-1,-1},   /*107*/ {"EJ\xCB",  0, 0, 0},   /*108T*/ {"J\xCB",   0, 1, 2}, 
-/*109*/ {"SM\xCB",  0, 2, 1},   /*110T*/{"M\xCB",   0, 1, 1},   /*111*/  {"SE",   0, 1, 0}, 
-/*112*/ {"SIM\xCB", 0, 1, 0},   /*--T-  {"M\xCB",   0, 1, 2},*/ /*113*/  {"ES\xCB",  0, 0, 0}, 
+/*103*/ {"Ë",    0, 0, 2},   /*104*/ {"SË",   0, 1, 2},   /*105*/  {"IE",   0,-1,-1}, 
+/*106*/ {"Æ",    0,-1,-1},   /*107*/ {"EJË",  0, 0, 0},   /*108T*/ {"JË",   0, 1, 2}, 
+/*109*/ {"SMË",  0, 2, 1},   /*110T*/{"MË",   0, 1, 1},   /*111*/  {"SE",   0, 1, 0}, 
+/*112*/ {"SIMË", 0, 1, 0},   /*--T-  {"MË",   0, 1, 2},*/ /*113*/  {"ESË",  0, 0, 0}, 
 
 /*114*/ {"SEI",  0, 1, 2},   /*115*/ {"IMI",  0, 0, 0},   /*--T-   {"MI",   0, 0, 2},*/  
 /*116*/ {"EI",   0, 0, 2},   /*117?*/{"SMI",  0, 2, 1},   /*118T?*/{"MI",   0, 1, 1}, 
 /*119*/ {"SIMI", 0, 1, 0},   /*--T-  {"MI",   0, 0, 2},*/ /*120*/  {"ESY",  0, 0, 0}, 
 
 /*121*/ {"SUA",  0, 1, 2},   /*122*/ {"IMU",  0, 0, 0},   /*--T-   {"MU",   0, 0, 2},*/  
-/*123*/ {"S\xDB",   0,1,2/*-1,-1*/},   /*124?*/{"SMU",  0, 2, 1},   /*125T?*/{"MU",   0, 1, 1}, 
+/*123*/ {"SÛ",   0,1,2/*-1,-1*/},   /*124?*/{"SMU",  0, 2, 1},   /*125T?*/{"MU",   0, 1, 1}, 
 /*126*/ {"SIMU", 0, 1, 0}, 
 
 /*127*/ {"SUAI", 1,-1,-1},   /*128*/ {"IMUI", 1,-1,-1},   /*129T*/ {"MUI",  1,-1,-1}, 
@@ -117,50 +118,50 @@ GalMasDB[231] = {
 /*136*/ {"SMEI", 0, 3, 1},   /*137T*/{"MEI",  0, 2, 1},   /*138*/  {"MAI",  1, 1, 1}, 
 /*139*/ {"EMAI", 1, 0, 0},   /*--T+  {"MAI",  1, 0, 2},*/
 
-/*306->168-140*/ {"UAIL\xCB", 1, 0, 2},
+/*306->168-140*/ {"UAILË", 1, 0, 2},
 //nesimasis
-/*141*/ {"ISO", 0, -1, -1},  /*142*/ {"ISIU", 0, -1, -1}, /*143*/ {"IS\xC0", 0, -1, -1},
+/*141*/ {"ISO", 0, -1, -1},  /*142*/ {"ISIU", 0, -1, -1}, /*143*/ {"ISÀ", 0, -1, -1},
 /*144*/ {"ISU", 0, -1, -1},  /*145*/ {"ISE", 0, -1, -1},  /*146*/ {"ISIA", 0, -1, -1}, 	
-/*147*/ {"IS\xD8", 0, -1, -1},  /*148*/ {"ISMA", 0, -1, -1}, /*149*/ {"ISIA", 0, -1, -1},
+/*147*/ {"ISØ", 0, -1, -1},  /*148*/ {"ISMA", 0, -1, -1}, /*149*/ {"ISIA", 0, -1, -1},
 /*150*/ {"ISOU", 0, -1, -1}, 	
 		
 //du,dvi	
-/*151*/ {"IV", 0, 0, 0},     /*152*/ {"\xD8JEIV", 0, 0, 2},    /*153*/ {"MEIV", 0, 2, 1},
+/*151*/ {"IV", 0, 0, 0},     /*152*/ {"ØJEIV", 0, 0, 2},    /*153*/ {"MEIV", 0, 2, 1},
 /*154*/ {"MEIV", 0, 1, 2},   /*155*/ {"ESOUJEIV", 0, 0, 0}, /*156*/ {"SOUJEIV", 0, 1, 2},
 /*157*/ {"ESOJEIV", 0, 0, 0},
 //trys	
-/*158*/ {"\xD8JI", 0, 0, 2}, 	 /*159*/ {"ESOUJI", 0, 0, 0},   /*160T*/ {"SOUJI", 0, 1, 2}, 
+/*158*/ {"ØJI", 0, 0, 2}, 	 /*159*/ {"ESOUJI", 0, 0, 0},   /*160T*/ {"SOUJI", 0, 1, 2}, 
 /*161*/ {"ESOJI", 0, 0, 0}, 
 //juodu,jiedvi
-/*162*/ {"UDOU", 0, 2, 2} ,   /*163*/ {"UDEI", 0, 2, 2},    /*164*/ {"\xD8JEIVD\xD8", 0, 6, 2},
+/*162*/ {"UDOU", 0, 2, 2} ,   /*163*/ {"UDEI", 0, 2, 2},    /*164*/ {"ØJEIVDØ", 0, 6, 2},
 /*165*/ {"MEIVDEI", 0, 6, 1}, /*166*/ {"MEIVDMEI", 0, 7, 1},/*167*/ {"MEIVDEI", 0, 5, 2},
 /*168*/ {"MEIVDMEI", 0, 6, 2},/*169*/ {"IVDEI", 0, 3, 2},
 /*170*/ {"IVDOU", 0, 3, 2},   /*171*/ {"IVDO", 0, 3, 2},
 /*172*/ {"MEIVDO", 0, 5, 1},  /*173*/ {"MEIVDMO", 0, 6, 1},
 /*174*/ {"MEIVDO", 0, 5, 2},  /*175*/ {"MEIVDMO", 0, 6, 2},
 //siuodu,siedvi
-/*176*/ {"UDOUI", 1, 2, 2},   /*177*/ {"\xD8JEIVD\xD8I", 1, 6, 2},/*178*/ {"IVDOUI", 1, 3, 2},
+/*176*/ {"UDOUI", 1, 2, 2},   /*177*/ {"ØJEIVDØI", 1, 6, 2},/*178*/ {"IVDOUI", 1, 3, 2},
 /*179*/ {"IVDOI", 1, 3, 2},	  /*180*/ {"MEIVDOI", 1, 5, 1}, /*181*/ {"MEIVDMOI", 1, 6, 1},
 /*182*/ {"MEIVDOI", 1, 5, 2}, /*183*/ {"MEIVDMOI", 1, 6, 2},
 //mudu
 /*184*/ {"UDU", 0, 2, 0},
 //abu
-/*185*/ {"\xD8JEI", 0, 0, 2},    /*186*/ {"MEI", 0, 2, 1},     /*187*/ {"MEI", 0, 1, 2},
+/*185*/ {"ØJEI", 0, 0, 2},    /*186*/ {"MEI", 0, 2, 1},     /*187*/ {"MEI", 0, 1, 2},
 /*188*/ {"ESOUJEI", 0, 0, 0}, /*189*/ {"SOUJEI", 0, 1, 2},
 /*190*/ {"IVDI", 0, 3, 0},    /*191*/ {"ESOJEI", 0, 0, 0},
 //jai,siai,juo,siuo
 /*192*/ {"IA", 0/*1*/, 1, 1}, /*193*/ {"IAI", 1/*0*/, 1, 1},
 /*194*/ {"OU", 0, 0, 2},      /*195*/ {"OUI", 1, 0, 2},
 //as
-/*196*/ {"S\xC6NA", 0, 1, 2},   /*197*/ {"ONA", 0, 2, 0},      /*198*/ {"NA", 0, 1, 1},
+/*196*/ {"SÆNA", 0, 1, 2},   /*197*/ {"ONA", 0, 2, 0},      /*198*/ {"NA", 0, 1, 1},
 /*199*/ {"ENA", 0, 0, 0},    /*200*/ {"IMINA", 0, 0, 0},
 /*201*/ {"EJYNA", 0, 0, 0},  /*202T*/{"YNA", 0, 0, 2},
 //tu
-/*203*/ {"S\xC6VA", 0, 1, 2},   /*204*/ {"OVA", 0, 2, 0},      /*205*/ {"UA", 0, 1, 1},
+/*203*/ {"SÆVA", 0, 1, 2},   /*204*/ {"OVA", 0, 2, 0},      /*205*/ {"UA", 0, 1, 1},
 /*206*/ {"EVA", 0, 0, 0},    /*207*/ {"IMIVA", 0, 0, 0},
 /*208*/ {"EJYVA", 0, 0, 0},  /*209T*/{"YVA", 0, 0, 2},
 //mes
-/*210*/ {"SE", 0, 1, 2},     /*211*/ {"\xD8S\xDB", 0, 2, 1},      /*212*/ {"ESYMU", 0, 0, 0},
+/*210*/ {"SE", 0, 1, 2},     /*211*/ {"ØSÛ", 0, 2, 1},      /*212*/ {"ESYMU", 0, 0, 0},
 //pats
 /*213*/ {"S", 0, 2, 0},
 //tasai~,sisai~,patsai~
@@ -176,7 +177,7 @@ GalMasDB[231] = {
 /*223--T-*/  {"MOISOI", 1, 4, 2},  
 /*224--T-*/  {"MO",   0, 1, 2},
 /*225--T-*/  {"MOI",  1, 1, 2},
-/*226--T-*/  {"M\xCB",   0, 1, 2},
+/*226--T-*/  {"MË",   0, 1, 2},
 /*227--T-*/  {"MI",   0, 0, 2},  
 /*228--T-*/  {"MU",   0, 0, 2},  
 /*229--T+*/  {"MA",   0, 0, 2},  
@@ -932,9 +933,9 @@ int i,j,k,l,n,j1, zz, YraPriesd, km, ap, mm, mini, maxi;
 char Zod1[ZODIL1], *s1;
 int AtmPries;
 strcpy(Zod1,Zod);
-if((*(Zod-1)=='I')&&(strchr("AOU\xDB\xD8",*(Zod-2))))
-	if(*Zod=='\xC8') Zod1[0]='T';
-	else if((*Zod=='\xDE')&&(*(Zod+1)=='D')) strcpy(Zod1,&Zod1[1]);
+if((*(Zod-1)=='I')&&(strchr("AOUÛØ",*(Zod-2))))
+	if(*Zod=='È') Zod1[0]='T';
+	else if((*Zod=='Þ')&&(*(Zod+1)=='D')) strcpy(Zod1,&Zod1[1]);
 
 switch(z[0])
 {
@@ -972,9 +973,9 @@ case '0':
 			   if(z[3]!='0')
 			   {
 			   k=0;
-               while((Zod1[k]!=0)&&(!strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",Zod1[k]))) k++;
-               while((Zod1[k]!=0)&&(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",Zod1[k]))) k++;
-               while((Zod1[k]!=0)&&(!strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",Zod1[k]))) k++;
+               while((Zod1[k]!=0)&&(!strchr("AÀEÆËIYÁOUÛØ",Zod1[k]))) k++;
+               while((Zod1[k]!=0)&&(strchr("AÀEÆËIYÁOUÛØ",Zod1[k]))) k++;
+               while((Zod1[k]!=0)&&(!strchr("AÀEÆËIYÁOUÛØ",Zod1[k]))) k++;
 			   }
                if((z[3]=='0')||(z[3]=='1')&&(Zod1[k]==0)||(z[3]=='2')&&(Zod1[k]!=0))
 
@@ -1073,9 +1074,9 @@ case '1': case '2': case '3':
 						n=1;
 						while(*s1!=0)
 							{
-							while((*s1!=0)&&(!strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",*s1))) s1++;
-							while((*s1!=0)&&(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",*s1))) s1++;
-							while((*s1!=0)&&(!strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",*s1))) s1++;
+							while((*s1!=0)&&(!strchr("AÀEÆËIYÁOUÛØ",*s1))) s1++;
+							while((*s1!=0)&&(strchr("AÀEÆËIYÁOUÛØ",*s1))) s1++;
+							while((*s1!=0)&&(!strchr("AÀEÆËIYÁOUÛØ",*s1))) s1++;
 							n++;
 							}
 						*KircS=n;
@@ -1149,50 +1150,50 @@ for(k=0; k<1065; k++)
 j=0;
 while((AtvZod[j]==GalMasV[k].Galune[j])&&(AtvZod[j]!=0)) j++;
 if((GalMasV[k].Galune[j]==0)&&((!strchr("AEIU",AtvZod[j]))
-   ||(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6",GalMasV[k].Galune[j-1])))&&(AtvZod[j]!=0))
+   ||(!strchr("ÀEYUIOÁAØËÛÆ",GalMasV[k].Galune[j-1])))&&(AtvZod[j]!=0))
    {
    strncpy(KamGalV[kg].Kam, Zodis, ilg-j); KamGalV[kg].Kam[ilg-j]=0;
    KamGalV[kg].GalNr=k;
    KamGalV[kg].Asimil=0;
    if(kg<VKGIL1-2) kg++;
 
-   if((Zodis[ilg-j]=='I')&&(strchr("A\xC0OU\xDB\xD8",Zodis[ilg-j+1]))) //ar minksta galune
+   if((Zodis[ilg-j]=='I')&&(strchr("AÀOUÛØ",Zodis[ilg-j+1]))) //ar minksta galune
      {
-     if(KamGalV[kg-1].Kam[ilg-j-1]=='\xC8')
+     if(KamGalV[kg-1].Kam[ilg-j-1]=='È')
        {
        KamGalV[kg-1].Kam[ilg-j-1]='T';
        }
      else
-       if((KamGalV[kg-1].Kam[ilg-j-1]=='\xDE')&&(KamGalV[kg-1].Kam[ilg-j-2]=='D'))
+       if((KamGalV[kg-1].Kam[ilg-j-1]=='Þ')&&(KamGalV[kg-1].Kam[ilg-j-2]=='D'))
        {
        KamGalV[kg-1].Kam[ilg-j-1]=0;
        }
    }
 
-   if(GalMasV[k].Galune[j-1]=='S')                            // asimiliacija prie\xF0 S
+   if(GalMasV[k].Galune[j-1]=='S')                            // asimiliacija prieð S
    {
    KamGalV[kg]=KamGalV[kg-1]; KamGalV[kg].Kam[ilg-j]='S'; KamGalV[kg].Kam[ilg-j+1]=0; if(kg<VKGIL1-2) kg++;
    KamGalV[kg]=KamGalV[kg-1]; KamGalV[kg].Kam[ilg-j]='Z'; if(kg<VKGIL1-2) kg++;
 
-   if(GalMasV[k].Galune[j]==0)                                // b\xFBsimojo l.3 a.prie\xF0 S
+   if(GalMasV[k].Galune[j]==0)                                // bûsimojo l.3 a.prieð S
    if((KamGalV[kg-3].Kam[ilg-j-1]=='I')&&(!strchr("AEUO",KamGalV[kg-3].Kam[ilg-j-2])))
    {
    KamGalV[kg]=KamGalV[kg-3]; KamGalV[kg].Kam[ilg-j-1]='Y'; KamGalV[kg].Asimil=1; if(kg<VKGIL1-2) kg++; 
    }
    else if((KamGalV[kg-3].Kam[ilg-j-1]=='U')&&(!strchr("AEO",KamGalV[kg-3].Kam[ilg-j-2])))
    {
-   KamGalV[kg]=KamGalV[kg-3]; KamGalV[kg].Kam[ilg-j-1]='\xDB'; KamGalV[kg].Asimil=1; if(kg<VKGIL1-2) kg++;
+   KamGalV[kg]=KamGalV[kg-3]; KamGalV[kg].Kam[ilg-j-1]='Û'; KamGalV[kg].Asimil=1; if(kg<VKGIL1-2) kg++;
    }
 
    }
    else
-   if(GalMasV[k].Galune[j-1]=='\xD0')                            // asimiliacija prie\xF0 \xD0
+   if(GalMasV[k].Galune[j-1]=='Ð')                            // asimiliacija prieð Ð
    {
-   KamGalV[kg-1].Kam[ilg-j]='\xD0'; KamGalV[kg-1].Kam[ilg-j+1]=0;
-   KamGalV[kg]=KamGalV[kg-1]; KamGalV[kg].Kam[ilg-j]='\xDE'; if(kg<VKGIL1-2) kg++;
+   KamGalV[kg-1].Kam[ilg-j]='Ð'; KamGalV[kg-1].Kam[ilg-j+1]=0;
+   KamGalV[kg]=KamGalV[kg-1]; KamGalV[kg].Kam[ilg-j]='Þ'; if(kg<VKGIL1-2) kg++;
    }
    else
-   if(GalMasV[k].Galune[j-1]=='K')                            // asimiliacija prie\xF0 K
+   if(GalMasV[k].Galune[j-1]=='K')                            // asimiliacija prieð K
    {
    KamGalV[kg]=KamGalV[kg-1]; KamGalV[kg].Kam[ilg-j]='K'; KamGalV[kg].Kam[ilg-j+1]=0; if(kg<VKGIL1-2) kg++;
    KamGalV[kg]=KamGalV[kg-1]; KamGalV[kg].Kam[ilg-j]='G'; if(kg<VKGIL1-2) kg++;
@@ -1242,7 +1243,7 @@ for(k=0; k<kpg; k++)
 	   ||(VKam[i].BDS==0)
 	   &&((VKam[i].KamKvP[0].KamPb[0]=='Y')
 	   &&(VKam[i].KamKvP[1].KamPb[0]=='I')
-	   ||(VKam[i].KamKvP[0].KamPb[0]=='\xDB')
+	   ||(VKam[i].KamKvP[0].KamPb[0]=='Û')
 	   &&(VKam[i].KamKvP[1].KamPb[0]=='U'))))
    {
    PKGNr[kpgn].PrNr=PrKamGal[k].PrNr;
@@ -1325,7 +1326,7 @@ break;
 break;
 
     case 4:
-//4.1 Es.l. veikiamojo dalyvio trump.galunes (kerp\xE0s (koks), kerp\xE0)
+//4.1 Es.l. veikiamojo dalyvio trump.galunes (kerpàs (koks), kerpà)
 if(KirtisIPriesdeli)
    KirtViet=0;          // Kirciuoti galune
 else
@@ -1380,7 +1381,7 @@ break;
 
     case 9:
 //9 B.k.l. padalyvis (kirpus,kirpusis (kada));
-//10 B.k.l. veikiamasis dalyvis (kirp\xE6s (koks), kirpusi)
+//10 B.k.l. veikiamasis dalyvis (kirpæs (koks), kirpusi)
 //11 B.k.l. veikiamasis prieveiksmis (kirpusiai (kaip))
 KirtViet=1;          // Kirciuoti kamiena
 break;
@@ -1389,12 +1390,12 @@ break;
 //12 Bendratis (kirpti)
 //13 B.d.l. (kirpdavau)
 //14.1 Busimasis l. issk. 3 a.(kirpsiu)
-//15 Tariamoji nuosaka (kirp\xE8iau)
+//15 Tariamoji nuosaka (kirpèiau)
 //16 Liepiamoji nuosaka (kirpk)
 //17.2 Pusdalyvio galuneje nekirciuojamos formos (kirpdamas, kirpdamos)
 //18 B.d.l. ir busim.l. padalyvis (kirpdavus, kirpsiant)
-//19 B.d.l. veikiamasis dalyvis (kirpdav\xE6s)
-//20 Busim.l.veikiamasis dalyvis (kirpsi\xE0s)
+//19 B.d.l. veikiamasis dalyvis (kirpdavæs)
+//20 Busim.l.veikiamasis dalyvis (kirpsiàs)
 //22.2 Busim.l.neveikiamojo dalyvio galuneje nekirciuojami linksniai (kirpsimas)
 //23.2 Reikiamybes dalyvio galuneje nekirciuojami linksniai (kirptinas)
 KirtViet=1;          // Kirciuoti kamiena
@@ -1470,7 +1471,7 @@ strncpy(Variant[varsk].Skiem, SkPb, ZODIL1);
 if(PKGNr[i].PrNr!=0)
   {
   l=strlen(PriesdGrup[PKGNr[i].PrNr].Pavadinimas);
-  if(strchr("I\xC1UAE", ZodK[l-1])&&strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l]))
+  if(strchr("IÁUAE", ZodK[l-1])&&strchr("ÀEYUIOÁAØËÛÆ", ZodK[l]))
 	  {
 	  Variant[varsk].Skiem[l] |= 2;
 	  Variant[varsk].Skiem[l] &=254;
@@ -1496,7 +1497,7 @@ if(PKGNr[i].PrNr!=0)
 //----skiemenu pabaigos
 rs=0;
 for(l=strlen(PriesdGrup[PKGNr[i].PrNr].Pavadinimas); l<ilg-1-strlen(GalMasV[PKGNr[i].GalNr].Galune); l++)
-	if(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l]) && strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l+1]))
+	if(strchr("AÀEÆËIYÁOUÛØ",ZodK[l]) && strchr("AÀEÆËIYÁOUÛØ",ZodK[l+1]))
 		{
 		if((1<<rs) & VKam[PKGNr[i].KamNr].skiem)
 			{
@@ -1519,7 +1520,7 @@ if(KirtViet==1)                            // kirciuoti kamiena
   if(KirtPoz==-1) KirtPoz=VKam[PKGNr[i].KamNr].KamKvP[m].Prieg;
   l=ilg-strlen(GalMasV[PKGNr[i].GalNr].Galune);
 
-  if(!strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l])) //jei galune prasideda prieb.
+  if(!strchr("AÀEÆËIYÁOUÛØ",ZodK[l])) //jei galune prasideda prieb.
   {l++; if(ZodK[l]==0) l++;}
   
 // ismetam skiemenis
@@ -1530,17 +1531,17 @@ if(KirtViet==1)                            // kirciuoti kamiena
   if(l>0) l--;
   if(KirtPoz==0)
   {
-  while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l])&&(l>0)) l--;
+  while(!strchr("ÀEYUIOÁAØËÛÆ", ZodK[l])&&(l>0)) l--;
   }
   else if(KirtPoz==2)
   {
-  while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6LMNR", ZodK[l])&&(l>0)) l--;
+  while(!strchr("ÀEYUIOÁAØËÛÆLMNR", ZodK[l])&&(l>0)) l--;
 	if(strchr("LMNR", ZodK[l])&&(!strchr("AEIU", ZodK[l-1])
 		||(strchr("AEOU", ZodK[l-2])||(ZodK[l-1]=='E')&&(ZodK[l-2]=='I'))&&(!(Variant[varsk].Skiem[l-1] & 2)))) if(l>0) l--;
   }
   else
   {
-  while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l])&&(l>0)) l--;
+  while(!strchr("ÀEYUIOÁAØËÛÆ", ZodK[l])&&(l>0)) l--;
   if(strchr("UIO", ZodK[l])&&strchr("AEOU", ZodK[l-1])
 	  ||(ZodK[l]=='E')&&(ZodK[l-1]=='I')) if(!(Variant[varsk].Skiem[l] & 2)) if(l>0) l--;
   }
@@ -1583,7 +1584,7 @@ for(i=0; i<kn; i++)
  strncpy(Variant[varsk].Skiem, SkPb, ZODIL1);
  rs=0;
  for(l=0; l<ilg-1; l++)
-	if(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l]) && strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l+1]))
+	if(strchr("AÀEÆËIYÁOUÛØ",ZodK[l]) && strchr("AÀEÆËIYÁOUÛØ",ZodK[l+1]))
 		{
 		if((1<<rs) & NZod[NZNr[i].ZodNr].skiem)
 			{
@@ -1602,17 +1603,17 @@ for(i=0; i<kn; i++)
   if(l>0) l--;
   if(NZNr[i].Priegaide==0)
   {
-  while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l])&&(l>0)) l--;
+  while(!strchr("ÀEYUIOÁAØËÛÆ", ZodK[l])&&(l>0)) l--;
   }
   else if(NZNr[i].Priegaide==2)
   {
-  while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6LMNR", ZodK[l])&&(l>0)) l--;
+  while(!strchr("ÀEYUIOÁAØËÛÆLMNR", ZodK[l])&&(l>0)) l--;
   if(strchr("LMNR", ZodK[l])&&(!strchr("AEIU", ZodK[l-1])
 	||(strchr("AEOU", ZodK[l-2])||(ZodK[l-1]=='E')&&(ZodK[l-2]=='I'))&&(!(Variant[varsk].Skiem[l-1] & 2)))) if(l>0) l--;
   }
   else
   {
-  while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l])&&(l>0)) l--;
+  while(!strchr("ÀEYUIOÁAØËÛÆ", ZodK[l])&&(l>0)) l--;
   if(strchr("UIO", ZodK[l])&&strchr("AEOU", ZodK[l-1])
 	  ||(ZodK[l]=='E')&&(ZodK[l-1]=='I'))
 		if(!(Variant[varsk].Skiem[l] & 2)) if(l>0) l--;
@@ -1647,7 +1648,7 @@ if((GalMasDB[k].Galune[j]==0)&&(!strchr("AEIU",AtvZod[j]))&&(AtvZod[j]!=0))
    KamGal[kg].priesdNe=0;
    if(kg<DKGIL1-2) kg++;
    
-   if((KamGal[kg-1].Kam[0]=='\xC8')&&(GalMasDB[k].ArMinksta==1))
+   if((KamGal[kg-1].Kam[0]=='È')&&(GalMasDB[k].ArMinksta==1))
    {
    KamGal[kg]=KamGal[kg-1];
    KamGal[kg].Kam[0]='T';
@@ -1655,7 +1656,7 @@ if((GalMasDB[k].Galune[j]==0)&&(!strchr("AEIU",AtvZod[j]))&&(AtvZod[j]!=0))
    if(kg<DKGIL1-2) kg++;
    }
    else
-   if((KamGal[kg-1].Kam[0]=='\xDE')&&(KamGal[kg-1].Kam[1]=='D')&&(GalMasDB[k].ArMinksta==1))
+   if((KamGal[kg-1].Kam[0]=='Þ')&&(KamGal[kg-1].Kam[1]=='D')&&(GalMasDB[k].ArMinksta==1))
    {
    KamGal[kg]=KamGal[kg-1];
    strcpy(KamGal[kg].Kam, &KamGal[kg-1].Kam[1]);
@@ -1671,7 +1672,7 @@ if((GalMasDB[k].Galune[j]==0)&&(!strchr("AEIU",AtvZod[j]))&&(AtvZod[j]!=0))
 	   KamGal[kg].priesdNe=1;
 	   if(kg<DKGIL1-2) kg++;
    
-	   if((KamGal[kg-1].Kam[0]=='\xC8')&&(GalMasDB[k].ArMinksta==1))
+	   if((KamGal[kg-1].Kam[0]=='È')&&(GalMasDB[k].ArMinksta==1))
 	   {
 	   KamGal[kg]=KamGal[kg-1];
 	   KamGal[kg].Kam[0]='T';
@@ -1679,7 +1680,7 @@ if((GalMasDB[k].Galune[j]==0)&&(!strchr("AEIU",AtvZod[j]))&&(AtvZod[j]!=0))
 	   if(kg<DKGIL1-2) kg++;
 	   }
 	   else
-	   if((KamGal[kg-1].Kam[0]=='\xDE')&&(KamGal[kg-1].Kam[1]=='D')&&(GalMasDB[k].ArMinksta==1))
+	   if((KamGal[kg-1].Kam[0]=='Þ')&&(KamGal[kg-1].Kam[1]=='D')&&(GalMasDB[k].ArMinksta==1))
 	   {
 	   KamGal[kg]=KamGal[kg-1];
 	   strcpy(KamGal[kg].Kam, &KamGal[kg-1].Kam[1]);
@@ -1734,7 +1735,7 @@ for(k=0; k<kg; k++)
 		   KGNr[kn].skiem=Skiemen;
 		   KGNr[kn].tarpt=Tarptaut;
 		   }
-	   if((KamGal[k].priesdNe==1) && (strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8", Zodis[2])))
+	   if((KamGal[k].priesdNe==1) && (strchr("AÀEÆËIYÁOUÛØ", Zodis[2])))
 		   KGNr[kn].skiem=(KGNr[kn].skiem<<1)+1; //pridedam skiem.riba, pvz. ne|ofici|alus
 	   KGNr[kn].KamNr=i;
 	   KGNr[kn].GalNr=KamGal[k].GalNr;
@@ -1900,7 +1901,7 @@ for(i=0; i<kl; i++)
 	if(KGL[i].skiem>0)//galima butu visada skiem ribas ziureti nuo galo
 	{
 	for(l=0; l<ilg-1-strlen(GalMasDB[KGL[i].GalNr].Galune); l++)
-		if(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l]) && strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l+1]))
+		if(strchr("AÀEÆËIYÁOUÛØ",ZodK[l]) && strchr("AÀEÆËIYÁOUÛØ",ZodK[l+1]))
 			{
 			if((1<<rs) & KGL[i].skiem) setSkPb(&Variant[varsk].Skiem[l+1]);
 			rs++;
@@ -1910,7 +1911,7 @@ for(i=0; i<kl; i++)
 	{
 	KGL[i].skiem=-KGL[i].skiem;
 	for(l=ilg-2-strlen(GalMasDB[KGL[i].GalNr].Galune); l>=0; l--)
-		if(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l]) && strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8",ZodK[l+1]))
+		if(strchr("AÀEÆËIYÁOUÛØ",ZodK[l]) && strchr("AÀEÆËIYÁOUÛØ",ZodK[l+1]))
 			{
 			if((1<<rs) & KGL[i].skiem) setSkPb(&Variant[varsk].Skiem[l+1]);
 			rs++;
@@ -1933,9 +1934,9 @@ for(i=0; i<kl; i++)
 
 // ismetam kitus skiemenis
 		    if((ZodK[l]=='Z')&&(ZodK[l-1]=='D')
-			 ||(ZodK[l]=='\xDE')&&(ZodK[l-1]=='D')
+			 ||(ZodK[l]=='Þ')&&(ZodK[l-1]=='D')
 			 ||(ZodK[l]=='H')&&(ZodK[l-1]=='C')) if(l>1) l-=2;
-		    else if(strchr("BDGKPTC\xC8""FH",ZodK[l])) if(l>0) l--;
+		    else if(strchr("BDGKPTCÈFH",ZodK[l])) if(l>0) l--;
 
 		    laik=l;  // isimenam priespaskutinio skiemens balse ar dvigarsio pabaiga
 
@@ -1972,17 +1973,17 @@ for(i=0; i<kl; i++)
 			{                        
 			if(KGL[i].Priegaid==0)
 				{
-				while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l])&&(l>0)) l--;
+				while(!strchr("ÀEYUIOÁAØËÛÆ", ZodK[l])&&(l>0)) l--;
 				}
 			else if(KGL[i].Priegaid==2)
 				{
-				while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6LMNR", ZodK[l])&&(l>0)) l--;
+				while(!strchr("ÀEYUIOÁAØËÛÆLMNR", ZodK[l])&&(l>0)) l--;
 			if(strchr("LMNR", ZodK[l])&&(!strchr("AEIU", ZodK[l-1])
 				||(strchr("AEOU", ZodK[l-2])||(ZodK[l-1]=='E')&&(ZodK[l-2]=='I'))&&(!(Variant[varsk].Skiem[l-1] & 2)))) if(l>0) l--;
 				}
 			else
 				{
-				while(!strchr("\xC0""EYUIO\xC1""A\xD8\xCB\xDB\xC6", ZodK[l])&&(l>0)) l--;
+				while(!strchr("ÀEYUIOÁAØËÛÆ", ZodK[l])&&(l>0)) l--;
 				if(strchr("UIO", ZodK[l])&&strchr("AEOU", ZodK[l-1])
 				  ||(ZodK[l]=='E')&&(ZodK[l-1]=='I')) if(!(Variant[varsk].Skiem[l] & 2)) if(l>0) l--;
 				}

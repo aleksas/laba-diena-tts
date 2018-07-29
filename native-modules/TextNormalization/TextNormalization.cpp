@@ -1,18 +1,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
+// Projektas LIEPA (https://liepa.raðtija.lt)
 // Sintezatoriaus komponentas TextNormalization.dll
 // Failas TextNormalization.cpp
 // Autorius dr. Tomas Anbinderis
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stringWithLetterPosition.h"
-
 #include "TextNormalization.h"
+#include "stringWithLetterPosition.h"
 #include "../include/LithUSS_Error.h"
 
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char ***abbLists;
 char ***abbListsSubstitutions;
@@ -27,9 +28,9 @@ EXPORT BOOL loadTextNorm(char*)
 
 EXPORT void unloadTextNorm()
 {
-	for (int i = 0; i<totalFileBuffers; i++)
+	for(int i=0; i<totalFileBuffers; i++)
 	{
-		for (int j = 0; j<2048; j++)
+		for(int j=0; j<2048; j++)
 		{
 			delete[] abbLists[i][j];
 			delete[] abbListsSubstitutions[i][j];
@@ -42,35 +43,7 @@ EXPORT void unloadTextNorm()
 	delete[] abbListsSubstitutions;
 	delete[] abbListsIsWithSep;
 	delete[] abbSizes;
-
 }
-/*
-BOOL APIENTRY DllMain( HANDLE hModule, 
-                       DWORD  ul_reason_for_call, 
-                       LPVOID lpReserved
-					 )
-{
-	if (ul_reason_for_call == DLL_PROCESS_DETACH && totalFileBuffers > 0)
-	{
-		for(int i=0; i<totalFileBuffers; i++)
-		{
-		   for(int j=0; j<2048; j++)
-		   {
-				delete[] abbLists[i][j];
-				delete[] abbListsSubstitutions[i][j];
-		   }
-		   delete[] abbLists[i];
-		   delete[] abbListsSubstitutions[i];
-		   delete[] abbListsIsWithSep[i];
-		}
-		delete[] abbLists;
-		delete[] abbListsSubstitutions;
-		delete[] abbListsIsWithSep;
-		delete[] abbSizes;
-	}
-
-    return TRUE;
-}*/
 
 #define MAX_RULES 4*1024
 string rulesArray[MAX_RULES];
@@ -80,138 +53,138 @@ const char* SimbPavad(char Simb)
 {
 	switch (Simb)
 	{
-		case '!' : return "\xD0""AUKTU`KAS";
-		case '\"': return "KABU`T\xCBS";
+		case '!' : return "ÐAUKTU`KAS";
+		case '\"': return "KABU`TËS";
 		case '#' : return "NU`MERIS";
 		case '$' : return "DO^LERIS";
 		case '%' : return "PRO`CENTAS";
 		case '&' : return "A^MPERSENDAS";
 		case '\'': return "APOSTRO`FAS";
 		case '(' : return "SKLIAU~STAI ATSIDA~RO";
-		case ')' : return "SKLIAU~STAI U\xDESIDA~RO";
-		case '*' : return "\xDEVAIG\xDE""DU`T\xCB";
+		case ')' : return "SKLIAU~STAI UÞSIDA~RO";
+		case '*' : return "ÞVAIGÞDU`TË";
 		case '+' : return "PLIU`S";
 		case ',' : return "KABLE~LIS";
 		case '-' : return "MI`NUS";
-		case '.' : return "TA~\xD0KAS";
-		case '/' : return "\xC1\xDE""AMBU`S";
+		case '.' : return "TA~ÐKAS";
+		case '/' : return "ÁÞAMBU`S";
 		case '0' : return "NU`LIS";
 		case '1' : return "VI^ENAS";
 		case '2' : return "DU`";
 		case '3' : return "TRY~S";
 		case '4' : return "KETURI`";
 		case '5' : return "PENKI`";
-		case '6' : return "\xD0""E\xD0I`";
+		case '6' : return "ÐEÐI`";
 		case '7' : return "SEPTYNI`";
-		case '8' : return "A\xD0TUONI`";
+		case '8' : return "AÐTUONI`";
 		case '9' : return "DEVYNI`";
-		case ':' : return "DVI`TA\xD0KIS";
-		case ';' : return "KABLIA~TA\xD0KIS";
-		case '<' : return "MA\xDEIAU~";
+		case ':' : return "DVI`TAÐKIS";
+		case ';' : return "KABLIA~TAÐKIS";
+		case '<' : return "MAÞIAU~";
 		case '=' : return "LY^GU";
 		case '>' : return "DAUGIAU~";
 		case '?' : return "KLAUSTU`KAS";
 		case '@' : return "ETA`";
-		case 'A' : return "\xC0~";
-		case 'B' : return "B\xCB~";
-		case 'C' : return "C\xCB~";
-		case 'D' : return "D\xCB~";
-		case 'E' : return "\xC6~";
+		case 'A' : return "À~";
+		case 'B' : return "BË~";
+		case 'C' : return "CË~";
+		case 'D' : return "DË~";
+		case 'E' : return "Æ~";
 		case 'F' : return "E`F";
-		case 'G' : return "G\xCB~";
-		case 'H' : return "H\xC0~";
+		case 'G' : return "GË~";
+		case 'H' : return "HÀ~";
 		case 'I' : return "I`";
 		case 'J' : return "JO`T";
-		case 'K' : return "K\xC0~";
+		case 'K' : return "KÀ~";
 		case 'L' : return "E`L";
 		case 'M' : return "E`M";
 		case 'N' : return "E`N";
 		case 'O' : return "O~";
-		case 'P' : return "P\xCB~";
-		case 'Q' : return "K\xDB~";
+		case 'P' : return "PË~";
+		case 'Q' : return "KÛ~";
 		case 'R' : return "E`R";
 		case 'S' : return "E`S";
-		case 'T' : return "T\xCB~";
+		case 'T' : return "TË~";
 		case 'U' : return "U`";
-		case 'V' : return "V\xCB~";
-		case 'W' : return "DVI`GUBA V\xCB~";
+		case 'V' : return "VË~";
+		case 'W' : return "DVI`GUBA VË~";
 		case 'X' : return "I`KS";
 		case 'Y' : return "Y~ ILGO^JI";
-		case 'Z' : return "Z\xCB~";
-		case '[' : return "LAU\xDETI`NIAI ATSIDA~RO";
-		case '\\': return "A~TVIRK\xD0\xC8IAS \xC1\xDE""AMBU`S";
-		case ']' : return "LAU\xDETI`NIAI U\xDESIDA~RO";
+		case 'Z' : return "ZË~";
+		case '[' : return "LAUÞTI`NIAI ATSIDA~RO";
+		case '\\': return "A~TVIRKÐÈIAS ÁÞAMBU`S";
+		case ']' : return "LAUÞTI`NIAI UÞSIDA~RO";
 		case '^' : return "STOGE~LIS";
 		case '_' : return "PABRAUKI`MAS";
 		case '`' : return "KIR~TIS";
-		case 'a' : return "\xC0~";
-		case 'b' : return "B\xCB~";
-		case 'c' : return "C\xCB~";
-		case 'd' : return "D\xCB~";
-		case 'e' : return "\xC6~";
+		case 'a' : return "À~";
+		case 'b' : return "BË~";
+		case 'c' : return "CË~";
+		case 'd' : return "DË~";
+		case 'e' : return "Æ~";
 		case 'f' : return "E`F";
-		case 'g' : return "G\xCB~";
-		case 'h' : return "H\xC0~";
+		case 'g' : return "GË~";
+		case 'h' : return "HÀ~";
 		case 'i' : return "I`";
 		case 'j' : return "JO`T";
-		case 'k' : return "K\xC0~";
+		case 'k' : return "KÀ~";
 		case 'l' : return "E`L";
 		case 'm' : return "E`M";
 		case 'n' : return "E`N";
 		case 'o' : return "O~";
-		case 'p' : return "P\xCB~";
-		case 'q' : return "K\xDB~";
+		case 'p' : return "PË~";
+		case 'q' : return "KÛ~";
 		case 'r' : return "E`R";
 		case 's' : return "E`S";
-		case 't' : return "T\xCB~";
+		case 't' : return "TË~";
 		case 'u' : return "U`";
-		case 'v' : return "V\xCB~";
-		case 'w' : return "DVI`GUBA V\xCB~";
+		case 'v' : return "VË~";
+		case 'w' : return "DVI`GUBA VË~";
 		case 'x' : return "I`KS";
 		case 'y' : return "Y~ ILGO^JI";
-		case 'z' : return "Z\xCB~";
+		case 'z' : return "ZË~";
 		case '{' : return "RIESTI`NIAI ATSIDA~RO";
-		case '|' : return "VERTIKA~L\xCB";
-		case '}' : return "RIESTI`NIAI U\xDESIDA~RO";
-		case '~' : return "TIL~D\xCB";
-		case '\xE0' : return "\xC0~ NO^SIN\xCB";
-		case '\xE8' : return "\xC8\xCB~";
-		case '\xE6' : return "\xC6~ NO^SIN\xCB";
-		case '\xEB' : return "\xCB~";
-		case '\xE1' : return "Y~ NO^SIN\xCB";
-		case '\xF0' : return "E`\xD0";
-		case '\xF8' : return "\xDB~ NO^SIN\xCB";
-		case '\xFB' : return "\xDB~ ILGO^JI";
-		case '\xFE' : return "\xDE\xCB~";
-		case '\xC0' : return "\xC0~ NO^SIN\xCB";
-		case '\xC8' : return "\xC8\xCB~";
-		case '\xC6' : return "\xC6~ NO^SIN\xCB";
-		case '\xCB' : return "\xCB~";
-		case '\xC1' : return "Y~ NO^SIN\xCB";
-		case '\xD0' : return "E`\xD0";
-		case '\xD8' : return "\xDB~ NO^SIN\xCB";
-		case '\xDB' : return "\xDB~ ILGO^JI";
-		case '\xDE' : return "\xDE\xCB~";
+		case '|' : return "VERTIKA~LË";
+		case '}' : return "RIESTI`NIAI UÞSIDA~RO";
+		case '~' : return "TIL~DË";
+		case 'à' : return "À~ NO^SINË";
+		case 'è' : return "ÈË~";
+		case 'æ' : return "Æ~ NO^SINË";
+		case 'ë' : return "Ë~";
+		case 'á' : return "Y~ NO^SINË";
+		case 'ð' : return "E`Ð";
+		case 'ø' : return "Û~ NO^SINË";
+		case 'û' : return "Û~ ILGO^JI";
+		case 'þ' : return "ÞË~";
+		case 'À' : return "À~ NO^SINË";
+		case 'È' : return "ÈË~";
+		case 'Æ' : return "Æ~ NO^SINË";
+		case 'Ë' : return "Ë~";
+		case 'Á' : return "Y~ NO^SINË";
+		case 'Ð' : return "E`Ð";
+		case 'Ø' : return "Û~ NO^SINË";
+		case 'Û' : return "Û~ ILGO^JI";
+		case 'Þ' : return "ÞË~";
 		case '\x80' : return "EU~RAS";
-		case '\x84' : return "KABU`T\xCBS ATSIDA~RO";
-		case '\x8B' : return "LAU\xDETI`N\xCBS ATSIDA~RO";
-		case '\x93' : return "KABU`T\xCBS U\xDESIDA~RO";
-		case '\x96' : return "BR\xDBK\xD0NY~S";
-		case '\x97' : return "I`LGAS BR\xDBK\xD0NY~S";
-		case '\x9B' : return "LAU\xDETI`N\xCBS U\xDESIDA~RO";
+		case '\x84' : return "KABU`TËS ATSIDA~RO";
+		case '\x8B' : return "LAUÞTI`NËS ATSIDA~RO";
+		case '\x93' : return "KABU`TËS UÞSIDA~RO";
+		case '\x96' : return "BRÛKÐNY~S";
+		case '\x97' : return "I`LGAS BRÛKÐNY~S";
+		case '\x9B' : return "LAUÞTI`NËS UÞSIDA~RO";
 		case '\xA2' : return "CEN~TAS";		 //¢
 		case '\xA3' : return "SVA~RAS";		 //£
 		case '\xA4' : return "VALIUTA`";	 //¤
 		case '\xA5' : return "JENA`";
-		case '\xA6' : return "VERTIKA~L\xCB SU TARPELIU`"; //¦
+		case '\xA6' : return "VERTIKA~LË SU TARPELIU`"; //¦
 		case '\xA7' : return "PARAGRA~FAS";	 //§
-		case '\xA9' : return "A^UTORI\xD8 TE^IS\xCBS"; //©
-		case '\xAB' : return "DVI`GUBOS LAU\xDETI`N\xCBS ATSIDA~RO";
+		case '\xA9' : return "A^UTORIØ TE^ISËS"; //©
+		case '\xAB' : return "DVI`GUBOS LAUÞTI`NËS ATSIDA~RO";
 		case '\xAE' : return "REGISTRU^OTA"; //®
 		case '\xB0' : return "LA^IPSNIS";	 //°
 		case '\xB1' : return "PLIU`S MI`NUS"; //±
 		case '\xB6' : return "PASTRA^IPA";
-		case '\xBB' : return "DVI`GUBOS LAU\xDETI`N\xCBS U\xDESIDA~RO";
+		case '\xBB' : return "DVI`GUBOS LAUÞTI`NËS UÞSIDA~RO";
 		case '\xBC' : return "VIENA` KETVIRTO^JI";	//¼
 		case '\xBD' : return "VIENA` ANTRO^JI";		//½
 		case '\xBE' : return "TRY~S KETVIR~TOSIOS"; //¾
@@ -232,9 +205,9 @@ char* Skaitmuo(char Sk)
       case '3' : return " TRY~S";
       case '4' : return " KETURI`";
       case '5' : return " PENKI`";
-      case '6' : return " \xD0""E\xD0I`";
+      case '6' : return " ÐEÐI`";
       case '7' : return " SEPTYNI`";
-      case '8' : return " A\xD0TUONI`";
+      case '8' : return " AÐTUONI`";
       case '9' : return " DEVYNI`";
       default : return "";
     }
@@ -251,26 +224,26 @@ int TrizSk(char TrSk[], char Eil[])
   else J=1;                                                    //22000 tukstanciai
 
   if (TrSk[0] == '1')
-    strcat(Eil, " \xD0IM~TAS");
+    strcat(Eil, " ÐIM~TAS");
   else
     if (TrSk[0] != '0')
       {
       strcat(Eil, Skaitmuo(TrSk[0]));
-      strcat(Eil, " \xD0IMTAI~");
+      strcat(Eil, " ÐIMTAI~");
       }
   if (TrSk[1] == '1')
     {
     switch (TrSk[2])
       {
-	  case '0' : { strcat(Eil, " DE~\xD0IMT");break;}
+	  case '0' : { strcat(Eil, " DE~ÐIMT");break;}
 	  case '1' : { strcat(Eil, " VIENU^OLIKA");break;}
 	  case '2' : { strcat(Eil, " DVY^LIKA");break;}
 	  case '3' : { strcat(Eil, " TRY^LIKA");break;}
 	  case '4' : { strcat(Eil, " KETURIO^LIKA");break;}
 	  case '5' : { strcat(Eil, " PENKIO^LIKA");break;}
-	  case '6' : { strcat(Eil, " \xD0""E\xD0IO^LIKA");break;}
+	  case '6' : { strcat(Eil, " ÐEÐIO^LIKA");break;}
 	  case '7' : { strcat(Eil, " SEPTYNIO^LIKA");break;}
-	  case '8' : { strcat(Eil, " A\xD0TUONIO^LIKA");break;}
+	  case '8' : { strcat(Eil, " AÐTUONIO^LIKA");break;}
 	  case '9' : { strcat(Eil, " DEVYNIO^LIKA");}
 	  }
     }
@@ -278,14 +251,14 @@ int TrizSk(char TrSk[], char Eil[])
     {
     switch (TrSk[1])
       {
-	  case '2' : { strcat(Eil, " DVI`DE\xD0IMT");break;}
-	  case '3' : { strcat(Eil, " TRI`SDE\xD0IMT");break;}
-	  case '4' : { strcat(Eil, " KE~TURIASDE\xD0IMT");break;}
-	  case '5' : { strcat(Eil, " PEN~KIASDE\xD0IMT");break;}
-	  case '6' : { strcat(Eil, " \xD0""E~\xD0IASDE\xD0IMT");break;}
-	  case '7' : { strcat(Eil, " SEPTY^NIASDE\xD0IMT");break;}
-	  case '8' : { strcat(Eil, " A\xD0TU^ONIASDE\xD0IMT");break;}
-	  case '9' : { strcat(Eil, " DEVY^NIASDE\xD0IMT");}
+	  case '2' : { strcat(Eil, " DVI`DEÐIMT");break;}
+	  case '3' : { strcat(Eil, " TRI`SDEÐIMT");break;}
+	  case '4' : { strcat(Eil, " KE~TURIASDEÐIMT");break;}
+	  case '5' : { strcat(Eil, " PEN~KIASDEÐIMT");break;}
+	  case '6' : { strcat(Eil, " ÐE~ÐIASDEÐIMT");break;}
+	  case '7' : { strcat(Eil, " SEPTY^NIASDEÐIMT");break;}
+	  case '8' : { strcat(Eil, " AÐTU^ONIASDEÐIMT");break;}
+	  case '9' : { strcat(Eil, " DEVY^NIASDEÐIMT");}
       }
     if (TrSk[2] != '0') strcat(Eil, Skaitmuo(TrSk[2]));
     }
@@ -327,9 +300,9 @@ while (Posl < PrIlgis)
       case 6 : {
          switch (J)
            {
-	       case 0 : case 3 : { strcat(ZodzEil, " T\xDB^KSTANTIS");break;}
-	       case 1 : { strcat(ZodzEil, " T\xDB^KSTAN\xC8IAI");break;}
-	       case 2 : { strcat(ZodzEil, " T\xDB^KSTAN\xC8I\xD8");}
+	       case 0 : case 3 : { strcat(ZodzEil, " TÛ^KSTANTIS");break;}
+	       case 1 : { strcat(ZodzEil, " TÛ^KSTANÈIAI");break;}
+	       case 2 : { strcat(ZodzEil, " TÛ^KSTANÈIØ");}
            }
 		 break;
 	       }
@@ -338,7 +311,7 @@ while (Posl < PrIlgis)
            {
 	       case 0 : case 3 : { strcat(ZodzEil, " MILIJO~NAS");break;}
 	       case 1 : { strcat(ZodzEil, " MILIJO~NAI");break;}
-	       case 2 : { strcat(ZodzEil, " MILIJO~N\xD8");}
+	       case 2 : { strcat(ZodzEil, " MILIJO~NØ");}
            }
 		 break;
 	       }
@@ -347,7 +320,7 @@ while (Posl < PrIlgis)
            {
 	       case 0 : case 3 : { strcat(ZodzEil, " MILIJA^RDAS");break;}
 	       case 1 : { strcat(ZodzEil, " MILIJA^RDAI");break;}
-	       case 2 : { strcat(ZodzEil, " MILIJA^RD\xD8");}
+	       case 2 : { strcat(ZodzEil, " MILIJA^RDØ");}
            }
 	       }
     }
@@ -383,7 +356,7 @@ int VisasSkaicius(char Sk[], char ZodzEil[], int bufsize)
     switch (Jfinal)
       {
       case 0 : case 3 : { strcat(ZodzEil, " PRO`CENTAS");break;}
-      case 2 : { strcat(ZodzEil, " PRO`CENT\xD8");break;}
+      case 2 : { strcat(ZodzEil, " PRO`CENTØ");break;}
       case 4 : { strcat(ZodzEil, " PRO`CENTO");break;}
       default : { strcat(ZodzEil, " PRO`CENTAI");}
       }
@@ -394,7 +367,7 @@ int VisasSkaicius(char Sk[], char ZodzEil[], int bufsize)
     switch (Jfinal)
       {
       case 0 : case 3 : { strcat(ZodzEil, " DO^LERIS");break;}
-      case 2 : { strcat(ZodzEil, " DO^LERI\xD8");break;}
+      case 2 : { strcat(ZodzEil, " DO^LERIØ");break;}
       case 4 : { strcat(ZodzEil, " DO^LERIO");break;}
       default : { strcat(ZodzEil, " DO^LERIAI");}
       }
@@ -405,7 +378,7 @@ int VisasSkaicius(char Sk[], char ZodzEil[], int bufsize)
     switch (Jfinal)
       {
       case 0 : case 3 : { strcat(ZodzEil, " EU~RAS");break;}
-      case 2 : { strcat(ZodzEil, " EU~R\xD8");break;}
+      case 2 : { strcat(ZodzEil, " EU~RØ");break;}
       case 4 : { strcat(ZodzEil, " EU~RO");break;}
       default : { strcat(ZodzEil, " EU~RAI");}
       }
@@ -416,7 +389,7 @@ int VisasSkaicius(char Sk[], char ZodzEil[], int bufsize)
     switch (Jfinal)
       {
       case 0 : case 3 : { strcat(ZodzEil, " SVA~RAS");break;}
-      case 2 : { strcat(ZodzEil, " SVA~R\xD8");break;}
+      case 2 : { strcat(ZodzEil, " SVA~RØ");break;}
       case 4 : { strcat(ZodzEil, " SVA~RO");break;}
       default : { strcat(ZodzEil, " SVA~RAI");}
       }
@@ -430,72 +403,72 @@ return strlen(ZodzEil);
 }
 
 	string years[] = {
-		"PIRM\xD8~",
-		"ANTR\xD8~",
-		"TRE\xC8I\xD8~",
-		"KETVIRT\xD8~",
-		"PENKT\xD8~",
-		"\xD0""E\xD0T\xD8~",
-		"SEPTINT\xD8~",
-		"A\xD0TUNT\xD8~",
-		"DEVINT\xD8~",
-		"DE\xD0IMT\xD8~",
-		"VIENU^OLIKT\xD8",
-		"DVY^LIKT\xD8",
-		"TRY^LIKT\xD8",
-		"KETURIO^LIKT\xD8",
-		"PENKIO^LIKT\xD8",
-		"\xD0""E\xD0IO^LKT\xD8",
-		"SEPTYNIO^LIKT\xD8",
-		"A\xD0TUONIO^LIKT\xD8",
-		"DEVYNIO^LIKT\xD8"
+		"PIRMØ~",
+		"ANTRØ~",
+		"TREÈIØ~",
+		"KETVIRTØ~",
+		"PENKTØ~",
+		"ÐEÐTØ~",
+		"SEPTINTØ~",
+		"AÐTUNTØ~",
+		"DEVINTØ~",
+		"DEÐIMTØ~",
+		"VIENU^OLIKTØ",
+		"DVY^LIKTØ",
+		"TRY^LIKTØ",
+		"KETURIO^LIKTØ",
+		"PENKIO^LIKTØ",
+		"ÐEÐIO^LKTØ",
+		"SEPTYNIO^LIKTØ",
+		"AÐTUONIO^LIKTØ",
+		"DEVYNIO^LIKTØ"
 	};
 	string months[] = {
 		"SAUSIO",
 		"VASARIO",
 		"KOVO",
-		"BALAND\xDEIO",
-		"GEGU\xDE\xCBS",
-		"BIR\xDE""ELIO",
+		"BALANDÞIO",
+		"GEGUÞËS",
+		"BIRÞELIO",
 		"LIEPOS",
-		"RUGPJ\xDB\xC8IO",
-		"RUGS\xCBJO",
+		"RUGPJÛÈIO",
+		"RUGSËJO",
 		"SPALIO",
-		"LAPKRI\xC8IO",
-		"GRUOD\xDEIO"
+		"LAPKRIÈIO",
+		"GRUODÞIO"
 	};
 	string days[] = {
 		"PIRMA`",
 		"ANTRA`",
-		"TRE\xC8IA`",
+		"TREÈIA`",
 		"KETVIRTA`",
 		"PENKTA`",
-		"\xD0""E\xD0TA`",
+		"ÐEÐTA`",
 		"SEPTINTA`", 
-		"A\xD0TUNTA`",
+		"AÐTUNTA`",
 		"DEVINTA`", 
-		"DE\xD0IMTA`",
+		"DEÐIMTA`",
 		"VIENU^OLIKTA",
 		"DVY^LIKTA",
 		"TRY^LIKTA",
 		"KETURIO^LIKTA",
 		"PENKIO^LIKTA",
-		"\xD0""E\xD0IO^LIKTA",
+		"ÐEÐIO^LIKTA",
 		"SEPTYNIO^LIKTA",
-		"A\xD0TUONIO^LIKTA",
+		"AÐTUONIO^LIKTA",
 		"DEVYNIO^LIKTA",
-		"DVIDE\xD0IMTA`",
-		"DVI`DE\xD0IMT PIRMA`",
-		"DVI`DE\xD0IMT ANTRA`",
-		"DVI`DE\xD0IMT TRE\xC8IA`",
-		"DVI`DE\xD0IMT KETVIRTA`",
-		"DVI`DE\xD0IMT PENKTA`",
-		"DVI`DE\xD0IMT \xD0""E\xD0TA`",
-		"DVI`DE\xD0IMT SEPTINTA`", 
-		"DVI`DE\xD0IMT A\xD0TUNTA`",
-		"DVI`DE\xD0IMT DEVINTA`", 
-		"TRISDE\xD0IMTA`",
-		"TRI`SDE\xD0IMT PIRMA`"
+		"DVIDEÐIMTA`",
+		"DVI`DEÐIMT PIRMA`",
+		"DVI`DEÐIMT ANTRA`",
+		"DVI`DEÐIMT TREÈIA`",
+		"DVI`DEÐIMT KETVIRTA`",
+		"DVI`DEÐIMT PENKTA`",
+		"DVI`DEÐIMT ÐEÐTA`",
+		"DVI`DEÐIMT SEPTINTA`", 
+		"DVI`DEÐIMT AÐTUNTA`",
+		"DVI`DEÐIMT DEVINTA`", 
+		"TRISDEÐIMTA`",
+		"TRI`SDEÐIMT PIRMA`"
 	};
 	
 
@@ -512,38 +485,38 @@ int expandDate(int yearNumber, int monthNumber, int dayNumber, int mode, char re
 
 	if (yearNumber == 0)
 	{
-		yearsString = "NULINI\xD8";
+		yearsString = "NULINIØ";
 	}
 	else if ((yearNumber % 1000) == 0)
 	{
 		if (yearNumber == 1000)
 		{
-			findResult = yearsString.rfind("T\xDB^KSTANTIS");//1000
-			if (findResult != -1) yearsString.replace(findResult, strlen("T\xDB^KSTANTIS"), "T\xDBKSTANT\xD8~J\xD8");
+			findResult = yearsString.rfind("TÛ^KSTANTIS");//1000
+			if (findResult != -1) yearsString.replace(findResult, strlen("TÛ^KSTANTIS"), "TÛKSTANTØ~JØ");
 			else return -1;
 		}
 		else //2000,3000,... 
 		{
-			findResult = yearsString.rfind("T\xDB^KSTAN\xC8IAI");
-			if (findResult != -1) yearsString.replace(findResult, strlen("T\xDB^KSTAN\xC8IAI"), "T\xDBKSTANT\xD8~J\xD8");
+			findResult = yearsString.rfind("TÛ^KSTANÈIAI");
+			if (findResult != -1) yearsString.replace(findResult, strlen("TÛ^KSTANÈIAI"), "TÛKSTANTØ~JØ");
 			else return -1;
 		}
 	}
 	else if ((yearNumber % 100) == 0)
 	{
-		findResult = yearsString.rfind("\xD0IM~TAS"); //100,1100,2100,...
-		if (findResult != -1) yearsString.replace(findResult, strlen("\xD0IM~TAS"), "\xD0IMT\xD8~J\xD8");
+		findResult = yearsString.rfind("ÐIM~TAS"); //100,1100,2100,...
+		if (findResult != -1) yearsString.replace(findResult, strlen("ÐIM~TAS"), "ÐIMTØ~JØ");
 		else
 		{
-			findResult = yearsString.rfind("\xD0IMTAI~"); //200,300,...,800,900,1200,...,1800,1900,2200,...
-			if (findResult != -1) yearsString.replace(findResult, strlen("\xD0IMTAI~"), "\xD0IMT\xD8~J\xD8");
+			findResult = yearsString.rfind("ÐIMTAI~"); //200,300,...,800,900,1200,...,1800,1900,2200,...
+			if (findResult != -1) yearsString.replace(findResult, strlen("ÐIMTAI~"), "ÐIMTØ~JØ");
 			else return -1;
 		}
 	}
 	else if ((yearNumber % 10) == 0)
 	{
-		findResult = yearsString.rfind("\xD0IMT"); //10,20,...,90,...,1980,1990,2010,2020,...
-		if (findResult != -1) yearsString.replace(findResult, strlen("\xD0IMT"), "\xD0IMT\xD8~J\xD8");					
+		findResult = yearsString.rfind("ÐIMT"); //10,20,...,90,...,1980,1990,2010,2020,...
+		if (findResult != -1) yearsString.replace(findResult, strlen("ÐIMT"), "ÐIMTØ~JØ");					
 		else return -1;
 
 	}
@@ -569,7 +542,7 @@ int expandDate(int yearNumber, int monthNumber, int dayNumber, int mode, char re
 	if (mode == 0)
 		returnTextStringTmp = yearsString + " " + months[monthNumber-1] + " " + days[dayNumber-1];
 	else 
-		returnTextStringTmp = yearsString + " ME~T\xD8 " + months[monthNumber-1] + " " + days[dayNumber-1] + " DIENA`";
+		returnTextStringTmp = yearsString + " ME~TØ " + months[monthNumber-1] + " " + days[dayNumber-1] + " DIENA`";
 	sprintf(returnText, "%s", returnTextStringTmp.c_str());
 
 	return 0;
@@ -789,7 +762,7 @@ int applyPhrasesFilter(stringWithLetterPosition * bufferString)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-EXPORT int spellText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
+int spellText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 {
 	stringWithLetterPosition bufferString(buffer, letPos, bufferSize);
 	if (bufferString.at(bufferString.length()-1) != '\n') bufferString.append("\n");
@@ -822,7 +795,7 @@ EXPORT int spellText(char * buffer, char * retBuffer, int bufferSize, int * letP
 	return NO_ERR;
 }
 
-EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
+int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos) 
 {
 		stringWithLetterPosition bufferString(buffer, letPos, bufferSize);
 
@@ -834,8 +807,8 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 		wordSeparatorsList.append(1, bruks);
 		string leadAndTrailSymbolsList = "[{()}]\"'";
 		string digitsList = "1234567890";
-		string smallLettersList = "a\xE0""bc\xE8""de\xE6\xEB""fghi\xE1yjklmnoprs\xF0tu\xF8\xFBvz\xFExwq";
-		string capitalLettersList = "A\xC0""BC\xC8""DE\xC6\xCB""FGHI\xC1YJKLMNOPRS\xD0TU\xD8\xDBVZ\xDEXWQ";
+		string smallLettersList = "aàbcèdeæëfghiáyjklmnoprsðtuøûvzþxwq";
+		string capitalLettersList = "AÀBCÈDEÆËFGHIÁYJKLMNOPRSÐTUØÛVZÞXWQ";
 		string lettersList = smallLettersList + capitalLettersList;
 		string phraseSeparatorsList = ".?!;:\r\n,";
 		phraseSeparatorsList.append(1, bruks);
@@ -1229,7 +1202,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 							{
 								if (symbolTextLength != 0)
 								{
-									bufferString.insert(findResult+1, (char*)symbolText);
+									bufferString.insert(findResult+1, (char*) symbolText);
 									findResult++;
 									findResult+=symbolTextLength;
 								}
@@ -1244,7 +1217,7 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 				{
 					int wordStartIndex = 0;
 					int wordEndIndex = bufferString.find_first_of(wordSeparatorsList, wordStartIndex);
-					string vowelsList = "aeiyou\xE0\xE6\xEB\xE1\xF8\xFB""AEIYOU\xC0\xC6\xCB\xC1\xD8\xDB";
+					string vowelsList = "aeiyouàæëáøûAEIYOUÀÆËÁØÛ";
 
 					while (wordEndIndex != -1)
 					{
@@ -1323,15 +1296,15 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 									{
 										switch (strNormalized[ss])
 										{
-										case '\xE0':
-										case '\xE8':
-										case '\xE6':
-										case '\xEB':
-										case '\xE1':
-										case '\xF0':
-										case '\xF8':
-										case '\xFB':
-										case '\xFE':
+										case 'à':
+										case 'è':
+										case 'æ':
+										case 'ë':
+										case 'á':
+										case 'ð':
+										case 'ø':
+										case 'û':
+										case 'þ':
 											strNormalized[ss]-=0x20;
 											break;
 										default:
@@ -1621,15 +1594,15 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 				{
 					switch (bufferString.at(g))
 					{
-					case '\xE0':
-					case '\xE8':
-					case '\xE6':
-					case '\xEB':
-					case '\xE1':
-					case '\xF0':
-					case '\xF8':
-					case '\xFB':
-					case '\xFE':
+					case 'à':
+					case 'è':
+					case 'æ':
+					case 'ë':
+					case 'á':
+					case 'ð':
+					case 'ø':
+					case 'û':
+					case 'þ':
 						bufferString.set_at(g, bufferString.at(g)-0x20);
 						break;
 					default:

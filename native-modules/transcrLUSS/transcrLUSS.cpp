@@ -25,14 +25,6 @@ char* strtokf(char*, const char*, char**);
 #define ZODIL1   50    //maksimalus kirciuojamo zodzio ilgis
 
 
-/*
-BOOL APIENTRY DllMain( HANDLE hModule, 
-                       DWORD  ul_reason, 
-                       LPVOID lpReserved )
-{
-    return TRUE;
-}*/
-
 //-------------------------------------------------------------------
 void TarptautF(char *ez, char *Trmp, char Tarpt)
 {

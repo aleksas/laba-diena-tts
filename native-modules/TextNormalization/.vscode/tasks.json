@@ -9,7 +9,8 @@
             "command": "g++",
             "args": [
                 "-fPIC", "-g", "stringWithLetterPosition.cpp", "TextNormalization.cpp",
-                "-shared", "-o", "../x86/libTextNormalization.so"
+                "-shared", "-o", "../x86/libTextNormalization.so",
+                "-Wno-write-strings"
             ],
             "group": {
                 "kind": "build",

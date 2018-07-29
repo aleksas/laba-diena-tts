@@ -11,6 +11,8 @@
                 "-g", "LithUSStest.cpp",
                 "-o", "../x86/LithUSSTest",
 
+                "-pthread",
+
                 "-Wl,-rpath,.",
 
                 "-L../x86/",

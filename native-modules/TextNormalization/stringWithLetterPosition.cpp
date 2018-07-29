@@ -8,6 +8,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "stringWithLetterPosition.h"
+#include <string.h>
 
 stringWithLetterPosition::stringWithLetterPosition(char* initialBuffer, int* pLetPos, int letPosBufferMaxSize)
 {
