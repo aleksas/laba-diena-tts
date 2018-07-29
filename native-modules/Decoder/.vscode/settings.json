@@ -1,0 +1,21 @@
+{
+    "C_Cpp.intelliSenseEngineFallback": "Disabled",
+    "files.associations": {
+        "stdio.h": "c",
+        "avcodec.h": "c",
+        "avutil.h": "c",
+        "ao.h": "c",
+        "avformat.h": "c",
+        "*.tcc": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "unordered_map": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "cmath": "cpp",
+        "typeinfo": "cpp",
+        "os_types.h": "c"
+    }
+}

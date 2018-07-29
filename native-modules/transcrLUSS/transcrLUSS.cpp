@@ -10,8 +10,8 @@
 #include "transcrLUSS.h"
 
 #include "Kircdb.h"
-#include "transkr.h"
-#include "skiemen.h"
+#include "Transkr.h"
+#include "Skiemen.h"
 #include "ArKirciuoti.h"
 #include "rezultC.h"
 

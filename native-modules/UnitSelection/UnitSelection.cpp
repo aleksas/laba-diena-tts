@@ -12,6 +12,9 @@
 
 #include <string>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
 using namespace std;
 
 #define MAX_UNITS 200000
@@ -148,7 +151,7 @@ static struct FonVardai{ const char *fv; unsigned short id; } FonV[FonSk] = {
 	{ "N", 90 },
 	{ "N\'", 91 }};
 
-unsigned short fv2id(char *fpav)
+unsigned short fv2id(const char *fpav)
 {
 	for (int i = 0; i<FonSk; i++)
 	if (strcmp(fpav, FonV[i].fv) == 0)

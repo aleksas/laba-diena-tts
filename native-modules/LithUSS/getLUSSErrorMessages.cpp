@@ -13,7 +13,7 @@
 
 char temp[200];
 
-EXPORT char* getLUSSErrorMessages(int err)
+EXPORT const char* getLUSSErrorMessages(int err)
 {
 	switch (err)
 	{

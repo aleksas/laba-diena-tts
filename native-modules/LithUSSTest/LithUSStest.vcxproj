@@ -276,6 +276,9 @@
     <ProjectReference Include="..\LithUSS\LithUSS.vcxproj">
       <Project>{b8a2df32-c0a0-41af-bb93-0b600f0271c3}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\RateChange\RateChange.vcxproj">
+      <Project>{9141635a-819b-41cb-b7ce-7488abcb2321}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

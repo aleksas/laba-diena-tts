@@ -4,3 +4,4 @@ EXPORTS
    change_DB_rate
    initRateChange
    change_phoneme_rate
+   getData
