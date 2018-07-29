@@ -7,7 +7,7 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "../RateChange/RateChange.h"
 #include "../include/LithUSS_Error.h"
@@ -15,7 +15,7 @@
 
 #include <malloc.h>
 
-char* getLUSSErrorMessages(int);
+const char* getLUSSErrorMessages(int);
 
 #define MAX_PASTR_SK 10
 #define MAX_PASTR_ILG 1000

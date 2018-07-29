@@ -12,7 +12,7 @@
 #include "TextNormalization.h"
 #include "../include/LithUSS_Error.h"
 
-#include <stdlib.h>
+#include <string.h>
 
 char ***abbLists;
 char ***abbListsSubstitutions;
@@ -199,24 +199,24 @@ const char* SimbPavad(char Simb)
 		case '\x96' : return "BR\xDBK\xD0NY~S";
 		case '\x97' : return "I`LGAS BR\xDBK\xD0NY~S";
 		case '\x9B' : return "LAU\xDETI`N\xCBS U\xDESIDA~RO";
-		case '\xA2' : return "CEN~TAS";		 //¢
-		case '\xA3' : return "SVA~RAS";		 //£
-		case '\xA4' : return "VALIUTA`";	 //¤
+		case '\xA2' : return "CEN~TAS";		 //ï¿½
+		case '\xA3' : return "SVA~RAS";		 //ï¿½
+		case '\xA4' : return "VALIUTA`";	 //ï¿½
 		case '\xA5' : return "JENA`";
-		case '\xA6' : return "VERTIKA~L\xCB SU TARPELIU`"; //¦
-		case '\xA7' : return "PARAGRA~FAS";	 //§
-		case '\xA9' : return "A^UTORI\xD8 TE^IS\xCBS"; //©
+		case '\xA6' : return "VERTIKA~L\xCB SU TARPELIU`"; //ï¿½
+		case '\xA7' : return "PARAGRA~FAS";	 //ï¿½
+		case '\xA9' : return "A^UTORI\xD8 TE^IS\xCBS"; //ï¿½
 		case '\xAB' : return "DVI`GUBOS LAU\xDETI`N\xCBS ATSIDA~RO";
-		case '\xAE' : return "REGISTRU^OTA"; //®
-		case '\xB0' : return "LA^IPSNIS";	 //°
-		case '\xB1' : return "PLIU`S MI`NUS"; //±
+		case '\xAE' : return "REGISTRU^OTA"; //ï¿½
+		case '\xB0' : return "LA^IPSNIS";	 //ï¿½
+		case '\xB1' : return "PLIU`S MI`NUS"; //ï¿½
 		case '\xB6' : return "PASTRA^IPA";
 		case '\xBB' : return "DVI`GUBOS LAU\xDETI`N\xCBS U\xDESIDA~RO";
-		case '\xBC' : return "VIENA` KETVIRTO^JI";	//¼
-		case '\xBD' : return "VIENA` ANTRO^JI";		//½
-		case '\xBE' : return "TRY~S KETVIR~TOSIOS"; //¾
-		case '\xD7' : return "DA^UGINTI";	 //×
-		case '\xF7' : return "DALI`NTI";	 //÷
+		case '\xBC' : return "VIENA` KETVIRTO^JI";	//ï¿½
+		case '\xBD' : return "VIENA` ANTRO^JI";		//ï¿½
+		case '\xBE' : return "TRY~S KETVIR~TOSIOS"; //ï¿½
+		case '\xD7' : return "DA^UGINTI";	 //ï¿½
+		case '\xF7' : return "DALI`NTI";	 //ï¿½
 
 		default  : return "";
 	}
@@ -666,8 +666,8 @@ EXPORT int initTextNorm(char * rulesFilesDirectory, const char * rulesFileName)
 
 int applyPhrasesFilter(stringWithLetterPosition * bufferString)
 {			
-	char bruks = '–';
-	string wordSeparatorsList = "\t [{(\"„“']}).?!;:,-\r\n=";
+	char bruks = 'ï¿½';
+	string wordSeparatorsList = "\t [{(\"ï¿½ï¿½']}).?!;:,-\r\n=";
 	wordSeparatorsList.append(1, bruks);
 	string phraseSeparatorsList = ".?!;:\r\n,";
 	phraseSeparatorsList.append(1, bruks);
@@ -828,9 +828,9 @@ EXPORT int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * 
 
 		if (bufferString.at(bufferString.length()-1) != '\n') bufferString.append("\n");
 
-		char bruks = '–';
+		char bruks = 'ï¿½';
 
-		string wordSeparatorsList = "\t [{(\"„“']}).?!;:,-\r\n=";
+		string wordSeparatorsList = "\t [{(\"ï¿½ï¿½']}).?!;:,-\r\n=";
 		wordSeparatorsList.append(1, bruks);
 		string leadAndTrailSymbolsList = "[{()}]\"'";
 		string digitsList = "1234567890";
