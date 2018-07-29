@@ -12,7 +12,8 @@
                 "strtokf.cpp", "Skiemen.cpp",
                 "Kircdb.cpp", "fv2id.cpp",
                 "ArKirciuoti.cpp",
-                "-shared", "-o", "../x86/libtranscrLUSS.so"
+                "-shared", "-o", "../x86/libtranscrLUSS.so",
+                "-Wno-write-strings"
             ],
             "group": {
                 "kind": "build",

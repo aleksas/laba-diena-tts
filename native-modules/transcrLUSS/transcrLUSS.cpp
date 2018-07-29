@@ -34,14 +34,6 @@ EXPORT void unloadTranscrLUSS()
 
 }
 
-/*
-BOOL APIENTRY DllMain( HANDLE hModule, 
-                       DWORD  ul_reason, 
-                       LPVOID lpReserved )
-{
-    return TRUE;
-}*/
-
 //-------------------------------------------------------------------
 void TarptautF(char *ez, char *Trmp, char Tarpt)
 {

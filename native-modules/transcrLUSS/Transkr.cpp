@@ -1,20 +1,17 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
+// Projektas LIEPA (https://liepa.raðtija.lt)
 // Sintezatoriaus komponentas transcrLUSS.dll
 // Failas Transkr.cpp
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "transcrLUSS.h"
-
+#include <string.h>
+#include <stdio.h>
 #include "Kircdb.h"
 #include "fv2id.h"
 #include "../include/LithUSS_Error.h"
-
-#include <string.h>
-#include <stdio.h>
 
 #define ILGIS1    500         //analizuojamos tekstines eilute ilgis
 #define MAX_RULES 250         //maksimalus transkribavimo taisykliu skaicius
@@ -32,7 +29,7 @@ SkDu 1-skardus,2-duslus,3-betkoks.
 SkPb 1-kitur,2-einam,4-1ikair.
 */
 
-EXPORT int initTranscrLUSS(char *katVardas)
+int initTranscrLUSS(char *katVardas)
 {
 FILE *df = 0;
 int j, n;
@@ -102,11 +99,11 @@ KietMin=2;    //1-minksta, 2-kieta
 BalPrieb=1;   //0-priebalse, 1-balse
 for(i=ilg-1; i>0; i--)
 {
-if(strchr("A\xC0""E\xC6\xCBIY\xC1OU\xDB\xD8", eil[i])&&(eil[i]!=0))
+if(strchr("AÀEÆËIYÁOUÛØ", eil[i])&&(eil[i]!=0))
    BalPrieb=1;
 else
    if((BalPrieb==1)||(eil[i]=='J'))
-   {KietMin=(strchr("E\xC6\xCBIY\xC1", eil[i+1])&&(eil[i+1]!=0)||(eil[i]=='J')) ? 1:2;  BalPrieb=0;}
+   {KietMin=(strchr("EÆËIYÁ", eil[i+1])&&(eil[i+1]!=0)||(eil[i]=='J')) ? 1:2;  BalPrieb=0;}
 Mn[i]=KietMin;
 }
 
@@ -115,10 +112,10 @@ SkD=2;		 //1-skardus, 2-duslus
 PriebNe=0;   //0-trankusis priebalsis, 1-ne
 for(i=ilg-1; i>0; i--)
 {
-if(strchr("BDGPTKS\xD0Z\xDE""C\xC8", eil[i]))
+if(strchr("BDGPTKSÐZÞCÈ", eil[i]))
 	{
 	if((PriebNe==1)&&(eil[i]!=0))
-		{SkD=strchr("BDGZ\xDE", eil[i]) ? 1:2; PriebNe=0;}
+		{SkD=strchr("BDGZÞ", eil[i]) ? 1:2; PriebNe=0;}
 	}
 else
    PriebNe=1;

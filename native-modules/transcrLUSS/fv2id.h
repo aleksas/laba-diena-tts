@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.ra\xF0tija.lt)
+// Projektas LIEPA (https://liepa.raðtija.lt)
 // Sintezatoriaus komponentas transcrLUSS.dll
 // Failas fv2id.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)

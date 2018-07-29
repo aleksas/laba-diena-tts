@@ -14,6 +14,10 @@
 #include "../LithUSS/LithUSS.h"
 
 #include <malloc.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <pthread.h>
 
 const char* getLUSSErrorMessages(int);
 
@@ -21,7 +25,13 @@ const char* getLUSSErrorMessages(int);
 #define MAX_PASTR_ILG 1000
 #define PAGE_SIZE 1600
 
-void spausdinti_loga(char* pranesimas)
+#ifdef _WIN32
+     #define PS "\\"
+#else
+     #define PS "/"
+#endif
+
+void spausdinti_loga(const char* pranesimas)
 {
 	FILE *stream;
 	stream = fopen("LUSS_log.txt", "a+");
@@ -40,12 +50,12 @@ typedef struct SynthData {
 	int tonas;
 } SYNTHDATA, *PSYNTHDATA;
 
-DWORD WINAPI TextToSound(LPVOID lpParam)
+void * TextToSound(void * lpParam)
 {
 	PSYNTHDATA pData = (PSYNTHDATA)lpParam;
-	if (pData == NULL) return 7;
-	if (pData->largebf == NULL) return 8;
-	if (pData->evsz == NULL) return 9;
+	if (pData == NULL) return (void*)7;
+	if (pData->largebf == NULL) return (void*)8;
+	if (pData->evsz == NULL) return (void*)9;
 	int hr = -synthesizeWholeText(pData->text, //pakeiciam neigiamus i teigiamus
 		pData->largebf,
 		(unsigned int*)pData->largebfsize, //TODO: check consistency
@@ -53,7 +63,7 @@ DWORD WINAPI TextToSound(LPVOID lpParam)
 		pData->evsz,
 		pData->greitis,
 		pData->tonas);
-	return (DWORD)hr;
+	return (void *) hr;
 }
 
 int main(int argc, char* argv[])
@@ -106,7 +116,7 @@ int main(int argc, char* argv[])
 	long largebufsize[MAX_PASTR_SK];
 	PSYNTHDATA pDataArray[MAX_PASTR_SK];
 
-	char *katvardai[4] = { ".\\Regina\\", ".\\Edvardas\\", ".\\Aiste\\", ".\\Vladas\\" };
+	char *katvardai[4] = { "." PS "Regina" PS, "." PS "Edvardas" PS, "." PS "Aiste" PS, "." PS "Vladas" PS };
 	char *vardai[4] = { "Regina", "Edvardas", "Aiste", "Vladas" };
 	int ilgis, fonemuSkaicius;
 	int * fonemuIlgiai = NULL;
@@ -134,15 +144,15 @@ int main(int argc, char* argv[])
 
 		printf(katvardai[ii]);
 		getData(&bendrasIlgis, &pData, &fonemuSkaicius, &fonemuIlgiai, &ppFonemos);
-
+/*
 		for (z = 0; z < fonemuSkaicius; z++) {
 			ilgis += fonemuIlgiai[z];
 			sprintf(transcrBuf, "%s\r\n%s", transcrBuf, ppFonemos[z]);
 
 			if (ppFonemos[z][0] == '_' && ppFonemos[z][1] == '\0' && ilgis > fonemuIlgiai[z]) {
 
-				sprintf(transcrFname, ".\\%s_\\%d.txt", vardai[ii], w);
-				sprintf(wavFname, ".\\%s_\\%d.wav", vardai[ii], w);
+				sprintf(transcrFname, "." PS "%s_" PS "%d.txt", vardai[ii], w);
+				sprintf(wavFname, "." PS "%s" PS "%d.wav", vardai[ii], w);
 
 				FILE *f = fopen(transcrFname, "w");
 				fprintf(f, transcrBuf);
@@ -155,7 +165,7 @@ int main(int argc, char* argv[])
 				ilgis = 0;
 				sprintf(transcrBuf, "");
 			}
-		}
+		}*/
 
 
 		//sintezavimas pastraipomis
@@ -169,7 +179,7 @@ int main(int argc, char* argv[])
 		{
 			for (k = 0; k < pastrSk; k++)
 			{
-				pDataArray[k] = (PSYNTHDATA)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(SYNTHDATA));
+				pDataArray[k] = (PSYNTHDATA) malloc(sizeof(SYNTHDATA)); // HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(SYNTHDATA));
 				if (pDataArray[k] != NULL)
 				{
 					pDataArray[k]->text = eil[k];
@@ -198,19 +208,28 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		DWORD   dwThreadIdArray[MAX_PASTR_SK];
-		HANDLE  hThreadArray[MAX_PASTR_SK];
+		//thread_t   dwThreadIdArray[MAX_PASTR_SK];
+		pthread_t  hThreadArray[MAX_PASTR_SK];
 		unsigned long hrM[MAX_PASTR_SK];
 		if (hr == 0)
 		{
 			for (k = 0; k < pastrSk; k++)
 			{
-				hThreadArray[k] = CreateThread(NULL, 0, TextToSound, pDataArray[k], 0, &dwThreadIdArray[k]);
-				if (hThreadArray[k] == NULL) ExitProcess(3);
+    			pthread_create(&hThreadArray[k], NULL, TextToSound, pDataArray[k]);
+				//hThreadArray[k] = CreateThread(NULL, 0, TextToSound, pDataArray[k], 0, &dwThreadIdArray[k]);
+				if (hThreadArray[k] == NULL) exit(3);
 			}
 
-			DWORD thret = WaitForMultipleObjects(pastrSk, hThreadArray, TRUE, INFINITE);
-			DWORD err = GetLastError();
+
+			for (k = 0; k < pastrSk; k++)
+			{
+				void * ret;
+        		pthread_join(hThreadArray[k], &ret);
+				hrM[k] = (unsigned long) ret;
+			}
+
+			//DWORD thret = WaitForMultipleObjects(pastrSk, hThreadArray, TRUE, INFINITE);
+			/*DWORD err = GetLastError();
 			for (k = 0; k < pastrSk; k++)
 				if (thret == WAIT_OBJECT_0)
 				{
@@ -220,7 +239,7 @@ int main(int argc, char* argv[])
 				else
 				{
 					hrM[k] = 3; //kazkoks klaidos kodas
-				}
+				}*/
 		}
 
 		//rezultatu isvedimas
@@ -277,12 +296,13 @@ int main(int argc, char* argv[])
 			//Atlaisvinami resursai
 			for (k = 0; k < pastrSk; k++)
 			{
-				CloseHandle(hThreadArray[k]);
+				//CloseHandle(hThreadArray[k]);
 				if (pDataArray[k] != NULL)
 				{
 					if (pDataArray[k]->largebf != NULL) free(pDataArray[k]->largebf);
 					if (pDataArray[k]->evar != NULL) free(pDataArray[k]->evar);
-					HeapFree(GetProcessHeap(), 0, pDataArray[k]);
+					//HeapFree(GetProcessHeap(), 0, pDataArray[k]);
+					free(pDataArray[k]);
 					pDataArray[k] = NULL;
 				}
 			}

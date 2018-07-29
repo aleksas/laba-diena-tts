@@ -8,8 +8,10 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g", "LithUSSRaw2Wav.cpp",
+                "-g", "LithUSStest.cpp",
                 "-o", "../x86/LithUSSTest",
+
+                "-pthread",
 
                 "-Wl,-rpath,.",
 
