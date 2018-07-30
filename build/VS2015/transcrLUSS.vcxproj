@@ -155,7 +155,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ImportLibrary>.\Debug\transcrLUSS.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>.\transcrLUSS.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\..\native-modules\transcrLUSS\transcrLUSS.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -200,7 +200,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ImportLibrary>.\Debug\transcrLUSS.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>.\transcrLUSS.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\..\native-modules\transcrLUSS\transcrLUSS.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -243,7 +243,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ImportLibrary>.\Release\transcrLUSS.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>.\transcrLUSS.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\..\native-modules\transcrLUSS\transcrLUSS.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -285,7 +285,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <ImportLibrary>.\Release\transcrLUSS.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>.\transcrLUSS.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\..\native-modules\transcrLUSS\transcrLUSS.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
@@ -300,43 +300,43 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArKirciuoti.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\ArKirciuoti.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="fv2id.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\fv2id.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="Kircdb.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\Kircdb.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="Skiemen.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\Skiemen.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="strtokf.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\strtokf.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="transcrLUSS.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\transcrLUSS.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> /Zm500   /Zm500 </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="Transkr.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\Transkr.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> /Zm500   /Zm500 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /Zm500   /Zm500 </AdditionalOptions>
@@ -344,20 +344,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="transcrLUSS.def" />
+    <CustomBuild Include="..\..\native-modules\transcrLUSS\transcrLUSS.def" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArKirciuoti.h" />
-    <ClInclude Include="db8r1_14.h" />
-    <ClInclude Include="fv2id.h" />
-    <ClInclude Include="Kircdb.h" />
-    <ClInclude Include="nb12.h" />
-    <ClInclude Include="rezultC.h" />
-    <ClInclude Include="Skiemen.h" />
-    <ClInclude Include="transcrLUSS.h" />
-    <ClInclude Include="Transkr.h" />
-    <ClInclude Include="Vb9r1_13.h" />
-    <ClInclude Include="vgal.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\ArKirciuoti.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\db8r1_14.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\fv2id.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Kircdb.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\nb12.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\rezultC.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Skiemen.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\transcrLUSS.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Transkr.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Vb9r1_13.h" />
+    <ClInclude Include="..\..\native-modules\transcrLUSS\vgal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

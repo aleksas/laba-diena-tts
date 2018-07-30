@@ -38,7 +38,7 @@ char *katvardai[4] = {".\\Regina\\", ".\\Aiste\\", ".\\Edvardas\\", ".\\Vladas\\
 int greicio_koeficientas;
 int tono_koeficientas;
 
-char* getLUSSErrorMessages(int);
+const char* getLUSSErrorMessages(int);
 
 //////////////////////////////////////////////////////////////////
 // CRedakView construction/destruction

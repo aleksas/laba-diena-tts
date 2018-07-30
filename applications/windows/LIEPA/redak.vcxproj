@@ -314,7 +314,7 @@
     <CustomBuild Include="res\redak.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\native-modules\LithUSS\LithUSS.vcxproj">
+    <ProjectReference Include="..\..\..\build\VS2015\LithUSS.vcxproj">
       <Project>{b8a2df32-c0a0-41af-bb93-0b600f0271c3}</Project>
     </ProjectReference>
   </ItemGroup>

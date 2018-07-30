@@ -5,17 +5,17 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "redak", "applications\windows\LIEPA\redak.vcxproj", "{76938B73-52FB-446B-84F2-F46678AB4E83}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSS", "native-modules\LithUSS\LithUSS.vcxproj", "{B8A2DF32-C0A0-41AF-BB93-0B600F0271C3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSS", "build\VS2015\LithUSS.vcxproj", "{B8A2DF32-C0A0-41AF-BB93-0B600F0271C3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSStest", "native-modules\LithUSSTest\LithUSStest.vcxproj", "{770F75F1-CBE5-4DDC-9964-31367AAE7812}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LithUSStest", "build\VS2015\LithUSStest.vcxproj", "{770F75F1-CBE5-4DDC-9964-31367AAE7812}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RateChange", "native-modules\RateChange\RateChange.vcxproj", "{9141635A-819B-41CB-B7CE-7488ABCB2321}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RateChange", "build\VS2015\RateChange.vcxproj", "{9141635A-819B-41CB-B7CE-7488ABCB2321}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextNormalization", "native-modules\TextNormalization\TextNormalization.vcxproj", "{FBAAE806-C348-4A4A-9880-40DEC6CEDF90}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextNormalization", "build\VS2015\TextNormalization.vcxproj", "{FBAAE806-C348-4A4A-9880-40DEC6CEDF90}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "transcrLUSS", "native-modules\transcrLUSS\transcrLUSS.vcxproj", "{ECE100D7-8F72-4714-A539-E3F37CB5ECE1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "transcrLUSS", "build\VS2015\transcrLUSS.vcxproj", "{ECE100D7-8F72-4714-A539-E3F37CB5ECE1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitSelection", "native-modules\UnitSelection\UnitSelection.vcxproj", "{BD8BB974-4C9D-499B-91F5-560BB7B05C25}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitSelection", "build\VS2015\UnitSelection.vcxproj", "{BD8BB974-4C9D-499B-91F5-560BB7B05C25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,65 +15,65 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArKirciuoti.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\ArKirciuoti.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fv2id.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\fv2id.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Kircdb.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\Kircdb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Skiemen.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\Skiemen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="strtokf.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\strtokf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="transcrLUSS.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\transcrLUSS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Transkr.cpp">
+    <ClCompile Include="..\..\native-modules\transcrLUSS\Transkr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArKirciuoti.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\ArKirciuoti.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="db8r1_14.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\db8r1_14.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fv2id.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\fv2id.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Kircdb.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Kircdb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="nb12.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\nb12.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rezultC.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\rezultC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Skiemen.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Skiemen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Transkr.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Transkr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vb9r1_13.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\Vb9r1_13.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vgal.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\vgal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="transcrLUSS.h">
+    <ClInclude Include="..\..\native-modules\transcrLUSS\transcrLUSS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="transcrLUSS.def">
+    <CustomBuild Include="..\..\native-modules\transcrLUSS\transcrLUSS.def">
       <Filter>Source Files</Filter>
     </CustomBuild>
   </ItemGroup>

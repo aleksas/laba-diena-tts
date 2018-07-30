@@ -2,42 +2,36 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{5d3b3287-ad72-4131-b1f1-8bcca955a4c2}</UniqueIdentifier>
+      <UniqueIdentifier>{258c4f9a-5273-4994-b575-b4086248a7ed}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{d3393ba3-2cb7-4e7e-b0fd-3f49aa4a04c1}</UniqueIdentifier>
+      <UniqueIdentifier>{33a781d2-b53b-4fe6-b28e-b563539904da}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{69cfcca6-5bba-499e-a3b0-778d077a4a5a}</UniqueIdentifier>
+      <UniqueIdentifier>{030ad27c-a6cd-4ccc-a468-5481f4b72e40}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Euristika.cpp">
+    <ClCompile Include="..\..\native-modules\TextNormalization\stringWithLetterPosition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="greitis.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RateChange.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VeiksmaiSuFailais.cpp">
+    <ClCompile Include="..\..\native-modules\TextNormalization\TextNormalization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RateChangeInternal.h">
+    <ClInclude Include="..\..\native-modules\TextNormalization\stringWithLetterPosition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RateChange.h">
+    <ClInclude Include="..\..\native-modules\TextNormalization\TextNormalization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="RateChange.def">
+    <CustomBuild Include="..\..\native-modules\TextNormalization\TextNormalization.def">
       <Filter>Source Files</Filter>
     </CustomBuild>
   </ItemGroup>

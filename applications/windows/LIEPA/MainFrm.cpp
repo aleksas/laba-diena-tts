@@ -155,7 +155,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 // CMainFrame message handlers
 
 extern char *katvardai[4];
-char* getLUSSErrorMessages(int);
+const char* getLUSSErrorMessages(int);
 
 void CMainFrame::OnCombo() 
 {
