@@ -271,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Threading.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LithUSS\LithUSS.vcxproj">

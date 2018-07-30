@@ -13,23 +13,11 @@
 #include "../include/LithUSS_Error.h"
 #include "../LithUSS/LithUSS.h"
 
-#include <malloc.h>
-#include <string.h>
-#include <stdlib.h>
-
-#include <pthread.h>
-
 const char* getLUSSErrorMessages(int);
 
 #define MAX_PASTR_SK 10
 #define MAX_PASTR_ILG 1000
 #define PAGE_SIZE 1600
-
-#ifdef _WIN32
-     #define PS "\\"
-#else
-     #define PS "/"
-#endif
 
 void spausdinti_loga(const char* pranesimas)
 {
@@ -50,12 +38,12 @@ typedef struct SynthData {
 	int tonas;
 } SYNTHDATA, *PSYNTHDATA;
 
-void * TextToSound(void * lpParam)
+CallbackReturnType TextToSound(void * lpParam)
 {
 	PSYNTHDATA pData = (PSYNTHDATA)lpParam;
-	if (pData == NULL) return (void*)7;
-	if (pData->largebf == NULL) return (void*)8;
-	if (pData->evsz == NULL) return (void*)9;
+	if (pData == NULL) return (CallbackReturnType) 7;
+	if (pData->largebf == NULL) return (CallbackReturnType) 8;
+	if (pData->evsz == NULL) return (CallbackReturnType) 9;
 	int hr = -synthesizeWholeText(pData->text, //pakeiciam neigiamus i teigiamus
 		pData->largebf,
 		(unsigned int*)pData->largebfsize, //TODO: check consistency
@@ -63,7 +51,7 @@ void * TextToSound(void * lpParam)
 		pData->evsz,
 		pData->greitis,
 		pData->tonas);
-	return (void *) hr;
+	return (CallbackReturnType) hr;
 }
 
 int main(int argc, char* argv[])
@@ -208,38 +196,26 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		//thread_t   dwThreadIdArray[MAX_PASTR_SK];
-		pthread_t  hThreadArray[MAX_PASTR_SK];
+		ThreadHandle  hThreadArray[MAX_PASTR_SK];
 		unsigned long hrM[MAX_PASTR_SK];
 		if (hr == 0)
 		{
 			for (k = 0; k < pastrSk; k++)
 			{
-    			pthread_create(&hThreadArray[k], NULL, TextToSound, pDataArray[k]);
-				//hThreadArray[k] = CreateThread(NULL, 0, TextToSound, pDataArray[k], 0, &dwThreadIdArray[k]);
+				CreateNewThread(&hThreadArray[k], TextToSound, pDataArray[k]);
 				if (hThreadArray[k] == NULL) exit(3);
 			}
 
 
 			for (k = 0; k < pastrSk; k++)
 			{
-				void * ret;
-        		pthread_join(hThreadArray[k], &ret);
+				int thcod;
+				CallbackReturnType ret;
+				JoinThread(hThreadArray[k], &ret, &thcod);
 				hrM[k] = (unsigned long) ret;
-			}
 
-			//DWORD thret = WaitForMultipleObjects(pastrSk, hThreadArray, TRUE, INFINITE);
-			/*DWORD err = GetLastError();
-			for (k = 0; k < pastrSk; k++)
-				if (thret == WAIT_OBJECT_0)
-				{
-					BOOL thcod = GetExitCodeThread(hThreadArray[k], &hrM[k]);
-					if (thcod == FALSE) hrM[k] = 2; //kazkoks klaidos kodas
-				}
-				else
-				{
-					hrM[k] = 3; //kazkoks klaidos kodas
-				}*/
+				if (thcod != 0) hrM[k] = 2; //kazkoks klaidos kodas
+			}
 		}
 
 		//rezultatu isvedimas
@@ -296,12 +272,11 @@ int main(int argc, char* argv[])
 			//Atlaisvinami resursai
 			for (k = 0; k < pastrSk; k++)
 			{
-				//CloseHandle(hThreadArray[k]);
+				CloseThread(hThreadArray[k]);
 				if (pDataArray[k] != NULL)
 				{
 					if (pDataArray[k]->largebf != NULL) free(pDataArray[k]->largebf);
 					if (pDataArray[k]->evar != NULL) free(pDataArray[k]->evar);
-					//HeapFree(GetProcessHeap(), 0, pDataArray[k]);
 					free(pDataArray[k]);
 					pDataArray[k] = NULL;
 				}
