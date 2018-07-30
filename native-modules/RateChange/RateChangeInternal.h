@@ -229,7 +229,7 @@ bool reguliarus_pikai (struct tkontekstas * kontekstas);
 
 extern int debuginam;
 
-void spausdinti_loga(char* pranesimas);
+void spausdinti_loga(const char* pranesimas);
 void spausdinti_konteksta (struct tkontekstas * kontekstas);
 int fonemosKlase (struct tkontekstas * kontekstas);
 

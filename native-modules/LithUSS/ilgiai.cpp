@@ -7,6 +7,7 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+#include "ilgiai.h"
 #include "fv2id.h"
 
 #include "../include/LithUSS_Error.h"
@@ -133,7 +134,7 @@ void ilgiai(unsigned short *units, unsigned short *unitseparators, int unitscoun
 	}
 }
 
-int initFaktoriai(char *dirVardas)
+int initFaktoriai(const char *dirVardas)
 {
 	char duomenuByla[200];
 	strcpy(duomenuByla, dirVardas);

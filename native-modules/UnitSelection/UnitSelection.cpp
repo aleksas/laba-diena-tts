@@ -291,7 +291,7 @@ int getDBFromFile(char * dataBaseFileName)
 	return NO_ERR;
 }
 
-int initCosts(char * dataBaseDirName)
+int initCosts(const char * dataBaseDirName)
 {
 	int i, j, k;
 
@@ -482,7 +482,7 @@ int getDBWeightsAndLengthsFromFile(char * dataBaseFileName)
 	return NO_ERR;
 }
 
-EXPORT int initUnitSel(char * dataBaseDirName)
+EXPORT int initUnitSel(const char * dataBaseDirName)
 {
 	char laikKat[200];
 		

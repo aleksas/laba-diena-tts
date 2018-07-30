@@ -83,4 +83,13 @@
 #define	ERROR_LITHUSS_MEMORY_REALLOCATION -16
 #define	ERROR_LITHUSS_EVENTS_ARRAY_OVERFLOW -17
 
+// Conviniece defines
+
+static __thread int CHECK_result = NO_ERR; // __thread or thread_local
+#define CHECK(res)  \
+    CHECK_result = res; \
+    if (CHECK_result != NO_ERR) goto FINALLY
+
+#define CHECK_FAILED (CHECK_result != NO_ERR)
+
 #endif //!LITHUSS_ERROR_H_INCLUDED

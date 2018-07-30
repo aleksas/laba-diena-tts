@@ -4,18 +4,38 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "create output dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "../../bin/Linux_x86/"
+            ]
+        },
+        {
             "label": "build LithUSS",
             "type": "shell",
             "command": "g++",
             "args": [
-                "-fPIC", "-g", "fv2id.cpp", "getLUSSErrorMessages.cpp",
-                "ilgiai.cpp", "LithUSS.cpp", "raw2wav.cpp", "strtokf.cpp",
-                "-shared", "-o", "../x86/libLithUSS.so"
+                "-fPIC",
+                "-g",
+                "fv2id.cpp",
+                "getLUSSErrorMessages.cpp",
+                "ilgiai.cpp",
+                "LithUSS.cpp",
+                "raw2wav.cpp",
+                "strtokf.cpp",
+                "-shared",
+                "-o",
+                "../../bin/Linux_x86/libLithUSS.so"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "dependsOn": [
+                "create output dir"
+            ]
         }
     ]
 }

@@ -4,18 +4,30 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "create output dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "../../bin/Linux_x86/"
+            ]
+        },
+        {
             "label": "build RateChange",
             "type": "shell",
             "command": "g++",
             "args": [
                 "-fPIC", "-g", "RateChange.cpp", "greitis.cpp",
                 "Euristika.cpp", "VeiksmaiSuFailais.cpp",
-                "-shared", "-o", "../x86/libRateChange.so"
+                "-shared", "-o", "../../bin/Linux_x86/libRateChange.so"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "dependsOn": [
+                "create output dir"
+            ]
         }
     ]
 }

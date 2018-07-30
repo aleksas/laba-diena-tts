@@ -18,10 +18,9 @@
 
 void atlaisvinti_atminti_ir_inicializuoti();
 
-EXPORT BOOL loadRateChange(char*)
+EXPORT void loadRateChange()
 {
 	atlaisvinti_atminti_ir_inicializuoti();
-	return TRUE;
 }
 
 EXPORT void unloadRateChange()
@@ -100,7 +99,7 @@ void atlaisvinti_atminti_ir_inicializuoti()
 /*********************************************************
  * spausdinti_loga
  ********************************************************/
-void spausdinti_loga(char* pranesimas)
+void spausdinti_loga(const char* pranesimas)
 {
 	// Gintaras: prid\xEBjau laiko \xFEym\xE6
 	time_t mytime = time(NULL);
@@ -677,7 +676,7 @@ EXPORT void getData(int * pIlgis, short ** ppData, int * pFonemuSkaicius, int **
 /*********************************************************
  * Nuskaitom BD is failu
  ********************************************************/
-EXPORT int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1, short ** wholeinput1)
+EXPORT int initRateChange (const char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1, short ** wholeinput1)
 {
 	clock_t begin_time, end_time;
 

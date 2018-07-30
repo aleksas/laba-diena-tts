@@ -104,16 +104,11 @@ int main(int argc, char* argv[])
 	long largebufsize[MAX_PASTR_SK];
 	PSYNTHDATA pDataArray[MAX_PASTR_SK];
 
-	char *katvardai[4] = { "." PS "Regina" PS, "." PS "Edvardas" PS, "." PS "Aiste" PS, "." PS "Vladas" PS };
-	char *vardai[4] = { "Regina", "Edvardas", "Aiste", "Vladas" };
-	int ilgis, fonemuSkaicius;
-	int * fonemuIlgiai = NULL;
-	short * pData = NULL;
-	char ** ppFonemos = NULL;
+	const char *katvardai[4] = { "." PS "Regina" PS, "." PS "Edvardas" PS, "." PS "Aiste" PS, "." PS "Vladas" PS };
+	const char *vardai[4] = { "Regina", "Edvardas", "Aiste", "Vladas" };
 	char wavFname[256] = { 0 };
 	char transcrFname[256] = { 0 };
 	char transcrBuf[256] = { 0 };
-	int bendrasIlgis = 0;
 
 	for (int ii = 0; ii < 4; ii++)
 	{
@@ -130,9 +125,15 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		printf(katvardai[ii]);
-		getData(&bendrasIlgis, &pData, &fonemuSkaicius, &fonemuIlgiai, &ppFonemos);
 /*
+		printf(katvardai[ii]);
+		int ilgis, fonemuSkaicius;
+		int * fonemuIlgiai = NULL;
+		short * pData = NULL;
+		char ** ppFonemos = NULL;
+		int bendrasIlgis = 0;
+		getData(&bendrasIlgis, &pData, &fonemuSkaicius, &fonemuIlgiai, &ppFonemos);
+
 		for (z = 0; z < fonemuSkaicius; z++) {
 			ilgis += fonemuIlgiai[z];
 			sprintf(transcrBuf, "%s\r\n%s", transcrBuf, ppFonemos[z]);
@@ -196,16 +197,15 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		ThreadHandle  hThreadArray[MAX_PASTR_SK];
+		ThreadHandle hThreadArray[MAX_PASTR_SK];
 		unsigned long hrM[MAX_PASTR_SK];
 		if (hr == 0)
 		{
 			for (k = 0; k < pastrSk; k++)
 			{
 				CreateNewThread(&hThreadArray[k], TextToSound, pDataArray[k]);
-				if (hThreadArray[k] == NULL) exit(3);
+				if (hThreadArray[k] == 0) exit(3);
 			}
-
 
 			for (k = 0; k < pastrSk; k++)
 			{
@@ -225,11 +225,11 @@ int main(int argc, char* argv[])
 			int res = 0;
 			FILE *fr;
 			FILE *fe;
-			char *evvardai[4] = { "Sak", "Zod", "Skm", "Fon" };
+			const char *evvardai[4] = { "Sak", "Zod", "Skm", "Fon" };
 
 			for (k = 0; k < pastrSk; k++)
 			{
-				printf("Gija %d kodas %d\n", k, hrM[k]);
+				printf("Gija %d kodas %lu\n", k, hrM[k]);
 				if (hrM[k] == 0)
 				{
 					sprintf(temp, "%d_%d", ii, k);
@@ -257,7 +257,7 @@ int main(int argc, char* argv[])
 
 					for (int i = 0; i < *(pDataArray[k]->evsz); i++)
 					{
-						fprintf(fe, "%d\t%s\t%d\t%s\t%d\t%c\t%d\n", i,
+						fprintf(fe, "%d\t%s\t%d\t%s\t%d\t%c\t%ld\n", i,
 							evvardai[pDataArray[k]->evar[i].Id - 1],
 							pDataArray[k]->evar[i].phonviz,
 							id2fv(pDataArray[k]->evar[i].phonviz),

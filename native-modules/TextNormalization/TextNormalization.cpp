@@ -548,13 +548,13 @@ int expandDate(int yearNumber, int monthNumber, int dayNumber, int mode, char re
 	return 0;
 }
 
-EXPORT int initTextNorm(char * rulesFilesDirectory, const char * rulesFileName)
+EXPORT int initTextNorm(const char * szRulesFilesDirectory, const char * szRulesFileName)
 {
 	char buffer_temp[1024];	
 
 	totalRules = 0;
 	totalFileBuffers = 0;
-	sprintf(buffer_temp, "%s%s", rulesFilesDirectory, rulesFileName);
+	sprintf(buffer_temp, "%s%s", szRulesFilesDirectory, szRulesFileName);
 	FILE * file = fopen (buffer_temp, "r");
 	if (file == NULL)
 		return ERROR_TEXTNORMALIZATION_OPENING_RULES_FILE;
@@ -592,7 +592,7 @@ EXPORT int initTextNorm(char * rulesFilesDirectory, const char * rulesFileName)
 		}
 
 		int currentFileBuffer = 0;
-		sprintf(buffer_temp, "%s%s", rulesFilesDirectory, rulesFileName);
+		sprintf(buffer_temp, "%s%s", szRulesFilesDirectory, szRulesFileName);
 		file = fopen (buffer_temp, "r");
 		if (file == NULL) 
 			return  ERROR_TEXTNORMALIZATION_OPENING_RULES_FILE;
@@ -607,7 +607,7 @@ EXPORT int initTextNorm(char * rulesFilesDirectory, const char * rulesFileName)
 					abbSizes[currentFileBuffer] = 0;
 					char fileNameTemp[128];	
 					strcpy(fileNameTemp, fileName);	
-					sprintf(buffer_temp, "%s%s", rulesFilesDirectory, fileNameTemp);
+					sprintf(buffer_temp, "%s%s", szRulesFilesDirectory, fileNameTemp);
 					FILE * fileAbb = fopen (buffer_temp, "r");
 					if (fileAbb == NULL) 
 					{

@@ -6,7 +6,7 @@
 
 struct event {short Id; short phonviz; int charOffset; long signOffset;};
 
-EXPORT int initLUSS(char *katDll, char *katVoice);
+EXPORT int initLUSS(const char * szDataDirectory, const char *katVoice);
 EXPORT int normalizeText1(char *text, char *normtextbuf, int bufsize, int * letPos);
 EXPORT int stressTranscr(char *sakinys, char *TrSakinys, int bufsize, unsigned short* unitsR, unsigned short* unitsRNextSep, int* unitsLet, int* letPos);
 EXPORT int findUnits(unsigned short *unitsRows, unsigned short *unitsRowsNextSeparators, int unitsRowsLength, unsigned int *retUnits, unsigned short *unitsDurr);

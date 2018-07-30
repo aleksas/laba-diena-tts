@@ -11,8 +11,7 @@
 #include "../include/LithUSS_Error.h"
 #include "../LithUSS/LithUSS.h"
 
-#include <malloc.h>
-#include <stdio.h>
+#include <StdAfx.h>
 
 #define MAX_PASTR_SK 10
 #define MAX_PASTR_ILG 1000
@@ -87,8 +86,8 @@ int main(int argc, char* argv[])
 	long largebufsize[MAX_PASTR_SK];
 	PSYNTHDATA pDataArray[MAX_PASTR_SK];
 
-	char *katvardai[4] = { "./Regina/", "./Edvardas/", "./Aiste/", "./Vladas/" };
-	char *vardai[4] = { "Regina", "Edvardas", "Aiste", "Vladas" };
+	const char *katvardai[4] = { "." PS "Regina" PS, "." PS "Edvardas" PS, "." PS "Aiste" PS, "." PS "Vladas" PS };
+	const char *vardai[4] = { "Regina", "Edvardas", "Aiste", "Vladas" };
 	int ilgis, fonemuSkaicius;
 	int * fonemuIlgiai = NULL;
 	short * pData = NULL;
@@ -116,7 +115,7 @@ int main(int argc, char* argv[])
 		printf(katvardai[ii]);
 		getData(&bendrasIlgis, &pData, &fonemuSkaicius, &fonemuIlgiai, &ppFonemos);
 
-		sprintf(wavFname, "./%s.wav", vardai[ii], w);
+		sprintf(wavFname, "." PS "%s.wav", vardai[ii], w);
 		raw2wav(bendrasIlgis, wavFname, (short*)pData);
 	}
 

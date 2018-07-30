@@ -15,8 +15,7 @@
 		GetExitCodeThread(thread, resultRef)
 	#define CloseThread(handle) CloseHandle(handle)
 
-#elif
-
+#else
 	#define PS "/"
 
 	#include <pthread.h>
@@ -24,7 +23,7 @@
 	#define ThreadHandle pthread_t
 	#define CallbackReturnType void *
 	#define CreateNewThread(resultRef, callback, argument) pthread_create(resultRef, NULL, TextToSound, pDataArray[k])
-	#define JoinThread(thread, resultRef, joinResRef) joinResRef = pthread_join(thread, resultRef)
+	#define JoinThread(thread, resultRef, joinResRef) *joinResRef = pthread_join(thread, resultRef)
 	#define CloseThread(handle)	
 
 #endif
