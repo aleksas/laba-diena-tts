@@ -51,7 +51,7 @@ CallbackReturnType TextToSound(void * lpParam)
 		pData->evsz,
 		pData->greitis,
 		pData->tonas);
-	return (CallbackReturnType) hr;
+	return reinterpret_cast<CallbackReturnType>(hr);
 }
 
 int main(int argc, char* argv[])
