@@ -7,49 +7,47 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
+
+#include "../include/LithUSS_Error.h"
+#include "../include/TextNormalization.h"
+
 #include "stringWithLetterPosition.h"
 
-#include "LithUSS_Error.h"
+extern "C" {
 
-char ***abbLists;
-char ***abbListsSubstitutions;
-unsigned short **abbListsIsWithSep;
-int *abbSizes;
+char ***abbLists = NULL;
+char ***abbListsSubstitutions = NULL;
+unsigned short **abbListsIsWithSep = NULL;
+int *abbSizes = NULL;
 int totalFileBuffers = 0;
 
-BOOL APIENTRY DllMain( HANDLE hModule, 
-                       DWORD  ul_reason_for_call, 
-                       LPVOID lpReserved
-					 )
+EXPORT void unloadTextNorm()
 {
-	if (ul_reason_for_call == DLL_PROCESS_DETACH && totalFileBuffers > 0)
+	for(int i=0; i<totalFileBuffers; i++)
 	{
-		for(int i=0; i<totalFileBuffers; i++)
+		for(int j=0; j<2048; j++)
 		{
-		   for(int j=0; j<2048; j++)
-		   {
-				delete[] abbLists[i][j];
-				delete[] abbListsSubstitutions[i][j];
-		   }
-		   delete[] abbLists[i];
-		   delete[] abbListsSubstitutions[i];
-		   delete[] abbListsIsWithSep[i];
+			delete[] abbLists[i][j];
+			delete[] abbListsSubstitutions[i][j];
 		}
-		delete[] abbLists;
-		delete[] abbListsSubstitutions;
-		delete[] abbListsIsWithSep;
-		delete[] abbSizes;
+		delete[] abbLists[i];
+		delete[] abbListsSubstitutions[i];
+		delete[] abbListsIsWithSep[i];
 	}
-
-    return TRUE;
+	delete[] abbLists;
+	delete[] abbListsSubstitutions;
+	delete[] abbListsIsWithSep;
+	delete[] abbSizes;
 }
 
 #define MAX_RULES 4*1024
+
 string rulesArray[MAX_RULES];
+
 int totalRules;
 
-char* SimbPavad(char Simb)
+char* SimbPavad(unsigned char Simb)
 {
 	switch (Simb)
 	{
@@ -147,49 +145,49 @@ char* SimbPavad(char Simb)
 		case '|' : return "VERTIKA~LË";
 		case '}' : return "RIESTI`NIAI UÞSIDA~RO";
 		case '~' : return "TIL~DË";
-		case 'à' : return "À~ NO^SINË";
-		case 'è' : return "ÈË~";
-		case 'æ' : return "Æ~ NO^SINË";
-		case 'ë' : return "Ë~";
-		case 'á' : return "Y~ NO^SINË";
-		case 'ð' : return "E`Ð";
-		case 'ø' : return "Û~ NO^SINË";
-		case 'û' : return "Û~ ILGO^JI";
-		case 'þ' : return "ÞË~";
-		case 'À' : return "À~ NO^SINË";
-		case 'È' : return "ÈË~";
-		case 'Æ' : return "Æ~ NO^SINË";
-		case 'Ë' : return "Ë~";
-		case 'Á' : return "Y~ NO^SINË";
-		case 'Ð' : return "E`Ð";
-		case 'Ø' : return "Û~ NO^SINË";
-		case 'Û' : return "Û~ ILGO^JI";
-		case 'Þ' : return "ÞË~";
-		case '\x80' : return "EU~RAS";
-		case '\x84' : return "KABU`TËS ATSIDA~RO";
-		case '\x8B' : return "LAUÞTI`NËS ATSIDA~RO";
-		case '\x93' : return "KABU`TËS UÞSIDA~RO";
-		case '\x96' : return "BRÛKÐNY~S";
-		case '\x97' : return "I`LGAS BRÛKÐNY~S";
-		case '\x9B' : return "LAUÞTI`NËS UÞSIDA~RO";
-		case '\xA2' : return "CEN~TAS";		 //¢
-		case '\xA3' : return "SVA~RAS";		 //£
-		case '\xA4' : return "VALIUTA`";	 //¤
-		case '\xA5' : return "JENA`";
-		case '\xA6' : return "VERTIKA~LË SU TARPELIU`"; //¦
-		case '\xA7' : return "PARAGRA~FAS";	 //§
-		case '\xA9' : return "A^UTORIØ TE^ISËS"; //©
-		case '\xAB' : return "DVI`GUBOS LAUÞTI`NËS ATSIDA~RO";
-		case '\xAE' : return "REGISTRU^OTA"; //®
-		case '\xB0' : return "LA^IPSNIS";	 //°
-		case '\xB1' : return "PLIU`S MI`NUS"; //±
-		case '\xB6' : return "PASTRA^IPA";
-		case '\xBB' : return "DVI`GUBOS LAUÞTI`NËS UÞSIDA~RO";
-		case '\xBC' : return "VIENA` KETVIRTO^JI";	//¼
-		case '\xBD' : return "VIENA` ANTRO^JI";		//½
-		case '\xBE' : return "TRY~S KETVIR~TOSIOS"; //¾
-		case '\xD7' : return "DA^UGINTI";	 //×
-		case '\xF7' : return "DALI`NTI";	 //÷
+		case 0xE0 : return "À~ NO^SINË";
+		case 0xE8 : return "ÈË~";
+		case 0xE6 : return "Æ~ NO^SINË";
+		case 0xEB : return "Ë~";
+		case 0xE1 : return "Y~ NO^SINË";
+		case 0xF0 : return "E`Ð";
+		case 0xF8 : return "Û~ NO^SINË";
+		case 0xFB : return "Û~ ILGO^JI";
+		case 0xFE : return "ÞË~";
+		case 0xC0 : return "À~ NO^SINË";
+		case 0xC8 : return "ÈË~";
+		case 0xC6 : return "Æ~ NO^SINË";
+		case 0xCB : return "Ë~";
+		case 0xC1 : return "Y~ NO^SINË";
+		case 0xD0 : return "E`Ð";
+		case 0xD8 : return "Û~ NO^SINË";
+		case 0xDB : return "Û~ ILGO^JI";
+		case 0xDE : return "ÞË~";
+		case 0x80 : return "EU~RAS";
+		case 0x84 : return "KABU`TËS ATSIDA~RO";
+		case 0x8B : return "LAUÞTI`NËS ATSIDA~RO";
+		case 0x93 : return "KABU`TËS UÞSIDA~RO";
+		case 0x96 : return "BRÛKÐNY~S";
+		case 0x97 : return "I`LGAS BRÛKÐNY~S";
+		case 0x9B : return "LAUÞTI`NËS UÞSIDA~RO";
+		case 0xA2 : return "CEN~TAS";		 //¢
+		case 0xA3 : return "SVA~RAS";		 //£
+		case 0xA4 : return "VALIUTA`";	 //¤
+		case 0xA5 : return "JENA`";
+		case 0xA6 : return "VERTIKA~LË SU TARPELIU`"; //¦
+		case 0xA7 : return "PARAGRA~FAS";	 //§
+		case 0xA9 : return "A^UTORIØ TE^ISËS"; //©
+		case 0xAB : return "DVI`GUBOS LAUÞTI`NËS ATSIDA~RO";
+		case 0xAE : return "REGISTRU^OTA"; //®
+		case 0xB0 : return "LA^IPSNIS";	 //°
+		case 0xB1 : return "PLIU`S MI`NUS"; //±
+		case 0xB6 : return "PASTRA^IPA";
+		case 0xBB : return "DVI`GUBOS LAUÞTI`NËS UÞSIDA~RO";
+		case 0xBC : return "VIENA` KETVIRTO^JI";	//¼
+		case 0xBD : return "VIENA` ANTRO^JI";		//½
+		case 0xBE : return "TRY~S KETVIR~TOSIOS"; //¾
+		case 0xD7 : return "DA^UGINTI";	 //×
+		case 0xF7 : return "DALI`NTI";	 //÷
 
 		default  : return "";
 	}
@@ -373,7 +371,7 @@ int VisasSkaicius(char Sk[], char ZodzEil[], int bufsize)
       }
 	i++;
     }
-  else if(Sk[i]=='\x80')
+  else if(Sk[i]==0x80)
 	{
     switch (Jfinal)
       {
@@ -384,7 +382,7 @@ int VisasSkaicius(char Sk[], char ZodzEil[], int bufsize)
       }
 	i++;
     }
-  else if(Sk[i]=='\xA3')
+  else if(Sk[i]==0xA3)
 	{
     switch (Jfinal)
       {
@@ -548,7 +546,7 @@ int expandDate(int yearNumber, int monthNumber, int dayNumber, int mode, char re
 	return 0;
 }
 
-int initTextNorm(char * rulesFilesDirectory, char * rulesFileName) 
+EXPORT int initTextNorm(const char * rulesFilesDirectory, const char * rulesFileName) 
 {
 	char buffer_temp[1024];	
 
@@ -1294,17 +1292,19 @@ int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 								{
 									for (int ss = zxc; ss < zxc+months[mv].length(); ss++)
 									{
-										switch (strNormalized[ss])
+										unsigned char c = strNormalized[ss];
+
+										switch (c)
 										{
-										case 'à':
-										case 'è':
-										case 'æ':
-										case 'ë':
-										case 'á':
-										case 'ð':
-										case 'ø':
-										case 'û':
-										case 'þ':
+										case 0xE0: //à:
+										case 0xE8: //è:
+										case 0xE6: //æ:
+										case 0xEB: //ë:
+										case 0xE1: //á:
+										case 0xF0: //ð:
+										case 0xF8: //ø:
+										case 0xFB: //û:
+										case 0xFE: //þ:
 											strNormalized[ss]-=0x20;
 											break;
 										default:
@@ -1453,7 +1453,7 @@ int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 					while ((digitsWordEndIndex < bufferString.length()) && (digitsList.find(bufferString.at(digitsWordEndIndex)) != -1))
 						digitsWordEndIndex++;
 					if ((digitsWordEndIndex < bufferString.length()) && ((bufferString.at(digitsWordEndIndex) == '%') || (bufferString.at(digitsWordEndIndex) == '$')
-						|| (bufferString.at(digitsWordEndIndex) == '\x80') || (bufferString.at(digitsWordEndIndex) == '\xA3')))
+						|| (bufferString.at(digitsWordEndIndex) == 0x80) || (bufferString.at(digitsWordEndIndex) == 0xA3)))
 						digitsWordEndIndex++;
 					if(digitsWordEndIndex > digitsWordStartIndex + 44) digitsWordEndIndex = digitsWordStartIndex + 44; //apsauga kad tilptu
 
@@ -1592,17 +1592,25 @@ int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 				int s = bufferString.length();
 				for (int g = 0; g < s; g++)
 				{
-					switch (bufferString.at(g))
+					unsigned char c = bufferString.at(g);
+/*
+					if (c >= 0xE0 && c <= 0xFE)
+						bufferString.set_at(g, bufferString.at(g)-0x20);
+					else
+						bufferString.set_at(g, toupper(bufferString.at(g)));
+*/
+
+					switch (c)
 					{
-					case 'à':
-					case 'è':
-					case 'æ':
-					case 'ë':
-					case 'á':
-					case 'ð':
-					case 'ø':
-					case 'û':
-					case 'þ':
+						case 0xE0://'à':
+						case 0xE8://'è':
+						case 0xE6://'æ':
+						case 0xEB://'ë':
+						case 0xE1://'á':
+						case 0xF0://'ð':
+						case 0xF8://'ø':
+						case 0xFB://'û':
+						case 0xFE://'þ':
 						bufferString.set_at(g, bufferString.at(g)-0x20);
 						break;
 					default:
@@ -1623,3 +1631,4 @@ int normalizeText(char * buffer, char * retBuffer, int bufferSize, int * letPos)
 	return NO_ERR;
 }
 
+}

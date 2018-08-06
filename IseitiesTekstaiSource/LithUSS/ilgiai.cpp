@@ -1,18 +1,17 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.raï¿½tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
 // Failas ilgiai.cpp
-// Autorius dr. Margarita Beniuðë
+// Autorius dr. Margarita Beniuï¿½ï¿½
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include "StdAfx.h"
 
-#include <stdio.h>
-#include <string.h>
+#include "../include/LithUSS_Error.h"
+
 #include "fv2id.h"
-#include "LithUSS_Error.h"
 
 #define FonSk 92
 #define KoefSk 36
@@ -21,8 +20,8 @@
 
 static struct FonIlgiai{char fv[4]; unsigned short id; unsigned short vid; unsigned short min; double koef[KoefSk];} FonIlg[FonSk] ;
 
-// + þodþio riba, - skiemens riba, tarpas fonemos riba,
-// sakinio pradþioje/pabaigoje yra pauzë, t.y. pabraukimo simbolis.
+// + ï¿½odï¿½io riba, - skiemens riba, tarpas fonemos riba,
+// sakinio pradï¿½ioje/pabaigoje yra pauzï¿½, t.y. pabraukimo simbolis.
 
 bool isBalsis(unsigned short id) {
 	if( BalsiaiStartId <= id && id < PriebalsiaiStartId )
@@ -133,7 +132,7 @@ void ilgiai(unsigned short *units, unsigned short *unitseparators, int unitscoun
 	}
 }
 
-int initFaktoriai(char *dirVardas)
+int initFaktoriai(const char *dirVardas)
 {
 	char duomenuByla[200];
 	strcpy(duomenuByla, dirVardas);

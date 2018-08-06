@@ -7,12 +7,14 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include <string.h>
-#include <stdio.h>
+#include "StdAfx.h"
+
+#include "../include/LithUSS_Error.h"
+
 #include "Kircdb.h"
 #include "fv2id.h"
-#include "LithUSS_Error.h"
+
+extern "C" {
 
 #define ILGIS1    500         //analizuojamos tekstines eilute ilgis
 #define MAX_RULES 250         //maksimalus transkribavimo taisykliu skaicius
@@ -30,7 +32,7 @@ SkDu 1-skardus,2-duslus,3-betkoks.
 SkPb 1-kitur,2-einam,4-1ikair.
 */
 
-int initTranscrLUSS(char *katVardas)
+int initTranscrLUSS(const char *katVardas)
 {
 FILE *df = 0;
 int j, n;
@@ -134,9 +136,9 @@ if(Taisykl[j].ES!=eil[i]) j+=Taisykl[j].PoslT;
 else
  {
  if(eil[i+1]==0) k=2; else k=1;
- if(((Taisykl[j].KKont[0]!=0) ? (int)strchr(Taisykl[j].KKont, eil[i-1]):1)
-   &&((Taisykl[j].DKont1[0]!=0) ? (int)strchr(Taisykl[j].DKont1, eil[i+k]):1)
-   &&((Taisykl[j].DKont2[0]!=0) ? (int)strchr(Taisykl[j].DKont2, eil[i+k+1]):1)
+ if(((Taisykl[j].KKont[0]!=0) ? strchr(Taisykl[j].KKont, eil[i-1]):(char*)1)
+   &&((Taisykl[j].DKont1[0]!=0) ? strchr(Taisykl[j].DKont1, eil[i+k]):(char*)1)
+   &&((Taisykl[j].DKont2[0]!=0) ? strchr(Taisykl[j].DKont2, eil[i+k+1]):(char*)1)
    &&(Taisykl[j].Kirt & Kirt[i])
    &&(Taisykl[j].Minkst & 3 & Mn[i])
    &&(Taisykl[j].SkDu & SkDu[i])
@@ -187,4 +189,6 @@ unitsRNextSep[fnr]='+';
 unitsLet[fnr]=letPos[i-1];
 
 return fnr+1;
+}
+
 }

@@ -2,24 +2,21 @@
 //
 // Projektas LIEPA (https://liepa.ra�tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
-// Failas fv2id.cpp
+// Failas UnitSel.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "StdAfx.h"
+#ifndef __UNITSEL_H__
+#define __UNITSEL_H__
 
-#include "../transcrLUSS/fv2id.h"
+#include "common.h"
 
 extern "C" {
 
-EXPORT const char* id2fv(unsigned short id)
-{
-for(int i=0; i<FonSk; i++)
-	if(id == FonV[i].id)
-		return FonV[i].fv;
-
-return FonV[0].fv; //pauze "_"
-}
+EXPORT int initUnitSel(const char * dataBaseDirName);
+EXPORT int selectUnits(unsigned short unitsRow[], unsigned short unitsRowNextSeparators[], unsigned short unitsRowDurr[], int unitsRowLength, int retUnits[], int * retCost);
 
 }
+
+#endif

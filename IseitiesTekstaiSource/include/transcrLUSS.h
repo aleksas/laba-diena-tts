@@ -2,24 +2,21 @@
 //
 // Projektas LIEPA (https://liepa.ra�tija.lt)
 // Sintezatoriaus komponentas LithUSS.dll
-// Failas fv2id.cpp
+// Failas transcrLUSS.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "StdAfx.h"
 
-#include "../transcrLUSS/fv2id.h"
+#ifndef __TRANSCRLUSS_H__
+#define __TRANSCRLUSS_H__
 
 extern "C" {
 
-EXPORT const char* id2fv(unsigned short id)
-{
-for(int i=0; i<FonSk; i++)
-	if(id == FonV[i].id)
-		return FonV[i].fv;
-
-return FonV[0].fv; //pauze "_"
-}
+int KircTranskr(char* eil, char* TrZodis, int TrEilIlg, unsigned short* unitsR,  unsigned short* unitsRNextSep, 
+				int* unitsLet, int* letPos, int rules2use);
+int initTranscrLUSS(const char *katVardas);
 
 }
+
+#endif

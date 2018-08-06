@@ -7,11 +7,11 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include "fv2id.h"
-#include <string.h>
+#include "StdAfx.h"
 
-char* strtokf(char*, const char*, char**);
+#include "../include/strtokf.h"
+
+#include "fv2id.h"
 
 unsigned short fv2id(char *fpav)
 {
@@ -20,15 +20,6 @@ for(int i=0; i<FonSk; i++)
 		return FonV[i].id;
 
 return FonV[0].id; //pauze "_"
-}
-
-char* id2fv(unsigned short id)
-{
-for(int i=0; i<FonSk; i++)
-	if(id == FonV[i].id)
-		return FonV[i].fv;
-
-return FonV[0].fv; //pauze "_"
 }
 
 int trText2UnitList(char *TrSakinys, unsigned short *units, unsigned short *unitseparators)

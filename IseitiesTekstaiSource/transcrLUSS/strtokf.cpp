@@ -1,5 +1,4 @@
-#include "stdafx.h"
-#include <string.h>
+#include "StdAfx.h"
 
 /*
  * Standard C string function: tokenize a string splitting based on a

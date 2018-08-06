@@ -7,7 +7,8 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma once
+#ifndef STRING_WITH_LETTER_POSITION_H_INCLUDED
+#define STRING_WITH_LETTER_POSITION_H_INCLUDED
 
 #include <string>
 using namespace std;
@@ -38,3 +39,5 @@ public:
 private:
 	void replaceLetPos(int * letPos, int pra, int ilgo, int ilgn);
 };
+
+#endif // STRING_WITH_LETTER_POSITION_H_INCLUDED

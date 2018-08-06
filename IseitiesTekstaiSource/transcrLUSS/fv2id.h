@@ -1,15 +1,17 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.raï¿½tija.lt)
 // Sintezatoriaus komponentas transcrLUSS.dll
 // Failas fv2id.h
 // Autorius dr. Pijus Kasparaitis (pkasparaitis@yahoo.com)
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+#include "../include/common.h"
+
 #define FonSk 92
 
-static struct FonVardai{char *fv; unsigned short id;} FonV[FonSk] = {
+static struct FonVardai{const char *fv; unsigned short id;} FonV[FonSk] = {
 {"_", 0},
 {"i", 1},
 {"e", 2},
@@ -105,5 +107,4 @@ static struct FonVardai{char *fv; unsigned short id;} FonV[FonSk] = {
 
 int trText2UnitList(char*, unsigned short*, unsigned short*);
 unsigned short fv2id(char*);
-char* id2fv(unsigned short);
 

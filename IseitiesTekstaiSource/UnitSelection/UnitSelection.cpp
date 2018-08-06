@@ -1,30 +1,25 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Projektas LIEPA (https://liepa.raðtija.lt)
+// Projektas LIEPA (https://liepa.raï¿½tija.lt)
 // Sintezatoriaus komponentas UnitSelection.dll
 // Failas UnitSelection.cpp
 // Autorius dr. Tomas Anbinderis
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include "LithUSS_Error.h"
-#include <string>
+#include "StdAfx.h"
+
+#include "../include/LithUSS_Error.h"
+#include "../include/UnitSel.h"
+#include "../include/strtokf.h"
+
+extern "C" {
+
 using namespace std;
 
 #define MAX_UNITS 200000
 #define MAX_DIFFERENT_UNITS 92
 #define MAX_SAME_UNIT 32*1024
-
-char* strtokf(char*, const char*, char**);
-
-BOOL APIENTRY DllMain(HANDLE hModule,
-	DWORD  ul_reason_for_call,
-	LPVOID lpReserved
-	)
-{
-	return TRUE;
-}
 
 unsigned short unitsDB_ID[MAX_UNITS];
 int unitsDB_E1[MAX_UNITS];
@@ -50,7 +45,7 @@ int keitimo_kaina_DK_precalculated[MAX_DIFFERENT_UNITS][MAX_DIFFERENT_UNITS][MAX
 int keitimo_kaina_KK_precalculated[MAX_DIFFERENT_UNITS][MAX_DIFFERENT_UNITS][MAX_DIFFERENT_UNITS];
 
 const int FonSk = 92;
-static struct FonVardai{ char *fv; unsigned short id; } FonV[FonSk] = {
+static struct FonVardai{ const char *fv; unsigned short id; } FonV[FonSk] = {
 	{ "_", 0 },
 	{ "i", 1 },
 	{ "e", 2 },
@@ -144,7 +139,7 @@ static struct FonVardai{ char *fv; unsigned short id; } FonV[FonSk] = {
 	{ "N", 90 },
 	{ "N\'", 91 }};
 
-unsigned short fv2id(char *fpav)
+unsigned short fv2id(const char *fpav)
 {
 	for (int i = 0; i<FonSk; i++)
 	if (strcmp(fpav, FonV[i].fv) == 0)
@@ -284,7 +279,7 @@ int getDBFromFile(char * dataBaseFileName)
 	return NO_ERR;
 }
 
-int initCosts(char * dataBaseDirName)
+int initCosts(const char * dataBaseDirName)
 {
 	int i, j, k;
 
@@ -475,7 +470,7 @@ int getDBWeightsAndLengthsFromFile(char * dataBaseFileName)
 	return NO_ERR;
 }
 
-int initUnitSel(char * dataBaseDirName)
+EXPORT int initUnitSel(const char * dataBaseDirName)
 {
 	char laikKat[200];
 		
@@ -532,7 +527,7 @@ int initUnitSel(char * dataBaseDirName)
 	return NO_ERR;//SUCCESS;
 }
 
-int selectUnits(unsigned short unitsRow[], unsigned short unitsRowNextSeparators[], unsigned short unitsRowDurr[], int unitsRowLength, int retUnits[], int * retCost)
+EXPORT int selectUnits(unsigned short unitsRow[], unsigned short unitsRowNextSeparators[], unsigned short unitsRowDurr[], int unitsRowLength, int retUnits[], int * retCost)
 {
 	int MAX_SEQUENCES = unitsRowLength * 800;
 
@@ -924,4 +919,6 @@ int selectUnits(unsigned short unitsRow[], unsigned short unitsRowNextSeparators
 	free(p_units_sequences_arraycost);
 
 	return NO_ERR;
+}
+
 }

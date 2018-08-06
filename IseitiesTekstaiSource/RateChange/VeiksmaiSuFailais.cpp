@@ -8,8 +8,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // reikia, norint gauti kataloge esanèiø failø sàraðà
-#include <windows.h>
-#include "stdafx.h"
+#include "StdAfx.h"
+
+#include "../include/LithUSS_Error.h"
 
 /*********************************************************
  * Grazina failo fp dydi arba -1, jei ivyksta klaida.
@@ -202,8 +203,8 @@ int nuskaityti_anotacijas (char * fonemu_failo_pavadinimas, char *** fonemos1, i
 	// analizuojame fonemu failo duomenis
 	// duomenys eina poromis: fonemos pavadinimas ir ilgis
 	char * eilute;
-	char * skirtukai = "\t \n";
-	i = 0;
+	const char * skirtukai = "\t \n";
+	int i = 0;
 	// nuskaitome fonemos pavadinima
 	eilute = strtok (fonemu_failo_turinys, skirtukai); // fonemos pavadinimas
 	// kol yra fonemu
@@ -292,8 +293,8 @@ int nuskaityti_pikus ()
 	
 	// analizuojame piku failo duomenis
 	char * eilute;
-	char * skirtukai = " \n";
-	i = 0;
+	const char * skirtukai = " \n";
+	int i = 0;
 	// nuskaitome piko reikðmæ
 	eilute = strtok (piku_failo_turinys, skirtukai); // piko reikðmë
 	// kol yra pikø

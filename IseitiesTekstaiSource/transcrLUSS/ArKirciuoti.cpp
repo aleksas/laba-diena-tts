@@ -7,8 +7,8 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include <string.h>
+#include "StdAfx.h"
+
 #define TaisSk 77
 
 static struct NekircZod{char *kz[2]; char *ez; char *dz[2];

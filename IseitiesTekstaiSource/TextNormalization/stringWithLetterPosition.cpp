@@ -7,7 +7,8 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
+
 #include "stringWithLetterPosition.h"
 
 stringWithLetterPosition::stringWithLetterPosition(char* initialBuffer, int* pLetPos, int letPosBufferMaxSize)

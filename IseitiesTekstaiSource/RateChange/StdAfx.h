@@ -8,7 +8,6 @@
 
 #if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
 
 
 // Insert your headers here
@@ -16,13 +15,15 @@
 
 #include <windows.h>
 
+#endif // _MSC_VER > 1000
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <time.h>
 
-#include "RateChange.h"
+#include "RateChangeInternal.h"
 
 // TODO: reference additional headers your program requires here
 

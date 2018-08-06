@@ -7,7 +7,13 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
+
+#include "../include/LithUSS_Error.h"
+
+#include "../include/RateChange.h"
+
+extern "C" {
 
 /*********************************************************
  * Globalûs kintamieji
@@ -55,31 +61,20 @@ void atlaisvinti_atminti_ir_inicializuoti ()
 	if(piku_skaicius_fonemose != NULL) {free(piku_skaicius_fonemose); piku_skaicius_fonemose=NULL;}
 }
 
-/*********************************************************
- * DllMain
- ********************************************************/
-BOOL APIENTRY DllMain( HANDLE hModule, 
-                       DWORD  ul_reason_for_call, 
-                       LPVOID lpReserved
-					 )
+void loadRateChange()
 {
-    if(ul_reason_for_call == DLL_PROCESS_ATTACH)
-    {
-		// apsitvarkome
-		atlaisvinti_atminti_ir_inicializuoti ();
-	}
-    else if(ul_reason_for_call == DLL_PROCESS_DETACH)
-	{
-		atlaisvinti_atminti_ir_inicializuoti ();
-	}
+	atlaisvinti_atminti_ir_inicializuoti ();
+}
 
-    return TRUE;
+void unloadRateChange()
+{
+	atlaisvinti_atminti_ir_inicializuoti ();
 }
 
 /*********************************************************
  * spausdinti_loga
  ********************************************************/
-void spausdinti_loga(char* pranesimas)
+void spausdinti_loga(const char* pranesimas)
 {
 	// Gintaras: pridëjau laiko þymæ
 	time_t mytime = time(NULL);
@@ -538,7 +533,7 @@ int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokytis, char
 	}
 
 	// ávertiname pailginto signalo masyvo ilgá
-	size_t naujo_signalo_masyvo_ilgis = rekomenduoti_naujo_signalo_masyvo_ilgi (greitis, tono_aukscio_pokytis);
+	unsigned int naujo_signalo_masyvo_ilgis = rekomenduoti_naujo_signalo_masyvo_ilgi (greitis, tono_aukscio_pokytis);
 
 	// paþymime, kad masyvà naujas_signalas galima ilginti, jei netyèia jam iðskirta per maþai atminties
 	int galima_pailginti_naujas_signalas = 1;
@@ -646,7 +641,7 @@ int change_DB_rate (char *katVardas, int greitis, int tono_aukscio_pokytis, char
 /*********************************************************
  * Nuskaitom BD is failu
  ********************************************************/
-int initRateChange (char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1, short ** wholeinput1)
+int initRateChange (const char *katVardas, char dbfv1[][4], int *dbilg1, long *dbadr1, short ** wholeinput1)
 {
 	clock_t begin_time, end_time;
 
@@ -743,4 +738,6 @@ int change_phoneme_rate (int greitis, int tono_aukscio_pokytis, unsigned int fon
 		return ERROR_RATECHANGE_SIGNAL_BUFFER_OVERFLOW;
 	else
 		return naujas_fonemos_ilgis;
+}
+
 }

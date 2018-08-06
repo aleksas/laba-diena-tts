@@ -7,13 +7,10 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+#include "StdAfx.h"
 
 #include "Kircdb.h"
-#include "vb9r1_13.h"
+#include "Vb9r1_13.h"
 #include "db8r1_14.h"
 #include "nb12.h"
 #include "vgal.h"

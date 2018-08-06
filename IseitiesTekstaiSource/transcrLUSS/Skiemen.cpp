@@ -7,9 +7,8 @@
 // 2015 08 11
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include <string.h>
-#include <stdio.h>
+#include "StdAfx.h"
+
 #define Kiek 138
 
 void skiem(char eil[], char SkPb[])
