@@ -10,6 +10,10 @@
 #ifndef RATECHANGE_H
 #define RATECHANGE_H
 
+#include "../include/Decoder.h"
+
+extern "C" {
+
 /*********************************************************
  * Konstantos
  ********************************************************/
@@ -174,7 +178,10 @@ struct tkontekstas {
  ********************************************************/
 
 extern char signalo_failo_pavadinimas[];
-extern short * signalas;
+//extern short * signalas;
+extern short * langas;
+extern int langas_length;
+extern DecoderHandle hDecoder;
 extern size_t signalo_ilgis;
 extern const char * naujo_signalo_failo_pavadinimas;
 extern char fonemu_failo_pavadinimas[];
@@ -232,5 +239,7 @@ extern int debuginam;
 void spausdinti_loga(const char* pranesimas);
 void spausdinti_konteksta (struct tkontekstas * kontekstas);
 int fonemosKlase (struct tkontekstas * kontekstas);
+
+}
 
 #endif

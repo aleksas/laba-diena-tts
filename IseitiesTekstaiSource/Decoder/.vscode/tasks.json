@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create output dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "../../bin/Linux_x86/"
+            ]
+        },
+        {
+            "label": "build Decoder",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-fPIC", "-g", "Decoder.cpp",
+                "-shared", "-o", "../../bin/Linux_x86/libDecoder.so",
+                "-lavformat", "-lavcodec", "-lavutil", "-lswresample", "-lao"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "create output dir"
+            ]
+        }
+    ]
+}

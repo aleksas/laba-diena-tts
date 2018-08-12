@@ -42,7 +42,10 @@ int debuginam = 0;
  ********************************************************/
 void atlaisvinti_atminti_ir_inicializuoti ()
 {
-	if(signalas != NULL) {free(signalas); signalas=NULL;}
+	//if(signalas != NULL) {free(signalas); signalas=NULL;}
+	if(hDecoder != NULL) {FreeDecoder(hDecoder); hDecoder=NULL;}
+	if(langas != NULL) {free(langas); langas=NULL;}
+	langas_length = 0;
 	signalo_ilgis = 0;
 	if(fonemos != NULL) {
 		for (size_t i=0; i < fonemu_kiekis; i++) {
@@ -659,7 +662,7 @@ int initRateChange (const char *katVardas, char dbfv1[][4], int *dbilg1, long *d
 
 	// sudarome garsø duomenø bazës failo pavadinimà
 	strcpy (signalo_failo_pavadinimas, katVardas);
-	strcat (signalo_failo_pavadinimas, "db.raw");
+	strcat (signalo_failo_pavadinimas, "db.m4a");
 
 	// sudarome fonemø failo pavadinimà
 	strcpy(fonemu_failo_pavadinimas, katVardas);
@@ -692,7 +695,7 @@ int initRateChange (const char *katVardas, char dbfv1[][4], int *dbilg1, long *d
 
 	// pritaikome duomenis Pijaus LithUSS'ui
 
-	*wholeinput1 = signalas;
+	*wholeinput1 = NULL;
 
 	dbilg1[fonemu_kiekis]=0;
 

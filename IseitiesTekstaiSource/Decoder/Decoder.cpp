@@ -1,8 +1,6 @@
-extern "C" {
-    #include "Decoder.h"
-}
 
 #include "ffmpegReader.hpp"
+#include "../include/Decoder.h"
 
 class Decoder {
 public:
@@ -24,6 +22,9 @@ public:
     , sampleRate(0)
     {}    
 };
+
+
+extern "C" {
 
 int CreateDecoder(const char * szFilename, DecoderHandle * phDecoder)
 {
@@ -75,4 +76,6 @@ const char * GetError(DecoderHandle hDecoder)
     Decoder * pDecoder = (Decoder *) hDecoder;
 
     return pDecoder->pFFmpegFile->error();
+}
+
 }

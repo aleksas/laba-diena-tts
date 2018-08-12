@@ -1,0 +1,44 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create output dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "../../bin/Linux_x86/"
+            ]
+        },
+        {
+            "label": "build LithUSSTest",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "LithUSStest.cpp",
+                "-o",
+                "../../bin/Linux_x86/LithUSSTest",
+                "-Wl,-rpath,.",
+                "-L../../bin/Linux_x86/",
+                "-lLithUSS",
+                "-lTextNormalization",
+                "-ltranscrLUSS",
+                "-lUnitSelection",
+                "-lRateChange",
+                "-lDecoder",
+                "-finput-charset=windows-1257",
+                "-fexec-charset=windows-1257"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "create output dir"
+            ]
+        }
+    ]
+}

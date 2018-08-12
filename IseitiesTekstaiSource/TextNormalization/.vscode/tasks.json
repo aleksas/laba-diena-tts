@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create output dir",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "../../bin/Linux_x86/"
+            ]
+        },
+        {
+            "label": "build TextNormalization",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-fPIC", "-g", "stringWithLetterPosition.cpp", "TextNormalization.cpp",
+                "-shared", "-o", "../../bin/Linux_x86/libTextNormalization.so",
+                "-Wno-write-strings"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "create output dir"
+            ]
+        }
+    ]
+}
