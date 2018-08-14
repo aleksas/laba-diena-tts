@@ -26,7 +26,7 @@ public:
 
 extern "C" {
 
-int CreateDecoder(const char * szFilename, DecoderHandle * phDecoder)
+int DecoderCreate(const char * szFilename, DecoderHandle * phDecoder)
 {
     if (phDecoder == NULL) return -1;
 
@@ -46,7 +46,7 @@ int CreateDecoder(const char * szFilename, DecoderHandle * phDecoder)
     return 0;
 }
 
-void FreeDecoder(DecoderHandle hDecoder)
+void DecoderFree(DecoderHandle hDecoder)
 {
     if (hDecoder == NULL) return;
     Decoder * pDecoder = (Decoder *) hDecoder;
@@ -54,7 +54,7 @@ void FreeDecoder(DecoderHandle hDecoder)
     delete pDecoder;
 }
 
-int DecodeSamples(DecoderHandle hDecoder, int64_t firstSample, int64_t sampleCount, int8_t * pBuffer, int64_t bufferSize, int64_t * pBytesWritten)
+int DecoderDecodeSamples(DecoderHandle hDecoder, int64_t firstSample, int64_t sampleCount, int8_t * pBuffer, int64_t bufferSize, int64_t * pBytesWritten)
 {
     if (hDecoder == NULL) return -1;
     Decoder * pDecoder = (Decoder *) hDecoder;
@@ -65,6 +65,17 @@ int DecodeSamples(DecoderHandle hDecoder, int64_t firstSample, int64_t sampleCou
     if (bytesWritten < 0) return bytesWritten;
 
     if (pBytesWritten) *pBytesWritten = bytesWritten;
+
+    return 0;
+}
+
+int DecoderGetSampleCount(DecoderHandle hDecoder, int64_t * pValue)
+{
+    if (hDecoder == NULL || pValue == NULL) return -1;
+
+    Decoder * pDecoder = (Decoder *) hDecoder;
+
+    * pValue = pDecoder->frames * pDecoder->samplesPerFrame;
 
     return 0;
 }

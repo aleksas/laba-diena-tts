@@ -43,7 +43,7 @@ int debuginam = 0;
 void atlaisvinti_atminti_ir_inicializuoti ()
 {
 	if(signalas != NULL) {free(signalas); signalas=NULL;}
-	if(hDecoder != NULL) {FreeDecoder(hDecoder); hDecoder=NULL;}
+	if(hDecoder != NULL) {DecoderFree(hDecoder); hDecoder=NULL;}
 	if(langas != NULL) {free(langas); langas=NULL;}
 	langas_length = 0;
 	signalo_ilgis = 0;

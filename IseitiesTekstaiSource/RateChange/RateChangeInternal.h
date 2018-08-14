@@ -12,7 +12,7 @@
 
 #include "../include/Decoder.h"
 
-#define USE_SIGNALAS 
+//#define USE_SIGNALAS 
 
 #ifdef USE_SIGNALAS
 

@@ -273,7 +273,7 @@ int Hann_lango_kaire_puse (int pradzia, int nauja_pradzia, int lango_plotis, str
 		langas = (short*) realloc(langas, langas_length * sizeof(short));
 	}
 
-	int res = DecodeSamples(hDecoder, sample_offset + pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
+	int res = DecoderDecodeSamples(hDecoder, sample_offset + pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
 #endif
 	// taikome Hann langà
 	for (int i=0; i < lango_plotis; i++)
@@ -313,7 +313,7 @@ int Hann_lango_desine_puse (int pradzia, int nauja_pradzia, int lango_plotis, st
 		langas = (short*) realloc(langas, langas_length * sizeof(short));
 	}
 
-	int res = DecodeSamples(hDecoder, sample_offset + pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
+	int res = DecoderDecodeSamples(hDecoder, sample_offset + pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
 #endif
 
 	// tikriname, ar reikia ilginti naujo signalo masyvà
@@ -574,7 +574,7 @@ int kopijuoti_signala_nekeiciant_tono_aukscio (size_t iki, struct tkontekstas * 
 		langas = (short*) realloc(langas, langas_length * sizeof(short));
 	}
 
-	int res = DecodeSamples(hDecoder, sample_offset + kontekstas->einamasis_signalo_nr, len, (int8_t *) langas, langas_length * sizeof(short), NULL);
+	int res = DecoderDecodeSamples(hDecoder, sample_offset + kontekstas->einamasis_signalo_nr, len, (int8_t *) langas, langas_length * sizeof(short), NULL);
 #endif
 
 	// jei yra nenukopijuoto signalo

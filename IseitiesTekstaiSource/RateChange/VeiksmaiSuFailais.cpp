@@ -94,11 +94,17 @@ int nuskaityti_signala()
 	fclose(signalo_failas);
 #else
 
-	long signalo_failo_dydis = 288685429; // aistes
-	
-	signalo_ilgis = (size_t) (signalo_failo_dydis/2);
+	int64_t sampleCount = 0;
 
-	int res = CreateDecoder(signalo_failo_pavadinimas, &hDecoder);
+	int res = 0;
+	
+	res = DecoderCreate(signalo_failo_pavadinimas, &hDecoder);
+	if (res < 0) return res;
+
+	res = DecoderGetSampleCount(hDecoder, &sampleCount);
+	if (res < 0) return res;
+	
+	signalo_ilgis = sampleCount; //241824711
 #endif
 
 	return 0;

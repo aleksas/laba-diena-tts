@@ -67,9 +67,6 @@ namespace
       SwrContext *_swr;
       uint8_t * _swr_buffer;
 
-      int _fpsNum;
-      int _fpsDen;
-
       int64_t _startPTS;     // PTS of the first frame in the stream
       int64_t _frames;       // video duration in frames
       int64_t _samples;       // video duration in frames
@@ -80,10 +77,6 @@ namespace
                                           // indicating that this stream does contain PTSs.
       int64_t AVPacket::*_timestampField; // Pointer to member of AVPacket from which timestamps are to be retrieved. Enables
                                           // fallback to using DTSs for a stream if PTSs turn out not to be available.
-
-      int _width;
-      int _height;  
-      double _aspect;
 
       int _decodeNextFrameIn; // The 0-based index of the next frame to be fed into decode. Negative before any
                               // frames have been decoded or when we've just seeked but not yet found a relevant frame. Equal to
@@ -105,17 +98,12 @@ namespace
         , _swr_buffer(NULL)
         , _codec(NULL)
         , _avFrame(NULL)
-        , _fpsNum(1)
-        , _fpsDen(1)
         , _startPTS(0)
         , _frames(0)
         , _samples(0)
         , _bitsPerSample(0)
         , _ptsSeen(false)
         , _timestampField(&AVPacket::pts)
-        , _width(0)
-        , _height(0)
-        , _aspect(1.0)
         , _decodeNextFrameIn(-1)
         , _decodeNextFrameOut(-1)
         , _accumDecodeLatency(0)
@@ -386,24 +374,6 @@ namespace
         av_opt_set_sample_fmt(stream->_swr, "in_sample_fmt",  AV_SAMPLE_FMT_FLTP, 0);
         av_opt_set_sample_fmt(stream->_swr, "out_sample_fmt", AV_SAMPLE_FMT_S16,  0);
         swr_init(stream->_swr);
-
-        // If FPS is specified, record it. 
-        // Otherwise assume 1 fps (default value).
-        if ( avstream->r_frame_rate.num != 0 &&  avstream->r_frame_rate.den != 0 ) {
-          stream->_fpsNum = avstream->r_frame_rate.num;
-          stream->_fpsDen = avstream->r_frame_rate.den;
-        } 
-
-        stream->_width  = avstream->codec->width;
-        stream->_height = avstream->codec->height;
-
-        // set aspect ratio
-        if (stream->_avstream->sample_aspect_ratio.num) {
-          stream->_aspect = av_q2d(stream->_avstream->sample_aspect_ratio);
-        }
-        else if (stream->_codecContext->sample_aspect_ratio.num) {
-          stream->_aspect = av_q2d(stream->_codecContext->sample_aspect_ratio);
-        }
 
         // set stream start time and numbers of frames
         stream->_startPTS = getStreamStartTime(*stream);
