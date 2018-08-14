@@ -46,7 +46,9 @@
 			"limits": "cpp",
 			"new": "cpp",
 			"type_traits": "cpp",
-			"typeinfo": "cpp"
+			"typeinfo": "cpp",
+			"array": "cpp",
+			"utility": "cpp"
 		}
 	}
 }

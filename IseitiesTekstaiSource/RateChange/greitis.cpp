@@ -66,9 +66,14 @@ const int veiksmas = 2;
  ********************************************************/
 
 // TODO: nuskaityti pavadinima is programos komandines eilutes parametru
+#ifdef USE_SIGNALAS
+char signalo_failo_pavadinimas[256] = "db.raw";
+#else
 char signalo_failo_pavadinimas[256] = "db.m4a";
+#endif
 
 // garso signalo masyvas, iðskiriamas dinamiðkai
+short * signalas = NULL;
 DecoderHandle hDecoder = NULL;
 short * langas = NULL;
 int langas_length = 0;
@@ -261,19 +266,27 @@ int Hann_lango_kaire_puse (int pradzia, int nauja_pradzia, int lango_plotis, str
 	// TODO: iðsiaiðkinti: gal zingsnis = pi / lango_plotis; ?
 	double zingsnis = pi / (lango_plotis - 1);
 
+#ifndef USE_SIGNALAS
 	if (lango_plotis * 8 > langas_length)
 	{
 		langas_length = lango_plotis * 8;
 		langas = (short*) realloc(langas, langas_length * sizeof(short));
 	}
 
-	int res = DecodeSamples(hDecoder, pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
-
+	int res = DecodeSamples(hDecoder, sample_offset + pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
+#endif
 	// taikome Hann langà
 	for (int i=0; i < lango_plotis; i++)
+	{
 		kontekstas->naujas_signalas [nauja_pradzia + i] += (short)
-			//(signalas [pradzia + i] * 0.5 * (1 - cos (zingsnis * i)));
+#ifdef USE_SIGNALAS
+			(signalas [pradzia + i] * 0.5 * (1 - cos (zingsnis * i)));
+		printf("%d %d Hk\n", i, signalas [pradzia + i] );
+#else
 			(langas [i] * 0.5 * (1 - cos (zingsnis * i)));
+		printf("%d %d Hk\n", i, langas [i] );
+#endif
+	}
 
 	return 0;
 }
@@ -293,14 +306,15 @@ int Hann_lango_desine_puse (int pradzia, int nauja_pradzia, int lango_plotis, st
 		return 0;
 
 	
+#ifndef USE_SIGNALAS
 	if (lango_plotis * 8 > langas_length)
 	{
 		langas_length = lango_plotis * 8;
 		langas = (short*) realloc(langas, langas_length * sizeof(short));
 	}
 
-	int res = DecodeSamples(hDecoder, pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
-
+	int res = DecodeSamples(hDecoder, sample_offset + pradzia, lango_plotis, (int8_t *) langas, langas_length * sizeof(short), NULL);
+#endif
 
 	// tikriname, ar reikia ilginti naujo signalo masyvà
 
@@ -320,10 +334,16 @@ int Hann_lango_desine_puse (int pradzia, int nauja_pradzia, int lango_plotis, st
 	double zingsnis = pi / (lango_plotis - 1);
 
 	// taikome Hann langà
-	for (int i=0; i < lango_plotis; i++)
+	for (int i=0; i < lango_plotis; i++) {
 		kontekstas->naujas_signalas [nauja_pradzia + i] += (short)
-			//(signalas [pradzia + i] * 0.5 * (1 + cos (zingsnis * i)));
+#ifdef USE_SIGNALAS
+			(signalas [pradzia + i] * 0.5 * (1 + cos (zingsnis * i)));
+		printf("%d %d Hd\n", i, signalas [pradzia + i]);
+#else
 			(langas [i] * 0.5 * (1 + cos (zingsnis * i)));
+		printf("%d %d Hd\n", i, langas [i]);
+#endif
+	}
 
 	return 0;
 }
@@ -546,6 +566,7 @@ int kopijuoti_signala_nekeiciant_tono_aukscio (size_t iki, struct tkontekstas * 
 		if (pavyko_pailginti == -1) return -1;
 	}
 
+#ifndef USE_SIGNALAS
 	int len = iki - kontekstas->einamasis_signalo_nr;
 	if (len * 8 > langas_length)
 	{
@@ -553,19 +574,28 @@ int kopijuoti_signala_nekeiciant_tono_aukscio (size_t iki, struct tkontekstas * 
 		langas = (short*) realloc(langas, langas_length * sizeof(short));
 	}
 
-	int res = DecodeSamples(hDecoder, kontekstas->einamasis_signalo_nr, len, (int8_t *) langas, langas_length * sizeof(short), NULL);
-
+	int res = DecodeSamples(hDecoder, sample_offset + kontekstas->einamasis_signalo_nr, len, (int8_t *) langas, langas_length * sizeof(short), NULL);
+#endif
 
 	// jei yra nenukopijuoto signalo
 	// nukopijuojame (prisumuojame) signalo duomenis iki pirmojo burbulo pradþios
 	// (negalime kopijuoti su memcpy, nes prarasime jau ten esanèià informacijà).
 	// Tuo paèiu ir atnaujiname einamàsias signalø masyvø reikðmes.
-	//for (; kontekstas->einamasis_signalo_nr < iki; 
-	//		kontekstas->einamasis_signalo_nr++, kontekstas->einamasis_naujo_signalo_nr++)
-	//	kontekstas->naujas_signalas[kontekstas->einamasis_naujo_signalo_nr] += signalas[kontekstas->einamasis_signalo_nr];
+#ifdef USE_SIGNALAS
+	for (; kontekstas->einamasis_signalo_nr < iki; 
+			kontekstas->einamasis_signalo_nr++, kontekstas->einamasis_naujo_signalo_nr++)
+		{
+			kontekstas->naujas_signalas[kontekstas->einamasis_naujo_signalo_nr] += signalas[kontekstas->einamasis_signalo_nr];
+			printf("%d %d cp\n", kontekstas->einamasis_signalo_nr, signalas[kontekstas->einamasis_signalo_nr]);
+		}
+#else
 	for (int i = 0; i < len; 
 			i++, kontekstas->einamasis_signalo_nr++, kontekstas->einamasis_naujo_signalo_nr++)
-		kontekstas->naujas_signalas[kontekstas->einamasis_naujo_signalo_nr] += langas[i];
+		{
+			kontekstas->naujas_signalas[kontekstas->einamasis_naujo_signalo_nr] += langas[i];
+			printf("%d %d cp\n", kontekstas->einamasis_signalo_nr,langas[i]);
+		}
+#endif
 	//memcpy (kontekstas->naujas_signalas + kontekstas->einamasis_naujo_signalo_nr, 
 	//	signalas + kontekstas->einamasis_signalo_nr, 
 	//	(pirmas_burbulas->pradzia - kontekstas->einamasis_signalo_nr) * sizeof (short));

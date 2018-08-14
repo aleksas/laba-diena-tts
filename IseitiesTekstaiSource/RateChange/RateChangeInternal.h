@@ -12,6 +12,17 @@
 
 #include "../include/Decoder.h"
 
+#define USE_SIGNALAS 
+
+#ifdef USE_SIGNALAS
+
+#define sample_offset 0
+#else
+
+#define sample_offset 2048
+
+#endif
+
 extern "C" {
 
 /*********************************************************
@@ -178,7 +189,7 @@ struct tkontekstas {
  ********************************************************/
 
 extern char signalo_failo_pavadinimas[];
-//extern short * signalas;
+extern short * signalas;
 extern short * langas;
 extern int langas_length;
 extern DecoderHandle hDecoder;

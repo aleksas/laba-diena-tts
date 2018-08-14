@@ -46,7 +46,8 @@ long failo_dydis(FILE *fp)
  ********************************************************/
 int nuskaityti_signala()
 {
-	/*FILE *signalo_failas;
+#ifdef USE_SIGNALAS
+	FILE *signalo_failas;
 	
 	// atidarome binarini signalo faila skaitymui
 	if((signalo_failas=fopen(signalo_failo_pavadinimas, "rb"))==NULL)
@@ -65,22 +66,16 @@ int nuskaityti_signala()
 	{
 		fclose(signalo_failas);
 		return ERROR_RATECHANGE_UNEVEN_DB_FILE_SIZE;
-	}*/
+	}
 
-	long signalo_failo_dydis = 288685429; // aistes
-	
 	signalo_ilgis = (size_t) (signalo_failo_dydis/2);
 
-	int res = CreateDecoder(signalo_failo_pavadinimas, &hDecoder);
-	
-	// iskiriame atminties signalo masyvui
-	/*signalas = (short *) malloc ((signalo_ilgis+1) * sizeof(short));
+	signalas = (short *) malloc ((signalo_ilgis+1) * sizeof(short));
 	if(signalas == NULL)
 	{
 		fclose(signalo_failas);
 		return ERROR_RATECHANGE_MEMORY_ALLOCATION_FOR_DB;
 	}
-
 
 	// nuskaitome signalo masyva is failo
 	size_t nuskaityta=fread(signalas, sizeof(short), signalo_ilgis+1, signalo_failas);
@@ -96,7 +91,15 @@ int nuskaityti_signala()
 	}
 
 	// uzdarome signalo faila
-	fclose(signalo_failas);*/
+	fclose(signalo_failas);
+#else
+
+	long signalo_failo_dydis = 288685429; // aistes
+	
+	signalo_ilgis = (size_t) (signalo_failo_dydis/2);
+
+	int res = CreateDecoder(signalo_failo_pavadinimas, &hDecoder);
+#endif
 
 	return 0;
 }
