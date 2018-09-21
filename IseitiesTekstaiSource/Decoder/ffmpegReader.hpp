@@ -418,28 +418,27 @@ namespace
       return _streams.size();
     }
 
-    int64_t decodeSamples(int64_t firstSample, int64_t sampleCount, int8_t * pBuffer, int64_t bufferSize, unsigned streamIdx = 0)
+    int64_t decodeSamples(int64_t firstSampleIndex, int64_t sampleCount, int8_t * pBuffer, int64_t bufferSize, unsigned streamIdx = 0)
     {
         int64_t bytesWritten = 0;
-        int64_t lastSample = firstSample + sampleCount;
+        int64_t lastSampleIndex = firstSampleIndex + sampleCount - 1;
 
         Stream* stream = _streams[streamIdx];
 
         if (streamIdx >= _streams.size()) return false;
-        if (firstSample < 0) return false;
-        if (lastSample >= stream->_samples) return false;
+        if (firstSampleIndex < 0) return false;
+        if (lastSampleIndex >= stream->_samples) return false;
 
-        int firstFrame = floor((double)firstSample / stream->_frame_size);
-        int lastFrame = ceil((double)lastSample / stream->_frame_size);
-        int _ltrim = (firstSample - firstFrame * stream->_frame_size) * stream->_bitsPerSample / 8;
-        int _rtrim = (lastFrame * stream->_frame_size - lastSample) * stream->_bitsPerSample / 8;
-
-        for (int f = firstFrame; f < lastFrame ; f++)
+        int firstFrameIndex = floor((double)firstSampleIndex / stream->_frame_size);
+        int lastFrameIndex = floor((double)lastSampleIndex / stream->_frame_size);
+        int ltrim = (firstSampleIndex - firstFrameIndex * stream->_frame_size) * stream->_bitsPerSample / 8;
+        int rtrim = ((lastFrameIndex + 1) * stream->_frame_size - (lastSampleIndex + 1)) * stream->_bitsPerSample / 8;
+        
+        for (int f = firstFrameIndex; f <= lastFrameIndex ; f++)
         {
           int64_t _bytesWritten = 0;
 
-          int ltrim = (f == firstFrame) ? _ltrim : 0;
-          int rtrim = (f == lastFrame) ? _rtrim : 0;
+          //printf("%ld\t%d\t%d\t%d\n", stream->_frame_size * 2 * f + ltrim, ltrim, f);
 
           _bytesWritten = decode(f, ltrim, rtrim, pBuffer + bytesWritten, bufferSize - bytesWritten);
           
